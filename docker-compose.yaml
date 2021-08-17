@@ -24,7 +24,7 @@ services:
         - ./app-backend:/var/www
       networks:
         - app-network
-        - db
+        - db-network
 
     appdb:
       image: mysql:5.7
@@ -37,7 +37,7 @@ services:
         MYSQL_PASSWORD: ${DB_PASSWORD}
         MYSQL_USER: ${DB_USERNAME}
       networks:
-        - db
+        - db-network
 
     phpmyadmin:
       image: phpmyadmin/phpmyadmin
@@ -50,7 +50,7 @@ services:
       ports:
         - 8443:80
       networks:
-        - db
+        - db-network
 
 networks:
   app-network:
