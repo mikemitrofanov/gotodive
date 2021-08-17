@@ -7,8 +7,12 @@ services:
       restart: always
       ports:
         - "3000:3000"
+      working_dir: /var/www
+      volumes:
+        - ./app-frontend:/var/www
       networks:
         - app-network
+  
 
     backend:
       build:
@@ -55,4 +59,4 @@ services:
 networks:
   app-network:
     driver: bridge
-  db:
+  db-network:
