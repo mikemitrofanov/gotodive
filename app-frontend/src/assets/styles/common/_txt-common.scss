@@ -1,0 +1,87 @@
+@import "assets/styles/common/variables";
+
+.font {
+  // fonts
+
+  &-black-italic {
+    font-family: MontserratBlackItalic;
+  }
+
+  &-black {
+    font-family: MontserratBlack;
+  }
+
+  &-bold-italic {
+    font-family: MontserratBoldItalic;
+  }
+
+  &-bold {
+    font-family: MontserratBold;
+  }
+
+  &-extra-bold-italic {
+    font-family: MontserratExtraBoldItalic;
+  }
+
+  &-extra-bold {
+    font-family: MontserratExtraBold;
+  }
+
+  &-extra-light-italic {
+    font-family: MontserratExtraLightItalic;
+  }
+
+  &-extra-light {
+    font-family: MontserratExtraLight;
+  }
+
+  &-italic {
+    font-family: MontserratItalic;
+  }
+
+  &-light-italic {
+    font-family: MontserratLightItalic;
+  }
+
+  &-light {
+    font-family: MontserratLight;
+  }
+
+  &-medium-italic {
+    font-family: MontserratMediumItali;
+  }
+
+  &-medium {
+    font-family: MontserratMedium;
+  }
+
+  &-regular {
+    font-family: MontserratRegular;
+  }
+
+  &-semi-bold-italic {
+    font-family: MontserratSemiBoldItalic;
+  }
+
+  &-semi-bold {
+    font-family: MontserratSemiBold;
+  }
+
+  &-thin-italic {
+    font-family: MontserratThinItalic;
+  }
+
+  // sizes
+
+  &-size-regular {
+    font-size: $font-size-regular;
+  }
+
+  &-size-small {
+    font-size: $font-size-small;
+  }
+
+  &-size-large {
+    font-size: $font-size-large;
+  }
+}

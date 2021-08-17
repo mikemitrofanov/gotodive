@@ -1,0 +1,21 @@
+@import "assets/styles/common/variables";
+@import "assets/styles/mixins/font-mixins";
+
+// //use font-face mixin 
+@include font-face('MontserratBlackItalic',     'Montserrat/Montserrat-BlackItalic');
+@include font-face('MontserratBlack',           'Montserrat/Montserrat-Black');
+@include font-face('MontserratBoldItalic',      'Montserrat/Montserrat-BoldItalic');
+@include font-face('MontserratBold',            'Montserrat/Montserrat-Bold');
+@include font-face('MontserratExtraBoldItalic', 'Montserrat/Montserrat-ExtraBoldItalic');
+@include font-face('MontserratExtraBold',       'Montserrat/Montserrat-ExtraBold');
+@include font-face('MontserratExtraLightItalic', 'Montserrat/Montserrat-ExtraLightItalic');
+@include font-face('MontserratExtraLight',      'Montserrat/Montserrat-ExtraLight');
+@include font-face('MontserratItalic',          'Montserrat/Montserrat-Italic');
+@include font-face('MontserratLightItalic',     'Montserrat/Montserrat-LightItalic');
+@include font-face('MontserratLight',           'Montserrat/Montserrat-Light');
+@include font-face('MontserratMediumItalic',     'Montserrat/Montserrat-MediumItalic');
+@include font-face('MontserratMedium',          'Montserrat/Montserrat-Medium');
+@include font-face('MontserratRegular',         'Montserrat/Montserrat-Regular');
+@include font-face('MontserratSemiBoldItalic',  'Montserrat/Montserrat-SemiBoldItalic');
+@include font-face('MontserratSemiBold',         'Montserrat/Montserrat-SemiBold');
+@include font-face('MontserratThinItalic',      'Montserrat/Montserrat-ThinItalic');
