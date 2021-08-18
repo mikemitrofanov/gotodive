@@ -1,0 +1,19 @@
+{
+  "name": "gotodive",
+  "version": "1.0.0",
+  "description": "Execute the following command and the Docker will build and run the containers;",
+  "main": "index.js",
+  "scripts": {
+    "remigrate": "docker exec -it gotodive_backend_1 php artisan migrate:refresh --seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikemitrofanov/gotodive.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikemitrofanov/gotodive/issues"
+  },
+  "homepage": "https://github.com/mikemitrofanov/gotodive#readme"
+}

@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return Category::all();
     }
 
     /**
@@ -78,8 +78,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        if ($category->delete()) {
+            return response(null, 204);
+        }
     }
 }

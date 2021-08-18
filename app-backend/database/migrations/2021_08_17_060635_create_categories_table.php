@@ -15,7 +15,11 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('title');
+            $table->string('link');
+            $table->integer('order')->nullable(false);
+            $table->boolean('isSubcategory')->default(false);
+            $table->integer('parentCategory')->nullable(true)->default(null);
         });
     }
 
