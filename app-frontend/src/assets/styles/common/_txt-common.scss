@@ -12,7 +12,7 @@ $font-faces: (
 // examples:
 // .font-extra-light-italic-size-small
 // .font-regular-size-large
-// .font-regular-size-regular
+// .font-regular-size-md
 @each $font-face in $font-faces {
   .font-#{$font-face} {
     font-family: Montserrat-#{$font-face};

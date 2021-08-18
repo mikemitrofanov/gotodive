@@ -1,9 +1,9 @@
 @import "assets/styles/common/variables";
 
 header#main-header {
-  background-color: $blue-dark;
+  background-color: $color-dark-blue;
   color: $white;
-  padding: 39px 158px 45px;
+  padding: 30px 158px;
 
   a {
     color: inherit;
@@ -34,7 +34,7 @@ header#main-header {
       position: absolute;
       left: 0;
       top: 100%;
-      background-color: $blue-dark;
+      background-color: $color-dark-blue;
       box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2); // TODO: find better box shadow
       padding: 42px 46px;
 
@@ -44,7 +44,7 @@ header#main-header {
     }
 
     &:hover {
-      color: $color-secondary;
+      color: $color-light-blue;
 
       ul.dropdown-list {
         display: initial;
@@ -60,7 +60,7 @@ header#main-header {
             right: -10px;
             bottom: 0;
             height: 1px;
-            background-color: $color-secondary;
+            background-color: $color-light-blue;
           }
 
           a:hover {
@@ -71,6 +71,78 @@ header#main-header {
 
       .dropdown-icon {
         transform: rotate(90deg);
+      }
+    }
+  }
+
+  > div {
+    color: $color-grey;
+
+    .search, .lang, .profile {
+      display: inline-block;
+    }
+
+    .lang > span:not(:last-child) {
+      margin-right: 30px;
+    }
+
+    .profile {
+      color: $color-light-grey;
+    }
+
+    div.search {
+      .input-wrapper {
+        position: relative;
+
+        input {
+          padding-left: 4px;
+          padding-right: 20px;
+          background-color: $color-dark-blue;
+          border: 1px solid $color-blue;
+          width: 220px;
+          color: $color-light-blue;
+    
+          &:focus {
+            outline: none;
+          }
+    
+          // &:before {
+          //   content: "";
+          //   display: block;
+          //   position: absolute;
+          //   top: 10px;
+          //   left: 10px;
+          //   height: 80%;
+          //   width: 2px;
+          //   background-color: $color-blue;
+          // }
+        }
+
+        .search-btn {
+          background-color: transparent;
+          border: none;
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          bottom: 0px;
+          width: 35px;
+
+          svg {
+            position: absolute;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            color: $color-blue;
+          }
+        }
+
+        span.divider-line {
+          position: absolute;
+          top: 18%;
+          bottom: 18%;
+          right: 36px;
+          width: 1px;
+          background-color: $color-blue;
+        }
       }
     }
   }

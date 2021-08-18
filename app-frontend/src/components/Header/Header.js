@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { CaretRightFill } from 'react-bootstrap-icons';
+import { CaretRightFill, Person, Search } from 'react-bootstrap-icons';
 import { Query } from '@redux-requests/react';
 import { useDispatch } from 'react-redux'
 import { categoryTypes } from '../../store/types/types'
@@ -26,7 +26,7 @@ const Header = () => {
   }, [])
 
   return (
-    <header id="main-header" className="font-regular-size-regular">
+    <header id="main-header" className="font-regular-size-md d-flex justify-content-between">
       <ul>
         <Query
           type={categoryTypes.FETCH_CATEGORIES}
@@ -74,6 +74,28 @@ const Header = () => {
           }}
         </Query>
       </ul>
+
+      <div>
+        <div className="search">
+          <div className="input-wrapper">
+            <input />
+            <button className="search-btn" onClick={() => { /* search handler */ }}>
+              <Search />
+            </button>
+            <span className="divider-line" />
+          </div>
+        </div>
+
+        <div className="font-medium-size-sm lang mx-5">
+          <span>RU</span>
+          <span>UKR</span>
+          <span>EN</span>
+        </div>
+
+        <div className="profile">
+          <Person size="32px" />
+        </div>
+      </div>
     </header>
   )
 }
