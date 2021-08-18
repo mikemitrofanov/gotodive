@@ -1,87 +1,33 @@
 @import "assets/styles/common/variables";
 
-.font {
-  // fonts
+$font-faces: (
+  black-italic, black, bold-italic,
+  bold, extra-bold-italic, extra-bold,
+  extra-light-italic, extra-light, italic,
+  light-italic, light, medium-italic,
+  medium, regular, semi-bold-italic,
+  semi-bold, thin-italic
+);
 
-  &-black-italic {
-    font-family: MontserratBlackItalic;
+// examples:
+// .font-extra-light-italic-size-small
+// .font-regular-size-large
+// .font-regular-size-regular
+@each $font-face in $font-faces {
+  .font-#{$font-face} {
+    font-family: Montserrat-#{$font-face};
   }
 
-  &-black {
-    font-family: MontserratBlack;
+  @each $font-size, $value in $font-sizes {
+    .font-#{$font-face}-#{$font-size} {
+      font-family: Montserrat-#{$font-face};
+      font-size: #{$value};
+    }
   }
+}
 
-  &-bold-italic {
-    font-family: MontserratBoldItalic;
-  }
-
-  &-bold {
-    font-family: MontserratBold;
-  }
-
-  &-extra-bold-italic {
-    font-family: MontserratExtraBoldItalic;
-  }
-
-  &-extra-bold {
-    font-family: MontserratExtraBold;
-  }
-
-  &-extra-light-italic {
-    font-family: MontserratExtraLightItalic;
-  }
-
-  &-extra-light {
-    font-family: MontserratExtraLight;
-  }
-
-  &-italic {
-    font-family: MontserratItalic;
-  }
-
-  &-light-italic {
-    font-family: MontserratLightItalic;
-  }
-
-  &-light {
-    font-family: MontserratLight;
-  }
-
-  &-medium-italic {
-    font-family: MontserratMediumItali;
-  }
-
-  &-medium {
-    font-family: MontserratMedium;
-  }
-
-  &-regular {
-    font-family: MontserratRegular;
-  }
-
-  &-semi-bold-italic {
-    font-family: MontserratSemiBoldItalic;
-  }
-
-  &-semi-bold {
-    font-family: MontserratSemiBold;
-  }
-
-  &-thin-italic {
-    font-family: MontserratThinItalic;
-  }
-
-  // sizes
-
-  &-size-regular {
-    font-size: $font-size-regular;
-  }
-
-  &-size-small {
-    font-size: $font-size-small;
-  }
-
-  &-size-large {
-    font-size: $font-size-large;
+@each $font-size, $value in $font-sizes {
+  .font-#{$font-size} {
+    font-size: #{$value};
   }
 }

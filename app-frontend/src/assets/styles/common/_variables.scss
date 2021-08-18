@@ -3,6 +3,10 @@ $black: #000;
 $white: #fff;
 $blue-dark: #051330;
 
+// $color-primary
+$color-secondary: #7699c8;
+$color-grey: #7b7c7b;
+
 // font parameters
 $font-weight-extra-light: 200;
 $font-weight-light: 300;
@@ -15,7 +19,8 @@ $ront-weight-semibold: $font-weight-regular;
 $font-weight-thin: $font-weight-light;
 
 // font size
-$font-size-regular: 20pt;
-
-$font-size-small: 5pt; // NOTE: test variables
-$font-size-large: 50pt; // NOTE: test variables
+$font-sizes: (
+  size-small: 5pt, // test value
+  size-regular: 20pt,
+  size-large: 50pt // test value
+);
