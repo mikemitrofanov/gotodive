@@ -39,7 +39,7 @@ class CategorySeeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
-            'title' => 'Supervised Diver, (Scuba Diver)',
+            'title' => 'Supervised Diver (Scuba Diver)',
             'link' => '/supervised-diver',
             'order' => 4,
             'isSubcategory' => true,
