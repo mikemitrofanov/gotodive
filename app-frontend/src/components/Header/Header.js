@@ -1,51 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { CaretRightFill } from 'react-bootstrap-icons';
+import { Query } from '@redux-requests/react';
+import { useDispatch } from 'react-redux'
+import { categoryTypes } from '../../store/types/types'
+import { fetchCategories } from '../../store/actions/actions'
 import './Header.scss';
-
-const menuItems = [
-  {
-    title: 'Главная',
-    to: '/main'
-  },
-  {
-    title: 'Дайвинг',
-    to: '/diving',
-    dropdown: [
-      { title: 'Scuba Diving', to: '/scuba-diving' },
-      { title: 'Supervised Diver (Scuba Diver)', to: '/supervised-diver' },
-      { title: 'Open Water Diver', to: '/open-water-diver' },
-    ]
-  },
-  {
-    title: 'Специализации',
-    to: '/specializations',
-    dropdown: [
-      { title: 'Advanced Open Water Divier', to: '/advanced-open-water-diver' },
-      { title: 'Recreational Trimix Diver', to: '/recreational-trimix-diver' },
-      { title: 'Rescue Diver', to: '/rescue-diver' },
-      { title: 'Elite Diver / Master Diver', to: '/elite-master-diver' },
-      { title: 'Complex Navigation Diver', to: '/complex-navigation-diver' },
-      { title: 'Deep Diver', to: '/deep-diver' },
-      { title: 'Drift Diver', to: '/drift-diver' },
-      { title: 'Dry Suit Diver', to: '/dty-suit-diver' },
-    ]
-  },
-  {
-    title: 'Галерея',
-    to: '/gallery'
-  },
-  {
-    title: 'Прайс',
-    to: '/pricing'
-  },
-]
 
 const dropdownIcon = <CaretRightFill className="dropdown-icon" />
 const DropdownList = ({ items }) => (
   <ul className="dropdown-list">
-    {items.map(item => (<li className="mb-3">
-      <Link to={item.to}>
+    {items.map((item, index) => (<li className="mb-3" key={index}>
+      <Link to={item.link}>
         {item.title}
       </Link>
     </li>))}
@@ -53,21 +19,60 @@ const DropdownList = ({ items }) => (
 )
 
 const Header = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCategories())
+  }, [])
+
   return (
     <header id="main-header" className="font-regular-size-regular">
       <ul>
-        {menuItems.map(item => (
-          <li>
-            <Link to={item.to}>
-              {item.title}
-            </Link>
+        <Query
+          type={categoryTypes.FETCH_CATEGORIES}
+        >
+          {({ data }) => {
+            const sorted = data.sort((a, b) => a.order - b.order)
+            const categories = sorted
+              .filter(categry => !categry.isSubcategory)
+              .map(category => ({
+                ...category,
+                dropdown: sorted
+                  .filter(subcategory => subcategory.parentCategory === category.id)
+              }))
 
-            {item.dropdown ? <>
-              {dropdownIcon}
-              <DropdownList items={item.dropdown} />
-            </> : null}
-          </li>
-        ))}
+            categories.unshift(
+              {
+                title: 'Главная',
+                link: '/main'
+              }
+            )
+
+            categories.push(
+              {
+                title: 'Галерея',
+                link: '/gallery'
+              },
+              {
+                title: 'Прайс',
+                link: '/pricing'
+              }
+            )
+
+            return categories.map((item, index) => (
+              <li key={index}>
+                <Link to={item.link}>
+                  {item.title}
+                </Link>
+
+                {item.dropdown ? <>
+                  {dropdownIcon}
+                  <DropdownList items={item.dropdown} />
+                </> : null}
+              </li>
+            ))
+          }}
+        </Query>
       </ul>
     </header>
   )

@@ -3,21 +3,7 @@ import DefaultLayout from './layouts/DefaultLayout';
 
 const App = () => (
   <DefaultLayout>
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/users">Users</Link>
-        </li>
-      </ul>
-    </nav>
-
-    <Switch>
+    {/* <Switch>
       <Route path="/about">
         <div>about</div>
       </Route>
@@ -27,7 +13,7 @@ const App = () => (
       <Route path="/">
         <div>home</div>
       </Route>
-    </Switch>
+    </Switch> */}
   </DefaultLayout>
 );
 
