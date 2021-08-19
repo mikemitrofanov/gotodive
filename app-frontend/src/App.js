@@ -1,20 +1,17 @@
+import HomeView from "./views/HomeView/HomeView";
+import LoginView from "./views/LoginView/LoginView"
+
 import { Switch, Route, Link } from "react-router-dom";
-import DefaultLayout from './layouts/DefaultLayout';
 
 const App = () => (
-  <DefaultLayout>
-    {/* <Switch>
-      <Route path="/about">
-        <div>about</div>
-      </Route>
-      <Route path="/users">
-        <div>users</div>
-      </Route>
-      <Route path="/">
-        <div>home</div>
-      </Route>
-    </Switch> */}
-  </DefaultLayout>
+  <Switch>
+    <Route path="/home">
+      <HomeView />
+    </Route>
+    <Route path="/login">
+      <LoginView />
+    </Route>
+  </Switch>
 );
 
 export default App;

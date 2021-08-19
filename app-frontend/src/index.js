@@ -6,8 +6,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './assets/styles/main.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import App from './App.js';
-import { configureStore } from './store/configureStore.js'
+import App from './App';
+import { configureStore } from './store/configureStore'
 
 const store = configureStore()
 

@@ -25,6 +25,8 @@ const Header = () => {
     dispatch(fetchCategories())
   }, [])
 
+  const searchHandler = () => { }
+
   return (
     <header id="main-header" className="font-regular-size-md d-flex justify-content-between">
       <ul>
@@ -79,7 +81,7 @@ const Header = () => {
         <div className="search">
           <div className="input-wrapper">
             <input />
-            <button className="search-btn" onClick={() => { /* search handler */ }}>
+            <button className="search-btn" onClick={searchHandler}>
               <Search />
             </button>
             <span className="divider-line" />
@@ -93,7 +95,9 @@ const Header = () => {
         </div>
 
         <div className="profile">
-          <Person size="32px" />
+          <Link to="/login">
+            <Person size="32px" />
+          </Link>
         </div>
       </div>
     </header>
