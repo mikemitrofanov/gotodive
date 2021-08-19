@@ -1,7 +1,7 @@
 import HomeView from "./views/HomeView/HomeView";
 import LoginView from "./views/LoginView/LoginView"
 
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 const App = () => (
   <Switch>
@@ -10,6 +10,9 @@ const App = () => (
     </Route>
     <Route path="/login">
       <LoginView />
+    </Route>
+    <Route exact path="/">
+      <Redirect to="/home" />
     </Route>
   </Switch>
 );

@@ -29,9 +29,12 @@ services:
       networks:
         - app-network
         - db-network
+      depends_on:
+        -appdb
 
     appdb:
       image: mysql:5.7
+      container_name: appdb
       restart: always
       volumes:
         - ./db_data:/var/lib/mysql

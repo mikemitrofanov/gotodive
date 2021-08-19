@@ -94,11 +94,16 @@ const Header = () => {
           <button>EN</button>
         </div>
 
-        <div className="profile">
+        <div className="font-medium-size-sm lang">
+          <Link to="/login">Login</Link>
+          <Link to="/registration">Registration</Link>
+        </div>
+
+        {/* <div className="profile">
           <Link to="/login">
             <Person size="32px" />
           </Link>
-        </div>
+        </div> */}
       </div>
     </header>
   )

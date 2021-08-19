@@ -78,7 +78,9 @@ header#main-header {
   > div {
     color: $color-grey;
 
-    .search, .lang, .profile {
+    .search,
+    .lang,
+    .profile {
       display: inline-block;
     }
 
@@ -101,6 +103,19 @@ header#main-header {
           outline: none;
         }
       }
+
+      a {
+        padding: 1px 6px;
+        border-radius: 4px;
+
+        &:not(:last-child) {
+          margin-right: 12px;
+        }
+
+        &:hover {
+          background-color: #ffffff2d;
+        }
+      }
     }
 
     .profile {
@@ -119,11 +134,11 @@ header#main-header {
           width: 220px;
           color: $color-light-blue;
           padding-right: 45px;
-    
+
           &:focus {
             outline: none;
           }
-    
+
           // &:before {
           //   content: "";
           //   display: block;
