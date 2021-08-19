@@ -35,7 +35,7 @@ header#main-header {
       left: 0;
       top: 100%;
       background-color: $color-dark-blue;
-      box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2); // TODO: find better box shadow
+      box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.4); // TODO: find better box shadow
       padding: 24px 38px 18px 46px;
 
       li {
@@ -82,8 +82,25 @@ header#main-header {
       display: inline-block;
     }
 
-    .lang > span:not(:last-child) {
-      margin-right: 30px;
+    .lang {
+      & > span:not(:last-child) {
+        margin-right: 30px;
+      }
+
+      button {
+        background-color: transparent;
+        border: none;
+        color: inherit;
+        border-radius: 4px;
+
+        &:hover {
+          background-color: #ffffff2d;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
     }
 
     .profile {
@@ -101,6 +118,7 @@ header#main-header {
           border: 1px solid $color-blue;
           width: 220px;
           color: $color-light-blue;
+          padding-right: 45px;
     
           &:focus {
             outline: none;

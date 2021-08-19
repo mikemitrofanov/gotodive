@@ -87,9 +87,9 @@ const Header = () => {
         </div>
 
         <div className="font-medium-size-sm lang mx-5">
-          <span>RU</span>
-          <span>UKR</span>
-          <span>EN</span>
+          <button>RU</button>
+          <button>UKR</button>
+          <button>EN</button>
         </div>
 
         <div className="profile">
