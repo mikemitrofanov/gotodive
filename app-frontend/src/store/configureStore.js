@@ -2,6 +2,12 @@ import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import axios from 'axios';
 import { handleRequests } from '@redux-requests/core';
 import { createDriver } from '@redux-requests/axios';
+import createSagaMiddleware from 'redux-saga'
+import { connectRouter, routerMiddleware } from 'connected-react-router'
+import reducers from './reducers/reducers'
+import rootSaga from './sagas/sagas';
+import history from '../history';
+
 
 export function configureStore() {
   const { requestsReducer, requestsMiddleware } = handleRequests({
@@ -12,18 +18,35 @@ export function configureStore() {
     ),
   });
 
-  const reducers = combineReducers({
+  const rootReducer = combineReducers({
     requests: requestsReducer,
+    router: connectRouter(history),
+    ...reducers,
   });
 
-  const composeEnhancers = typeof window !== 'undefined'
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    : compose;
+  const composeEnhancers = window?.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-  const store = createStore(
-    reducers,
-    composeEnhancers(applyMiddleware(...requestsMiddleware)),
+  const logMiddleware = (/* storeApi */) => {
+    return next => {
+      return action => {
+        if (process.env.NODE_ENV === 'development') {
+          console.log(action.type, action)
+        }
+
+        return next(action)
+      }
+    }
+  }
+
+  const sagaMiddleware = createSagaMiddleware()
+
+  const store = createStore(rootReducer,
+    composeEnhancers(applyMiddleware(...requestsMiddleware, sagaMiddleware, routerMiddleware(history), logMiddleware)),
   );
+
+  sagaMiddleware.run(rootSaga)
+
+  window.store = store
 
   return store;
 };

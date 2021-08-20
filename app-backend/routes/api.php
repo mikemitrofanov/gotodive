@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +17,12 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    return [
+        'user' => $request->user()
+    ];
 });
 
 Route::get('/categories', [CategoryController::class, 'index']);
 
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/registration', [AuthController::class, 'registration']);

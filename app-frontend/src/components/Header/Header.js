@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import { CaretRightFill, Person, Search } from 'react-bootstrap-icons';
 import { Query } from '@redux-requests/react';
 import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { categoryTypes } from '../../store/types/types'
-import { fetchCategories } from '../../store/actions/actions'
+import { fetchCategoriesRequest } from '../../store/actions/actions'
 import './Header.scss';
 
 const dropdownIcon = <CaretRightFill className="dropdown-icon" />
@@ -20,18 +21,19 @@ const DropdownList = ({ items }) => (
 
 const Header = () => {
   const dispatch = useDispatch();
+  const { user } = useSelector(state => state.auth)
 
   useEffect(() => {
-    dispatch(fetchCategories())
+    dispatch(fetchCategoriesRequest())
   }, [])
 
-  const searchHandler = () => { }
+  const searchHandler = () => { /*  */ }
 
   return (
     <header id="main-header" className="font-regular-size-md d-flex justify-content-between">
       <ul>
         <Query
-          type={categoryTypes.FETCH_CATEGORIES}
+          type={categoryTypes.FETCH_CATEGORIES_REQUEST}
         >
           {({ data }) => {
             const sorted = data.sort((a, b) => a.order - b.order)
@@ -94,16 +96,20 @@ const Header = () => {
           <button>EN</button>
         </div>
 
-        <div className="font-medium-size-sm lang">
-          <Link to="/login">Login</Link>
-          <Link to="/registration">Registration</Link>
-        </div>
-
-        {/* <div className="profile">
-          <Link to="/login">
-            <Person size="32px" />
-          </Link>
-        </div> */}
+        {!!user
+          ? (
+            <div className="profile">
+              <Link to="/login">
+                <Person size="32px" />
+              </Link>
+            </div>
+          ) : (
+            <div className="font-medium-size-sm lang">
+              <Link to="/login">Login</Link>
+              <Link to="/registration">Registration</Link>
+            </div>
+          )
+        }
       </div>
     </header>
   )
