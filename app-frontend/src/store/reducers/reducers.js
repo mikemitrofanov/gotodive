@@ -1,6 +1,7 @@
 import { success, error } from "@redux-requests/core"
 import { authTypes, categoryTypes } from "../types/types"
 
+// TODO: move reducers to different files with semantic names
 const categoriesReducerInitialState = {
   categories: []
 }
@@ -42,7 +43,11 @@ function authReducer(state = initialAuthReducerState, action) {
         // now we definitely know user is not authorized.
         // Happens straight after app launched, if token is outdated or missing
       }
-
+    case authTypes.RESET_AUTH:
+      return {
+        ...state,
+        user: null
+      }
     default:
       return state
   }

@@ -6,6 +6,7 @@ import { appStarted } from './store/actions/actions'
 import HomeView from "./views/HomeView/HomeView"
 import LoginView from "./views/LoginView/LoginView"
 import ProfileView from './views/ProfileView/ProfileView'
+import LogoutView from './views/LogoutView/LogoutView'
 import RegistrationView from "./views/RegistrationView/RegistrationView"
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
       <Route path="/home" component={HomeView} />
 
       {isAuthenticated ? <Route path="/profile" component={ProfileView} /> : null}
+      {isAuthenticated ? <Route path="/logout" component={LogoutView} /> : null}
 
       {!isAuthenticated ? <Route path="/login" component={LoginView} /> : null}
       {!isAuthenticated ? <Route path="/registration" component={RegistrationView} /> : null}

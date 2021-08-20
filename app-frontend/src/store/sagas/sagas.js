@@ -2,7 +2,7 @@ import { put, takeEvery } from 'redux-saga/effects'
 import { success, error } from '@redux-requests/core'
 import { push } from 'connected-react-router'
 import { APP_STARTED, authTypes } from '../types/types'
-import { fetchProfileRequest, fetchProfileWithRedirectRequest, fetchCategoriesRequest } from '../actions/actions'
+import { fetchProfileRequest, fetchProfileWithRedirectRequest, fetchCategoriesRequest, resetAuth } from '../actions/actions'
 
 import config from '../../config/app-config'
 
@@ -28,6 +28,11 @@ function* rootSaga() {
 
   const fetchProfileFailed = [error(authTypes.FETCH_PROFILE_REQUEST), error(authTypes.FETCH_PROFILE_WITH_REDIRECT_REQUEST)]
   yield takeEvery(fetchProfileFailed, function clearToken() {
+    localStorage.removeItem(config.localStorageTokenKeyName)
+  })
+
+  yield takeEvery(authTypes.LOGOUT, function* logout() {
+    yield put(resetAuth())
     localStorage.removeItem(config.localStorageTokenKeyName)
   })
 }

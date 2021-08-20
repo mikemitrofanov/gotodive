@@ -22,6 +22,26 @@ export const loginRequest = (data) => ({
   },
 });
 
+export const logout = () => ({
+  type: authTypes.LOGOUT
+})
+
+export const logoutRequest = () => ({
+  type: authTypes.LOGOUT_REQUEST,
+  request: {
+    method: 'POST',
+    url: '/api/logout',
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem(config.localStorageTokenKeyName)
+    }
+    // TODO: it's not implemented on  server side and not being used on client side yet
+  }
+})
+
+export const resetAuth = () => ({
+  type: authTypes.RESET_AUTH
+})
+
 export const registrationRequest = (data) => ({
   type: authTypes.REGISTRATION_REQUEST,
   request: {
