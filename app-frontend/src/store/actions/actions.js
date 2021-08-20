@@ -1,5 +1,9 @@
-import { categoryTypes } from '../types/types'
+import { APP_STARTED, categoryTypes, authTypes } from '../types/types'
 import config from '../../config/app-config';
+
+export const appStarted = () => ({
+  type: APP_STARTED
+});
 
 export const fetchCategoriesRequest = () => ({
   type: categoryTypes.FETCH_CATEGORIES_REQUEST,
@@ -10,7 +14,7 @@ export const fetchCategoriesRequest = () => ({
 });
 
 export const loginRequest = (data) => ({
-  type: categoryTypes.LOGIN_REQUEST,
+  type: authTypes.LOGIN_REQUEST,
   request: {
     method: 'POST',
     url: '/api/login',
@@ -19,7 +23,7 @@ export const loginRequest = (data) => ({
 });
 
 export const registrationRequest = (data) => ({
-  type: categoryTypes.REGISTRATION_REQUEST,
+  type: authTypes.REGISTRATION_REQUEST,
   request: {
     method: 'POST',
     url: '/api/registration',
@@ -28,7 +32,7 @@ export const registrationRequest = (data) => ({
 });
 
 export const fetchProfileRequest = () => ({
-  type: categoryTypes.FETCH_PROFILE_REQUEST,
+  type: authTypes.FETCH_PROFILE_REQUEST,
   request: {
     method: 'GET',
     url: '/api/user',
@@ -40,5 +44,5 @@ export const fetchProfileRequest = () => ({
 
 export const fetchProfileWithRedirectRequest = () => ({
   ...fetchProfileRequest(),
-  type: categoryTypes.FETCH_PROFILE_WITH_REDIRECT_REQUEST
+  type: authTypes.FETCH_PROFILE_WITH_REDIRECT_REQUEST
 })

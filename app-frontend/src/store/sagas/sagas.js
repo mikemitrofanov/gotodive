@@ -1,22 +1,33 @@
 import { put, takeEvery } from 'redux-saga/effects'
-import { success } from '@redux-requests/core'
+import { success, error } from '@redux-requests/core'
 import { push } from 'connected-react-router'
-import { categoryTypes } from '../types/types'
-import { fetchProfileWithRedirectRequest } from '../actions/actions'
+import { APP_STARTED, authTypes } from '../types/types'
+import { fetchProfileRequest, fetchProfileWithRedirectRequest, fetchCategoriesRequest } from '../actions/actions'
+
 import config from '../../config/app-config'
 
 function* rootSaga() {
-  function* callFetchProfileWithRedirectRequest(action) {
+  // set token to localStorage, fetch profile and redirect to home after success LOGIN and REGISTRATION requests
+  const loginAndRegistration = [success(authTypes.LOGIN_REQUEST), success(authTypes.REGISTRATION_REQUEST)]
+  yield takeEvery(loginAndRegistration, function* callFetchProfileWithRedirectRequest(action) {
     localStorage.setItem(config.localStorageTokenKeyName, action.response.data.token)
     yield put(fetchProfileWithRedirectRequest())
-  }
+  })
 
-  // fetch profile and redirect to home after success LOGIN and REGISTRATION requests
-  yield takeEvery(success(categoryTypes.LOGIN_REQUEST), callFetchProfileWithRedirectRequest)
-  yield takeEvery(success(categoryTypes.REGISTRATION_REQUEST), callFetchProfileWithRedirectRequest)
-
-  yield takeEvery(success(categoryTypes.FETCH_PROFILE_WITH_REDIRECT_REQUEST), function* redirectToHome() {
+  yield takeEvery(success(authTypes.FETCH_PROFILE_WITH_REDIRECT_REQUEST), function* redirectToHome() {
     yield put(push('/home'))
+  })
+
+  yield takeEvery(APP_STARTED, function* appStartedAction() {
+    // request is required even fo missing token case. Home page loader depends on store.auth.isAuthStatusDefined field
+    yield put(fetchProfileRequest())
+    yield put(fetchCategoriesRequest())
+    
+  })
+
+  const fetchProfileFailed = [error(authTypes.FETCH_PROFILE_REQUEST), error(authTypes.FETCH_PROFILE_WITH_REDIRECT_REQUEST)]
+  yield takeEvery(fetchProfileFailed, function clearToken() {
+    localStorage.removeItem(config.localStorageTokenKeyName)
   })
 }
 

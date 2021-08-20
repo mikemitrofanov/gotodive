@@ -1,5 +1,10 @@
+export const APP_STARTED = 'APP_STARTED'
+
 export const categoryTypes = {
   FETCH_CATEGORIES_REQUEST: 'FETCH_CATEGORIES_REQUEST',
+}
+
+export const authTypes = {
   LOGIN_REQUEST: 'LOGIN_REQUEST',
   REGISTRATION_REQUEST: 'REGISTRATION_REQUEST',
   FETCH_PROFILE_REQUEST: 'FETCH_PROFILE_REQUEST',
@@ -8,7 +13,8 @@ export const categoryTypes = {
 }
 
 const allTypes = {
-  categoryTypes
+  categoryTypes,
+  authTypes,
 }
 
 export default allTypes

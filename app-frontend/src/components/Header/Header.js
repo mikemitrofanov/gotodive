@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { CaretRightFill, Person, Search } from 'react-bootstrap-icons';
 import { Query } from '@redux-requests/react';
-import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { categoryTypes } from '../../store/types/types'
-import { fetchCategoriesRequest } from '../../store/actions/actions'
 import './Header.scss';
 
 const dropdownIcon = <CaretRightFill className="dropdown-icon" />
@@ -20,63 +18,52 @@ const DropdownList = ({ items }) => (
 )
 
 const Header = () => {
-  const dispatch = useDispatch();
-  const { user } = useSelector(state => state.auth)
-
-  useEffect(() => {
-    dispatch(fetchCategoriesRequest())
-  }, [])
-
+  const user = useSelector(state => state.auth.user)
+  const allCategories = useSelector(state => state.categories.categories)
   const searchHandler = () => { /*  */ }
+
+  const sorted = allCategories.sort((a, b) => a.order - b.order)
+  const categories = sorted
+    .filter(categry => !categry.isSubcategory)
+    .map(category => ({
+      ...category,
+      dropdown: sorted
+        .filter(subcategory => subcategory.parentCategory === category.id)
+    }))
+
+  categories.unshift(
+    {
+      title: 'Главная',
+      link: '/main'
+    }
+  )
+
+  categories.push(
+    {
+      title: 'Галерея',
+      link: '/gallery'
+    },
+    {
+      title: 'Прайс',
+      link: '/pricing'
+    }
+  )
 
   return (
     <header id="main-header" className="font-regular-size-md d-flex justify-content-between">
       <ul>
-        <Query
-          type={categoryTypes.FETCH_CATEGORIES_REQUEST}
-        >
-          {({ data }) => {
-            const sorted = data.sort((a, b) => a.order - b.order)
-            const categories = sorted
-              .filter(categry => !categry.isSubcategory)
-              .map(category => ({
-                ...category,
-                dropdown: sorted
-                  .filter(subcategory => subcategory.parentCategory === category.id)
-              }))
+        {categories.map((item, index) => (
+          <li key={index}>
+            <Link to={item.link}>
+              {item.title}
+            </Link>
 
-            categories.unshift(
-              {
-                title: 'Главная',
-                link: '/main'
-              }
-            )
-
-            categories.push(
-              {
-                title: 'Галерея',
-                link: '/gallery'
-              },
-              {
-                title: 'Прайс',
-                link: '/pricing'
-              }
-            )
-
-            return categories.map((item, index) => (
-              <li key={index}>
-                <Link to={item.link}>
-                  {item.title}
-                </Link>
-
-                {item.dropdown ? <>
-                  {dropdownIcon}
-                  <DropdownList items={item.dropdown} />
-                </> : null}
-              </li>
-            ))
-          }}
-        </Query>
+            {item.dropdown ? <>
+              {dropdownIcon}
+              <DropdownList items={item.dropdown} />
+            </> : null}
+          </li>
+        ))}
       </ul>
 
       <div>
@@ -99,7 +86,10 @@ const Header = () => {
         {!!user
           ? (
             <div className="profile">
-              <Link to="/login">
+              <Link className="profile-btn" to="/profile">
+                <span className="font-medium-size-sm">
+                  {user.name}
+                </span>
                 <Person size="32px" />
               </Link>
             </div>

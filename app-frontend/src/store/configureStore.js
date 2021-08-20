@@ -46,7 +46,9 @@ export function configureStore() {
 
   sagaMiddleware.run(rootSaga)
 
-  window.store = store
+  if (process.env.NODE_ENV === 'development') {
+    window.store = store
+  }
 
   return store;
 };

@@ -1,15 +1,15 @@
 import React from 'react'
 import DefaultLayout from '../../layouts/DefaultLayout/DefaultLayout'
-import './HomeView.scss'
+import './ProfileView.scss'
 
-const HomeView = () => {
+const ProfileView = () => {
   return (
     <DefaultLayout>
       <h3>
-        TODO: home page
+        TODO: profile page
       </h3>
     </DefaultLayout>
   )
 }
 
-export default HomeView
+export default ProfileView

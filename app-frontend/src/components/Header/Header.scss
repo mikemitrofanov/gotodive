@@ -84,6 +84,15 @@ header#main-header {
       display: inline-block;
     }
 
+    .profile-btn {
+      background-color: transparent;
+      border: none;
+      color: inherit;
+      span {
+        margin-right: 4px;
+      }
+    }
+
     .lang {
       & > span:not(:last-child) {
         margin-right: 30px;
