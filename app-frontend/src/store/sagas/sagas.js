@@ -19,7 +19,8 @@ function* rootSaga() {
   })
 
   yield takeEvery(APP_STARTED, function* appStartedAction() {
-    // request is required even fo missing token case. Home page loader depends on store.auth.isAuthStatusDefined field
+    // fetchProfileRequest is required even for missing token case
+    // NOTE: loader inside App.js component depends on store.auth.isAuthStatusDefined field
     yield put(fetchProfileRequest())
     yield put(fetchCategoriesRequest())
     
