@@ -19,6 +19,11 @@
 html {
   min-height: 100%;
   position: relative;
+  background-color: $color-grey-primary !important;
+
+  body {
+    background-color: transparent;
+  }
 
   a {
     text-decoration: none;
@@ -26,4 +31,8 @@ html {
       text-decoration: underline;
     }
   }
+}
+
+.text-underline {
+  text-decoration: underline !important;
 }

@@ -4,8 +4,8 @@
   "description": "Execute the following command and the Docker will build and run the containers;",
   "main": "index.js",
   "scripts": {
-    "remigrate": "docker exec -it gotodive_backend_1 php artisan migrate:refresh --seed",
-    "runforbackend": "docker exec -it gotodive_backend_1",
+    "remigrate": "docker exec -it backend php artisan migrate:refresh --seed",
+    "runforbackend": "docker exec -it backend",
     "runforfrontend": "docker exec -it gotodive_frontend_1"
   },
   "repository": {

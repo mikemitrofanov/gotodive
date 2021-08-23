@@ -1,9 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { CaretRightFill, Person, Search } from 'react-bootstrap-icons';
-import { Query } from '@redux-requests/react';
 import { useSelector } from 'react-redux'
-import { categoryTypes } from '../../store/types/types'
 import './Header.scss';
 
 const dropdownIcon = <CaretRightFill className="dropdown-icon" />
@@ -20,6 +18,7 @@ const DropdownList = ({ items }) => (
 const Header = () => {
   const user = useSelector(state => state.auth.user)
   const allCategories = useSelector(state => state.categories.categories)
+  const isAdmin = !!useSelector(state => state.auth.user?.isAdmin)
   const searchHandler = () => { /*  */ }
 
   const sorted = allCategories.sort((a, b) => a.order - b.order)
@@ -49,12 +48,20 @@ const Header = () => {
     }
   )
 
+  if (isAdmin) {
+    categories.push({
+      title: 'Admin Panel',
+      link: '/admin',
+      class: 'font-regular-size-sm text-underline text-muted'
+    })
+  }
+
   return (
     <header id="main-header" className="font-regular-size-md d-flex justify-content-between">
       <ul>
         {categories.map((item, index) => (
           <li key={index}>
-            <Link to={item.link}>
+            <Link className={item.class} to={item.link}>
               {item.title}
             </Link>
 

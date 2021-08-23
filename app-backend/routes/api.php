@@ -16,13 +16,11 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return [
-        'user' => $request->user()
-    ];
-});
 
 Route::get('/categories', [CategoryController::class, 'index']);
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/registration', [AuthController::class, 'registration']);
+
+Route::middleware('auth:sanctum')->get('/profile', [AuthController::class, 'getProfile']);
+Route::middleware('auth:sanctum')->post('/profile', [AuthController::class, 'updateProfile']);

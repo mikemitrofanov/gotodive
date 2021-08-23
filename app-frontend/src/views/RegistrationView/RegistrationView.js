@@ -2,27 +2,32 @@ import React, { useState } from 'react'
 import BlankLayout from '../../layouts/BlankLayout/BlankLayout'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { validateEmail, validateName, validatePassword } from '../../validators/validators'
 import { registrationRequest } from '../../store/actions/actions'
+import { isDev } from '../../config/app-config'
 
 import './RegistrationView.scss'
 
 const RegistrationView = () => {
   const dispatch = useDispatch()
 
-  const isDev = process.env.NODE_ENV === 'development'
-
   const refillName = isDev ? 'Danis K' : ''
   const prefillEmail = isDev ? `test_${Math.round(Math.random() * 1000)}@gmail.com` : ''
-  const prefillPass = isDev ? 'password' : ''
+  const prefillPass = isDev ? 'Password_1' : ''
 
   const [name, setName] = useState(refillName)
   const [email, setEmail] = useState(prefillEmail)
   const [password, setPassword] = useState(prefillPass)
   const [confirm, setConfirm] = useState(prefillPass)
 
+  const validName = validateName(name)
+  const validEmail = validateEmail(email)
+  const validPassword = validatePassword(password)
   const passwordsMatch = password === confirm
 
-  const registrationHandler = async () => {
+  const isSubmitDisabled = !validName || !validEmail || !validPassword || !passwordsMatch
+
+  const registrationHandler = () => {
     dispatch(registrationRequest({ name, email, password, confirm }))
   }
 
@@ -74,7 +79,14 @@ const RegistrationView = () => {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary btn-block" onClick={registrationHandler}>Sign In</button>
+          <button
+            className="btn btn-primary btn-block"
+            type="submit"
+            onClick={registrationHandler}
+            disabled={isSubmitDisabled}
+          >
+            Sign In
+          </button>
 
           <p className="forgot-password text-right">
             Already registered <Link to="/login">Login</Link>

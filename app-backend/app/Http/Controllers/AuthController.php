@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
@@ -29,9 +30,9 @@ class AuthController extends Controller
             ]);
         }
 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+        return response()->json([
+            'message' => 'The provided credentials do not match our records.'
+        ], 400);
     }
 
     public function registration(Request $request) {
@@ -54,4 +55,32 @@ class AuthController extends Controller
         ]);
     }
 
+    public function getProfile(Request $request) {
+        return [
+            'user' => $request->user()
+        ];
+    }
+
+    public function updateProfile(Request $request) {
+        $user = $request->user();
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                Rule::unique('users')->ignore($user->id, 'id')
+            ],
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        $user->save();
+
+        return [
+            'user' => $request->user()
+        ];
+    }
 }

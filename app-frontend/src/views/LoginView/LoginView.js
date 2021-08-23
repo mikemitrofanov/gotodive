@@ -12,19 +12,20 @@ const LoginView = () => {
   const isDev = process.env.NODE_ENV === 'development'
 
   const prefillEmail = isDev ? 'test@test.com' : ''
-  const prefillPassword = isDev ? 'pass' : ''
+  const prefillPassword = isDev ? 'Password' : ''
 
   const [email, setEmail] = useState(prefillEmail)
   const [password, setPassword] = useState(prefillPassword)
 
-  const loginHandler = async () => {
+  const loginHandler = (event) => {
+    event.preventDefault()
     dispatch(loginRequest({ email, password }))
   }
 
   return (
     <BlankLayout>
       <div id="login-view">
-        <form onSubmit={e => e.preventDefault()}>
+        <form onSubmit={loginHandler}>
           <h3>Login</h3>
 
           <div className="form-group mb-2">
@@ -48,7 +49,7 @@ const LoginView = () => {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary btn-block" onClick={loginHandler}>Sign In</button>
+          <button type="submit" className="btn btn-primary btn-block">Sign In</button>
 
           <p className="forgot-password text-right">
             Not registered <Link to="/registration">Sign Up?</Link>

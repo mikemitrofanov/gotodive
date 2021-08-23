@@ -1,5 +1,9 @@
+export const isDev = process.env.NODE_ENV === 'development'
+export const localStorageTokenKeyName = 'token'
+
 const config = {
-    localStorageTokenKeyName: 'token'
+  isDev,
+  localStorageTokenKeyName,
 }
 
 export default config

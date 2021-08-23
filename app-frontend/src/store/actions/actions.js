@@ -1,5 +1,5 @@
 import { APP_STARTED, categoryTypes, authTypes } from '../types/types'
-import config from '../../config/app-config';
+import { localStorageTokenKeyName } from '../../config/app-config';
 
 export const appStarted = () => ({
   type: APP_STARTED
@@ -32,7 +32,7 @@ export const logoutRequest = () => ({
     method: 'POST',
     url: '/api/logout',
     headers: {
-      'Authorization': 'Bearer ' + localStorage.getItem(config.localStorageTokenKeyName)
+      'Authorization': 'Bearer ' + localStorage.getItem(localStorageTokenKeyName)
     }
     // TODO: it's not implemented on  server side and not being used on client side yet
   }
@@ -55,9 +55,9 @@ export const fetchProfileRequest = () => ({
   type: authTypes.FETCH_PROFILE_REQUEST,
   request: {
     method: 'GET',
-    url: '/api/user',
+    url: '/api/profile',
     headers: {
-      'Authorization': 'Bearer ' + localStorage.getItem(config.localStorageTokenKeyName)
+      'Authorization': 'Bearer ' + localStorage.getItem(localStorageTokenKeyName)
     }
   },
 });
@@ -65,4 +65,16 @@ export const fetchProfileRequest = () => ({
 export const fetchProfileWithRedirectRequest = () => ({
   ...fetchProfileRequest(),
   type: authTypes.FETCH_PROFILE_WITH_REDIRECT_REQUEST
+})
+
+export const updateProfileDataRequest = (data) => ({
+  type: authTypes.UPDATE_PROFILE_DATA_REQUEST,
+  request: {
+    method: 'POST',
+    url: '/api/profile',
+    data: data,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem(localStorageTokenKeyName)
+    }
+  }
 })

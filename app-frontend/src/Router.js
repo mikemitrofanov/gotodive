@@ -7,9 +7,10 @@ import HomeView from "./views/HomeView/HomeView"
 import LoginView from "./views/LoginView/LoginView"
 import ProfileView from './views/ProfileView/ProfileView'
 import LogoutView from './views/LogoutView/LogoutView'
+import ChangePasswordView from './views/ChangePasswordView/ChangePasswordView'
 import RegistrationView from "./views/RegistrationView/RegistrationView"
 
-const App = () => {
+const Router = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(appStarted())
@@ -18,6 +19,7 @@ const App = () => {
   const isAuthenticated = !!useSelector(state => state.auth.user)
   const unknownAuthStatus = !useSelector(state => state.auth.isAuthStatusDefined)
   const categories = useSelector(state => state.categories.categories)
+  const isAdmin = !!useSelector(state => state.auth.user?.isAdmin)
 
   if (unknownAuthStatus || !categories.length) {
     return 'TODO: fullscreen loader spinner'
@@ -29,6 +31,7 @@ const App = () => {
 
       {isAuthenticated ? <Route path="/profile" component={ProfileView} /> : null}
       {isAuthenticated ? <Route path="/logout" component={LogoutView} /> : null}
+      {isAuthenticated ? <Route path="/change-password" component={ChangePasswordView} /> : null}
 
       {!isAuthenticated ? <Route path="/login" component={LoginView} /> : null}
       {!isAuthenticated ? <Route path="/registration" component={RegistrationView} /> : null}
@@ -36,9 +39,11 @@ const App = () => {
       <Route path="/gallery" render={() => <h3>TODO: gallery page</h3>} />
       <Route path="/pricing" render={() => <h3>TODO: pricing page</h3>} />
 
+      {isAdmin ? <Route path="/admin" render={() => <h3>TODO: admin page</h3>} /> : null}
+
       <Route render={() => <Redirect to="/home" />} />
     </Switch>
   )
 }
 
-export default App
+export default Router
