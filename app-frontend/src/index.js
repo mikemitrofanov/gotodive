@@ -6,7 +6,8 @@ import { NotificationContainer } from 'react-notifications';
 import history from './history';
 
 import './assets/styles/main.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import "bootstrap/dist/js/bootstrap.min.js"
 import 'react-notifications/lib/notifications.css';
 
 import Router from './Router';

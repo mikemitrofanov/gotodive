@@ -33,25 +33,25 @@ const Header = () => {
   categories.unshift(
     {
       title: 'Главная',
-      link: '/main'
+      link: 'main'
     }
   )
 
   categories.push(
     {
       title: 'Галерея',
-      link: '/gallery'
+      link: 'gallery'
     },
     {
       title: 'Прайс',
-      link: '/pricing'
+      link: 'pricing'
     }
   )
 
   if (isAdmin) {
     categories.push({
       title: 'Admin Panel',
-      link: '/admin',
+      link: 'admin',
       class: 'font-regular-size-sm text-underline text-muted'
     })
   }

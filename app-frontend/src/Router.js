@@ -10,6 +10,8 @@ import LogoutView from './views/LogoutView/LogoutView'
 import ChangePasswordView from './views/ChangePasswordView/ChangePasswordView'
 import RegistrationView from "./views/RegistrationView/RegistrationView"
 
+import AdminPanel from './Admin/AdminApp'
+
 const Router = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -39,7 +41,7 @@ const Router = () => {
       <Route path="/gallery" render={() => <h3>TODO: gallery page</h3>} />
       <Route path="/pricing" render={() => <h3>TODO: pricing page</h3>} />
 
-      {isAdmin ? <Route path="/admin" render={() => <h3>TODO: admin page</h3>} /> : null}
+      {isAdmin ? <Route path="/admin" component={AdminPanel} /> : null}
 
       <Route render={() => <Redirect to="/home" />} />
     </Switch>
