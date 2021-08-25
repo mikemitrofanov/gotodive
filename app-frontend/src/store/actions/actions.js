@@ -13,6 +13,49 @@ export const fetchCategoriesRequest = () => ({
   },
 });
 
+export const fetchCategoryByIdRequest = (id) => ({
+  type: categoryTypes.FETCH_CATEGORY_BY_ID_REQUEST,
+  request: {
+    method: 'GET',
+    url: `/api/categories/${id}`,
+  },
+});
+
+export const updateCategoryRequest = (id, category) => ({
+  type: categoryTypes.UPDATE_CATEGORY_REQUEST,
+  request: {
+    method: 'POST',
+    url: `/api/categories/${id}`,
+    data: category,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem(localStorageTokenKeyName)
+    }
+  },
+});
+
+export const createCategoryRequest = (category) => ({
+  type: categoryTypes.CREATE_CATEGORY_REQUEST,
+  request: {
+    method: 'POST',
+    url: '/api/category',
+    data: category,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem(localStorageTokenKeyName)
+    }
+  },
+});
+
+export const removeCategoryRequest = (id) => ({
+  type: categoryTypes.REMOVE_CATEGORY_REQUEST,
+  request: {
+    method: 'DELETE',
+    url: `/api/categories/${id}`,
+    headers: {
+      'Authorization': 'Bearer ' + localStorage.getItem(localStorageTokenKeyName)
+    }
+  },
+});
+
 export const loginRequest = (data) => ({
   type: authTypes.LOGIN_REQUEST,
   request: {

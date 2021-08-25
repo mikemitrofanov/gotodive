@@ -2,7 +2,7 @@ import { put, takeEvery } from 'redux-saga/effects'
 import { success, error } from '@redux-requests/core'
 import { push } from 'connected-react-router'
 import { NotificationManager } from 'react-notifications'
-import { APP_STARTED, authTypes } from '../types/types'
+import { APP_STARTED, authTypes, categoryTypes } from '../types/types'
 import { fetchProfileRequest, fetchProfileWithRedirectRequest, fetchCategoriesRequest, resetAuth } from '../actions/actions'
 import { localStorageTokenKeyName } from '../../config/app-config'
 
@@ -42,6 +42,15 @@ function* rootSaga() {
 
   yield takeEvery(success(authTypes.UPDATE_PROFILE_DATA_REQUEST), function* () {
     yield put(fetchProfileRequest())
+  })
+
+  const adminCategoryRequests = [
+    success(categoryTypes.CREATE_CATEGORY_REQUEST),
+    success(categoryTypes.REMOVE_CATEGORY_REQUEST),
+    success(categoryTypes.UPDATE_CATEGORY_REQUEST),
+  ]
+  yield takeEvery(adminCategoryRequests, function* () {
+    yield put(fetchCategoriesRequest())
   })
 }
 

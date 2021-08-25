@@ -1,23 +1,25 @@
 import React from "react";
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
 import { Button } from 'react-bootstrap'
-import { NotificationManager } from 'react-notifications'
-import { MenuContext } from "./CategoryContext";
+import { removeCategoryRequest } from "../../store/actions/actions";
 
 export default function Menus() {
   const categories = useSelector(state => state.categories.categories)
-  const removeCategoryHandler = () => {
-    NotificationManager.warning('TODO: this handler')
+  const dispatch = useDispatch()
+  const removeCategoryHandler = (category) => {
+    if (window.confirm(`Remove ${category.title} category?`)) {
+      dispatch(removeCategoryRequest(category.id))
+    }
   }
 
   return (
     <div>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 className="h2">Menu Index</h1>
+        <h1 className="h2">Categories Index</h1>
 
         <div className="btn-toolbar mb-2 mb-md-0">
-          <Link to="/menu/new">Create New Menu</Link>
+          <Link to="/admin/categories/new">Create New Category</Link>
         </div>
       </div>
 
@@ -45,13 +47,13 @@ export default function Menus() {
                       <td>
                         <Link
                           to={`/admin/categories/${category.id}`}
-                          className="btn btn-primary btn-xs"
+                          className="btn btn-primary btn-xs edit-btn"
                         >
                           Edit
                         </Link>
                         <Button
-                          className="btn btn-danger btn-xs"
-                          onClick={removeCategoryHandler}
+                          className="btn btn-danger btn-xs ml-3"
+                          onClick={() => removeCategoryHandler(category)}
                         >
                           Remove
                         </Button>

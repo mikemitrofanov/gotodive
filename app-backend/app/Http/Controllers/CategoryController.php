@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
 {
@@ -37,7 +38,28 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|string|unique:categories',
+            'link' => 'required|string|unique:categories',
+            'isSubcategory' => 'integer',
+            'parentCategory' => 'integer|nullable',
+        ]);
+
+        $lastCategoryByOrder = Category::max('order');
+
+        $category = Category::create([
+            'title' => $validatedData['title'],
+            'link' => $validatedData['link'],
+            'isSubcategory' => $validatedData['isSubcategory'],
+            'parentCategory' => $validatedData['parentCategory'],
+            'order' => $lastCategoryByOrder + 1,
+        ]);
+
+        $category->save();
+
+        return response()->json([
+            'category' => $category,
+        ]);
     }
 
     /**
@@ -46,9 +68,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        //
+        return response()->json([
+            'category' => Category::find($id)
+        ]);
     }
 
     /**
@@ -71,7 +95,26 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $id = $request->route('id');
+        $category = Category::find($id);
+
+        $validatedData = $request->validate([
+            'title' => ['required', 'string', Rule::unique('categories')->ignore($id, 'id')],
+            'link' => ['required', 'string', Rule::unique('categories')->ignore($id, 'id')],
+            'isSubcategory' => 'integer',
+            'parentCategory' => 'integer|nullable',
+        ]);
+
+        $category->title = $validatedData['title'];
+        $category->link = $validatedData['link'];
+        $category->isSubcategory = $validatedData['isSubcategory'];
+        $category->parentCategory = $validatedData['parentCategory'];
+
+        $category->save();
+
+        return response()->json([
+            'category' => $category,
+        ]);
     }
 
     /**

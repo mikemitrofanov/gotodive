@@ -1,85 +1,131 @@
-import React, { useState, useContext, useEffect } from "react";
-import { MenuContext } from "./CategoryContext";
-import { useParams } from "react-router-dom";
-import Select from "react-select";
+import React, { useEffect, useState } from "react"
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams, Link, useHistory } from "react-router-dom"
+import Select from "react-select"
+import { NotificationManager } from 'react-notifications'
+import { ArrowLeft } from 'react-bootstrap-icons'
+import { createCategoryRequest, fetchCategoryByIdRequest, updateCategoryRequest } from "../../store/actions/actions"
+import CheckField from './CheckField'
+
+const UrlSafeString = require('url-safe-string')
+const tagGenerator = new UrlSafeString()
 
 export default function MenuEditor() {
-  const [title, setTitle] = useState("");
-  const [redirectTo, setRedirectTo] = useState("");
-  const [menus, setMenus] = useContext(MenuContext);
   const { id } = useParams();
-  const [placement, setPlacement] = useState(null);
+  const isCreate = id === 'new'
+  const history = useHistory()
 
-  const placementOptions = [
-    { value: 0, label: "Top" },
-    { value: 1, label: "Bottom" }
-  ];
+  const categories = useSelector(state => state.categories.categories).map(item => ({
+    ...item,
+    label: item.title,
+    value: item.id,
+  }))
+  const dispatch = useDispatch()
+
+  const [category, setCategory] = useState({
+    title: '',
+    link: '',
+    isSubcategory: 0,
+    parentCategory: null
+  })
+  const setCategoryField = (field, value) => {
+    const updated = { ...category }
+    updated[field] = value
+
+    // if (field === 'title') {
+    //   updated.link = tagGenerator.generate(value)
+    // }
+
+    setCategory(updated)
+  }
 
   useEffect(() => {
-    menus.map(menu => {
-      if (menu.id === id) {
-        setTitle(menu.title);
-        setRedirectTo(menu.redirectTo);
-        setPlacement(menu.placement);
-      }
-    });
-  }, [id, menus]);
+    if (!isCreate) {
+      dispatch(fetchCategoryByIdRequest(id))
+        .then(res => setCategory(res.data.category))
+    }
+  }, [])
 
-  function updateMenu(event) {
+  function createCategoryHandler(event) {
     event.preventDefault();
 
-    let menu = {
-      id: id,
-      title: title,
-      redirectTo: redirectTo,
-      placement: placement
-    };
-    setMenus(menu);
+    const promise = isCreate
+      ? dispatch(createCategoryRequest(category))
+      : dispatch(updateCategoryRequest(id, category))
+
+    promise.then(res => {
+      if (res.error) {
+        NotificationManager.error(res.error.response?.data.message)
+      } else {
+        NotificationManager.info(`Category ${isCreate ? 'created' : 'updated'}`)
+        if (isCreate) {
+          history.push('/admin/categories');
+        }
+      }
+    })
   }
 
   return (
     <div>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 className="h2">Edit Menu</h1>
+        <h1 className="h2">
+          <Link to="/admin/categories" className="btn">
+            <ArrowLeft />
+          </Link>
+          {isCreate ? 'Create' : 'Edit'} Category
+        </h1>
       </div>
 
       <div className="card">
         <div className="card-body">
-          <form onSubmit={e => updateMenu(e)}>
-            <div className="form-group row">
+          <form onSubmit={e => createCategoryHandler(e)}>
+            <div className="form-group row mb-1">
               <label className="col-form-label col-sm-3">Title: *</label>
               <div className="col-sm-9">
                 <input
                   type="text"
-                  value={title}
+                  value={category.title}
                   required={true}
                   className="form-control"
-                  onChange={e => setTitle(e.target.value)}
+                  onChange={event => setCategoryField('title', event.target.value)}
                 />
               </div>
             </div>
-            <div className="form-group row">
+
+            <div className="form-group row mb-1">
               <label className="col-form-label col-sm-3">Redirect To: *</label>
               <div className="col-sm-9">
                 <input
                   type="text"
-                  value={redirectTo}
+                  value={category.link}
                   required={true}
                   className="form-control"
-                  onChange={e => setRedirectTo(e.target.value)}
+                  onChange={event => setCategoryField('link', event.target.value)}
                 />
               </div>
             </div>
-            <div className="form-group row">
-              <label className="col-form-label col-sm-3">Placement: *</label>
+
+            <div className="form-group row mb-1">
+              <label className="col-form-label col-sm-3">Is Subcategory: *</label>
+              <div className="col-sm-9">
+                <CheckField
+                  label="Is subcategory"
+                  checked={!!category.isSubcategory}
+                  onChange={event => setCategoryField('isSubcategory', event.target.checked ? 1 : 0)}
+                />
+              </div>
+            </div>
+
+            {category.isSubcategory ? <div className="form-group row mb-1">
+              <label className="col-form-label col-sm-3">Parent category: *</label>
               <div className="col-sm-9">
                 <Select
-                  value={placement}
+                  value={categories.find(item => item.value === category.parentCategory)}
                   className="reactSelectContainer"
                   classNamePrefix="reactSelect"
                   isClearable={true}
-                  onChange={selectedOption => setPlacement(selectedOption)}
-                  options={placementOptions}
+                  onChange={selectedOption => setCategoryField('parentCategory', selectedOption ? selectedOption.value : null)}
+                  options={categories.filter(item => item.isSubcategory === 0)}
                 />
                 <input
                   type="text"
@@ -91,14 +137,12 @@ export default function MenuEditor() {
                     position: "absolute",
                     opacity: 0
                   }}
-                  defaultValue={placement ? "1" : ""}
-                  required
                 />
               </div>
-            </div>
+            </div> : null}
 
             <button type="submit" className="btn btn-primary">
-              Update
+              {isCreate ? 'Create' : 'Save'}
             </button>
           </form>
         </div>
