@@ -57,7 +57,7 @@ const Header = () => {
   }
 
   return (
-    <header id="main-header" className="font-regular-size-md d-flex justify-content-between">
+    <header id="main-header" className="font-regular-size-md d-flex justify-content-around">
       <ul>
         {categories.map((item, index) => (
           <li key={index}>

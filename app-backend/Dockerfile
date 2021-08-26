@@ -6,7 +6,14 @@ FROM composer:1.10 AS composer
 COPY composer.json /app
 COPY composer.lock /app
 
-RUN composer install        \
+RUN composer update --ignore-platform-reqs         \
+    --ignore-platform-reqs  \
+    --no-ansi               \
+    --no-autoloader         \
+    --no-interaction        \
+    --no-scripts
+
+RUN composer install         \
     --ignore-platform-reqs  \
     --no-ansi               \
     --no-autoloader         \

@@ -1,15 +1,21 @@
-import React, { useState } from 'react'
-import BlankLayout from '../../layouts/BlankLayout/BlankLayout'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { NotificationManager } from 'react-notifications'
+import BlankLayout from '../../layouts/BlankLayout/BlankLayout'
 import { loginRequest } from '../../store/actions/actions'
+import { isDev } from '../../config/app-config'
 
 import './LoginView.scss'
 
 const LoginView = () => {
   const dispatch = useDispatch()
-
-  const isDev = process.env.NODE_ENV === 'development'
+  useEffect(() => {
+    console.log('notifications')
+    if (isDev) {
+      NotificationManager.info(['test@test.com - regular user\n', 'admin@test.com - admin user\n', 'password - "Password"'], 'ONLY DEV NOTE:', 8000)
+    }
+  }, [])
 
   const prefillEmail = isDev ? 'test@test.com' : ''
   const prefillPassword = isDev ? 'Password' : ''
