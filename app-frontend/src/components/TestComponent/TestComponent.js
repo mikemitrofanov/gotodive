@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TestComponent = ({ text = 'Hey, stranger' }) => {
+const TestComponent = ({ text }) => {
   return (
     <div>
       <p>{text}</p>
