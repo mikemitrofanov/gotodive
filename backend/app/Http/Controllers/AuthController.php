@@ -8,7 +8,6 @@ use App\Http\Resources\TokenResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
@@ -26,12 +25,8 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        dd('asffb');
         $user = User::create($request->validated());
-//        $user->profile()->create($request->validated());
-
         $token = $user->createToken('');
-
         return new TokenResource($token);
 
     }

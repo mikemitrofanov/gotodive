@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +29,6 @@ Route::group(['middleware' => ['auth:sanctum', 'isAdmin']], function () {
 });
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/user', [AuthController::class, 'show']);
-    Route::put('/user', [AuthController::class, 'update']);
+    Route::get('/users', [UserController::class, 'show']);
+    Route::put('/users', [UserController::class, 'update']);
 });

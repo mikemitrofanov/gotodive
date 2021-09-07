@@ -13,7 +13,7 @@ class RegisterRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,8 +25,10 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|mail|unique:users|max:255',
+            'email' => 'required|string|email|unique:users|max:255',
             'password' => 'required|string|confirmed'
+//        todo: add on prod min password length
+            //min:8
         ];
     }
 }
