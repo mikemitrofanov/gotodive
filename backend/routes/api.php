@@ -17,15 +17,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/categories/{id}', [CategoryController::class, 'show']);
+Route::get('/categories/{category:id}', [CategoryController::class, 'show']);
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
 
 Route::group(['middleware' => ['auth:sanctum', 'isAdmin']], function () {
-    Route::post('/categories', [CategoryController::class, 'store']);
-    Route::post('/categories/{id}', [CategoryController::class, 'update']);
-    Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
+    Route::group(['prefix' => 'categories'], function () {
+        Route::post('/', [CategoryController::class, 'store']);
+        Route::put('/{category:id}', [CategoryController::class, 'update']);
+        Route::delete('/{category:id}', [CategoryController::class, 'destroy']);
+        Route::post('{category:id}/subcategories', [CategoryController::class, 'store']);
+    });
+
+    Route::put('/subcategories/{subcategory:id}', [CategoryController::class, 'update']);
+    Route::delete('/subcategories/{subcategory:id}', [CategoryController::class, 'destroy']);
 });
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
