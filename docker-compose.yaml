@@ -4,27 +4,29 @@ services:
     frontend:
       build:
         context: ./frontend
+      container_name: frontend
       restart: always
       ports:
         - "3000:3000"
-      working_dir: /var/www
       volumes:
-        - ./frontend:/var/www
+        - ./frontend:/app
+        - /app/node_modules
       networks:
         - app-network
 
     backend:
       build:
         context: ./backend
+      container_name: backend
       restart: always
       environment:
         MYSQL_DATABASE: ${DB_DATABASE}
         MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
         MYSQL_USER: ${DB_USERNAME}
         MYSQL_PASSWORD: ${DB_PASSWORD}
-      working_dir: /var/www
       volumes:
-        - ./backend:/var/www
+        - ./backend:/app
+        - /app/vendor
       networks:
         - app-network
         - db-network
@@ -33,7 +35,7 @@ services:
 
     database:
       image: mysql:5.7
-      container_name: appdb
+      container_name: database
       restart: always
       volumes:
         - ./db_data:/var/lib/mysql
