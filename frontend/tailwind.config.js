@@ -63,6 +63,8 @@ module.exports = {
       72: '18rem',
       80: '20rem',
       96: '24rem',
+      98: '26rem',
+      100:'43rem'
     },
     animation: {
       none: 'none',
@@ -254,7 +256,10 @@ module.exports = {
         '"Segoe UI Emoji"',
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"',
+        
       ],
+      myFont:['Bolds'],
+      dop:['LoraFonts'],
       serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: [
         'ui-monospace',
@@ -265,6 +270,7 @@ module.exports = {
         '"Liberation Mono"',
         '"Courier New"',
         'monospace',
+      
       ],
     },
     fontSize: {
