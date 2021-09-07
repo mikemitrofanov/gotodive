@@ -1,24 +1,22 @@
 version: '3.7'
-services:
 
+services:
     frontend:
       build:
-        context: ./app-frontend
+        context: ./frontend
       restart: always
       ports:
         - "3000:3000"
       working_dir: /var/www
       volumes:
-        - ./app-frontend:/var/www
+        - ./frontend:/var/www
       networks:
         - app-network
-  
 
     backend:
       build:
-        context: ./app-backend/
+        context: ./backend
       restart: always
-      container_name: backend
       environment:
         MYSQL_DATABASE: ${DB_DATABASE}
         MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -26,14 +24,14 @@ services:
         MYSQL_PASSWORD: ${DB_PASSWORD}
       working_dir: /var/www
       volumes:
-        - ./app-backend:/var/www
+        - ./backend:/var/www
       networks:
         - app-network
         - db-network
       depends_on:
-        - appdb
+        - database
 
-    appdb:
+    database:
       image: mysql:5.7
       container_name: appdb
       restart: always
@@ -44,19 +42,6 @@ services:
         MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
         MYSQL_PASSWORD: ${DB_PASSWORD}
         MYSQL_USER: ${DB_USERNAME}
-      networks:
-        - db-network
-
-    phpmyadmin:
-      image: phpmyadmin/phpmyadmin
-      restart: always
-      environment:
-        PMA_HOST: appdb
-        MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      depends_on:
-        - appdb
-      ports:
-        - 8443:80
       networks:
         - db-network
 

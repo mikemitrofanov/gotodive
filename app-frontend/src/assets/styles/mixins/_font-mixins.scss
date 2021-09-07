@@ -1,8 +1,0 @@
-@import "assets/styles/common/variables";
-
-@mixin font-face($family, $path) {
-  @font-face {
-    font-family: $family;
-    src: url('../../fonts/#{$path}.ttf') format('truetype');
-  }
-}
