@@ -1,33 +1,13 @@
-import Image from 'next/image';
-import alexGerman from '../public/images/ourteam/alexGerman.png'
-import yuriyPrihvatilo from '../public/images/ourteam/yuriyPrihvatilo.png'
-import rickSanches from '../public/images/ourteam/rickSanches.png'
-import OurTeamList from './OurTeamList';
+import Image from "next/image"
 
-export default function OurTeam () {
-    let imagesTeam = [alexGerman,yuriyPrihvatilo,rickSanches];
-    let teamData = [
-        {
-            name:'Alex German',
-            desc:'великий и ужасный'
-        },
-        {
-            name:'Юрии Прохватило',
-            desc:'великий и ужасный'
-        },
-        {
-            name:'Alex German',
-            desc:'просто душка'
-        }
-    ]
+export default function OurTeam({teamName,desc,imagesValue}) {
     return (
-        <div className='wrapper-our_team mt-40'>
-            <div className='flex flex-col'>
-                <div className='flex justify-center fonts-title_popular-block'>Наша Команда</div>
-                <div className='h-wrapper  flex flex-row bg-custom justify-center mt-5'>
-                    <OurTeamList dataTeam={teamData} images={imagesTeam}/>
+            <div className='flex-col m-32'>
+                <Image src={imagesValue} alt={`on this photo: ${teamName}`} height={390} width={389}/>
+                <div className='flex items-center flex-col mt-8'>
+                    <div className='name_team text-4xl	text-white'>{teamName}</div>
+                    <div className='desc-our_team text-xl text-white '>{desc}</div>
                 </div>
             </div>
-        </div>
     )
 }

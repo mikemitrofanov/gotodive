@@ -1,17 +1,14 @@
-import Image from "next/image"
+import OurTeam from './OurTeam';
 
-export default function OurTeam(data) {
-    let {dataTeam,images} = data;
+export default function OurTeamList({dataTeam,images}) {
     return (
-        <>
-        {dataTeam.map((el,i) => 
-            <div key={i} className='flex-col m-32'>
-                <Image src={images[i].src} alt={`photo number ${i}`} height={390} width={389}/>
-                <div className='flex items-center flex-col mt-8'>
-                    <div className='name_team text-4xl	text-white'>{el.name}</div>
-                    <div className='desc-our_team text-xl text-white '>{el.desc}</div>
+        <div className='wrapper-our_team mt-40'>
+            <div className='flex flex-col'>
+                <div className='flex justify-center fonts-title_popular-block'>Наша Команда</div>
+                <div className='h-wrapper  flex flex-row bg-custom justify-center mt-5'>
+                    {dataTeam.map((data,i) => <OurTeam key={data.id} teamName={data.name} desc={data.desc} imagesValue={images[i].src}/>)}
                 </div>
-            </div>)}
-        </>
+            </div>
+        </div>
     )
 }
