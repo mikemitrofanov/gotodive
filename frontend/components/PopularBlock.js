@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import img1 from '../utils/images/img1.png';
-import img2 from '../utils/images/img2.png';
-import img3 from '../utils/images/img3.png';
+import img1 from '../public/images/img1.png';
+import img2 from '../public/images/img2.png';
+import img3 from '../public/images/img3.png';
 
 
 export default function PopularBlock () {
