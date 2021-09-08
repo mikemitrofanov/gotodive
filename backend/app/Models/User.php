@@ -11,27 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    /**
-     * @SWG\Definition(
-     *  definition="User",
-     *  @SWG\Property(
-     *      property="id",
-     *      type="integer"
-     *  ),
-     *  @SWG\Property(
-     *      property="name",
-     *      type="string"
-     *  ),
-     *  @SWG\Property(
-     *      property="email",
-     *      type="string"
-     *  )
-     * *  @SWG\Property(
-     *      property="password",
-     *      type="string"
-     *  )
-     * )
-     */
+
     /**
      * The attributes that are mass assignable.
      *
@@ -61,6 +41,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);

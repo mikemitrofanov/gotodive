@@ -4,21 +4,20 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CatagoryResource extends JsonResource
+class ServiceCategoryResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)
     {
         return [
             'title' => $this->title,
-            'link' => $this->link,
             'order' => $this->order,
-            'parentCategory' => $this->parentCategory,
+//            'services' => $this->parentCategory,
         ];
     }
 }

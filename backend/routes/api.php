@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,22 +17,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/categories/{category:id}', [CategoryController::class, 'show']);
+Route::get('/service-categories', [ServiceCategoryController::class, 'index']);
+Route::get('/service-categories/{serviceCategory:id}', [ServiceCategoryController::class, 'show']);
+Route::get('/service-categories/{serviceCategory:id}/services', [ServiceController::class, 'index']);
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
 
 Route::group(['middleware' => ['auth:sanctum', 'isAdmin']], function () {
-    Route::group(['prefix' => 'categories'], function () {
-        Route::post('/', [CategoryController::class, 'store']);
-        Route::put('/{category:id}', [CategoryController::class, 'update']);
-        Route::delete('/{category:id}', [CategoryController::class, 'destroy']);
-        Route::post('{category:id}/subcategories', [CategoryController::class, 'store']);
+    Route::group(['prefix' => 'service-categories'], function () {
+        Route::post('/', [ServiceCategoryController::class, 'store']);
+        Route::put('/{serviceCategory:id}', [ServiceCategoryController::class, 'update']);
+        Route::delete('/{serviceCategory:id}', [ServiceCategoryController::class, 'destroy']);
+        Route::post('{serviceCategory:id}/services', [ServiceController::class, 'store']);
+
     });
 
-    Route::put('/subcategories/{subcategory:id}', [CategoryController::class, 'update']);
-    Route::delete('/subcategories/{subcategory:id}', [CategoryController::class, 'destroy']);
+    Route::put('/services/{service:id}', [ServiceController::class, 'update']);
+    Route::delete('/services/{service:id}', [ServiceController::class, 'destroy']);
 });
 
 Route::group(['middleware' => ['auth:sanctum']], function () {

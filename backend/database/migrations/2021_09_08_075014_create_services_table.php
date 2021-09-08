@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubcategoryTable extends Migration
+class CreateServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,18 @@ class CreateSubcategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('subcategory', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('link');
             $table->integer('order')->nullable();
-            $table->foreignId('category_id')->constrained('category')->onDelete('cascade');
+            $table->string('description');
+            $table->string('duration');
+            $table->string('price');
+            $table->boolean('is_popular')->default(false);
+            $table->foreignId('service_category_id')->constrained('service_categories')->onDelete('cascade');
+            $table->timestamps();
+
         });
     }
 
@@ -29,6 +35,6 @@ class CreateSubcategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subcategory');
+        Schema::dropIfExists('services');
     }
 }

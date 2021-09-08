@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subcategory extends Model
+class Service extends Model
 {
     use HasFactory;
 
@@ -13,16 +13,22 @@ class Subcategory extends Model
         'title',
         'link',
         'order',
+        'description',
+        'duration',
+        'price',
+        'is_popular',
     ];
 
-    public function category()
+    public function serviceCategory()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(ServiceCategory::class);
     }
+
+//todo replace set order in to trait
 
     public function setOrderAttribute($value)
     {
-        $value ?: Category::max('order') + 1;
+        $value = $value ?: Service::max('order') + 1;
         $this->attributes['order'] = $value;
     }
 }
