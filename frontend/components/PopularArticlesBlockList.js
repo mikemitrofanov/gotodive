@@ -3,7 +3,7 @@ import Article from './Article'
 
 export default function PopularArticlesBlockList({ articles }) {
     return (
-        <div claclassNamess='flex justify-center'>
+        <div classNamess='flex justify-center'>
             <div className='flex flex-col'>
                 <div className={`flex justify-center text-4xl fonts-title_popular-block`}>Популярное</div>
                 <div className='flex '>
