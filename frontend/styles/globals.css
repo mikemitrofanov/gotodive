@@ -51,3 +51,7 @@ a {
     color:#7B7C7B;
     font-size: 19px;
   }
+
+  .bg-custom {
+    background-image: url('../utils/images/ourteam/bckgrnd.png');
+  }
