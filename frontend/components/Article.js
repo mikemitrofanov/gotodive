@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-function Article({ article }) {
+export default function Article({ article }) {
     return (
         <div className='w-cards h-100  m-5 relative'>
             <div>
@@ -23,4 +23,5 @@ function Article({ article }) {
         </div>
     )
 }
+
 
