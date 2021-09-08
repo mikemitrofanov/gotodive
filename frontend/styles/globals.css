@@ -58,20 +58,4 @@ a {
     font-size: 19px;
   }
 
-  .wrapper-our_team {
-    height:45.875rem;
-  }
-
-  .desc-our_team {
-    font-family: 'Montserrat-Lignt';
-  }
-
-  .bg-custom {
-    background-image: url('../public/images/ourteam/bckgrnd.png');
-  }
-
-  .name_team {
-    font-family:'Montserrat-Bold';
-    color: #ffff;
-    font-size: 35;
-  }
+  
