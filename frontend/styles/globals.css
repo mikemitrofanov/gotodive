@@ -18,20 +18,20 @@ a {
 @font-face {
   font-family: 'Montserrat-ExtraBold';
   font-weight: 400;
-  src: url('../utils/fonts/Montserrat/Montserrat-ExtraBold.ttf') format('truetype');
+  src: url('../public/fonts/Montserrat/Montserrat-ExtraBold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Montserrat-Bold';
   font-weight: 700;
-  src: url('../utils/fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
+  src: url('../public/fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
 }
 
 
 @font-face {
     font-family: 'LoraFonts';
     font-weight: 900;
-    src: url('../utils/fonts/11049.ttf') format('truetype');
+    src: url('../public/fonts/11049.ttf') format('truetype');
   }
 
   .fonts-title_popular-block {
@@ -53,5 +53,5 @@ a {
   }
 
   .bg-custom {
-    background-image: url('../utils/images/ourteam/bckgrnd.png');
+    background-image: url('../public/images/ourteam/bckgrnd.png');
   }
