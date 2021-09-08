@@ -2,17 +2,27 @@ import style from '../styles/contact-forms.module.css';
 
 
 export default function InputForms(data) {
-    let { params } = data;
 
     return (
-        <>
-            {console.log(params)}
-            {params.map((el, i) =>
+        <div className='flex flex-row'>
+            <div className='flex flex-col pr-7'>
                 <div className='flex flex-col'>
-                    <label className={`${style.allParamsForms} mt-11`}>{el.label}</label>
-                    <input type={el.type} name={el.label} className={`${el.label !== 'Сообщения' ? 'w-96' : style.MessageInput} height-forms  ${style.styleForms}`} />
+                    <label className={`${style.allParamsForms} mt-11`}>Имя</label>
+                    <input type={'text'} name={'text'} className={`w-96 height-forms ${style.styleForms}`} />
                 </div>
-            )}
-        </>
+                <div className='flex flex-col'>
+                    <label className={`${style.allParamsForms} mt-11`}>Email</label>
+                    <input type={'email'} name={'email'} className={`w-96 height-forms ${style.styleForms}`} />
+                </div>
+                <div className='flex flex-col'>
+                    <label className={`${style.allParamsForms} mt-11`}>Phone</label>
+                    <input type={'tel'} name={'phone'} className={`w-96 height-forms ${style.styleForms}`} />
+                </div>
+            </div>
+            <div>
+                <label className={`${style.allParamsForms} mt-11`}>Сообщение</label>
+                <input type={'text'} name={'messages'} className={`${style.MessageInput} height-forms  ${style.styleForms}`} />
+            </div>
+        </div>
     )
 }

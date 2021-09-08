@@ -24,25 +24,15 @@ export default function ContactForm() {
     ]
 
     return (
-        <div>
+        <div className='flex justify-center'>
             <div className={`${style.wrapperContactForm}`}>
-                <div>Пишите нам</div>
-                <div>
-                    <form className='flex flex-col bg-red-100'>
-                        <div className='flex flex-row m-7 p-1'>
-                            <div>
+                <div className={`flex justify-center fonts-title_popular-block`}>Пишите нам</div>
+                    <form className='flex flex-col mt-7'>
                                 <InputForms params={formsParams} />
-                            </div>
-                            <div>
-                                <InputForms params={formsParamsMessage} />
-                            </div>
-                        </div>
-                        <div className='flex justify-end'>
+                        <div className='flex justify-end mt-2'>
                             <button className={`${style.buttonSubmit}`}>Отправить</button>
                         </div>
                     </form>
-                </div>
-                
             </div>
         </div>
     )
