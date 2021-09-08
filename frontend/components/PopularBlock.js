@@ -1,8 +1,7 @@
-import Image from 'next/image';
+import PopularBlockList from "./PopularBlockList";
 import img1 from '../public/images/img1.png';
 import img2 from '../public/images/img2.png';
 import img3 from '../public/images/img3.png';
-
 
 export default function PopularBlock () {
     let arr = [img1,img2,img3];
@@ -26,27 +25,7 @@ export default function PopularBlock () {
             <div class='flex flex-col '>
                 <div className={`flex justify-center text-4xl fonts-title_popular-block`}>Популярное</div>
                 <div class='flex '>
-                    {dataCourse.map((el,i) => 
-                        <div className='w-cards h-100  m-5 relative'>
-                        <div>
-                            <Image 
-                                src={arr[i]}
-                                alt='text'
-                                width={469}
-                                height={308} 
-                            />
-                        </div>
-                        <div>
-                            <div className='w-26 h-7 text-3xl mt-4 fonts-title-desc_popular_block' >
-                            {el.title}
-                            </div>
-                            <div className='w-26 h-48 mt-7 fonts-desc_popular-block'>
-                                {el.desc}
-                            </div>
-                        </div>
-                        <button className='bg-black text-white text-xl rounded-lg w-full h-12 absolute bottom-0'>Записаться</button>
-                    </div>
-                    )}
+                    <PopularBlockList data={dataCourse} images={arr}/>
                 </div>
             </div>
         </div>
