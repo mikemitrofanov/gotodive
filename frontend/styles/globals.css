@@ -1,4 +1,4 @@
-html,
+/* html,
 body {
   padding: 0;
   margin: 0;
@@ -13,7 +13,7 @@ a {
 
 * {
   box-sizing: border-box;
-}
+} */
 
 @font-face {
   font-family: 'Montserrat-ExtraBold';
@@ -23,6 +23,12 @@ a {
 
 @font-face {
   font-family: 'Montserrat-Bold';
+  font-weight: 700;
+  src: url('../utils/fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat-Light';
   font-weight: 700;
   src: url('../utils/fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
 }
@@ -50,4 +56,22 @@ a {
     font-family:'LoraFonts';
     color:#7B7C7B;
     font-size: 19px;
+  }
+
+  .wrapper-our_team {
+    height:45.875rem;
+  }
+
+  .desc-our_team {
+    font-family: 'Montserrat-Lignt';
+  }
+
+  .bg-custom {
+    background-image: url('../utils/images/ourteam/bckgrnd.png');
+  }
+
+  .name_team {
+    font-family:'Montserrat-Bold';
+    color: #ffff;
+    font-size: 35;
   }

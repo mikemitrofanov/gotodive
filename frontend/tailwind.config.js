@@ -53,6 +53,7 @@ module.exports = {
       28: '7rem',
       32: '8rem',
       36: '9rem',
+      38:'9.875rem',
       40: '10rem',
       44: '11rem',
       48: '12rem',
@@ -258,8 +259,7 @@ module.exports = {
         '"Noto Color Emoji"',
         
       ],
-      sont:['Montserrat'],
-      dop:['LoraFonts'],
+      
       serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: [
         'ui-monospace',
@@ -435,6 +435,7 @@ module.exports = {
       '5/6': '83.333333%',
       full: '100%',
       screen: '100vh',
+      wrapper:'41.0625rem',
     }),
     inset: (theme, { negative }) => ({
       auto: 'auto',
@@ -698,6 +699,7 @@ module.exports = {
       2: '2',
     },
     textColor: (theme) => theme('colors'),
+    
     textOpacity: (theme) => theme('opacity'),
     transformOrigin: {
       center: 'center',
@@ -796,6 +798,8 @@ module.exports = {
       '10/12': '83.333333%',
       '11/12': '91.666667%',
       'cards':'29.3125rem',
+      'team_our':'120rem',
+      
       full: '100%',
       screen: '100vw',
       min: 'min-content',
