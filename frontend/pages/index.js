@@ -1,12 +1,12 @@
 
 import tailwindcss from '../styles/Home.module.css'
-import OurTeam from '../components/OurTeam'
+import PopularBlock from '../components/PopularBlock'
 
 
 export default function Home() {
   return (
     <div>
-        <OurTeam />
+        <PopularBlock />
     </div>
   )
 }
