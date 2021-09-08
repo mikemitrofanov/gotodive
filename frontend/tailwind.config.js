@@ -258,7 +258,7 @@ module.exports = {
         '"Noto Color Emoji"',
         
       ],
-      myFont:['Bolds'],
+      sont:['Montserrat'],
       dop:['LoraFonts'],
       serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: [
@@ -795,6 +795,7 @@ module.exports = {
       '9/12': '75%',
       '10/12': '83.333333%',
       '11/12': '91.666667%',
+      'cards':'29.3125rem',
       full: '100%',
       screen: '100vw',
       min: 'min-content',

@@ -26,11 +26,11 @@ export default function PopularBlock () {
 
     return (
         <div class=' flex justify-center'>
-            <div class='flex flex-col'>
-                <div class='flex justify-center text-4xl font-myFont'>Популярное</div>
+            <div class='flex flex-col '>
+                <div className={`flex justify-center text-4xl fonts-title_popular-block`}>Популярное</div>
                 <div class='flex '>
                     {dataCourse.map((el,i) => 
-                        <div className='w-96 h-100  m-5 relative'>
+                        <div className='w-cards h-100  m-5 relative'>
                         <div>
                             <Image 
                                 src={arr[i]}
@@ -40,10 +40,10 @@ export default function PopularBlock () {
                             />
                         </div>
                         <div>
-                            <div className='w-26 h-7 text-3xl mt-4' >
+                            <div className='w-26 h-7 text-3xl mt-4 fonts-title-desc_popular_block' >
                             {el.title}
                             </div>
-                            <div className='w-26 h-48 mt-7 text-lg font-dop'>
+                            <div className='w-26 h-48 mt-7   fonts-desc_popular-block'>
                                 {el.desc}
                             </div>
                         </div>
