@@ -1,12 +1,37 @@
 
-import tailwindcss from '../styles/Home.module.css'
-import PopularBlock from '../components/PopularBlock'
+import '../styles/Home.module.css'
+import PopularArticlesBlockList from '../components/PopularArticlesBlockList'
 
 
-export default function Home() {
-  return (
-    <div>
-        <PopularBlock />
-    </div>
-  )
+export default function Home({ articles }) {
+  return <PopularArticlesBlockList articles={articles} />
+}
+
+export function getStaticProps() {
+  const articles = [
+    {
+      id: 1,
+      title:'Рекреационные курсы',
+      desc:'Чтобы по-настоящему насладиться вашим первым подводным погружением, вам нужен будет инструктор, которому вы сможете полностью доверять. Наши опытные инструкторы позаботятся о том, чтобы вы были в полной безопасности во время ваших подводных приключений и получили незабываемые эмоции.',
+      image: '/images/img1.png'
+    },
+    {
+      id: 2,
+      title:'Технические курсы',
+      desc:'Чтобы по-настоящему насладиться вашим первым подводным погружением, вам нужен будет инструктор, которому вы сможете полностью доверять. Наши опытные инструкторы позаботятся о том, чтобы вы были в полной безопасности во время ваших подводных приключений и получили незабываемые эмоции.',
+      image: '/images/img2.png'
+    },
+    {
+      id: 3,
+      title:'Пещерные курсы ',
+      desc:'Чтобы по-настоящему насладиться вашим первым подводным погружением, вам нужен будет инструктор, которому вы сможете полностью доверять. Наши опытные инструкторы позаботятся о том, чтобы вы были в полной безопасности во время ваших подводных приключений и получили незабываемые эмоции.',
+      image: '/images/img3.png'
+    }
+  ]
+
+  return {
+    props: {
+      articles
+    }
+  }
 }
