@@ -27,7 +27,6 @@ class ServiceCategoryController extends Controller
      */
     public function store(CreateServiceCategoryRequest $request)
     {
-//        dd('ok');
         $category = ServiceCategory::create($request->validated());
         return new ServiceCategoryResource ($category);
     }
