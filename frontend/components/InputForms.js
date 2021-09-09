@@ -30,6 +30,7 @@ export default function InputForms({ handleChange, handleSubmit, data }) {
               name="phone"
               type={"tel"}
               value={data.phone}
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
               onChange={handleChange("phone")}
             />
           </div>
@@ -38,7 +39,7 @@ export default function InputForms({ handleChange, handleSubmit, data }) {
           <InputMessage
             label={"messages"}
             name="messages"
-            type={"text"}
+            type={"textarea"}
             value={data.messages}
             onChange={handleChange("messages")}
           />

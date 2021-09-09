@@ -12,7 +12,7 @@ export const InputField = ({ label, name, type, value, onChange }) => (
       id={`${type}Input`}
       type={`${type}`}
       name={`${name}`}
-      className={`w-96 height-forms ${style.styleForms}`}
+      className={`w-96 height-forms ${style.styleForms} text-2xl`}
       onChange={(e) => onChange(e.target.value)}
       value={value}
     />
@@ -27,12 +27,12 @@ export const InputMessage = ({ label, name, type, value, onChange }) => (
     >
       {label}
     </label>
-    <input
+    <textarea
       id={`${type}Input`}
       type={`${type}`}
       name={`${name}`}
       value={value}
-      className={`${style.MessageInput} height-forms  ${style.styleForms}`}
+      className={`${style.MessageInput} height-forms  ${style.styleForms} text-2xl resize-none`}
       onChange={(e) => onChange(e.target.value)}
     />
   </div>
