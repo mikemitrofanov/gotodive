@@ -10,55 +10,60 @@ class UserController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/projects",
-     *      operationId="getProjectsList",
-     *      tags={"Projects"},
+     *      path="/users",
+     *      operationId="showUser",
+     *      tags={"Auth"},
      *      summary="Get list of projects",
      *      description="Returns list of projects",
+     *
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/GetUserRequest")
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/GetUserResponse"),
      *       ),
      *      @OA\Response(
      *          response=401,
      *          description="Unauthenticated",
      *      ),
-     *      @OA\Response(
-     *          response=403,
-     *          description="Forbidden"
-     *      )
      *     )
      */
     public function show()
     {
         return new UserResource(Auth::user());
     }
+
     /**
-     * @OA\Post(
-     *      path="/projects",
-     *      operationId="storeProject",
-     *      tags={"Projects"},
-     *      summary="Store new project",
-     *      description="Returns project data",
+     * @OA\Put(
+     *      path="/users",
+     *      operationId="Update User",
+     *      tags={"Auth"},
+     *      summary="Update user",
+     *      description="Returns user",
+     *
      *      @OA\RequestBody(
      *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/UpdateUserRequest")
      *      ),
-     *      @OA\Response(
-     *          response=201,
+     *
+     *      @OA/securitySchemes(
+     *      bearerAuth:
+     *      type: http
+     *      scheme: bearer
+     *      bearerFormat: JWT
+     *      ),
+     * @OA\Response(
+     *          response=200,
      *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/UpdateUserRequest")
      *       ),
-     *      @OA\Response(
-     *          response=400,
-     *          description="Bad Request"
-     *      ),
-     *      @OA\Response(
+     * @OA\Response(
      *          response=401,
      *          description="Unauthenticated",
      *      ),
-     *      @OA\Response(
-     *          response=403,
-     *          description="Forbidden"
-     *      )
      * )
      */
 
