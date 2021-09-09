@@ -1,12 +1,11 @@
 
 import tailwindcss from '../styles/Home.module.css'
-import ContactForm from '../components/ContactForm'
-
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
     <div>
-        <ContactForm />
+        <Footer />
     </div>
   )
 }
