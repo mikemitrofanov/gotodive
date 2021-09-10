@@ -8,9 +8,21 @@
 
 .wrapper_info {
     height: 14.8rem;
-    width: 98rem;
+    width: 100rem;
+    display: flex;
+        align-items: baseline;
 }
 
 .info_menu {
     display: flex;
+}
+
+.galleryBlock {
+    width:26rem;
+}
+
+.styleTitle{
+    color:#DFE3E0;
+    font-family: 'Montserrat-Medium';
+    font-size:1.5rem;
 }
