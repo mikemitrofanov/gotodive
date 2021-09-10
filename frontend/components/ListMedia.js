@@ -11,6 +11,7 @@ import telegramIcon from "../public/images/footer/icons/telegramIcon.png";
 import ListMediaItem from "./ListMediaItem";
 
 export default function ListMedia() {
+
   return (
     <section className={`flex w-3/5 justify-around`}>
       <ListMediaItem
@@ -32,7 +33,7 @@ export default function ListMedia() {
         info4={"Экскурсии"}
       />
       <ListMediaItem
-        title={"Contact Us"}
+        title={"Social"}
         info1={"@GotoDive"}
         info2={"@GotoDive"}
         info3={"@GotoDive"}

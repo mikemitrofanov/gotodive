@@ -7,22 +7,22 @@ export default function ListMediaItem({ title, ...rest }) {
     <article className="text-white">
       <h1 className={`mt-7 ${style.styleTitle}`}>{title}</h1>
       <ul className={`mt-6`}>
-        <div className={`${style.info_menu}`}>
+        <div className={`${style.info_menu} mt-5` }>
           {icon1 && <Image src={icon1} alt="map_icon" />}
           &nbsp;
           {info1}
         </div>
-        <div className={`${style.info_menu}`}>
+        <div className={`${style.info_menu} mt-5`}>
           {icon2 && <Image src={icon2} alt="map_icon" />}
           &nbsp;
           {info2}
         </div>
-        <div className={`${style.info_menu}`}>
+        <div className={`${style.info_menu} mt-5`}>
           {icon3 && <Image src={icon3} alt="map_icon" />}
           &nbsp;
           {info3}
         </div>
-        <div className={`${style.info_menu}`}>
+        <div className={`${style.info_menu} mt-5`}>
           {icon4 && <Image src={icon4} alt="map_icon" />}
           &nbsp;
           {info4}
