@@ -12,7 +12,14 @@ export default function ContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(data);//вместо console будет функция асинхронная для отправки данных на сервер
+    const regExp = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
+    /*Валидация номера телефона,все остальные параметры будут валидироваться на сервере*/
+    if (data.phone.match(regExp)) {
+      console.log('validate') //вместо console будет функция асинхронная для отправки данных на сервер
+
+    }else {
+      console.log('not valid')
+    }
   };
 
   const handleChange = (fieldName) => (fieldValue) => {/*в params передаём имена каждого input и его value */

@@ -30,7 +30,7 @@ export default function InputForms({ handleChange, handleSubmit, data }) {
               name="phone"
               type={"tel"}
               value={data.phone}
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              pattern="/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/"
               onChange={handleChange("phone")}
             />
           </div>
