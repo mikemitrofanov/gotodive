@@ -18,14 +18,15 @@ class AuthController extends Controller
      *      tags={"Auth"},
      *      summary="Login",
      *      description="Returns token",
+     *
      *      @OA\RequestBody(
      *          required=true,
-     *          @OA\JsonContent(ref="#/components/schemas/UpdateUserRequest")
+     *          @OA\JsonContent(ref="#/components/schemas/LoginRequest")
      *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/UpdateUserRequest")
+     *          @OA\JsonContent(ref="#/components/schemas/LoginRequest")
      *       ),
      *      @OA\Response(
      *          response=401,
@@ -46,25 +47,22 @@ class AuthController extends Controller
     }
 
     /**
-     * @OA\Put(
+     * @OA\Post(
      *      path="/register",
      *      operationId="Create new User",
      *      tags={"Auth"},
      *      summary="Create user",
      *      description="Returns created user, some fields shold be unique",
+     *
      *      @OA\RequestBody(
      *          required=true,
-     *          @OA\JsonContent(ref="#/components/schemas/CreateUserRequest")
+     *          @OA\JsonContent(ref="#/components/schemas/RegisterRequest")
      *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/CreateUserResponse")
+     *          @OA\JsonContent(ref="#/components/schemas/RegisterResponse")
      *       ),
-     *      @OA\Response(
-     *          response=401,
-     *          description="Unauthenticated",
-     *      ),
      * )
      */
     public function register(RegisterRequest $request)
@@ -75,6 +73,30 @@ class AuthController extends Controller
 
     }
 
+    /**
+     * @OA\Post(
+     *      path="/logout",
+     *      operationId="Logout User",
+     *      tags={"Auth"},
+     *      summary="Logout user",
+     *      description="Returns nothing",
+     *      security={{"bearerAuth":{}}},
+     *
+     *      @OA\RequestBody(
+     *          required=false,
+     *          @OA\JsonContent(ref="#/components/schemas/LogoutRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/LogoutResponse")
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     * )
+     */
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();

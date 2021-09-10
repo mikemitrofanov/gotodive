@@ -15,16 +15,407 @@
         }
     ],
     "paths": {
+        "/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login",
+                "description": "Returns token",
+                "operationId": "Login",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LoginRequest"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Create user",
+                "description": "Returns created user, some fields shold be unique",
+                "operationId": "Create new User",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RegisterRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RegisterResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Logout user",
+                "description": "Returns nothing",
+                "operationId": "Logout User",
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LogoutRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LogoutResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/service-categories": {
+            "get": {
+                "tags": [
+                    "Service Categories"
+                ],
+                "summary": "Get list of categories",
+                "description": "Returns list of projects",
+                "operationId": "Show Categories",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetCategoriesResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Service Categories"
+                ],
+                "summary": "Create Categoriy",
+                "description": "Returns created user, some fields shold be unique",
+                "operationId": "Create new Categoriy",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateCategoryRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateCategoryResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/service-categories/{serviceCategory:id}": {
+            "get": {
+                "tags": [
+                    "Service Categories"
+                ],
+                "summary": "Get one category",
+                "description": "Returns list of projects",
+                "operationId": "Show Category",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetUserResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Service Categories"
+                ],
+                "summary": "Create user",
+                "description": "Returns created user, some fields shold be unique",
+                "operationId": "Update Category",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RegisterRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RegisterResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Service Categories"
+                ],
+                "summary": "Logout user",
+                "description": "Returns nothing",
+                "operationId": "Logout User",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LogoutResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/service-categories/{serviceCategory:id}/services": {
+            "get": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Get list of categories",
+                "description": "Returns list of projects",
+                "operationId": "Show Categories",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetCategoriesResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Create Categoriy",
+                "description": "Returns created user, some fields shold be unique",
+                "operationId": "Create new Categoriy",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateCategoryRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateCategoryResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/services/{service:id}": {
+            "get": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Get one category",
+                "description": "Returns list of projects",
+                "operationId": "Show Category",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetUserResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Create user",
+                "description": "Returns created user, some fields shold be unique",
+                "operationId": "Update service",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RegisterRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RegisterResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Service"
+                ],
+                "summary": "Logout user",
+                "description": "Returns nothing",
+                "operationId": "Logout User",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LogoutResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/users": {
             "get": {
                 "tags": [
-                    "Auth"
+                    "User"
                 ],
                 "summary": "Get list of projects",
                 "description": "Returns list of projects",
                 "operationId": "showUser",
                 "requestBody": {
-                    "required": true,
+                    "required": false,
                     "content": {
                         "application/json": {
                             "schema": {
@@ -47,17 +438,20 @@
                     "401": {
                         "description": "Unauthenticated"
                     }
-                }
-            }
-        },
-        "/projects": {
-            "post": {
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
                 "tags": [
-                    "Auth"
+                    "User"
                 ],
-                "summary": "Store new project",
-                "description": "Returns project data",
-                "operationId": "storeProject",
+                "summary": "Update user",
+                "description": "Returns user",
+                "operationId": "Update User",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -74,7 +468,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/UpdateUserRequest"
+                                    "$ref": "#/components/schemas/UpdateUserResponse"
                                 }
                             }
                         }
@@ -82,24 +476,301 @@
                     "401": {
                         "description": "Unauthenticated"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         }
     },
     "components": {
         "schemas": {
-            "GetUserRequest": {
-                "title": "Get User request",
+            "LoginRequest": {
+                "title": "Login",
+                "description": "Login User",
+                "properties": {
+                    "password": {
+                        "title": "Password",
+                        "description": "Password of the User",
+                        "type": "string",
+                        "example": "Password"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "description": "User Email",
+                        "type": "string",
+                        "example": "example@example.com"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Login"
+                }
+            },
+            "LoginResponse": {
+                "title": "Get User response",
                 "description": "User model",
                 "properties": {
                     "token": {
                         "title": "Token",
                         "description": "Users Token",
                         "type": "string",
-                        "example": "6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ"
+                        "example": "3|6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ"
+                    },
+                    "id": {
+                        "title": "Id",
+                        "description": "User Id",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of the User",
+                        "type": "string",
+                        "example": "Patric Uren"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "description": "User Email",
+                        "type": "string",
+                        "example": "example@example.com"
+                    },
+                    "isAdmin": {
+                        "title": "Is Admin",
+                        "description": "Define if user has admin rights",
+                        "type": "string",
+                        "example": "0/1"
                     }
                 },
                 "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            },
+            "LogoutRequest": {
+                "title": "Logout",
+                "description": "Logout User",
+                "xml": {
+                    "name": "Logout"
+                }
+            },
+            "LogoutResponse": {
+                "title": "Logout",
+                "description": "Logout User",
+                "xml": {
+                    "name": "Logout"
+                }
+            },
+            "RegisterRequest": {
+                "title": "Get User request",
+                "description": "User model",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of the User",
+                        "type": "string",
+                        "example": "Patric Uren"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "description": "User Email",
+                        "type": "string",
+                        "example": "example@example.com"
+                    },
+                    "password": {
+                        "title": "Password",
+                        "description": "Password of the User",
+                        "type": "string",
+                        "example": "Password"
+                    },
+                    "passwordConfirmation": {
+                        "title": "$Password Confirmation",
+                        "description": "Password Confirmation of the User",
+                        "type": "string",
+                        "example": "Password"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            },
+            "RegisterResponse": {
+                "title": "Get User response",
+                "description": "User model",
+                "properties": {
+                    "token": {
+                        "title": "Token",
+                        "description": "Users Token",
+                        "type": "string",
+                        "example": "6|6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            },
+            "CreateCategoryRequest": {
+                "title": "Get User request",
+                "description": "User model",
+                "xml": {
+                    "name": "User"
+                }
+            },
+            "CreateCategoryResponse": {
+                "title": "Get User response",
+                "description": "User model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of the User",
+                        "type": "string",
+                        "example": "Patric Uren"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "description": "User Email",
+                        "type": "string",
+                        "example": "example@example.com"
+                    },
+                    "isAdmin": {
+                        "title": "Is Admin",
+                        "description": "Define if user has admin rights",
+                        "type": "string",
+                        "example": "0/1"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            },
+            "GetCategoriesResponse": {
+                "title": "Get User request",
+                "description": "User model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of the User",
+                        "type": "string",
+                        "example": "Patric Uren"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "description": "User Email",
+                        "type": "string",
+                        "example": "example@example.com"
+                    },
+                    "isAdmin": {
+                        "title": "Is Admin",
+                        "description": "Define if user has admin rights",
+                        "type": "string",
+                        "example": "0/1"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            },
+            "ShowCategoriesResponse": {
+                "title": "Get User request",
+                "description": "User model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of the User",
+                        "type": "string",
+                        "example": "Patric Uren"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "description": "User Email",
+                        "type": "string",
+                        "example": "example@example.com"
+                    },
+                    "isAdmin": {
+                        "title": "Is Admin",
+                        "description": "Define if user has admin rights",
+                        "type": "string",
+                        "example": "0/1"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            },
+            "UpdateCategoryRequest": {
+                "title": "Get User request",
+                "description": "User model",
+                "xml": {
+                    "name": "User"
+                }
+            },
+            "UpdateCategoryResponse": {
+                "title": "Get User response",
+                "description": "User model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of the User",
+                        "type": "string",
+                        "example": "Patric Uren"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "description": "User Email",
+                        "type": "string",
+                        "example": "example@example.com"
+                    },
+                    "isAdmin": {
+                        "title": "Is Admin",
+                        "description": "Define if user has admin rights",
+                        "type": "string",
+                        "example": "0/1"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            },
+            "GetUserRequest": {
+                "title": "Get User request",
+                "description": "User model",
                 "xml": {
                     "name": "User"
                 }
@@ -143,12 +814,6 @@
                 "title": "Get User request",
                 "description": "User model",
                 "properties": {
-                    "token": {
-                        "title": "Token",
-                        "description": "Users Token",
-                        "type": "string",
-                        "example": "6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ"
-                    },
                     "name": {
                         "title": "Name",
                         "description": "Name of the User",
@@ -202,11 +867,25 @@
                     "name": "User"
                 }
             }
+        },
+        "securitySchemes": {
+            "apiAuth": {
+                "type": "http",
+                "description": "Login with email and password to get the authentication token",
+                "name": "Token based Based",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
         }
     },
     "tags": [
         {
             "name": "Auth",
+            "description": "API Endpoints of Auth"
+        },
+        {
+            "name": "User",
             "description": "API Endpoints of Auth"
         },
         {

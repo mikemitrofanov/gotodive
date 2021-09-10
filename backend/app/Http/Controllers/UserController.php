@@ -12,12 +12,13 @@ class UserController extends Controller
      * @OA\Get(
      *      path="/users",
      *      operationId="showUser",
-     *      tags={"Auth"},
+     *      tags={"User"},
      *      summary="Get list of projects",
      *      description="Returns list of projects",
+     *      security={{"bearerAuth":{}}},
      *
      *      @OA\RequestBody(
-     *          required=true,
+     *          required=false,
      *          @OA\JsonContent(ref="#/components/schemas/GetUserRequest")
      *      ),
      *      @OA\Response(
@@ -40,27 +41,22 @@ class UserController extends Controller
      * @OA\Put(
      *      path="/users",
      *      operationId="Update User",
-     *      tags={"Auth"},
+     *      tags={"User"},
      *      summary="Update user",
      *      description="Returns user",
+     *      security={{"bearerAuth":{}}},
      *
      *      @OA\RequestBody(
      *          required=true,
      *          @OA\JsonContent(ref="#/components/schemas/UpdateUserRequest")
      *      ),
      *
-     *      @OA/securitySchemes(
-     *      bearerAuth:
-     *      type: http
-     *      scheme: bearer
-     *      bearerFormat: JWT
-     *      ),
-     * @OA\Response(
+     *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/UpdateUserRequest")
+     *          @OA\JsonContent(ref="#/components/schemas/UpdateUserResponse")
      *       ),
-     * @OA\Response(
+     *      @OA\Response(
      *          response=401,
      *          description="Unauthenticated",
      *      ),

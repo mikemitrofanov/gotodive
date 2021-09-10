@@ -8,17 +8,7 @@
  *     )
  * )
  */
-class GetUserRequest{
-    /**
-     * @OA\Property(
-     *      title="Token",
-     *      description="Users Token",
-     *      example="6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ"
-     * )
-     *
-     * @var string
-     */
-    public $token;
+class UpdateCategoryRequest{
 
 }
 
@@ -31,7 +21,7 @@ class GetUserRequest{
  *     )
  * )
  */
-class GetUserResponse
+class UpdateCategoryResponse
 {
     /**
      * @OA\Property(

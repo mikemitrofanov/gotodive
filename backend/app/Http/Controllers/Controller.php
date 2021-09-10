@@ -19,6 +19,16 @@ class Controller extends BaseController
      *      ),
      * )
      *
+     * @OA\SecurityScheme(
+     *     type="http",
+     *     description="Login with email and password to get the authentication token",
+     *     name="Token based Based",
+     *     in="header",
+     *     scheme="bearer",
+     *     bearerFormat="JWT",
+     *     securityScheme="apiAuth",
+     * )
+     *
      * @OA\Server(
      *      url=L5_SWAGGER_CONST_HOST,
      *      description="API Server"
@@ -26,6 +36,10 @@ class Controller extends BaseController
      *
      * @OA\Tag(
      *     name="Auth",
+     *     description="API Endpoints of Auth"
+     * )
+     * @OA\Tag(
+     *     name="User",
      *     description="API Endpoints of Auth"
      * )
      * @OA\Tag(

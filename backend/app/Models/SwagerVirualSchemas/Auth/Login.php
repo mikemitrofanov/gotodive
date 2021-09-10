@@ -1,37 +1,27 @@
 <?php
-
-
 /**
  * @OA\Schema(
- *     title="Get User request",
- *     description="User model",
+ *     title="Login",
+ *     description="Login User",
  *     @OA\Xml(
- *         name="User"
+ *         name="Login"
  *     )
  * )
  */
-class UpdateUserRequest
-{
+class LoginRequest{
+
     /**
      * @OA\Property(
-     *      title="Token",
-     *      description="Users Token",
-     *      example="6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ"
+     *      title="Password",
+     *      description="Password of the User",
+     *      example="Password"
      * )
      *
      * @var string
      */
-    public $token;
-    /**
-     * @OA\Property(
-     *      title="Name",
-     *      description="Name of the User",
-     *      example="Patric Uren"
-     * )
-     *
-     * @var string
-     */
-    public $name;
+    public $password;
+
+
     /**
      * @OA\Property(
      *      title="Email",
@@ -42,7 +32,6 @@ class UpdateUserRequest
      * @var string
      */
     public $email;
-
 
 }
 
@@ -55,12 +44,23 @@ class UpdateUserRequest
  *     )
  * )
  */
-class UpdateUserResponse
+class LoginResponse
 {
     /**
      * @OA\Property(
-     *     title="ID",
-     *     description="ID",
+     *      title="Token",
+     *      description="Users Token",
+     *      example="3|6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ"
+     * )
+     *
+     * @var string
+     */
+    public $token;
+
+    /**
+     * @OA\Property(
+     *     title="Id",
+     *     description="User Id",
      *     format="int64",
      *     example=1
      * )
