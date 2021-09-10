@@ -7,16 +7,23 @@ import login from "../public/images/header/login.png";
 import MenuList from "./MenuList";
 
 export default function Headers() {
-    let special = [
-        "Advanced Open Wawter Driver","Recreational Trimix Driver","Rescue Diver","Elite Diver/MAster Diver","Complex Navigation Diver","Deep Diver","Drift Diver","Dry suit diver"
-    ]
-    
-    const daivingList = [
-        'Scuba diving',
-        'Supervised Diver (Scuba Diver)',
-        'Open Water Diver'
-    ];
-    
+  let special = [
+    "Advanced Open Wawter Driver",
+    "Recreational Trimix Driver",
+    "Rescue Diver",
+    "Elite Diver/MAster Diver",
+    "Complex Navigation Diver",
+    "Deep Diver",
+    "Drift Diver",
+    "Dry suit diver",
+  ];
+
+  const daivingList = [
+    "Scuba diving",
+    "Supervised Diver (Scuba Diver)",
+    "Open Water Diver",
+  ];
+
   return (
     <header className={`${style.header_container}`}>
       <nav className={`${style.wrapper_nav}`}>
@@ -24,16 +31,10 @@ export default function Headers() {
           <div className={"flex justify-around w-2/5"}>
             <li>Главная</li>
             <li>
-              <MenuList
-                title={"Дайвинг"}
-                items={daivingList}
-              />
+              <MenuList title={"Дайвинг"} items={daivingList} />
             </li>
             <li>
-              <MenuList
-                title={"Специализации"}
-                items={special}
-              />
+              <MenuList title={"Специализации"} items={special} />
             </li>
             <li id={`${style.navigation}`}>Галерея</li>
             <li id={`${style.navigation}`}>Прайс</li>

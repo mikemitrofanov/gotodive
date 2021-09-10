@@ -5,7 +5,11 @@ export default function MenuList(props) {
   const { title, items } = props;
 
   const renderList = () => {
-    return items.map((item) => <MenuItem item={item} />);
+    return items.map((item) => (
+      <MenuItem>
+       {item}
+      </MenuItem>
+    ));
   };
 
   return (
