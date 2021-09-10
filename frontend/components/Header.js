@@ -9,11 +9,11 @@ import MenuList from "./MenuList";
 export default function Headers() {
   return (
     <header className={`${style.header_container}`}>
-      <div className={`${style.wrapper_nav}`}>
-        <ul className={"flex justify-around"}>
+      <nav className={`${style.wrapper_nav}`}>
+        <ul className={"flex justify-around"} >
           <div className={"flex justify-around w-2/5"}>
             <li>Главная</li>
-            <li>
+            <li >
               <MenuList
                 title={"Дайвинг"}
                 params1={"Scuba diving"}
@@ -34,24 +34,24 @@ export default function Headers() {
                 params8={"Dry suit diverr"}
               />
             </li>
-            <li>Галерея</li>
-            <li>Прайс</li>
+            <li id={`${style.navigation}`}>Галерея</li>
+            <li id={`${style.navigation}`}>Прайс</li>
           </div>
           <div className={"flex justify-around w-2/5"}>
             <li>
               <SearchInput />
             </li>
             <div className={'flex justify-evenly w-40'}>
-                <li>RU</li>
-                <li>UKR</li>
-                <li>EN</li>
+                <li id={`${style.navigation}`}>RU</li>
+                <li id={`${style.navigation}`}>UKR</li>
+                <li id={`${style.navigation}`}>EN</li>
             </div>
             <li>
               <Image src={login} alt="login icon" />
             </li>
           </div>
         </ul>
-      </div>
+      </nav>
     </header>
   );
 }

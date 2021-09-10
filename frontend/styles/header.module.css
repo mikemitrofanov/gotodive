@@ -11,6 +11,11 @@
     width: 80%;
 }
 
+#navigation:hover {
+    color: #7699C8;
+    cursor: pointer;
+}
+
 
 #styleInput {
     background-color:inherit;
@@ -18,6 +23,7 @@
     outline: none; 
     width: 274px; /* Ширина поля */
     vertical-align: middle; /* Выравнивание по середине */
+    color:#7699C8;
 }
 
 #block_input_icon {
