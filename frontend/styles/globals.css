@@ -1,41 +1,25 @@
-/* html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-} */
 
 @font-face {
-  font-family: 'Montserrat-ExtraBold';
+  font-family: 'Montserrat-ExtraBold',serif;
   font-weight: 400;
   src: url('../public/fonts/Montserrat/Montserrat-ExtraBold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Montserrat-Bold';
+  font-family: 'Montserrat-Bold',serif;
   font-weight: 700;
   src: url('../public/fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Montserrat-Light';
+  font-family: 'Montserrat-Light',sans-serif;
   font-weight: 700;
   src: url('../public/fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
 }
 
 
 @font-face {
-    font-family: 'Lora-Regular';
+    font-family: 'Lora-Regular',sans-serif;
     font-weight: 400;
     src: url('../public/fonts/11049.ttf') format('truetype');
   }
@@ -56,7 +40,8 @@ a {
     font-family:'Lora-Regular',sans-serif;
     color:#7B7C7B;
     font-size: 1.1rem;
-    word-break: break-all  }
+    word-break: break-all
+    }
 
   .fonts_button_action {
     font-family: "Montserrat-Bold",serif;
