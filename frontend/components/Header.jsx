@@ -28,7 +28,7 @@ export default function Headers() {
     <header className={`${style.header_container}`}>
       <nav className={`${style.wrapper_nav}`}>
         <ul className={"flex justify-around"}>
-          <div className={"flex justify-around w-2/5"}>
+          <div className={"flex justify-around w-1/3"}>
             <li>Главная</li>
             <li>
               <MenuList title={"Дайвинг"} items={daivingList} />
@@ -39,7 +39,7 @@ export default function Headers() {
             <li id={`${style.navigation}`}>Галерея</li>
             <li id={`${style.navigation}`}>Прайс</li>
           </div>
-          <div className={"flex justify-around w-2/5"}>
+          <div className={"flex justify-around"}>
             <li>
               <SearchInput />
             </li>

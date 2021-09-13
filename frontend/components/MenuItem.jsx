@@ -1,5 +1,5 @@
-import style from "../styles/header.module.css";
 import Link from "next/link";
+import style from "../styles/header.module.css";
 
 export default function MenuItems(props) {
   const { children } = props;
