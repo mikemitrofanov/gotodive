@@ -12,7 +12,7 @@ export default function ListMediaItem({ title, ...rest }) {
           &nbsp;
           {info1}
         </div>
-        <div className={`${style.info_menu} mt-5`}>
+         <div className={`${style.info_menu} mt-5`}>
           {icon2 && <Image src={icon2} alt="map_icon" />}
           &nbsp;
           {info2}
@@ -26,7 +26,7 @@ export default function ListMediaItem({ title, ...rest }) {
           {icon4 && <Image src={icon4} alt="map_icon" />}
           &nbsp;
           {info4}
-        </div>
+        </div> 
       </ul>
     </article>
   );
