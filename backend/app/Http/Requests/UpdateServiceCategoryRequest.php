@@ -25,7 +25,7 @@ class UpdateServiceCategoryRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'order' => 'integer',
+            'order' => 'nullable|integer',
         ];
     }
 }

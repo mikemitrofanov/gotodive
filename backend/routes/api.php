@@ -16,14 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('register', [AuthController::class, 'register']);
+
+
 Route::get('/service-categories', [ServiceCategoryController::class, 'index']);
 Route::get('/service-categories/services', [ServiceCategoryController::class, 'withServices']);
 Route::get('/service-categories/{serviceCategory:id}', [ServiceCategoryController::class, 'show']);
 Route::get('/service-categories/{serviceCategory:id}/services', [ServiceController::class, 'index']);
-
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('register', [AuthController::class, 'register']);
-
+Route::get('/services/{service:id}', [ServiceController::class, 'show']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 

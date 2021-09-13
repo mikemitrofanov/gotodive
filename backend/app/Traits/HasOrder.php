@@ -4,9 +4,9 @@ namespace App\Traits;
 
 trait HasOrder
 {
-    public function setOrderAttribute()
+    public function setOrderAttribute($value)
     {
-        $value = $this->order ?: $this->max('order') + 1;
+        $value = $value ?: $this->max('order') + 1;
         $this->attributes['order'] = $value;
     }
 }

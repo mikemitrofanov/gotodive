@@ -11,8 +11,12 @@ class Service extends Model
     use HasFactory, HasOrder;
 
     protected $fillable = [
+        'short_description',
+        'min_age',
+        'required_experience',
+        'max_depth',
+        'course_certificate',
         'title',
-        'link',
         'order',
         'description',
         'duration',

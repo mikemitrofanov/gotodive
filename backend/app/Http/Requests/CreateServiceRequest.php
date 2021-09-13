@@ -28,8 +28,14 @@ class CreateServiceRequest extends FormRequest
             'link' => 'required|string',
             'order' => 'nullable|integer',
             'description' => 'required|string',
-            'duration' => 'required|integer',
+            'duration' => 'required|string',
             'price' => 'required|integer',
+            'isPopular' => 'required|boolean',
+            'short_description' => 'required|string',
+            'min_age' => 'required|integer',
+            'required_experience' => 'required|string',
+            'max_depth' => 'nullable|string',
+            'course_certificate' => 'nullable|string',
         ];
     }
 }
