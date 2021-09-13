@@ -5,7 +5,7 @@ export default function OurTeam({teamName,desc,imagesValue}) {
             <article className='flex-col m-32'>
                 <Image src={imagesValue} alt={`on this photo: ${teamName}`} height={390} width={389}/>
                 <div className='flex items-center flex-col mt-8'>
-                    <h2 className='name_team text-4xl	text-white'>{teamName}</h2>
+                    <h3 className='name_team text-4xl	text-white'>{teamName}</h3>
                     <div className='desc-our_team text-xl text-white '>{desc}</div>
                 </div>
             </article>
