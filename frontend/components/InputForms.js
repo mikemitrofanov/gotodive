@@ -4,9 +4,9 @@ import { InputField, InputMessage } from "./inputsForm/inputs";
 export default function InputForms({ handleChange, handleSubmit, data }) {
   return (
     <form className="flex flex-col mt-7" onSubmit={handleSubmit}>
-      <h1 className={`flex justify-center fonts-title_popular-block`}>
+      <h2 className='flex justify-center fonts-title_popular-block'>
         Пишите нам
-      </h1>
+      </h2>
       <div className="flex flex-row">
         <div className="flex flex-col pr-7">
           <div>
@@ -30,7 +30,6 @@ export default function InputForms({ handleChange, handleSubmit, data }) {
               name="phone"
               type={"tel"}
               value={data.phone}
-              pattern="/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/"
               onChange={handleChange("phone")}
             />
           </div>
