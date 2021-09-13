@@ -35,27 +35,32 @@ a {
 
 
 @font-face {
-    font-family: 'LoraFonts';
-    font-weight: 900;
+    font-family: 'Lora-Regular';
+    font-weight: 400;
     src: url('../public/fonts/11049.ttf') format('truetype');
   }
 
   .fonts-title_popular-block {
-    font-family:'Montserrat-ExtraBold';
+    font-family:'Montserrat-ExtraBold',serif;
     opacity: 1;
     color:#7B7C7B;
-    font-size: 39px;
-  }
+    font-size: 2.4rem;
+  } 
 
   .fonts-title-desc_popular_block {
-    font-family:'Montserrat-Bold';
+    font-family:'Montserrat-Bold',serif;
     color: #7B7C7B;
   }
 
   .fonts-desc_popular-block {
-    font-family:'LoraFonts';
+    font-family:'Lora-Regular',sans-serif;
     color:#7B7C7B;
-    font-size: 19px;
+    font-size: 1.1rem;
+    word-break: break-all  }
+
+  .fonts_button_action {
+    font-family: "Montserrat-Bold",serif;
+    background-color: #051330;
   }
 
   
