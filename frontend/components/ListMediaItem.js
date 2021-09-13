@@ -6,7 +6,7 @@ export default function ListMediaItem({ title, ...rest }) {
   return (
     <article className="text-white">
       <h1 className={`mt-7 ${style.styleTitle}`}>{title}</h1>
-      <ul className={`mt-6`}>
+      <ul className='mt-6'>
         <div className={`${style.info_menu} mt-5` }>
           {icon1 && <Image src={icon1} alt="map_icon" />}
           &nbsp;

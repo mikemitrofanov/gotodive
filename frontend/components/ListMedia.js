@@ -57,36 +57,6 @@ export default function ListMedia() {
          icon4={el.icon4}
         />
       ))}
-      {/* <ListMediaItem
-        title={"Contact Us"}
-        info1={info}
-        // info2={"270-177-6026, 275-198-7978"}
-        // info3={"@GotoDive"}
-        // info4={"GotoDive@gmail.com"}
-        // icon1={mapIcon}
-        // icon2={TelIcon}
-        // icon3={facebookIcon}
-        // icon4={mailIcon}
-      />
-      <ListMediaItem
-        title={"Categories"}
-        info1={"Дайвинг"}
-        info2={"Обучение дайвингу"}
-        info3={"Стань ДАЙВ ПРО"}
-        info4={"Экскурсии"}
-      />
-      <ListMediaItem
-        title={"Social"}
-        info1={"@GotoDive"}
-        info2={"@GotoDive"}
-        info3={"@GotoDive"}
-        info4={"@GotoDive"}
-        icon={instaIcon}
-        icon1={telegramIcon}
-        icon2={TelIcon}
-        icon3={wtsupIcon}
-        icon4={viberIcon}
-      /> */}
     </section>
   );
 }
