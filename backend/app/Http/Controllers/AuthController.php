@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
-use App\Http\Resources\TokenResource;
+use App\Http\Requests\UpdateUserRequest;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,19 +16,24 @@ class AuthController extends Controller
     {
         $credentials = $request->validated();
 
-        if (Auth::attempt($credentials)) {
-            $token = Auth::user()->createToken('');
-            return new TokenResource($token);
+        if (!Auth::attempt($credentials)) {
+            return response()->json([
+                'message' => 'The provided credentials do not match our records.'
+            ], 401);
         }
 
-        return response()->noContent(401);
+        return response()->json([
+            'token' => Auth::user()->createToken('authToken')->plainTextToken
+        ]);
+
     }
 
     public function register(RegisterRequest $request)
     {
         $user = User::create($request->validated());
-        $token = $user->createToken('');
-        return new TokenResource($token);
+        return response()->json([
+            'token' => $user->createToken('authToken')->plainTextToken
+        ]);
 
     }
 
@@ -37,5 +43,15 @@ class AuthController extends Controller
         return response()->noContent();
     }
 
+    public function show()
+    {
+        return new UserResource(Auth::user());
+    }
+
+    public function update(UpdateUserRequest $request)
+    {
+        $request->user()->update($request->validated());
+        return new UserResource($request->user());
+    }
 
 }

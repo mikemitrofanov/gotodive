@@ -12,7 +12,7 @@ class Controller extends BaseController
     /**
      * @OA\Info(
      *      version="1.0.0",
-     *      title="Laravel OpenApi Demo Documentation",
+     *      title="GoToDive API documentation",
      *      description="L5 Swagger OpenApi description",
      *      @OA\Contact(
      *          email="admin@admin.com"

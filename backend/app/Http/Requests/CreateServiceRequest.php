@@ -26,7 +26,7 @@ class CreateServiceRequest extends FormRequest
         return [
             'title' => 'required|string',
             'link' => 'required|string',
-            'order' => 'integer',
+            'order' => 'nullable|integer',
             'description' => 'required|string',
             'duration' => 'required|integer',
             'price' => 'required|integer',
