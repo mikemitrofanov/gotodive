@@ -2,8 +2,6 @@
 
 namespace App\Traits;
 
-
-
 trait HasOrder
 {
     public function setOrderAttribute()
