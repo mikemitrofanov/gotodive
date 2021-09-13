@@ -19,6 +19,12 @@ class ServiceCategoryController extends Controller
         return ServiceCategoryResource::collection(ServiceCategory::all());
     }
 
+    public function withServices()
+    {
+
+        return ServiceCategory::with('services')->get();
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -39,7 +45,7 @@ class ServiceCategoryController extends Controller
      */
     public function show(ServiceCategory $serviceCategory)
     {
-        return new ServiceCategoryResource ($serviceCategory);
+        return new ServiceCategoryResource($serviceCategory);
     }
 
     /**
@@ -52,7 +58,7 @@ class ServiceCategoryController extends Controller
     public function update(UpdateServiceCategoryRequest $request, ServiceCategory $serviceCategory)
     {
         $serviceCategory->update($request->validated());
-        return new ServiceCategoryResource ($serviceCategory);
+        return new ServiceCategoryResource($serviceCategory);
     }
 
     /**

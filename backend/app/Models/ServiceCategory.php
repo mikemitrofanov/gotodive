@@ -21,4 +21,10 @@ class ServiceCategory extends Model
         return $this->hasMany(Service::class);
     }
 
+//todo replace set order in to trait
+    public function setOrderAttribute($value)
+    {
+        $value = $value ?: ServiceCategory::max('order') + 1;
+        $this->attributes['order'] = $value;
+    }
 }
