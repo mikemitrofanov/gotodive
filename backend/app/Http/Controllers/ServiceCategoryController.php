@@ -34,7 +34,7 @@ class ServiceCategoryController extends Controller
     public function store(CreateServiceCategoryRequest $request)
     {
         $category = ServiceCategory::create($request->validated());
-        return new ServiceCategoryResource ($category);
+        return new ServiceCategoryResource($category);
     }
 
     /**
