@@ -22,9 +22,9 @@ Route::post('register', [AuthController::class, 'register']);
 
 Route::get('/service-categories', [ServiceCategoryController::class, 'index']);
 Route::get('/service-categories/services', [ServiceCategoryController::class, 'withServices']);
-Route::get('/service-categories/{serviceCategory:id}', [ServiceCategoryController::class, 'show']);
-Route::get('/service-categories/{serviceCategory:id}/services', [ServiceController::class, 'index']);
-Route::get('/services/{service:id}', [ServiceController::class, 'show']);
+Route::get('/service-categories/{serviceCategory}', [ServiceCategoryController::class, 'show']);
+Route::get('/service-categories/{serviceCategory}/services', [ServiceController::class, 'index']);
+Route::get('/services/{service}', [ServiceController::class, 'show']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
@@ -34,13 +34,13 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::group(['middleware' => ['isAdmin']], function () {
         Route::group(['prefix' => 'service-categories'], function () {
             Route::post('/', [ServiceCategoryController::class, 'store']);
-            Route::put('/{serviceCategory:id}', [ServiceCategoryController::class, 'update']);
-            Route::delete('/{serviceCategory:id}', [ServiceCategoryController::class, 'destroy']);
-            Route::post('{serviceCategory:id}/services', [ServiceController::class, 'store']);
+            Route::put('/{serviceCategory}', [ServiceCategoryController::class, 'update']);
+            Route::delete('/{serviceCategory}', [ServiceCategoryController::class, 'destroy']);
+            Route::post('{serviceCategory}/services', [ServiceController::class, 'store']);
 
         });
 
-        Route::put('/services/{service:id}', [ServiceController::class, 'update']);
-        Route::delete('/services/{service:id}', [ServiceController::class, 'destroy']);
+        Route::put('/services/{service}', [ServiceController::class, 'update']);
+        Route::delete('/services/{service}', [ServiceController::class, 'destroy']);
     });
 });
