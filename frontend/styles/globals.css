@@ -1,12 +1,12 @@
 
 @font-face {
-  font-family: 'Montserrat-ExtraBold',serif;
+  font-family: 'Montserrat-ExtraBold';
   font-weight: 400;
   src: url('../public/fonts/Montserrat/Montserrat-ExtraBold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Montserrat-Bold',serif;
+  font-family: 'Montserrat-Bold';
   font-weight: 700;
   src: url('../public/fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
 }
