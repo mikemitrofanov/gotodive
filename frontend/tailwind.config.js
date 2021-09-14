@@ -11,6 +11,14 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
+      'max-sm': {'max':'640px'},
+      'max-cust':[
+        {'min': '0px', 'max': '568px'},
+      ],
+      'max-md': {'max':'768px'},
+      'max-lg': {'max':'1024px'},
+      'max-xl': {'max':'1280px'},
+      'max-2xl': {'max':'1536px'},
     },
     colors: {
       transparent: 'transparent',

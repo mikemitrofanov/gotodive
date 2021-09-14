@@ -60,4 +60,5 @@ a {
 
   .bg-custom {
     background-image: url('../public/images/ourteam/bckgrnd.png');
+    background-size:cover;
   }
