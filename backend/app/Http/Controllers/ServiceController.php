@@ -19,18 +19,18 @@ class ServiceController extends Controller
     public function store(CreateServiceRequest $request, ServiceCategory $serviceCategory)
     {
         $service = $serviceCategory->services()->create($request->validated());
-        return new ServiceResource ($service);
+        return new ServiceResource($service);
     }
 
     public function show(Service $service)
     {
-        return new ServiceResource ($service);
+        return new ServiceResource($service);
     }
 
     public function update(UpdateServiceRequest $request, Service $service)
     {
         $service->update($request->validated());
-        return new ServiceResource ($service);
+        return new ServiceResource($service);
     }
 
 
