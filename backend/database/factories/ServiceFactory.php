@@ -21,17 +21,46 @@ class ServiceFactory extends Factory
      */
     public function definition()
     {
+        $duration = $this->faker->numberBetween(1, 24);
+        $experience = $this->faker->numberBetween(1, 24);
+
         return [
-            'title' => $this->faker->text(20),
-            'description' => $this->faker->text(300),
-            'duration' => $this->faker->numberBetween(1, 24) . ' minutes',
+            'title' => [
+                'en' => $this->faker->text(15),
+                'nl' => $this->faker->text(20),
+                'ru' => $this->faker->text(25),
+            ],
+            'description' => [
+                'en' => $this->faker->text(250),
+                'nl' => $this->faker->text(300),
+                'ru' => $this->faker->text(350),
+            ],
+            'duration' => [
+                'en' => $duration . ' minutes',
+                'nl' => $duration . ' Nederlands',
+                'ru' => $duration . ' минут',
+
+            ],
+            'short_description' => [
+                'en' => $this->faker->text(75),
+                'nl' => $this->faker->text(60),
+                'ru' => $this->faker->text(90),
+            ],
+            'required_experience' => $this->faker->boolean() ? [
+                    'en' => $experience . ' hours',
+                    'nl' => $experience . ' Nederlands',
+                    'ru' => $experience . ' часов',
+                ]:null,
+            'course_certificate' => $this->faker->boolean() ? [
+                    'en' => $this->faker->text(250),
+                    'nl' => $this->faker->text(300),
+                    'ru' => $this->faker->text(350),
+                ]:null,
             'price' => $this->faker->numberBetween(50, 1000),
             'is_popular' => $this->faker->boolean(30),
-            'short_description' => $this->faker->text(75),
             'min_age' => $this->faker->numberBetween(6, 30) . ' years',
-            'required_experience' => $this->faker->boolean() ?? $this->faker->numberBetween(1, 24) . ' hours',
-            'max_depth' => $this->faker->boolean() ?? $this->faker->numberBetween(1, 24) . ' meters',
-            'course_certificate' => $this->faker->boolean() ?? $this->faker->text(300),
+            'max_depth' => $this->faker->boolean() ?? $this->faker->numberBetween(1, 24),
+
         ];
     }
 }

@@ -14,15 +14,19 @@ class ServiceCategoryController extends Controller
      *
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function index()
+    public function index($language)
     {
-        return ServiceCategoryResource::collection(ServiceCategory::all());
+        return ServiceCategoryResource::collection((new ServiceCategory)->collectionWithTranslation($language));
     }
 
-    public function withServices()
+    public function withServices($language)
     {
-
-        return ServiceCategory::with('services')->get();
+        $abra = ServiceCategory::all();
+        $test = $abra->each(function ($cat) {
+            $cat->append( $cat->services());
+        });
+        dd($test);
+        return;
     }
 
     /**
@@ -41,11 +45,10 @@ class ServiceCategoryController extends Controller
      * Display the specified resource.
      *
      * @param \App\Models\ServiceCategory $category
-     * @return ServiceCategoryResource
      */
-    public function show(ServiceCategory $serviceCategory)
+    public function show($language, ServiceCategory $serviceCategory)
     {
-        return new ServiceCategoryResource($serviceCategory);
+        return new ServiceCategoryResource($serviceCategory->withTranslation($language));
     }
 
     /**
