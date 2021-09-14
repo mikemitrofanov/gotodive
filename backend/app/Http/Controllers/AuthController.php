@@ -7,6 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,9 +15,8 @@ class AuthController extends Controller
 {
     public function login(LoginRequest $request)
     {
-        $credentials = $request->validated();
 
-        if (!Auth::attempt($credentials)) {
+        if (!Auth::attempt($request->validated())) {
             return response()->json([
                 'message' => 'The provided credentials do not match our records.'
             ], 401);
@@ -30,10 +30,17 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        $user = User::create($request->validated());
-        return response()->json([
-            'token' => $user->createToken('authToken')->plainTextToken
-        ]);
+        try {
+            $user = User::create($request->validated());
+            return response()->json([
+                'token' => $user->createToken('authToken')->plainTextToken
+            ]);
+        } catch (QueryException) {
+            return response()->json([
+                'message' => 'Something went wrong'
+            ], 418);
+        }
+
 
     }
 
