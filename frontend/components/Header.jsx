@@ -25,10 +25,10 @@ export default function Headers() {
   ];
 
   return (
-    <header className={`${style.header_container}`}>
-      <nav className={`${style.wrapper_nav}`}>
-        <ul className={"flex justify-around"}>
-          <div className={"flex justify-around w-1/3"}>
+    <header className={` max-md:w-1/2 h-auto  max-md:w-3/5  ${style.header_container}`}>
+      <nav className={`max-lg:py-10 max-lg:px-12 ${style.wrapper_nav}`}>
+        <ul className={" max-lg:flex-col flex justify-around"}>
+          <div className={" max-lg:flex-col max-lg:w-11/12 flex justify-around w-1/3"}>
             <li>Главная</li>
             <li>
               <MenuList title={"Дайвинг"} items={daivingList} />
@@ -39,8 +39,8 @@ export default function Headers() {
             <li id={`${style.navigation}`}>Галерея</li>
             <li id={`${style.navigation}`}>Прайс</li>
           </div>
-          <div className={"flex justify-around"}>
-            <li>
+          <div className={"flex justify-start"}>
+            <li className='max-lg:hidden'>
               <SearchInput />
             </li>
             <div className={"flex justify-evenly w-40"}>
@@ -48,7 +48,7 @@ export default function Headers() {
               <li id={`${style.navigation}`}>UKR</li>
               <li id={`${style.navigation}`}>EN</li>
             </div>
-            <li>
+            <li className='max-lg:hidden'>
               <Image src={login} alt="login icon" />
             </li>
           </div>

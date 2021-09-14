@@ -6,7 +6,7 @@ export default function MenuItems(props) {
 
   return (
     <Link href='#'>
-      <a>{children}</a>
+      <a className='py-4 px-5 max-lg:py-0 max-lg:px-0'>{children}</a>
     </Link>
   );
 }

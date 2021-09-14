@@ -18,7 +18,7 @@ export default function SearchInput() {
   };
 
   return (
-    <form id={`${style.block_input_icon}`} onSubmit={handleSubmit}>
+    <form id={` max-lg:hidden ${style.block_input_icon}`} onSubmit={handleSubmit} >
       <button>
         <SearchIcon id={`${style.colorIconSearch}`} />
       </button>
