@@ -27,7 +27,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="flex justify-center">
+    <section className="flex justify-center w-screen">
       <div className={`${style.wrapperContactForm}`}>
         <InputForms
           handleChange={handleChange}
