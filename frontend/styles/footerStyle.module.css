@@ -1,16 +1,16 @@
 .container_bg {
     background-color: #051330;
-    height: 27.8125rem;
+    min-height: 27.8125rem;
+    flex-wrap: wrap;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .wrapper_info {
-    height: 14.8rem;
-    width: 100rem;
+    height: auto;
+    max-width: 100rem;
     display: flex;
-        align-items: baseline;
+    align-items: baseline;
 }
 
 .info_menu {

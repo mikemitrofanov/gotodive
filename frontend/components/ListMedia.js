@@ -43,7 +43,7 @@ export default function ListMedia() {
     }
   ];
   return (
-    <section className={`flex w-3/5 justify-around`}>
+    <section className='flex max-lg:w-1/2 max-lg:m-20 w-3/5 max-lg:justify-start justify-around flex-wrap '>
       {info.map((el) => (
         <ListMediaItem 
         title={el.title}

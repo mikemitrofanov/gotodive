@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Gallery({ images }) {
   return (
-    <section className='text-white'>
+    <section className='max-lg:hidden text-white max-lg:w-2/5'>
       <h3 className={style.styleTitle}>Gallery</h3>
       <div className={`flex flex-wrap ${style.galleryBlock} mt-6`}>
         {images.map((el, i) => (

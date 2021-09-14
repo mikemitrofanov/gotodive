@@ -4,8 +4,8 @@ import Gallery from './Gallery';
 
 export default function Footer ({images}) {
     return (
-        <footer className={`${style.container_bg}`}>
-            <div className={`${style.wrapper_info} flex `}>
+        <footer className={`max-lg:justify-start justify-center ${style.container_bg}`}>
+            <div className={` w-full max-lg:w-1/2 ${style.wrapper_info} flex flex-wrap`}>
                 <ListMedia />
                 <Gallery images={images}/>
             </div>
