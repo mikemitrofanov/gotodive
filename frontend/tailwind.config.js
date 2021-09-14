@@ -11,6 +11,14 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
+      'max-sm': {'max':'640px'},
+      'max-cust':[
+        {'min': '0px', 'max': '400px'},
+      ],
+      'max-md': {'max':'768px'},
+      'max-lg': {'max':'1024px'},
+      'max-xl': {'max':'1280px'},
+      'max-2xl': {'max':'1536px'},
     },
     colors: {
       transparent: 'transparent',
@@ -796,6 +804,7 @@ module.exports = {
       '10/12': '83.333333%',
       '11/12': '91.666667%',
       'cards':'29.3125rem',
+      'formsWidth':'39rem',
       full: '100%',
       screen: '100vw',
       min: 'min-content',

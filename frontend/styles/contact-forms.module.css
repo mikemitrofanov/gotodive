@@ -1,5 +1,5 @@
 .styleForms {
-    height:4.625rem;
+    font-family: 'Montserrat-Light,AdobeInvisFont,MyriadPro-Regular',sans-serif;
     border:1px solid #7B7C7B;
 }
 
@@ -15,7 +15,6 @@
 }
 
 .MessageInput {
-    width:39.625rem;
     height: 27.68rem;
 }
 
@@ -27,4 +26,9 @@
 .fontsLabelForm {
     font-family: 'Montserrat-Light',serif;
     font-size: 27px;
+}
+
+.fontButton {
+    font-family: 'Montserrat-Bold';
+    color: #DFE3E0;
 }

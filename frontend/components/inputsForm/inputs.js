@@ -4,7 +4,7 @@ export const InputField = ({ label, name, type, value, onChange }) => (
   <div className="flex flex-col">
     <label
       htmlFor={`${type}Input`}
-      className={`${style.allParamsForms} mt-11 text-2xl`}
+      className={`max-sm:text-xl ${style.allParamsForms} mt-11 text-2xl`}
     >
       {label}
     </label>
@@ -12,7 +12,7 @@ export const InputField = ({ label, name, type, value, onChange }) => (
       id={`${type}Input`}
       type={`${type}`}
       name={`${name}`}
-      className={`w-96 height-forms ${style.styleForms} text-2xl`}
+      className={` max-cust:w-60  max-sm:w-96  height-forms max-sm:h-8 h-20 ${style.styleForms} w-96 text-2xl`}
       onChange={(e) => onChange(e.target.value)}
       value={value}
     />
@@ -23,7 +23,7 @@ export const InputMessage = ({ label, name, type, value, onChange }) => (
   <div className="flex flex-col">
     <label
       htmlFor={`${type}Input`}
-      className={`${style.allParamsForms} mt-11 text-2xl`}
+      className={`max-sm:text-xl ${style.allParamsForms} mt-11 text-2xl`}
     >
       {label}
     </label>
@@ -32,7 +32,7 @@ export const InputMessage = ({ label, name, type, value, onChange }) => (
       type={`${type}`}
       name={`${name}`}
       value={value}
-      className={`${style.MessageInput} height-forms  ${style.styleForms} text-2xl resize-none`}
+      className={`max-cust:w-60   sm: w-formsWidth  max-sm:w-96 ${style.MessageInput}  height-forms  ${style.styleForms} text-2xl resize-none`}
       onChange={(e) => onChange(e.target.value)}
     />
   </div>
