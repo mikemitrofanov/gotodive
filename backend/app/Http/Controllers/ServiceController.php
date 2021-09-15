@@ -22,9 +22,9 @@ class ServiceController extends Controller
         return new ServiceResource($service);
     }
 
-    public function show(Service $service)
+    public function show($language, Service $service)
     {
-        return new ServiceResource($service);
+        return new ServiceResource($service->withTranslation($language));
     }
 
     public function update(UpdateServiceRequest $request, Service $service)

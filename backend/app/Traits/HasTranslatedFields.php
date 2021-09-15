@@ -4,21 +4,14 @@ namespace App\Traits;
 
 trait HasTranslatedFields
 {
-    public function withTranslation($language)
-    {
-        $trans = [];
-        foreach ($this->translatable as $field) {
-            array_push($trans, [$field => $this->getTranslation($field, $language)]);
-        }
 
-        return $this->fill(...$trans);
-    }
-
-    public function collectionWithTranslation($language)
+    public function collectionWithTranslation($collection, $language)
     {
-        return $this::all()->each(function ($category) use ($language) {
-            return $category->withTranslation($language);
+        $translated = collect();
+        $collection->each(function ($category) use ($language, $translated) {
+            $translated->push($category->setLocale($language));
         });
 
+        return $translated;
     }
 }

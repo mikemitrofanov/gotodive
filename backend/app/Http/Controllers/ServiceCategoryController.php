@@ -6,9 +6,12 @@ use App\Http\Requests\CreateServiceCategoryRequest;
 use App\Http\Requests\UpdateServiceCategoryRequest;
 use App\Http\Resources\ServiceCategoryResource;
 use App\Models\ServiceCategory;
+use App\Traits\HasTranslatedFields;
 
 class ServiceCategoryController extends Controller
 {
+    use HasTranslatedFields;
+
     /**
      * Display a listing of the resource.
      *
@@ -16,17 +19,13 @@ class ServiceCategoryController extends Controller
      */
     public function index($language)
     {
-        return ServiceCategoryResource::collection((new ServiceCategory)->collectionWithTranslation($language));
+        return ServiceCategoryResource::collection($this->collectionWithTranslation(ServiceCategory::all(), $language));
     }
 
     public function withServices($language)
     {
-        $abra = ServiceCategory::all();
-        $test = $abra->each(function ($cat) {
-            $cat->append( $cat->services());
-        });
-        dd($test);
-        return;
+
+        return ServiceCategoryResource::collection((new ServiceCategory)->collectionWithTranslation(ServiceCategory::with('services')->get(), $language));
     }
 
     /**
@@ -48,7 +47,7 @@ class ServiceCategoryController extends Controller
      */
     public function show($language, ServiceCategory $serviceCategory)
     {
-        return new ServiceCategoryResource($serviceCategory->withTranslation($language));
+        return new ServiceCategoryResource($serviceCategory->setLocale($language));
     }
 
     /**
