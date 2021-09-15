@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use App\Traits\HasOrder;
-use App\Traits\HasTranslatedFields;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
 class ServiceCategory extends Model
 {
-    use HasFactory, HasOrder, HasTranslations, HasTranslatedFields;
+    use HasFactory, HasOrder, HasTranslations;
 
     public $timestamps = false;
     protected $fillable = [
@@ -23,6 +22,5 @@ class ServiceCategory extends Model
     {
         return $this->hasMany(Service::class);
     }
-
 
 }

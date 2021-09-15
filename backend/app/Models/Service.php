@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use App\Traits\HasOrder;
-use App\Traits\HasTranslatedFields;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
 class Service extends Model
 {
-    use HasFactory, HasOrder, HasTranslations, HasTranslatedFields;
+    use HasFactory, HasOrder, HasTranslations;
 
     protected $fillable = [
         'short_description',

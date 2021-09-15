@@ -6,12 +6,9 @@ use App\Http\Requests\CreateServiceCategoryRequest;
 use App\Http\Requests\UpdateServiceCategoryRequest;
 use App\Http\Resources\ServiceCategoryResource;
 use App\Models\ServiceCategory;
-use App\Traits\HasTranslatedFields;
 
 class ServiceCategoryController extends Controller
 {
-    use HasTranslatedFields;
-
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +32,6 @@ class ServiceCategoryController extends Controller
      */
     public function store($language, CreateServiceCategoryRequest $request)
     {
-
         $category = ServiceCategory::create($request->validated());
         return new ServiceCategoryResource($category);
     }

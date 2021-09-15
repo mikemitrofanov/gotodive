@@ -21,7 +21,7 @@ class ServiceFactory extends Factory
      */
     public function definition()
     {
-        $duration = $this->faker->numberBetween(1, 24);
+        $duration = $this->faker->numberBetween(2, 30);
         $experience = $this->faker->numberBetween(1, 24);
 
         return [
