@@ -58,7 +58,7 @@ class ServiceFactory extends Factory
                 ]:null,
             'price' => $this->faker->numberBetween(50, 1000),
             'is_popular' => $this->faker->boolean(30),
-            'min_age' => $this->faker->numberBetween(6, 30) . ' years',
+            'min_age' => $this->faker->numberBetween(6, 30),
             'max_depth' => $this->faker->boolean() ?? $this->faker->numberBetween(1, 24),
 
         ];

@@ -17,6 +17,7 @@ class ServiceCategoryResource extends JsonResource
         return [
             'title' => $this->title,
             'order' => $this->order,
+            'services'=>ServiceResource::collection($this->whenLoaded('services')),
         ];
     }
 }

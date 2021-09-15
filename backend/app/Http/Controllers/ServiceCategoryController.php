@@ -17,15 +17,14 @@ class ServiceCategoryController extends Controller
      *
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function index($language)
+    public function index()
     {
-        return ServiceCategoryResource::collection($this->collectionWithTranslation(ServiceCategory::all(), $language));
+        return ServiceCategoryResource::collection(ServiceCategory::all());
     }
 
-    public function withServices($language)
+    public function withServices()
     {
-
-        return ServiceCategoryResource::collection((new ServiceCategory)->collectionWithTranslation(ServiceCategory::with('services')->get(), $language));
+        return ServiceCategoryResource::collection(ServiceCategory::with('services')->get());
     }
 
     /**
@@ -34,8 +33,9 @@ class ServiceCategoryController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return ServiceCategoryResource
      */
-    public function store(CreateServiceCategoryRequest $request)
+    public function store($language, CreateServiceCategoryRequest $request)
     {
+
         $category = ServiceCategory::create($request->validated());
         return new ServiceCategoryResource($category);
     }
@@ -47,7 +47,7 @@ class ServiceCategoryController extends Controller
      */
     public function show($language, ServiceCategory $serviceCategory)
     {
-        return new ServiceCategoryResource($serviceCategory->setLocale($language));
+        return new ServiceCategoryResource($serviceCategory);
     }
 
     /**
@@ -57,7 +57,7 @@ class ServiceCategoryController extends Controller
      * @param \App\Models\ServiceCategory $category
      * @return ServiceCategoryResource
      */
-    public function update(UpdateServiceCategoryRequest $request, ServiceCategory $serviceCategory)
+    public function update($language, UpdateServiceCategoryRequest $request, ServiceCategory $serviceCategory)
     {
         $serviceCategory->update($request->validated());
         return new ServiceCategoryResource($serviceCategory);
