@@ -19,17 +19,19 @@
 .mainNavLinks:hover {
     color: #639BD1;
 }
+
 .dropdown::after {
     content: ' ';
     font-size: 0;
     margin-left: -55px;
     margin-right: 55px;
-    border-color:  transparent  transparent  transparent #639BD1 ;
+    border-color: transparent transparent transparent #639BD1;
     border-style: solid;
-    border-width: 8px 0  8px 12px ;
+    border-width: 8px 0 8px 12px;
     position: relative;
     bottom: 6px;
 }
+
 .dropdown:hover:after {
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
@@ -38,6 +40,7 @@
     margin-right: 51px;
     top: 0;
 }
+
 .topSearchBlock {
     font-size: 15px;
 }
@@ -106,10 +109,9 @@
 
 .main-block-container {
     width: 1920px;
-margin: auto;
+    margin: auto;
     padding: 0 180px 0 160px;
     justify-content: space-between;
-    /*width: 100%;*/
     display: flex;
     align-items: center;
 
