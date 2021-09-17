@@ -1,0 +1,66 @@
+.topNavBarBlock {
+    max-width: 1920px;
+    margin: auto;
+    background-color: #000B2D;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat-Light', sans-serif;
+    font-size: 22px;
+    color: #eaeaea;
+}
+
+.mainNavLinks {
+    margin-top: 30px;
+    margin-right: 60px;
+    color: #eaeaea;
+    text-decoration: none;
+}
+
+.topSearchBlock {
+    font-size: 15px;
+}
+
+.topSearchBlock > a {
+    margin-right: 1rem;
+    font-size: 15px;
+}
+
+.topBarSearchInput {
+    background-color: #000B2D;
+    border: solid 2px #1B3F65;
+    margin-right: 30px;
+}
+
+.top-bar-user-icon {
+    font-size: 23px;
+    padding-left: 30px;
+
+}
+
+.search-input-container > input {
+    height: 38px;
+    width: 240px;
+}
+
+.search-input-container::after {
+    content: ' ';
+    right: 83px;
+    position: relative;
+    border-left: 1px #1B3F65 solid;
+}
+
+.search-input-container > svg {
+    font-size: 15px;
+    position: relative;
+    right: 55px;
+}
+
+.main-block-container {
+    padding: 0 180px 0 160px;
+    justify-content: space-between;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
