@@ -1,5 +1,4 @@
 .topNavBarBlock {
-    max-width: 1920px;
     margin: auto;
     background-color: #000B2D;
     height: 100px;
@@ -12,11 +11,33 @@
 
 .mainNavLinks {
     margin-top: 30px;
-    margin-right: 60px;
     color: #eaeaea;
     text-decoration: none;
+    margin-right: 60px;
 }
 
+.mainNavLinks:hover {
+    color: #639BD1;
+}
+.dropdown::after {
+    content: ' ';
+    font-size: 0;
+    margin-left: -55px;
+    margin-right: 55px;
+    border-color:  transparent  transparent  transparent #639BD1 ;
+    border-style: solid;
+    border-width: 8px 0  8px 12px ;
+    position: relative;
+    bottom: 6px;
+}
+.dropdown:hover:after {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 0 solid transparent;
+    border-top: 12px solid #639BD1;
+    margin-right: 51px;
+    top: 0;
+}
 .topSearchBlock {
     font-size: 15px;
 }
@@ -56,10 +77,39 @@
     right: 55px;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    color: #639BD1;
+    display: none;
+    position: absolute;
+    background-color: #000B2D;
+    min-width: 300px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    border-bottom: 1px #1B3F65 solid;
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown-content > p {
+    border-bottom: 1px #669ACA solid;
+
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
 .main-block-container {
+    width: 1920px;
+margin: auto;
     padding: 0 180px 0 160px;
     justify-content: space-between;
-    width: 100%;
+    /*width: 100%;*/
     display: flex;
     align-items: center;
 

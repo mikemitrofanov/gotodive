@@ -14,9 +14,17 @@ export default function TopNavBar() {
                         <a className='mainNavLinks'>Главная</a>
                     </Link>
                     {categories.map(category => (
+                        <span className='dropdown'>
                         <Link href='/main'>
                             <a key={category.id} className='mainNavLinks'>{category.title}</a>
                         </Link>
+                            <span className='single-triangle'/>
+                            <div className="dropdown-content">
+                            {category.services?.map(service => (
+                                <p>{service.title}</p>
+                            ))}
+                            </div>
+                        </span>
                     ))}
                     <Link href='/gallery'>
                         <a className='mainNavLinks'>Gallery</a>
