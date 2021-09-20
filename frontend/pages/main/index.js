@@ -1,9 +1,12 @@
 import TopNavBar from "../../components/topNavBar";
 import {withRedux} from "../../hof/withRedux";
-import {getCategoryServices} from "../../store/services/action";
-import {getCategories} from "../../store/categories/action";
+import {categoriesApi} from "../../store/categories/action";
+import {useSelector} from "react-redux";
 
 export default function Main() {
+
+    const {data: categories} = useSelector(categoriesApi.endpoints.getAllCategories.select());
+    console.log(categories)
 
     return (<div>
         <TopNavBar/>
@@ -13,7 +16,6 @@ export default function Main() {
 }
 
 export const getServerSideProps = withRedux(async (ctx, dispatch) => {
-    await dispatch(getCategoryServices(1))
-    await dispatch(getCategories())
+    await dispatch(categoriesApi.endpoints.getAllCategories.initiate())
     return {props: {}}
 })

@@ -1,11 +1,9 @@
 import Link from "next/link";
-import {useQuery} from "@redux-requests/react";
-import {GET_CATEGORIES} from "../store/constants";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch, faUserPlus} from "@fortawesome/free-solid-svg-icons";
-
+import {data} from "../categoriesWithServices";
 export default function TopNavBar() {
-    const {data: {data: categories}} = useQuery({type: GET_CATEGORIES, requestKey: 'categories'});
+    const categories = data.data
     return (
         <div className='topNavBarBlock'>
             <div className='main-block-container'>
@@ -27,10 +25,10 @@ export default function TopNavBar() {
                         </span>
                     ))}
                     <Link href='/gallery'>
-                        <a className='mainNavLinks'>Gallery</a>
+                        <a className='mainNavLinks'>Галлерея</a>
                     </Link>
                     <Link href='/prices'>
-                        <a className='mainNavLinks'>Prices</a>
+                        <a className='mainNavLinks'>Прайс</a>
                     </Link>
                 </div>
                 <div className='topSearchBlock'>
