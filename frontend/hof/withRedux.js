@@ -1,7 +1,7 @@
-import {initializeStore} from "../store";
+import {initializeStore, removeUndefined} from "../store";
 
 export const withRedux = getServerSideProps => async (ctx) => {
-    const {store} = initializeStore();
+    const store = initializeStore();
     const {dispatch} = store;
     const result = await getServerSideProps(ctx, dispatch)
 
@@ -9,7 +9,7 @@ export const withRedux = getServerSideProps => async (ctx) => {
         ...result,
 
         props: {
-            initialReduxState: await store.getState(),
+            initialReduxState: removeUndefined(store.getState()),
             ...result.props
         }
 
