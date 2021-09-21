@@ -1,9 +1,12 @@
 import Link from "next/link";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch, faUserPlus} from "@fortawesome/free-solid-svg-icons";
-import NavServicesDropdown from "./NavServicesDropdown";
+import CategoryServicesDropdown from "./CategoryServicesDropdown";
+import {data} from "../categoriesWithServices";
 
 export default function NavBar() {
+    const categories = data.data
+
     return (
         <div className='top-nav-bar-block'>
             <div className='main-block-container'>
@@ -11,7 +14,9 @@ export default function NavBar() {
                     <Link href='/'>
                         <a className='main-nav-links'>Главная</a>
                     </Link>
-                    <NavServicesDropdown/>
+                    {categories.map(category => (
+                        <CategoryServicesDropdown category={category} key={category.title}/>
+                    ))}
                     <Link href='/gallery'>
                         <a className='main-nav-links'>Галлерея</a>
                     </Link>
