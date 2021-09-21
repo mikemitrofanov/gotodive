@@ -1,4 +1,4 @@
-.topNavBarBlock {
+.top-nav-bar-block {
     margin: auto;
     background-color: #000B2D;
     height: 100px;
@@ -9,14 +9,14 @@
     color: #eaeaea;
 }
 
-.mainNavLinks {
+.main-nav-links {
     margin-top: 30px;
     color: #eaeaea;
     text-decoration: none;
     margin-right: 60px;
 }
 
-.mainNavLinks:hover {
+.main-nav-links:hover {
     color: #639BD1;
 }
 
@@ -41,16 +41,16 @@
     top: 0;
 }
 
-.topSearchBlock {
+.top-search-block {
     font-size: 15px;
 }
 
-.topSearchBlock > a {
+.top-search-block > a {
     margin-right: 1rem;
     font-size: 15px;
 }
 
-.topBarSearchInput {
+.top-bar-search-input {
     background-color: #000B2D;
     border: solid 2px #1B3F65;
     margin-right: 30px;

@@ -5,11 +5,6 @@ export const categoriesApi = createApi({
 
     baseQuery: fetchBaseQuery({
         baseUrl: process.env.API_URL + '/ru/',
-        prepareHeaders(headers) {
-            headers.set('Accept', 'application/json')
-            return headers
-        }
-
     }),
     endpoints: (build) => ({
         getCategories: build.query({
@@ -23,5 +18,3 @@ export const categoriesApi = createApi({
 
 })
 export const {useGetServicesQuery} = categoriesApi;
-
-

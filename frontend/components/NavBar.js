@@ -1,39 +1,27 @@
 import Link from "next/link";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch, faUserPlus} from "@fortawesome/free-solid-svg-icons";
-import {data} from "../categoriesWithServices";
-export default function TopNavBar() {
-    const categories = data.data
+import NavServicesDropdown from "./NavServicesDropdown";
+
+export default function NavBar() {
     return (
-        <div className='topNavBarBlock'>
+        <div className='top-nav-bar-block'>
             <div className='main-block-container'>
                 <div className='topNavLinksBlock'>
-                    <Link href='/main'>
-                        <a className='mainNavLinks'>Главная</a>
+                    <Link href='/'>
+                        <a className='main-nav-links'>Главная</a>
                     </Link>
-                    {categories.map(category => (
-                        <span className='dropdown'>
-                        <Link href='/main'>
-                            <a key={category.id} className='mainNavLinks'>{category.title}</a>
-                        </Link>
-                            <span className='single-triangle'/>
-                            <div className="dropdown-content">
-                            {category.services?.map(service => (
-                                <p>{service.title}</p>
-                            ))}
-                            </div>
-                        </span>
-                    ))}
+                    <NavServicesDropdown/>
                     <Link href='/gallery'>
-                        <a className='mainNavLinks'>Галлерея</a>
+                        <a className='main-nav-links'>Галлерея</a>
                     </Link>
                     <Link href='/prices'>
-                        <a className='mainNavLinks'>Прайс</a>
+                        <a className='main-nav-links'>Прайс</a>
                     </Link>
                 </div>
-                <div className='topSearchBlock'>
+                <div className='top-search-block'>
                     <span className='search-input-container'>
-                        <input className='topBarSearchInput'/>
+                        <input className='top-bar-search-input'/>
                         <FontAwesomeIcon icon={faSearch}/>
                     </span>
                     <Link href='/prices'>

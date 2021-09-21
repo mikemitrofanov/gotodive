@@ -1,9 +1,9 @@
-import TopNavBar from "../../components/topNavBar";
+import NavBar from "../../components/NavBar";
 import {withRedux} from "../../hof/withRedux";
 
-export default function Main() {
+export default function Gallery() {
     return (<div>
-        <TopNavBar/>
+        <NavBar/>
         Gallery
 
     </div>)
