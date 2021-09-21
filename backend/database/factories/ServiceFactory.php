@@ -23,7 +23,7 @@ class ServiceFactory extends Factory
     {
         return [
             'title' => $this->faker->text(20),
-            'description' => $this->faker->text(300),
+            'description' => $this->faker->text(),
             'duration' => $this->faker->numberBetween(1, 24) . ' minutes',
             'price' => $this->faker->numberBetween(50, 1000),
             'is_popular' => $this->faker->boolean(30),
