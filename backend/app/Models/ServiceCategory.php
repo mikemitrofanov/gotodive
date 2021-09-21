@@ -10,7 +10,6 @@ class ServiceCategory extends Model
 {
     use HasFactory, HasOrder;
 
-    public $timestamps = false;
     protected $fillable = [
         'title',
         'order',
