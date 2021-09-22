@@ -3,13 +3,15 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch, faUserPlus} from "@fortawesome/free-solid-svg-icons";
 import CategoryServicesDropdown from "./CategoryServicesDropdown";
 import {data} from "../categoriesWithServices";
+import styles from './navBar.module.css';
+
 
 export default function NavBar() {
     const categories = data.data
 
     return (
-        <div className='top-nav-bar-block'>
-            <div className='main-block-container'>
+        <div className={styles.topNavBarBlock}>
+            <div className={styles.mainBlockContainer}>
                 <div className='topNavLinksBlock'>
                     <Link href='/'>
                         <a className='main-nav-links'>Главная</a>
