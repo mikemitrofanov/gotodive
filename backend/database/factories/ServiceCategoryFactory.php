@@ -22,7 +22,7 @@ class ServiceCategoryFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(20),
+            'title' => $this->faker->text(8),
         ];
     }
 }
