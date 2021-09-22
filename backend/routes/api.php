@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ServiceCategoryController;
+use App\Http\Controllers\ServiceController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,18 +16,30 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/categories/{id}', [CategoryController::class, 'show']);
-Route::group(['middleware' => ['auth:sanctum', 'isAdmin']], function () {
-    Route::post('/categories/{id}', [CategoryController::class, 'update']);
-    Route::post('/category', [CategoryController::class, 'store']);
-    Route::delete('/categories/{id}', [CategoryController::class, 'destroy']);
-});
+Route::get('/service-categories', [ServiceCategoryController::class, 'index']);
+Route::get('/service-categories/services', [ServiceCategoryController::class, 'withServices']);
+Route::get('/service-categories/{serviceCategory}', [ServiceCategoryController::class, 'show']);
+Route::get('/service-categories/{serviceCategory}/services', [ServiceController::class, 'index']);
 
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/registration', [AuthController::class, 'registration']);
+Route::post('register', [AuthController::class, 'register']);
+
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::middleware('auth:sanctum')->get('/profile', [AuthController::class, 'getProfile']);
-    Route::middleware('auth:sanctum')->post('/profile', [AuthController::class, 'updateProfile']);
+
+    Route::get('/users/me', [AuthController::class, 'show']);
+    Route::put('/users/me', [AuthController::class, 'update']);
+
+    Route::group(['middleware' => ['isAdmin']], function () {
+        Route::group(['prefix' => 'service-categories'], function () {
+            Route::post('/', [ServiceCategoryController::class, 'store']);
+            Route::put('/{serviceCategory}', [ServiceCategoryController::class, 'update']);
+            Route::delete('/{serviceCategory}', [ServiceCategoryController::class, 'destroy']);
+            Route::post('{serviceCategory}/services', [ServiceController::class, 'store']);
+
+        });
+
+        Route::put('/services/{service}', [ServiceController::class, 'update']);
+        Route::delete('/services/{service}', [ServiceController::class, 'destroy']);
+    });
 });
