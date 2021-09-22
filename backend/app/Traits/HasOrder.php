@@ -4,9 +4,10 @@ namespace App\Traits;
 
 trait HasOrder
 {
-    public function setOrderAttribute($value)
+    public function __construct(array $attributes = array())
     {
-        $value = $value ?: $this->max('order') + 1;
+        parent::__construct($attributes);
+        $value = $this->order ?: $this->max('order') + 1;
         $this->attributes['order'] = $value;
     }
 }
