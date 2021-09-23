@@ -2,15 +2,17 @@ import Link from "next/link";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch, faUserPlus} from "@fortawesome/free-solid-svg-icons";
 import CategoryServicesDropdown from "./CategoryServicesDropdown";
-import {data} from "../categoriesWithServices";
+import {useSelector} from "react-redux";
+import {categoriesApi} from "../store/categories/action";
 
 export default function NavBar() {
-    const categories = data.data
+    const {data: categories} = useSelector(categoriesApi.endpoints.getAllCategories.select());
 
     return (
         <nav className='top-nav-bar-block'>
             <div className='main-block-container'>
-                <div className='topNavLinksBlock'>
+                <button className='grip-button'> </button>
+                <div className='top-nav-links-block'>
                     <Link href='/'>
                         <a className='main-nav-links'>Главная</a>
                     </Link>
@@ -30,13 +32,13 @@ export default function NavBar() {
                         <FontAwesomeIcon icon={faSearch}/>
                     </span>
                     <Link href='/prices'>
-                        <a className='m-3'>RU</a>
+                        <a>RU</a>
                     </Link>
                     <Link href='/prices'>
-                        <a className='m-3'>UKR</a>
+                        <a>UKR</a>
                     </Link>
                     <Link href='/prices'>
-                        <a className='m-3'>EN</a>
+                        <a>EN</a>
                     </Link>
                     <Link href='/prices'>
                         <a className='top-bar-user-icon '><FontAwesomeIcon icon={faUserPlus}/></a>

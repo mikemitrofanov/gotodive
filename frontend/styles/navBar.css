@@ -9,8 +9,22 @@
     color: #eaeaea;
 }
 
+.main-block-container {
+    width: 1920px;
+    margin: auto;
+    padding: 0 180px 0 160px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+
+}
+
+.grip-button {
+    display: none;
+
+}
+
 .main-nav-links {
-    margin-top: 30px;
     color: #eaeaea;
     text-decoration: none;
     margin-right: 45px;
@@ -21,24 +35,22 @@
 }
 
 .dropdown::after {
-    content: ' ';
+    content: url("../public/images/triangle.svg");
     font-size: 0;
     margin-left: -32px;
     margin-right: 55px;
-    border-color: transparent transparent transparent #639BD1;
-    border-style: solid;
-    border-width: 8px 0 8px 12px;
+    display: inline-block;
     position: relative;
-    bottom: 6px;
+    filter: saturate(0%) brightness(200%);
+    transform: rotate(-90deg);
+    transition-duration: 0.5s;
+
 }
 
 .dropdown:hover:after {
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 0 solid transparent;
-    border-top: 12px solid #639BD1;
-    margin-right: 51px;
-    top: 0;
+    transform: rotate(0deg);
+    transition-duration: 0.5s;
+    filter: unset;
 }
 
 .top-search-block {
@@ -47,7 +59,6 @@
 
 .top-search-block > a {
     margin-right: 1rem;
-    font-size: 15px;
 }
 
 .top-bar-search-input {
@@ -106,13 +117,86 @@
     display: block;
 }
 
+@media screen and (max-width: 1700px) {
+    .main-block-container {
+        padding: 0 80px 0 60px;
 
-.main-block-container {
-    width: 1920px;
-    margin: auto;
-    padding: 0 180px 0 160px;
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
+    }
+}
 
+@media screen and (max-width: 1500px) {
+    .top-nav-bar-block {
+        font-size: 15px;
+    }
+
+    .main-block-container {
+        padding: 0;
+        justify-content: space-around;
+
+    }
+
+    .top-search-block {
+        font-size: 12px;
+    }
+
+    .search-input-container > input {
+        height: 29px;
+        width: 180px;
+    }
+
+    .dropdown::after {
+        transform: scale(0.7, 0.7) rotate(-90deg);
+        margin-left: -40px;
+        margin-right: 25px;
+    }
+
+    .dropdown:hover:after {
+        transform: scale(0.7, 0.7) rotate(0deg);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .grip-button {
+        margin-left: 20px;
+        display: block;
+        background: none;
+        border-width: 2px 0 2px 0;
+        border-color: #7699c8;
+        border-style: solid;
+        padding: 7px 0;
+    }
+
+    .grip-button::after {
+        content: ' ';
+        display: block;
+        border-width: 0 0 2px 0;
+        border-color: #7699c8;
+        border-style: solid;
+        width: 30px;
+    }
+    .top-nav-links-block{
+        display: none;
+    }
+    .top-search-block > a {
+        display: none;
+
+    }
+    .search-input-container::after {
+        right: 20px;
+    }
+    .search-input-container {
+        margin-right: 20px;
+    }
+    .main-block-container {
+        justify-content: space-between;
+
+    }
+    .top-bar-search-input{
+        margin: 0;
+    }
+    .search-input-container > svg {
+        font-size: 15px;
+        position: relative;
+        right: 20px;
+    }
 }

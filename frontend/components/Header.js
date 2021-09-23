@@ -8,7 +8,7 @@ export default function Header() {
                 </div>
                 <div className='header-text-container'>
                     <h1>ПОГРУЗИСЬ В
-                        <span> ПРИКЛЮЧЕНИЯ</span>
+                       <br/> <span> ПРИКЛЮЧЕНИЯ</span>
                     </h1>
 
                     <p>
