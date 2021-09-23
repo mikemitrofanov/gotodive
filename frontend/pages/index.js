@@ -5,17 +5,18 @@ import {useSelector} from "react-redux";
 
 export default function Main() {
 
-  const {data: categories} = useSelector(categoriesApi.endpoints.getAllCategories.select());
-  console.log(categories)
+    const {data: categories} = useSelector(categoriesApi.endpoints.getAllCategories.select());
+    console.log(categories)
 
-  return (<div>
-    <NavBar/>
-    Main
-
-  </div>)
+    return (
+        <div>
+            <NavBar/>
+            Main
+        </div>
+    )
 }
 
 export const getServerSideProps = withRedux(async (ctx, dispatch) => {
-  await dispatch(categoriesApi.endpoints.getAllCategories.initiate())
-  return {props: {}}
+    await dispatch(categoriesApi.endpoints.getAllCategories.initiate())
+    return {props: {}}
 })

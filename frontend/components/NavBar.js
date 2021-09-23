@@ -8,9 +8,9 @@ export default function NavBar() {
     const categories = data.data
 
     return (
-        <div className='top-nav-bar-block'>
+        <nav className='top-nav-bar-block'>
             <div className='main-block-container'>
-                <div className='topNavLinksBlock'>
+                <div className='top-nav-links-block'>
                     <Link href='/'>
                         <a className='main-nav-links'>Главная</a>
                     </Link>
@@ -30,19 +30,19 @@ export default function NavBar() {
                         <FontAwesomeIcon icon={faSearch}/>
                     </span>
                     <Link href='/prices'>
-                        <a className='m-3'>RU</a>
+                        <a>RU</a>
                     </Link>
                     <Link href='/prices'>
-                        <a className='m-3'>UKR</a>
+                        <a>UKR</a>
                     </Link>
                     <Link href='/prices'>
-                        <a className='m-3'>EN</a>
+                        <a>EN</a>
                     </Link>
                     <Link href='/prices'>
                         <a className='top-bar-user-icon '><FontAwesomeIcon icon={faUserPlus}/></a>
                     </Link>
                 </div>
             </div>
-        </div>
+        </nav>
     )
 }

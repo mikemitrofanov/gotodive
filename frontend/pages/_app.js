@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import '../styles/topNavBar.css'
+import '../styles/navBar.css'
 import {Provider} from "react-redux";
 import {useStore} from "../store";
 
