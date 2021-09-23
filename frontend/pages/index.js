@@ -9,10 +9,12 @@ export default function Main() {
     const {data: categories} = useSelector(categoriesApi.endpoints.getAllCategories.select());
     console.log(categories)
 
-    return (<div>
-        <NavBar/>
-        <Header/>
-    </div>)
+    return (
+        <div>
+            <NavBar/>
+            <Header/>
+        </div>
+    )
 }
 
 export const getServerSideProps = withRedux(async (ctx, dispatch) => {

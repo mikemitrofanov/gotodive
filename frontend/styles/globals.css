@@ -14,3 +14,15 @@ a {
 * {
   box-sizing: border-box;
 }
+@font-face {
+  font-family: 'Montserrat-Light';
+  src: url("../public/fonts/montserrat/Montserrat-Light.ttf");
+}
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url("../public/fonts/montserrat/Montserrat-Regular.ttf");
+}
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url("../public/fonts/montserrat/Montserrat-Bold.ttf");
+}

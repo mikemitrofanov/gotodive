@@ -1,11 +1,11 @@
 .top-nav-bar-block {
     margin: auto;
     background-color: #000B2D;
-    height: 100px;
+    height: 97px;
     display: flex;
     align-items: center;
-    font-family: 'Montserrat-Light', sans-serif;
-    font-size: 22px;
+    font-family: 'Montserrat-Regular', sans-serif;
+    font-size: 20px;
     color: #eaeaea;
 }
 
@@ -13,7 +13,7 @@
     margin-top: 30px;
     color: #eaeaea;
     text-decoration: none;
-    margin-right: 60px;
+    margin-right: 45px;
 }
 
 .main-nav-links:hover {
@@ -23,7 +23,7 @@
 .dropdown::after {
     content: ' ';
     font-size: 0;
-    margin-left: -55px;
+    margin-left: -32px;
     margin-right: 55px;
     border-color: transparent transparent transparent #639BD1;
     border-style: solid;

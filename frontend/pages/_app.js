@@ -1,4 +1,6 @@
 import '../styles/globals.css'
+import '../styles/navBar.css'
+import '../styles/header.css'
 import {Provider} from "react-redux";
 import {useStore} from "../store";
 

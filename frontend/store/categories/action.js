@@ -7,7 +7,7 @@ export const categoriesApi = createApi({
         baseUrl: process.env.API_URL + '/ru/',
     }),
     endpoints: (build) => ({
-        getCategories: build.query({
+        getCategory: build.query({
             query: (arg) => `service-categories/${arg}`
 
         }),
