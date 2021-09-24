@@ -6,6 +6,8 @@
     color: #eaeaea;
     background: url("/images/home_hero/bckgrnd.png") no-repeat center;
     background-size: cover;
+    font-size: 12px;
+
 }
 
 .header-content-container {

@@ -1,0 +1,63 @@
+.popular-container {
+    height: 860px;
+    display: flex;
+}
+
+.popular-content-container {
+    width: 100%;
+    height: max-content;
+    margin: auto;
+    position: relative;
+}
+
+.popular-items-container {
+    max-width: 1920px;
+    margin: auto;
+    display: flex;
+    color: #7b7c7b;
+    font-size: 1rem;
+    font-family: serif;
+    justify-content: space-around;
+}
+
+.popular-header {
+    font-size: 2.4rem;
+    font-family: 'Montserrat-ExtraBold', sans-serif;
+    line-height: 1;
+    width: max-content;
+    color: #7b7c7b;
+    margin: auto;
+    text-align: center;
+    padding: 50px;
+}
+
+.popular-item {
+    max-width: 465px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+}
+
+.popular-service-title {
+    font-family: 'Montserrat-Bold', sans-serif;
+    font-size: 1.5rem;
+
+
+}
+
+.popular-service-image {
+    width: 465px;
+}
+
+.popular-service-button {
+    font-size: 18px;
+    color: #dfe3e0;
+    font-family: "Montserrat-Bold", sans-serif;
+    position: absolute;
+    bottom: 50px;
+    width: 469px;
+    height: 48px;
+    border-radius: 10px;
+    background-color: #05132f;
+    border: 0 solid #000106;
+}

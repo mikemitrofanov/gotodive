@@ -1,17 +1,17 @@
 import Link from "next/link";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch, faUserPlus} from "@fortawesome/free-solid-svg-icons";
-import CategoryServicesDropdown from "./CategoryServicesDropdown";
+import CategoryServicesDropdown from "./items/CategoryServicesDropdown";
 import {useSelector} from "react-redux";
 import {categoriesApi} from "../store/categories/action";
 
 export default function NavBar() {
-    const {data: categories} = useSelector(categoriesApi.endpoints.getAllCategories.select());
-
+    const {data: {data}} = useSelector(categoriesApi.endpoints.getAllCategories.select());
+    const categories = (Array.isArray(data)) ? data : [];
     return (
         <nav className='top-nav-bar-block'>
             <div className='main-block-container'>
-                <button className='grip-button'> </button>
+                <button className='grip-button'/>
                 <div className='top-nav-links-block'>
                     <Link href='/'>
                         <a className='main-nav-links'>Главная</a>
