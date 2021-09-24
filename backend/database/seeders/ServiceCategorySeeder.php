@@ -14,6 +14,6 @@ class ServiceCategorySeeder extends Seeder
      */
     public function run()
     {
-        ServiceCategory::factory()->count(3)->create();
+        ServiceCategory::factory()->count(2)->create();
     }
 }
