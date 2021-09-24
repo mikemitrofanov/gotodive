@@ -25,6 +25,7 @@ Route::group(['prefix' => '{language}', 'middleware' => ['setLanguage']], functi
     Route::get('/service-categories/services', [ServiceCategoryController::class, 'withServices']);
     Route::get('/service-categories/{serviceCategory}', [ServiceCategoryController::class, 'show']);
     Route::get('/service-categories/{serviceCategory}/services', [ServiceController::class, 'index']);
+    Route::get('/services/popular', [ServiceController::class, 'showPopular']);
     Route::get('/services/{service}', [ServiceController::class, 'show']);
 
     Route::group(['middleware' => ['auth:sanctum']], function () {

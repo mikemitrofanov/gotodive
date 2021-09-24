@@ -13,13 +13,18 @@ class ServiceController extends Controller
 
     public function index($language, ServiceCategory $serviceCategory)
     {
-        return ServiceResource::collection($serviceCategory->services()->cursorPaginate(10));
+        return ServiceResource::collection($serviceCategory->services());
     }
 
     public function store($language, CreateServiceRequest $request, ServiceCategory $serviceCategory)
     {
         $service = $serviceCategory->services()->create($request->validated());
         return new ServiceResource($service);
+    }
+
+    public function showPopular()
+    {
+        return ServiceResource::collection(Service::where('is_popular', true)->cursorPaginate(3));
     }
 
     public function show($language, Service $service)
