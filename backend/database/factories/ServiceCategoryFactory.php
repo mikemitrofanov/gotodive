@@ -23,9 +23,9 @@ class ServiceCategoryFactory extends Factory
     {
         return [
             'title' =>[
-                'en' => $this->faker->text(20),
+                'en' => $this->faker->text(8),
                 'nl' => 'Naam in het Nederlands',
-                'ru' => $this->faker->text(20),
+                'ru' => $this->faker->text(8),
             ],
         ];
     }

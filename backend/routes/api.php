@@ -47,4 +47,3 @@ Route::group(['prefix' => '{language}', 'middleware' => ['setLanguage']], functi
         });
     });
 });
-

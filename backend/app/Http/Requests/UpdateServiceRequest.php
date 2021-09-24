@@ -26,7 +26,7 @@ class UpdateServiceRequest extends FormRequest
         return [
             'title' => 'required|string',
             'link' => 'required|string',
-            'order' => 'nullable|integer',
+            'order' => 'integer',
             'description' => 'required|string',
             'duration' => 'required|string',
             'price' => 'required|integer',
