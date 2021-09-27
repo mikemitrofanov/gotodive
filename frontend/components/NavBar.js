@@ -3,30 +3,31 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch, faUserPlus} from "@fortawesome/free-solid-svg-icons";
 import CategoryServicesDropdown from "./CategoryServicesDropdown";
 import {data} from "../categoriesWithServices";
+import styles from '../styles/navBar.module.css'
 
 export default function NavBar() {
     const categories = data.data
 
     return (
-        <nav className='top-nav-bar-block'>
-            <div className='main-block-container'>
-                <div className='top-nav-links-block'>
+        <nav className={styles.top_nav_bar_block}>
+            <div className={styles.main_block_container}>
+                <div className={''}>
                     <Link href='/'>
-                        <a className='main-nav-links'>Главная</a>
+                        <a className={styles.main_nav_links}>Главная</a>
                     </Link>
                     {categories.map(category => (
                         <CategoryServicesDropdown category={category} key={category.title}/>
                     ))}
                     <Link href='/gallery'>
-                        <a className='main-nav-links'>Галлерея</a>
+                        <a className={styles.main_nav_links}>Галлерея</a>
                     </Link>
                     <Link href='/prices'>
-                        <a className='main-nav-links'>Прайс</a>
+                        <a className={styles.main_nav_links}>Прайс</a>
                     </Link>
                 </div>
-                <div className='top-search-block'>
-                    <span className='search-input-container'>
-                        <input className='top-bar-search-input'/>
+                <div className={styles.top_search_block}>
+                    <span className={styles.search_input_container}>
+                        <input className={styles.top_bar_search_input}/>
                         <FontAwesomeIcon icon={faSearch}/>
                     </span>
                     <Link href='/prices'>
@@ -39,7 +40,7 @@ export default function NavBar() {
                         <a>EN</a>
                     </Link>
                     <Link href='/prices'>
-                        <a className='top-bar-user-icon '><FontAwesomeIcon icon={faUserPlus}/></a>
+                        <a className={styles.top_bar_user_icon }><FontAwesomeIcon icon={faUserPlus}/></a>
                     </Link>
                 </div>
             </div>

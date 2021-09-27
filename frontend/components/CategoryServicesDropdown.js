@@ -1,14 +1,14 @@
 import Link from "next/link";
+import styles from "../styles/navBar.module.css";
 
 export default function CategoryServicesDropdown({category}) {
 
     return (
-        <span className='dropdown'>
+        <span className={styles.dropdown}>
          <Link href='/'>
-            <a className='main-nav-links'>{category.title}</a>
+            <a className={styles.main_nav_links}>{category.title}</a>
          </Link>
-         <span className='single-triangle'/>
-            <div className="dropdown-content">
+            <div className={styles.dropdown_content}>
                 {category.services?.map(service => (
                     <p key={service.title}>{service.title}</p>
                 ))}
