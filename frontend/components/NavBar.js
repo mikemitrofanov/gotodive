@@ -12,8 +12,8 @@ export default function NavBar() {
     return (
         <nav className={styles.top_nav_bar_block}>
             <div className={styles.main_block_container}>
-                <button className='grip-button'/>
-                <div className={'top-nav-links-block'}>
+                <button className={styles.grip_button}/>
+                <div className={styles.top_nav_links_block}>
                     <Link href='/'>
                         <a className={styles.main_nav_links}>Главная</a>
                     </Link>

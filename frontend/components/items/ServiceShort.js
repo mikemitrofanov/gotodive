@@ -1,11 +1,12 @@
+import styles from  '../../styles/popular.module.css'
 export default function ServiceShort({service}) {
 
     return (
-        <div className='popular-item'>
-            <img className='popular-service-image' src={service.imageUrl} alt='Image'/>
-            <p className='popular-service-title'>{service.title}</p>
+        <div className={styles.popular_item}>
+            <img className={styles.popular_service_image} src={service.imageUrl} alt='Image'/>
+            <p className={styles.popular_service_title}>{service.title}</p>
             <p>{service.description}</p>
-            <button className='popular-service-button'>Записаться</button>
+            <button className={styles.popular_service_button}>Записаться</button>
         </div>
     )
 }

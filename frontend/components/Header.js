@@ -1,14 +1,16 @@
+import styles from '../styles/homeHero.module.css'
+
 export default function Header() {
     return (
-        <div className='header-container'>
-            <div className='header-content-container'>
-                <div className='header-image-container'>
-                    <img className='header-image' src='images/home_hero/image_main.png'/>
-                    <img  className='header-logo' src='images/home_hero/LOGO.png'/>
+        <div className={styles.header_container}>
+            <div className={styles.header_content_container}>
+                <div className={styles.header_image_container}>
+                    <img className={styles.header_image} src='images/home_hero/image_main.png'/>
+                    <img className={styles.header_logo} src='images/home_hero/LOGO.png'/>
                 </div>
-                <div className='header-text-container'>
+                <div className={styles.header_text_container}>
                     <h1>ПОГРУЗИСЬ В
-                       <br/> <span> ПРИКЛЮЧЕНИЯ</span>
+                        <br/> <span> ПРИКЛЮЧЕНИЯ</span>
                     </h1>
 
                     <p>

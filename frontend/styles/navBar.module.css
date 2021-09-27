@@ -9,7 +9,7 @@
     color: #eaeaea;
 }
 
-.main-block-container {
+.main_block_container {
     width: 1920px;
     margin: auto;
     padding: 0 180px 0 160px;
@@ -19,12 +19,12 @@
 
 }
 
-.grip-button {
+.grip_button {
     display: none;
 
 }
 
-.main-nav-links {
+.main_nav_links {
     color: #eaeaea;
     text-decoration: none;
     margin-right: 45px;
@@ -118,28 +118,28 @@
 }
 
 @media screen and (max-width: 1700px) {
-    .main-block-container {
+    .main_block_container {
         padding: 0 80px 0 60px;
 
     }
 }
 
 @media screen and (max-width: 1500px) {
-    .top-nav-bar-block {
+    .top_nav_bar_block {
         font-size: 15px;
     }
 
-    .main-block-container {
+    .main_block_container {
         padding: 0;
         justify-content: space-around;
 
     }
 
-    .top-search-block {
+    .top_search_block {
         font-size: 12px;
     }
 
-    .search-input-container > input {
+    .search_input_container > input {
         height: 29px;
         width: 180px;
     }
@@ -156,7 +156,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .grip-button {
+    .grip_button {
         margin-left: 20px;
         display: block;
         background: none;
@@ -166,7 +166,7 @@
         padding: 7px 0;
     }
 
-    .grip-button::after {
+    .grip_button::after {
         content: ' ';
         display: block;
         border-width: 0 0 2px 0;
@@ -174,27 +174,27 @@
         border-style: solid;
         width: 30px;
     }
-    .top-nav-links-block{
+    .top_nav_links_block{
         display: none;
     }
-    .top-search-block > a {
+    .top_search_block > a {
         display: none;
 
     }
-    .search-input-container::after {
+    .search_input_container::after {
         right: 20px;
     }
-    .search-input-container {
+    .search_input_container {
         margin-right: 20px;
     }
-    .main-block-container {
+    .main_block_container {
         justify-content: space-between;
 
     }
-    .top-bar-search-input{
+    .top_bar_search_input{
         margin: 0;
     }
-    .search-input-container > svg {
+    .search_input_container > svg {
         font-size: 15px;
         position: relative;
         right: 20px;

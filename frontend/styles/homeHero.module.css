@@ -1,4 +1,4 @@
-.header-container {
+.header_container {
     height: 870px;
     display: flex;
     align-items: center;
@@ -10,7 +10,7 @@
 
 }
 
-.header-content-container {
+.header_content_container {
     width: 1620px;
     margin: auto;
     display: flex;
@@ -20,54 +20,54 @@
 
 }
 
-.header-image {
+.header_image {
     position: relative;
 }
 
-.header-logo {
+.header_logo {
     bottom: -104px;
     left: 26px;
     display: block;
     position: absolute;
 }
 
-.header-image-container {
+.header_image_container {
     position: relative;
 }
 
-.header-text-container {
+.header_text_container {
     width: 720px;
     position: relative;
 
 }
 
-.header-text-container > h1 {
+.header_text_container > h1 {
     font-size: 65px;
     font-weight: 300;
     font-family: 'Montserrat-Light', sans-serif;
 
 }
 
-.header-text-container > h1 > span {
+.header_text_container > h1 > span {
     font-size: 79px;
     font-family: 'Montserrat-Bold', sans-serif;
     line-height: 1
 }
 
-.header-text-container > p {
+.header_text_container > p {
     margin-top: 30px;
     line-height: 1.8
 
 }
 
-.header-text-container > h1 + p {
+.header_text_container > h1 + p {
     font-size: 17px;
     font-family: 'serif';
     line-height: 1.5
 }
 
 @media screen and (max-width: 1700px) {
-    .header-content-container {
+    .header_content_container {
         margin: unset;
         padding: 0;
         justify-content: space-around;
@@ -76,49 +76,49 @@
 }
 
 @media screen and (max-width: 1500px) {
-    .header-image {
+    .header_image {
         width: 600px;
     }
 
-    .header-container {
+    .header_container {
         height: 620px;
         font-size: 10px;
     }
 
-    .header-logo {
+    .header_logo {
         width: 130px;
         bottom: -60px;
     }
 
-    .header-text-container > h1 {
+    .header_text_container > h1 {
         font-size: 49px;
     }
 
-    .header-text-container > h1 > span {
+    .header_text_container > h1 > span {
         font-size: 60px;
     }
 
-    .header-text-container > h1 + p {
+    .header_text_container > h1 + p {
         font-size: 10px;
     }
 
-    .header-text-container {
+    .header_text_container {
         width: max-content;
     }
 }
 
 @media screen and (max-width: 1200px) {
-    .header-content-container {
+    .header_content_container {
         display: unset;
         margin: auto;
         width: max-content;
     }
 
-    .header-image {
+    .header_image {
         width: 70vw;
     }
 
-    .header-image-container {
+    .header_image_container {
         width: max-content;
     }
 }
