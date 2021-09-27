@@ -6,8 +6,8 @@ import {useSelector} from "react-redux";
 import {categoriesApi} from "../store/categories/action";
 
 export default function NavBar() {
-    const {data: {data}} = useSelector(categoriesApi.endpoints.getAllCategories.select());
-    const categories = (Array.isArray(data)) ? data : [];
+    const {data} = useSelector(categoriesApi.endpoints.getAllCategories.select());
+    const categories = (Array.isArray(data?.data)) ? data.data : [];
     return (
         <nav className='top-nav-bar-block'>
             <div className='main-block-container'>

@@ -3,7 +3,7 @@ import {categoriesApi} from "../store/categories/action";
 import ServiceShort from "./items/ServiceShort";
 
 export default function Popular() {
-    const {data: data} = useSelector(categoriesApi.endpoints.getPopularServices.select());
+    const {data} = useSelector(categoriesApi.endpoints.getPopularServices.select());
     const services = (Array.isArray(data)) ? data : [];
 
     return (

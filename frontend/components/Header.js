@@ -3,7 +3,7 @@ export default function Header() {
         <div className='header-container'>
             <div className='header-content-container'>
                 <div className='header-image-container'>
-                    <img className='header-image' src='images/home_hero/image_main(1).png'/>
+                    <img className='header-image' src='images/home_hero/image_main.png'/>
                     <img  className='header-logo' src='images/home_hero/LOGO.png'/>
                 </div>
                 <div className='header-text-container'>

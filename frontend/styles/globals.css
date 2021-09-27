@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-size: 19px;
+  font-size: 19px;
 
 }
 
@@ -31,4 +31,11 @@ a {
 @font-face {
   font-family: 'Montserrat-ExtraBold';
   src: url("../public/fonts/montserrat/Montserrat-ExtraBold.ttf");
+}
+
+@media screen and (max-width: 1500px) {
+    html,
+    body {
+        font-size: 15px;
+    }
 }
