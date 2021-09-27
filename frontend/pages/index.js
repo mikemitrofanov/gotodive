@@ -3,6 +3,7 @@ import {withRedux} from "../hof/withRedux";
 import Header from "../components/Header";
 import Popular from "../components/Popular";
 import {categoriesApi} from "../store/categories/action";
+import Team from "../components/Team";
 
 export default function Main() {
     return (
@@ -10,6 +11,7 @@ export default function Main() {
             <NavBar/>
             <Header/>
             <Popular/>
+            <Team/>
         </div>
     )
 }

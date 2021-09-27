@@ -10,7 +10,7 @@ export default function Popular() {
     return (
         <div className={styles.popular_container}>
             <div className={styles.popular_content_container}>
-                <div className={styles.popular_header}>ПОПУЛЯРНОЕ</div>
+                <div className='component_title'>ПОПУЛЯРНОЕ</div>
                 <div className={styles.popular_items_container}>
                     {services.map(service => <ServiceShort service={service} key={service.title}/>)}
                 </div>
