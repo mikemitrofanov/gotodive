@@ -1,0 +1,31 @@
+.main_container {
+    background: url("/images/home_hero/bckgrnd.png") no-repeat center;
+    width: 100vw;
+    background-size: cover;
+}
+
+.content_container {
+    max-width: 1920px;
+    margin: auto;
+    height: 680px;
+    display: flex;
+    align-items: center;
+    color: #eaeaea;
+    background-size: cover;
+    justify-content: space-around;
+    text-align: center;
+    line-height: 0.1;
+
+}
+
+.team_member_name {
+    font-size: 1.8rem;
+    font-family: 'Montserrat-Bold', sans-serif;
+
+}
+
+.team_member_description {
+    font-size: 1.2rem;
+    font-family: 'Montserrat-Light', sans-serif;
+
+}
