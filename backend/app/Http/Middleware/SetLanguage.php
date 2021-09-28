@@ -16,7 +16,7 @@ class SetLanguage
      */
     public function handle(Request $request, Closure $next)
     {
-        $supportedLanguages =['ru', 'en', 'nl'];
+        $supportedLanguages =['ru', 'en', 'ukr'];
         if (!in_array($request->language, $supportedLanguages)) {
             return abort(403, 'Language code is not supported.');
 

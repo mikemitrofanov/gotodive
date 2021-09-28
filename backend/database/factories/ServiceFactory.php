@@ -27,33 +27,33 @@ class ServiceFactory extends Factory
         return [
             'title' => [
                 'en' => $this->faker->text(15),
-                'nl' => $this->faker->text(20),
+                'ukr' => $this->faker->text(20),
                 'ru' => $this->faker->text(25),
             ],
             'description' => [
                 'en' => $this->faker->text(250),
-                'nl' => $this->faker->text(300),
+                'ukr' => $this->faker->text(300),
                 'ru' => $this->faker->text(350),
             ],
             'duration' => [
                 'en' => $duration . ' minutes',
-                'nl' => $duration . ' Nederlands',
+                'ukr' => $duration . ' Nederlands',
                 'ru' => $duration . ' минут',
 
             ],
             'short_description' => [
                 'en' => $this->faker->text(75),
-                'nl' => $this->faker->text(60),
+                'ukr' => $this->faker->text(60),
                 'ru' => $this->faker->text(90),
             ],
             'required_experience' => $this->faker->boolean() ? [
                     'en' => $experience . ' hours',
-                    'nl' => $experience . ' Nederlands',
+                    'ukr' => $experience . ' Nederlands',
                     'ru' => $experience . ' часов',
                 ]:null,
             'course_certificate' => $this->faker->boolean() ? [
                     'en' => $this->faker->text(250),
-                    'nl' => $this->faker->text(300),
+                    'ukr' => $this->faker->text(300),
                     'ru' => $this->faker->text(350),
                 ]:null,
             'price' => $this->faker->numberBetween(50, 1000),
