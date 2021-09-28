@@ -10,18 +10,16 @@ export default function ContactForm({onSubmit}) {
         phone: Yup.string().required('Phone is required'),
         name: Yup.string().required('Name is required'),
         message: Yup.string().required('Message required'),
-
-
     })
+
     return <Formik validateOnChange={false} initialValues={{
         name: '',
         email: '',
         phone: '',
         message: ''
-    }}
-                   validationSchema={validationSchema}
-                   onSubmit={onSubmit}>
-        <Form className={styles.container}>
+    }} validationSchema={validationSchema} onSubmit={onSubmit}>
+
+        <Form className={styles.form_container}>
             <div className={styles.subContainer}>
 
                 <div className={styles.input_container}>
@@ -59,11 +57,8 @@ export default function ContactForm({onSubmit}) {
                     <FormikTextArea
                         label="Сообщение"
                         name="message"
-                        rows="6"
-                        placeholder="Once upon a time there was a princess who lived at the top of a glass hill."
                     />
                 </div>
-
                 <button className={styles.submitBtn} type='submit'>Отправить</button>
             </div>
 

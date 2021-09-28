@@ -33,7 +33,7 @@ a {
   src: url("../public/fonts/montserrat/Montserrat-ExtraBold.ttf");
 }
 
-.component_title {
+.block_title {
     font-size: 2.4rem;
     font-family: 'Montserrat-ExtraBold', sans-serif;
     line-height: 1;

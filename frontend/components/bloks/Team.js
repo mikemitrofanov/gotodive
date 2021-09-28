@@ -2,7 +2,7 @@ import styles from '../../styles/team.module.css'
 
 export default function Team() {
     return <div>
-        <div className='component_title'>НАША КОМАНДА</div>
+        <div className='block_title'>НАША КОМАНДА</div>
         <div className={styles.main_container}>
             <div className={styles.content_container}>
                 <div>

@@ -8,7 +8,7 @@ export const FormikTextArea = ({label, ...props}) => {
             <label className={styles.label} htmlFor={props.id || props.name}>{label}</label>
             <textarea className={styles.message_input} {...field} {...props} />
             <ErrorMessage
-                name="message"
+                name={label}
                 component="div"
                 className={styles.field_error}
             />
