@@ -1,7 +1,7 @@
 import {useSelector} from "react-redux";
-import {categoriesApi} from "../store/categories/action";
-import ServiceShort from "./items/ServiceShort";
-import styles from '../styles/popular.module.css'
+import {categoriesApi} from "../../store/categories/action";
+import ServiceShort from "../items/ServiceShort";
+import styles from '../../styles/popular.module.css'
 
 export default function Popular() {
     const {data} = useSelector(categoriesApi.endpoints.getPopularServices.select());

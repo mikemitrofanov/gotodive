@@ -1,4 +1,4 @@
-import styles from '../styles/homeHero.module.css'
+import styles from '../../styles/homeHero.module.css'
 
 export default function Header() {
     return (

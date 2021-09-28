@@ -1,4 +1,4 @@
-import NavBar from "../../components/NavBar";
+import NavBar from "../../components/bloks/NavBar";
 import {withRedux} from "../../hof/withRedux";
 
 export default function Prices() {

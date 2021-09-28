@@ -1,9 +1,10 @@
-import NavBar from "../components/NavBar";
+import NavBar from "../components/bloks/NavBar";
 import {withRedux} from "../hof/withRedux";
-import Header from "../components/Header";
-import Popular from "../components/Popular";
+import Header from "../components/bloks/Header";
+import Popular from "../components/bloks/Popular";
 import {categoriesApi} from "../store/categories/action";
-import Team from "../components/Team";
+import Team from "../components/bloks/Team";
+import Contact from "../components/bloks/Contact";
 
 export default function Main() {
     return (
@@ -12,6 +13,7 @@ export default function Main() {
             <Header/>
             <Popular/>
             <Team/>
+            <Contact/>
         </div>
     )
 }

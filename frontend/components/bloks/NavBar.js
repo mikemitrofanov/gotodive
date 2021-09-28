@@ -1,10 +1,10 @@
 import Link from "next/link";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch, faUserPlus} from "@fortawesome/free-solid-svg-icons";
-import CategoryServicesDropdown from "./items/CategoryServicesDropdown";
+import CategoryServicesDropdown from "../items/CategoryServicesDropdown";
 import {useSelector} from "react-redux";
-import {categoriesApi} from "../store/categories/action";
-import styles from '../styles/navBar.module.css'
+import {categoriesApi} from "../../store/categories/action";
+import styles from '../../styles/navBar.module.css'
 
 export default function NavBar() {
     const {data} = useSelector(categoriesApi.endpoints.getAllCategories.select());
