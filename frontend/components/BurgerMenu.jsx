@@ -50,7 +50,6 @@ export default function BurgerMenu() {
         </div>
       </nav>
 
-
     </section>
   );
 }

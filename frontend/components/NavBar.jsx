@@ -10,7 +10,7 @@ import styles from "../styles/navBar.module.css";
 export default function NavBar() {
   const categories = data.data;
   const openMenu = (event) => {
-    console.dir(event.closest('.top_nav_bar_block_burger'));
+    console.dir(event);
   };
 
   return (
@@ -66,19 +66,27 @@ export default function NavBar() {
         <article className={styles.main_block_container}>
           <div>
             <Link href='/'>
-              <a className={styles.main_nav_links}>Главная</a>
+              <a className={styles.main_nav_links_burger}>Главная</a>
             </Link>
             {categories.map((category) => (
-              <CategoryServicesDropdown
-                category={category}
-                key={category.title}
-              />
+              <span key={category.title} className={styles.dropdown}>
+                <Link href='/'>
+                  <a className={styles.main_nav_links_burger}>
+                    {category.title}
+                  </a>
+                </Link>
+                <div className={styles.dropdown_content}>
+                  {category.services?.map((service) => (
+                    <p key={service.title}>{service.title}</p>
+                  ))}
+                </div>
+              </span>
             ))}
             <Link href='/gallery'>
-              <a className={styles.main_nav_links}>Галлерея</a>
+              <a className={styles.main_nav_links_burger}>Галлерея</a>
             </Link>
             <Link href='/prices'>
-              <a className={styles.main_nav_links}>Прайс</a>
+              <a className={styles.main_nav_links_burger}>Прайс</a>
             </Link>
             <Link href='/prices'>
               <a className={styles.languages}>RU</a>

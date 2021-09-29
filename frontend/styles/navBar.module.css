@@ -10,11 +10,12 @@
 }
 
 .top_nav_bar_block_burger {
+  /* display: flex; */
   /* display: none; */
   margin: auto;
   background-color: #000b2d;
   height: 100px;
-  /* display: flex; */
+
   align-items: center;
   font-family: "Montserrat-Light", sans-serif;
   font-size: 20px;
@@ -22,6 +23,13 @@
 }
 
 .main_nav_links {
+  margin-top: 30px;
+  color: #eaeaea;
+  text-decoration: none;
+  margin-right: 60px;
+}
+
+.main_nav_links_burger {
   margin-top: 30px;
   color: #eaeaea;
   text-decoration: none;
@@ -168,7 +176,7 @@
 .menu_box {
 }
 
-.main_nav_links_burger {
+/* .main_nav_links_burger {
   display: block;
   margin: 0px 500px 10px 50px;
 
@@ -176,7 +184,7 @@
   font-size: 17px;
   margin-right: 500px;
   margin-left: 50px;
-}
+} */
 
 .dropdown_burger {
   position: relative;
