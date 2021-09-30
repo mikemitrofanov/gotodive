@@ -63,7 +63,7 @@ export const data = {
       ]
     },
     {
-      "title": "Специализации",
+      "title": "Специализация",
       "order": null,
       "services": [
         {
