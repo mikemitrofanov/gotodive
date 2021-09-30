@@ -3,7 +3,9 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import BurgerMenu from "./BurgerMenu";
-import CategoryServicesDropdown from "./CategoryServicesDropdown";
+import LinksLanguages from "./LinksLanguages";
+import Links from "./Links";
+
 import { data } from "../categoriesWithServices";
 import { openBurgerMenuAndCloseMainHead } from "../helper";
 import styles from "../styles/navBar.module.css";
@@ -30,21 +32,7 @@ export default function NavBar() {
               }
             ></button>
             <div>
-              <Link href='/'>
-                <a className={styles.main_nav_links}>Главная</a>
-              </Link>
-              {categories.map((category) => (
-                <CategoryServicesDropdown
-                  category={category}
-                  key={category.title}
-                />
-              ))}
-              <Link href='/gallery'>
-                <a className={styles.main_nav_links}>Галерея</a>
-              </Link>
-              <Link href='/prices'>
-                <a className={styles.main_nav_links}>Прайс</a>
-              </Link>
+              <Links isOpened={isOpened} categories={categories} />
             </div>
             <div className={styles.top_search_block}>
               <span className={styles.search_input_container}>
@@ -54,15 +42,7 @@ export default function NavBar() {
                   icon={faSearch}
                 />
               </span>
-              <Link href='/prices'>
-                <a className={styles.languages}>RU</a>
-              </Link>
-              <Link href='/prices'>
-                <a className={styles.languages}>UKR</a>
-              </Link>
-              <Link href='/prices'>
-                <a className={styles.languages}>EN</a>
-              </Link>
+              <LinksLanguages isOpened={isOpened} />
               <Link href='/prices'>
                 <a className={styles.top_bar_user_icon}></a>
               </Link>
@@ -70,13 +50,13 @@ export default function NavBar() {
           </article>
         </div>
       </nav>
-
       <BurgerMenu
         isOpenedMainHeader={isOpenedMainHeader}
         openBurgerMenuAndCloseMainHead={openBurgerMenuAndCloseMainHead}
         setIsOpened={setIsOpened}
         setIsOpenedMainHeader={setIsOpenedMainHeader}
         categories={categories}
+        isOpened={isOpened}
       />
     </section>
   );
