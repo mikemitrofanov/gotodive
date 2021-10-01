@@ -64,7 +64,8 @@
 }
 
 .main_nav_links:hover,
-.main_nav_links_burger:hover {
+.main_nav_links_burger:hover,
+.active_link_dropdown {
   color: #639bd1;
 }
 
@@ -141,6 +142,7 @@
   border-style: solid;
   border-width: 8px 0 8px 12px;
 }
+
 .dropdown::after {
   margin-left: -55px;
   margin-right: 55px;
@@ -201,9 +203,9 @@
 }
 
 .main_nav_links_burger,
-.dropdown_burger:hover .dropdown_content_burger,
 .dropdown_links_burger,
-.dropdown_links {
+.dropdown_links,
+.noHidden {
   display: block;
 }
 

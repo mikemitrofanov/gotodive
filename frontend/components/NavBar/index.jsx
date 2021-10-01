@@ -11,8 +11,6 @@ import commonStyles from "../../styles/common.module.css";
 export default function NavBar() {
   const [isOpened, setIsOpened] = useState(false);
   const [isOpenedMainHeader, setIsOpenedMainHeader] = useState(true);
-  const [isOpenedDiving, setIsOpenedDiving] = useState(false);
-  const [isOpenedsSpecialization, setIsOpenedSpecialization] = useState(false);
 
   const categories = data.data;
 
