@@ -27,7 +27,7 @@
 }
 
 .main_block_container_burger {
-  padding: 55px 20px 90px 60px;
+  padding: 50px 20px 90px 55px;
 }
 
 .wrapper_burger {
@@ -201,9 +201,21 @@
 }
 
 .main_nav_links_burger,
-.dropdown:hover .dropdown_content,
-.dropdown_burger:hover .dropdown_content_burger {
+.dropdown_burger:hover .dropdown_content_burger,
+.dropdown_links_burger,
+.dropdown_links {
   display: block;
+}
+
+.dropdown_links_burger {
+  margin-left: 25px;
+  margin-bottom: 4px;
+}
+
+.dropdown_links {
+  border-bottom: 1px solid #639bd1;
+  margin: 18px;
+  font-size: 18px;
 }
 
 .languages_burger {
@@ -222,7 +234,7 @@
   }
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1450px) {
   .main_block_container {
     padding: 0 65px;
   }
@@ -236,7 +248,7 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1230px) {
   .humburger_menu_btn {
     display: block;
   }

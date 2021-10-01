@@ -1,26 +1,32 @@
 import Link from "next/link";
-import styles from "../../../styles/navBar.module.css";
+import commonStyles from "../../../styles/common.module.css";
 
 export default function LinksLanguages({ isOpened }) {
   return (
     <>
       <Link href='/prices'>
         <a
-          className={`${isOpened ? styles.languages_burger : styles.languages}`}
+          className={`${
+            isOpened ? commonStyles.languages_burger : commonStyles.languages
+          }`}
         >
           RU
         </a>
       </Link>
       <Link href='/prices'>
         <a
-          className={`${isOpened ? styles.languages_burger : styles.languages}`}
+          className={`${
+            isOpened ? commonStyles.languages_burger : commonStyles.languages
+          }`}
         >
           UKR
         </a>
       </Link>
       <Link href='/prices'>
         <a
-          className={`${isOpened ? styles.languages_burger : styles.languages}`}
+          className={`${
+            isOpened ? commonStyles.languages_burger : commonStyles.languages
+          }`}
         >
           EN
         </a>

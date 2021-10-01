@@ -6,22 +6,39 @@ import BurgerMenu from "./BurgerMenu";
 import LinksLanguages from "./LinksLanguages";
 import Links from "./Links";
 import { data } from "../../js/categoriesWithServices";
-import { openBurgerMenuAndCloseMainHead } from "../../js/helper";
-import styles from "../../styles/navBar.module.css";
+import commonStyles from "../../styles/common.module.css";
 
 export default function NavBar() {
   const [isOpened, setIsOpened] = useState(false);
   const [isOpenedMainHeader, setIsOpenedMainHeader] = useState(true);
+  const [isOpenedDiving, setIsOpenedDiving] = useState(false);
+  const [isOpenedsSpecialization, setIsOpenedSpecialization] = useState(false);
 
   const categories = data.data;
 
+  const openBurgerMenuAndCloseMainHead = ({
+    event,
+    setIsOpened,
+    setIsOpenedMainHeader,
+  }) => {
+    if (
+      event.target.innerHTML === "Дайвинг" ||
+      event.target.innerHTML === "Специализация"
+    ) {
+      event.preventDefault();
+      return;
+    }
+    setIsOpenedMainHeader((isOpenedMainHeader) => !isOpenedMainHeader);
+    setIsOpened((isOpened) => !isOpened);
+  };
+
   return (
     <section>
-      <nav className={`${isOpened && styles.top_nav_bar_block}`}>
-        <div className={styles.wrapper_main_head}>
-          <article className={styles.main_block_container}>
+      <nav className={`${isOpened && commonStyles.top_nav_bar_block}`}>
+        <div className={commonStyles.wrapper_main_head}>
+          <article className={commonStyles.main_block_container}>
             <button
-              className={styles.humburger_menu_btn}
+              className={commonStyles.humburger_menu_btn}
               onClick={() =>
                 openBurgerMenuAndCloseMainHead({
                   event,
@@ -33,17 +50,17 @@ export default function NavBar() {
             <div>
               <Links isOpened={isOpened} categories={categories} />
             </div>
-            <div className={styles.top_search_block}>
-              <span className={styles.search_input_container}>
-                <input className={styles.top_bar_search_input} />
+            <div className={commonStyles.top_search_block}>
+              <span className={commonStyles.search_input_container}>
+                <input className={commonStyles.top_bar_search_input} />
                 <FontAwesomeIcon
-                  className={styles.color_search}
+                  className={commonStyles.color_search}
                   icon={faSearch}
                 />
               </span>
               <LinksLanguages isOpened={isOpened} />
               <Link href='/prices'>
-                <a className={styles.top_bar_user_icon}></a>
+                <a className={commonStyles.top_bar_user_icon}></a>
               </Link>
             </div>
           </article>
