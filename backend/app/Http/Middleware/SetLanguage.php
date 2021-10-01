@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Language;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -10,14 +11,13 @@ class SetLanguage
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
-        $supportedLanguages =['ru', 'en', 'ukr'];
-        if (!in_array($request->language, $supportedLanguages)) {
+        if (!Language::all()->contains('language_code', $request->language)) {
             return abort(403, 'Language code is not supported.');
 
         }
