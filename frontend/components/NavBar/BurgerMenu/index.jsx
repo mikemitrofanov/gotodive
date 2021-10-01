@@ -1,6 +1,6 @@
-import LinksLanguages from "./LinksLanguages";
-import Links from "./Links";
-import styles from "../styles/navBar.module.css";
+import LinksLanguages from "../LinksLanguages";
+import Links from "../Links";
+import styles from "../../../styles/navBar.module.css";
 
 export default function BurgerMenu({
   isOpenedMainHeader,

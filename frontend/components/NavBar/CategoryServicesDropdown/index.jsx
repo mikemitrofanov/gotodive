@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../styles/navBar.module.css";
+import styles from "../../../styles/navBar.module.css";
 
 export default function CategoryServicesDropdown({ category,isOpened }) {
   return (

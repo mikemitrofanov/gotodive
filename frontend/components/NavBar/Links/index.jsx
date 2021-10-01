@@ -1,6 +1,6 @@
 import Link from "next/link";
-import CategoryServicesDropdown from "./CategoryServicesDropdown";
-import styles from "../styles/navBar.module.css";
+import CategoryServicesDropdown from "../CategoryServicesDropdown";
+import styles from "../../../styles/navBar.module.css";
 
 export default function Links({ isOpened, categories }) {
   return (

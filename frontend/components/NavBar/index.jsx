@@ -5,10 +5,9 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import BurgerMenu from "./BurgerMenu";
 import LinksLanguages from "./LinksLanguages";
 import Links from "./Links";
-
-import { data } from "../categoriesWithServices";
-import { openBurgerMenuAndCloseMainHead } from "../helper";
-import styles from "../styles/navBar.module.css";
+import { data } from "../../js/categoriesWithServices";
+import { openBurgerMenuAndCloseMainHead } from "../../js/helper";
+import styles from "../../styles/navBar.module.css";
 
 export default function NavBar() {
   const [isOpened, setIsOpened] = useState(false);
