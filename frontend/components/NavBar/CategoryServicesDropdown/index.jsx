@@ -1,13 +1,19 @@
 import Link from "next/link";
-import styles from "../../../styles/navBar.module.css";
+import commonStyles from "../../../styles/common.module.css";
 
-export default function CategoryServicesDropdown({ category,isOpened }) {
+export default function CategoryServicesDropdown({ category, isOpened }) {
   return (
-    <span className={`${isOpened ? styles.dropdown_burger : styles.dropdown}`}>
+    <span
+      className={`${
+        isOpened ? commonStyles.dropdown_burger : commonStyles.dropdown
+      }`}
+    >
       <Link href='/'>
         <a
           className={`${
-            isOpened ? styles.main_nav_links_burger : styles.main_nav_links
+            isOpened
+              ? commonStyles.main_nav_links_burger
+              : commonStyles.main_nav_links
           }`}
         >
           {category.title}
@@ -15,11 +21,23 @@ export default function CategoryServicesDropdown({ category,isOpened }) {
       </Link>
       <div
         className={`${
-          isOpened ? styles.dropdown_content_burger : styles.dropdown_content
+          isOpened
+            ? commonStyles.dropdown_content_burger
+            : commonStyles.dropdown_content
         }`}
       >
         {category.services?.map((service) => (
-          <p key={service.title}>{service.title}</p>
+          <a
+            key={service.title}
+            href='#'
+            className={`${
+              isOpened
+                ? commonStyles.dropdown_links_burger
+                : commonStyles.dropdown_links
+            }`}
+          >
+            {service.title}
+          </a>
         ))}
       </div>
     </span>
