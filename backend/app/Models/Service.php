@@ -25,7 +25,14 @@ class Service extends Model
         'is_popular',
     ];
 
-    public $translatable = ['description', 'short_description', 'title', 'required_experience', 'course_certificate', 'duration',];
+    public $translatable = [
+        'description',
+        'short_description',
+        'title',
+        'required_experience',
+        'course_certificate',
+        'duration',
+    ];
 
     public function serviceCategory()
     {
