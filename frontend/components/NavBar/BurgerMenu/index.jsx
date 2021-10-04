@@ -1,6 +1,6 @@
 import LinksLanguages from "../LinksLanguages";
 import Links from "../Links";
-import commonStyles from "../../../styles/common.module.css";
+import styles from "./burgerMenu.module.css";
 
 export default function BurgerMenu({
   isOpenedMainHeader,
@@ -11,13 +11,9 @@ export default function BurgerMenu({
   isOpened,
 }) {
   return (
-    <nav
-      className={`${
-        isOpenedMainHeader && commonStyles.top_nav_bar_block_burger
-      }`}
-    >
+    <nav className={`${isOpenedMainHeader && styles.top_nav_bar_block_burger}`}>
       <div
-        className={commonStyles.wrapper_burger}
+        className={styles.wrapper_burger}
         onClick={() =>
           openBurgerMenuAndCloseMainHead({
             event,
@@ -26,10 +22,10 @@ export default function BurgerMenu({
           })
         }
       >
-        <div className={commonStyles.backgraund_burger}>
-          <article className={commonStyles.main_block_container_burger}>
+        <div className={styles.backgraund_burger}>
+          <article className={styles.main_block_container_burger}>
             <Links isOpened={isOpened} categories={categories} />
-            <div className={commonStyles.wrapper_languages_burger}>
+            <div className={styles.wrapper_languages_burger}>
               <LinksLanguages isOpened={isOpened} />
             </div>
           </article>

@@ -1,12 +1,12 @@
 import Link from "next/link";
 import CategoryServicesDropdown from "../CategoryServicesDropdown";
-import commonStyles from "../../../styles/common.module.css";
+import styles from './links.module.css'
 
 export default function Links({ isOpened, categories }) {
   return (
     <>
       <Link href='/'>
-        <a className={`${isOpened ? commonStyles.main_nav_links_burger : commonStyles.main_nav_links}`}>
+        <a className={`${isOpened ? styles.main_nav_links_burger : styles.main_nav_links}`}>
           Главная
         </a>
       </Link>
@@ -18,12 +18,12 @@ export default function Links({ isOpened, categories }) {
         />
       ))}
       <Link href='/gallery'>
-         <a className={`${isOpened ? commonStyles.main_nav_links_burger : commonStyles.main_nav_links }`} >
+         <a className={`${isOpened ? styles.main_nav_links_burger : styles.main_nav_links }`} >
           Галерея
         </a>
       </Link>
       <Link href='/prices'>
-        <a className={`${isOpened ? commonStyles.main_nav_links_burger : commonStyles.main_nav_links }`} >
+        <a className={`${isOpened ? styles.main_nav_links_burger : styles.main_nav_links }`} >
           Прайс
         </a>
       </Link>

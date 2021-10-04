@@ -6,7 +6,7 @@ import BurgerMenu from "./BurgerMenu";
 import LinksLanguages from "./LinksLanguages";
 import Links from "./Links";
 import { data } from "../../js/categoriesWithServices";
-import commonStyles from "../../styles/common.module.css";
+import styles from "./navBar.module.css";
 
 export default function NavBar() {
   const [isOpened, setIsOpened] = useState(false);
@@ -32,11 +32,11 @@ export default function NavBar() {
 
   return (
     <section>
-      <nav className={`${isOpened && commonStyles.top_nav_bar_block}`}>
-        <div className={commonStyles.wrapper_main_head}>
-          <article className={commonStyles.main_block_container}>
+      <nav className={`${isOpened && styles.top_nav_bar_block}`}>
+        <div className={styles.wrapper_main_head}>
+          <article className={styles.main_block_container}>
             <button
-              className={commonStyles.humburger_menu_btn}
+              className={styles.humburger_menu_btn}
               onClick={() =>
                 openBurgerMenuAndCloseMainHead({
                   event,
@@ -48,17 +48,17 @@ export default function NavBar() {
             <div>
               <Links isOpened={isOpened} categories={categories} />
             </div>
-            <div className={commonStyles.top_search_block}>
-              <span className={commonStyles.search_input_container}>
-                <input className={commonStyles.top_bar_search_input} />
+            <div className={styles.top_search_block}>
+              <span className={styles.search_input_container}>
+                <input className={styles.top_bar_search_input} />
                 <FontAwesomeIcon
-                  className={commonStyles.color_search}
+                  className={styles.color_search}
                   icon={faSearch}
                 />
               </span>
               <LinksLanguages isOpened={isOpened} />
               <Link href='/prices'>
-                <a className={commonStyles.top_bar_user_icon}></a>
+                <a className={styles.top_bar_user_icon}></a>
               </Link>
             </div>
           </article>

@@ -1,0 +1,131 @@
+.dropdown_burger:before {
+  position: fixed;
+  left: 135px;
+  transform: translateY(20%);
+}
+
+.dropdown_burger:last-of-type::before {
+  position: fixed;
+  left: 200px;
+}
+
+.dropdown_burger:last-of-type::before,
+.dropdown_burger:before,
+.dropdown::after {
+  content: " ";
+  font-size: 0;
+  border-color: transparent transparent transparent #639bd1;
+  border-style: solid;
+  border-width: 8px 0 8px 12px;
+}
+
+.dropdown_burger:hover:before,
+.dropdown:hover:after {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 0 solid transparent;
+  border-top: 12px solid #639bd1;
+  margin-right: 51px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown::after {
+  margin-left: -55px;
+  margin-right: 55px;
+  position: relative;
+  bottom: 6px;
+}
+
+.dropdown:hover:after {
+  top: 0;
+}
+
+.main_nav_links_burger {
+  font-size: 18px;
+  margin-bottom: 7px;
+  font-family: "Montserrat-Light", sans-serif;
+  display: block;
+}
+
+.main_nav_links {
+  margin-top: 30px;
+  color: #eaeaea;
+  text-decoration: none;
+  margin-right: 60px;
+}
+
+.main_nav_links_burger:hover,
+.main_nav_links:hover,
+.active_link_dropdown,
+.dropdown_content_burger,
+.dropdown_content {
+  color: #639bd1;
+}
+
+.dropdown_content_burger {
+  font-family: "Montserrat-Light", sans-serif;
+  display: none;
+}
+
+.dropdown_content_burger > p {
+  margin: 4px 0px 4px 30px;
+}
+
+.dropdown_content_burger > p:last-of-type {
+  margin-bottom: 10px;
+}
+
+.dropdown_content {
+  position: absolute;
+  background-color: #000b2d;
+  min-width: 300px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  border-bottom: 1px #193f65 solid;
+  padding: 12px 16px;
+  z-index: 1;
+  display: none;
+}
+
+.dropdown_content > p {
+  border-bottom: 1px #669aca solid;
+}
+
+.noHidden {
+  display: block;
+}
+
+.dropdown_links_burger {
+  margin-left: 25px;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.dropdown_links {
+  border-bottom: 1px solid #639bd1;
+  margin: 18px;
+  font-size: 18px;
+  display: block;
+}
+
+@media screen and (max-width: 1450px) {
+  .main_nav_links {
+    margin-right: 35px;
+  }
+
+  .dropdown::after {
+    left: 25px;
+  }
+}
+
+@media screen and (max-width: 1230px) {
+  .main_nav_links {
+    display: none;
+  }
+  .dropdown::after {
+    display: none;
+  }
+}

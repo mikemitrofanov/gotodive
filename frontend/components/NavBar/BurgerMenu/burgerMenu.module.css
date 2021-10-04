@@ -1,0 +1,21 @@
+.top_nav_bar_block_burger {
+  display: none;
+}
+
+.wrapper_burger {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.backgraund_burger {
+  background-color: #000b2d;
+  width: 75%;
+  color: #eaeaea;
+}
+
+.main_block_container_burger {
+  padding: 50px 20px 90px 55px;
+}
+
+.wrapper_languages_burger {
+  margin-top: 70px;
+}
