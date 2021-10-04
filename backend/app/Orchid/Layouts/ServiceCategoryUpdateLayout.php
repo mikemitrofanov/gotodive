@@ -18,12 +18,14 @@ class ServiceCategoryUpdateLayout extends Rows
                 ->title('Title')
                 ->placeholder('Title')
                 ->help('Name of Category'),
+
             Relation::make('category.language')
                 ->title('Language code')
                 ->value(app()->getLocale())
                 ->required()
                 ->help('Translation language, en is default.')
                 ->fromModel(Language::class, 'language_code', 'language_code'),
+
             Input::make('category.order')
                 ->title('Order')
                 ->type('number')

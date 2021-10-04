@@ -34,7 +34,7 @@ class CategoryListLayout extends Table
                 ->width('30px')
                 ->render(function ($category) {
                     return Link::make($category->id)
-                        ->route('platform.categories.edit', [$category]);
+                        ->route('platform.categories.edit', $category);
                 }),
 
             TD::make('order', 'Order')
@@ -42,7 +42,7 @@ class CategoryListLayout extends Table
                 ->width('30px')
                 ->render(function ($category) {
                     return Link::make($category->order)
-                        ->route('platform.categories.edit', [$category]);
+                        ->route('platform.categories.edit', $category);
                 }),
 
             TD::make('title', 'RU Title')
@@ -71,7 +71,7 @@ class CategoryListLayout extends Table
                 ->render(function ($category) {
                     app()->setLocale('en');
                     return Link::make($category->title)
-                        ->route('platform.categories.edit', [$category]);
+                        ->route('platform.categories.edit', $category);
                 }),
 
             TD::make('delete', 'Delete')
@@ -79,10 +79,10 @@ class CategoryListLayout extends Table
                 ->width('100px')
                 ->render(function ($category) {
                     app()->setLocale('en');
-                    return Button::make(__('Delete'))
+                    return Button::make('Delete')
                         ->method('destroy')
                         ->icon('trash')
-                        ->confirm(__('Are you sure you want to delete this category and all related services?'))
+                        ->confirm('Are you sure you want to delete this category and all related services?')
                         ->parameters([
                             'id' => $category->id,
                         ]);

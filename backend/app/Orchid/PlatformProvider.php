@@ -30,7 +30,7 @@ class PlatformProvider extends OrchidServiceProvider
         return [
 
             Menu::make('Service Category')
-                ->icon('envelope-letter')
+                ->icon('notebook')
                 ->route('platform.categories'),
 
             Menu::make(__('Users'))

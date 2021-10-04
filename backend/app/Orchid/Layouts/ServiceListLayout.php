@@ -17,7 +17,7 @@ class ServiceListLayout extends Table
      *
      * @var string
      */
-    protected $target = 'items';
+    protected $target = 'services';
     protected $title = 'Services list';
 
     /**
@@ -78,10 +78,10 @@ class ServiceListLayout extends Table
                 ->align('center')
                 ->width('100px')
                 ->render(function ($service) {
-                    return Button::make(__('Delete'))
+                    return Button::make('Delete')
                         ->method('destroy')
                         ->icon('trash')
-                        ->confirm(__('Are you sure you want to delete this category and all related services?'))
+                        ->confirm('Are you sure you want to delete this service?')
                         ->parameters([
                             'id' => $service->id,
                         ]);

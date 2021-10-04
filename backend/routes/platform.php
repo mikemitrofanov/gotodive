@@ -93,14 +93,14 @@ Route::screen('categories', ServiceCategoryScreen::class)
     ->breadcrumbs(function (Trail $trail) {
         return $trail
             ->parent('platform.index')
-            ->push('Service Category');
+            ->push('Service Category', route('platform.categories'));
     });
 
 Route::screen('categories/create', ServiceCategoryCreateScreen::class)
     ->name('platform.categories.create')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
-            ->parent('platform.index')
+            ->parent('platform.categories')
             ->push('Create new Category');
     });
 
@@ -108,7 +108,7 @@ Route::screen('service', ServiceScreen::class)
     ->name('platform.service')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
-            ->parent('platform.index')
+            ->parent('platform.categories')
             ->push('Service');
     });
 
@@ -116,7 +116,7 @@ Route::screen('categories/{category}/services/create', ServiceScreen::class)
     ->name('platform.services.create')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
-            ->parent('platform.index')
+            ->parent('platform.categories')
             ->push('Service');
     });
 
@@ -124,7 +124,7 @@ Route::screen('categories/{category}/edit/{lang?}', ServiceCategoryCreateScreen:
     ->name('platform.categories.edit')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
-            ->parent('platform.index')
+            ->parent('platform.categories')
             ->push('Edit Category');
     });
 
@@ -132,7 +132,7 @@ Route::screen('services/{service}/edit/{lang?}', ServiceScreen::class)
     ->name('platform.services.edit')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
-            ->parent('platform.index')
+            ->parent('platform.categories')
             ->push('Edit Service');
     });
 

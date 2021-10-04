@@ -27,7 +27,6 @@ class CreateServiceCategoryRequest extends FormRequest
             'category' => 'array',
             'category.title' => 'required|string',
             'category.order' => 'integer',
-
         ];
     }
 }

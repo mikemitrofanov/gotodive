@@ -14,7 +14,7 @@ class ServiceCategoryScreen extends Screen
      *
      * @var string
      */
-    public $name = 'ServiceCategoryScreen';
+    public $name = 'Service Category List';
 
     /**
      * Query data.
@@ -36,7 +36,7 @@ class ServiceCategoryScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Link::make(__('Create new category'))
+            Link::make('Create new category')
                 ->route('platform.categories.create')
                 ->icon('paper-plane')
         ];

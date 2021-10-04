@@ -42,7 +42,7 @@ class ServiceCategoryCreateScreen extends Screen
 
         return [
             'category' => $category,
-            'items' => $category->services,
+            'services' => $category->services,
         ];
     }
 
@@ -58,6 +58,7 @@ class ServiceCategoryCreateScreen extends Screen
                 ->icon('paper-plane')
                 ->canSee(!$this->category->exists)
                 ->method('store'),
+
             Link::make('Add new service')
                 ->icon('paper-plane')
                 ->canSee($this->category->exists)
@@ -76,8 +77,8 @@ class ServiceCategoryCreateScreen extends Screen
     {
         return [
             Layout::block(ServiceCategoryUpdateLayout::class)
-                ->title('Profile Information')
-                ->description('Update your account\'s profile information and email address.')
+                ->title('Category Information')
+                ->description('Update category or create a new one.')
                 ->commands(
                     Button::make('Update')
                         ->type(Color::DEFAULT())
