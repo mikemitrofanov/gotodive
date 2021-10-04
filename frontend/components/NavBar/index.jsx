@@ -2,9 +2,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import BurgerMenu from "./BurgerMenu";
-import LinksLanguages from "./LinksLanguages";
-import LinksMenu from "./LinksMenu";
+import BurgerMenu from "../BurgerMenu";
+import LinksLanguages from "../LinksLanguages";
+import LinksMenu from "../LinksMenu";
 import { data } from "../../js/categoriesWithServices";
 import styles from "./navBar.module.css";
 
