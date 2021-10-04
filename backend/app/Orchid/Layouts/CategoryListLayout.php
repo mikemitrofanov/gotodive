@@ -34,7 +34,7 @@ class CategoryListLayout extends Table
                 ->width('30px')
                 ->render(function ($category) {
                     return Link::make($category->id)
-                        ->route('platform.categories.edit', $category);
+                        ->route('platform.categories.edit', [$category]);
                 }),
 
             TD::make('order', 'Order')
@@ -42,7 +42,7 @@ class CategoryListLayout extends Table
                 ->width('30px')
                 ->render(function ($category) {
                     return Link::make($category->order)
-                        ->route('platform.categories.edit', $category);
+                        ->route('platform.categories.edit', [$category]);
                 }),
 
             TD::make('title', 'RU Title')
@@ -51,7 +51,7 @@ class CategoryListLayout extends Table
                 ->render(function ($category) {
                     app()->setLocale('ru');
                     return Link::make($category->title)
-                        ->route('platform.categories.edit', $category);
+                        ->route('platform.categories.edit', [$category, 'ru']);
 
                 }),
 
@@ -61,7 +61,7 @@ class CategoryListLayout extends Table
                 ->render(function ($category) {
                     app()->setLocale('ukr');
                     return Link::make($category->title)
-                        ->route('platform.categories.edit', $category);
+                        ->route('platform.categories.edit', [$category, 'ukr']);
 
                 }),
 
@@ -71,8 +71,9 @@ class CategoryListLayout extends Table
                 ->render(function ($category) {
                     app()->setLocale('en');
                     return Link::make($category->title)
-                        ->route('platform.categories.edit', $category->id);
+                        ->route('platform.categories.edit', [$category]);
                 }),
+
             TD::make('delete', 'Delete')
                 ->align('center')
                 ->width('100px')

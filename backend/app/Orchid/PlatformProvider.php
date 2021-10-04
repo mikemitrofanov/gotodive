@@ -40,9 +40,6 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('envelope-letter')
                 ->route('platform.categories'),
 
-            Menu::make('Service')
-                ->icon('envelope-letter')
-                ->route('platform.service'),
 
             Menu::make('Dropdown menu')
                 ->icon('code')

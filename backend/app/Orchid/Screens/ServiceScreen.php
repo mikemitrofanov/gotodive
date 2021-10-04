@@ -2,6 +2,8 @@
 
 namespace App\Orchid\Screens;
 
+use App\Models\Service;
+use App\Orchid\Layouts\ServiceUpdateLayout;
 use Orchid\Screen\Screen;
 
 class ServiceScreen extends Screen
@@ -12,14 +14,16 @@ class ServiceScreen extends Screen
      * @var string
      */
     public $name = 'ServiceScreen';
+    private $service;
 
     /**
      * Query data.
      *
      * @return array
      */
-    public function query(): array
+    public function query(Service $service): array
     {
+
         return [];
     }
 
@@ -40,6 +44,8 @@ class ServiceScreen extends Screen
      */
     public function layout(): array
     {
-        return [];
+        return [
+//            ServiceUpdateLayout::class,
+        ];
     }
 }

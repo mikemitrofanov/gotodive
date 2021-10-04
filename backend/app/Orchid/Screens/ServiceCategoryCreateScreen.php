@@ -8,6 +8,7 @@ use App\Models\ServiceCategory;
 use App\Orchid\Layouts\ServiceCategoryUpdateLayout;
 use App\Orchid\Layouts\ServiceListLayout;
 use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
@@ -28,10 +29,13 @@ class ServiceCategoryCreateScreen extends Screen
      *
      * @return array
      */
-    public function query(ServiceCategory $category): array
+    public function query(ServiceCategory $category, $language): array
     {
-        $this->category = $category;
+        if ($language) {
+            app()->setLocale($language);
+        }
 
+        $this->category = $category;
         if (!$category->exists) {
             $this->name = 'Create Category';
         }
@@ -54,6 +58,12 @@ class ServiceCategoryCreateScreen extends Screen
                 ->icon('paper-plane')
                 ->canSee(!$this->category->exists)
                 ->method('store'),
+            Link::make('Add new service')
+                ->icon('paper-plane')
+                ->canSee($this->category->exists)
+                ->when($this->category->exists, function ($item) {
+                    $item->route('platform.services.create', $this->category->id);
+                }),
         ];
     }
 
@@ -69,7 +79,7 @@ class ServiceCategoryCreateScreen extends Screen
                 ->title('Profile Information')
                 ->description('Update your account\'s profile information and email address.')
                 ->commands(
-                    Button::make('Save')
+                    Button::make('Update')
                         ->type(Color::DEFAULT())
                         ->icon('check')
                         ->canSee($this->category->exists)

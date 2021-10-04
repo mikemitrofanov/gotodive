@@ -18,6 +18,7 @@ class ServiceListLayout extends Table
      * @var string
      */
     protected $target = 'items';
+    protected $title = 'Services list';
 
     /**
      * Get the table cells to be displayed.
@@ -50,7 +51,7 @@ class ServiceListLayout extends Table
                 ->render(function ($service) {
                     app()->setLocale('ru');
                     return Link::make($service->title)
-                        ->route('platform.services.edit', $service);
+                        ->route('platform.services.edit', [$service, 'ru']);
 
                 }),
 
@@ -60,7 +61,7 @@ class ServiceListLayout extends Table
                 ->render(function ($service) {
                     app()->setLocale('ukr');
                     return Link::make($service->title)
-                        ->route('platform.services.edit', $service);
+                        ->route('platform.services.edit', [$service, 'ukr']);
 
                 }),
 
@@ -72,11 +73,11 @@ class ServiceListLayout extends Table
                     return Link::make($service->title)
                         ->route('platform.services.edit', $service->id);
                 }),
+
             TD::make('delete', 'Delete')
                 ->align('center')
                 ->width('100px')
                 ->render(function ($service) {
-                    app()->setLocale('en');
                     return Button::make(__('Delete'))
                         ->method('destroy')
                         ->icon('trash')

@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Orchid\Screens\EmailSenderScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
 use App\Orchid\Screens\Examples\ExampleChartsScreen;
 use App\Orchid\Screens\Examples\ExampleFieldsAdvancedScreen;
@@ -13,14 +12,14 @@ use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
+use App\Orchid\Screens\ServiceCategoryCreateScreen;
 use App\Orchid\Screens\ServiceCategoryScreen;
+use App\Orchid\Screens\ServiceScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
-use App\Orchid\Screens\ServiceScreen;
-use App\Orchid\Screens\ServiceCategoryCreateScreen;
 
 /*
 |--------------------------------------------------------------------------
@@ -136,7 +135,15 @@ Route::screen('service', ServiceScreen::class)
             ->push('Service');
     });
 
-Route::screen('categories/{category}/edit', ServiceCategoryCreateScreen::class)
+Route::screen('categories/{category}/services/create', ServiceScreen::class)
+    ->name('platform.services.create')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push('Service');
+    });
+
+Route::screen('categories/{category}/edit/{lang?}', ServiceCategoryCreateScreen::class)
     ->name('platform.categories.edit')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
@@ -144,7 +151,7 @@ Route::screen('categories/{category}/edit', ServiceCategoryCreateScreen::class)
             ->push('Edit Category');
     });
 
-Route::screen('services/{service}/edit', ServiceCategoryCreateScreen::class)
+Route::screen('services/{service}/edit/{lang?}', ServiceScreen::class)
     ->name('platform.services.edit')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
