@@ -34,16 +34,9 @@ Route::group(['prefix' => '{language}', 'middleware' => ['setLanguage']], functi
         Route::put('/users/me', [AuthController::class, 'update']);
 
         Route::group(['middleware' => ['isAdmin']], function () {
-            Route::group(['prefix' => 'service-categories'], function () {
-                Route::post('/', [ServiceCategoryController::class, 'store']);
-                Route::put('/{serviceCategory}', [ServiceCategoryController::class, 'update']);
-                Route::delete('/{serviceCategory}', [ServiceCategoryController::class, 'destroy']);
-                Route::post('{serviceCategory}/services', [ServiceController::class, 'store']);
-
-            });
-
-            Route::put('/services/{service}', [ServiceController::class, 'update']);
-            Route::delete('/services/{service}', [ServiceController::class, 'destroy']);
+            Route::apiResource('/service-categories', ServiceCategoryController::class)->except('index', 'show');
+            Route::post('/service-categories/{serviceCategory}/services', [ServiceController::class, 'store']);
+            Route::apiResource('/services', ServiceController::class)->only(['update', 'destroy']);
         });
     });
 });
