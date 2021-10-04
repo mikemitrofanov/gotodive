@@ -13,7 +13,7 @@ export default function CategoryServicesDropdown({ category, isOpened }) {
     <span
       onClick={openDropdown}
       className={`${isOpened ? styles.dropdown_burger : styles.dropdown } `}>
-      <Link href='/'>
+      <Link href='#'>
         <a className={`${isOpened ? styles.main_nav_links_burger : styles.main_nav_links} ${isOpenedDropdown && styles.active_link_dropdown}`}> {category.title} </a>
       </Link>
       <div
