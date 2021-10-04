@@ -20,8 +20,8 @@ export default function NavBar() {
     setIsOpenedMainHeader,
   }) => {
     if (
-      event.target.innerHTML === "Дайвинг" ||
-      event.target.innerHTML === "Специализация"
+      event.target.innerText === "Дайвинг" ||
+      event.target.innerText === "Специализация"
     ) {
       event.preventDefault();
       return;

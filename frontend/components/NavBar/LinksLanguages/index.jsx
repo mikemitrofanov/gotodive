@@ -5,29 +5,17 @@ export default function LinksLanguages({ isOpened }) {
   return (
     <>
       <Link href='/prices'>
-        <a
-          className={`${
-            isOpened ? commonStyles.languages_burger : commonStyles.languages
-          }`}
-        >
+        <a className={`${ isOpened ? commonStyles.languages_burger : commonStyles.languages }`} >
           RU
         </a>
       </Link>
       <Link href='/prices'>
-        <a
-          className={`${
-            isOpened ? commonStyles.languages_burger : commonStyles.languages
-          }`}
-        >
+        <a className={`${ isOpened ? commonStyles.languages_burger : commonStyles.languages }`} >
           UKR
         </a>
       </Link>
       <Link href='/prices'>
-        <a
-          className={`${
-            isOpened ? commonStyles.languages_burger : commonStyles.languages
-          }`}
-        >
+        <a className={`${ isOpened ? commonStyles.languages_burger : commonStyles.languages }`} >
           EN
         </a>
       </Link>
