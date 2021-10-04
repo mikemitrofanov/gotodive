@@ -1,5 +1,5 @@
 import LinksLanguages from "../LinksLanguages";
-import Links from "../Links";
+import LinksMenu from "../LinksMenu";
 import styles from "./burgerMenu.module.css";
 
 export default function BurgerMenu({
@@ -24,7 +24,7 @@ export default function BurgerMenu({
       >
         <div className={styles.backgraund_burger}>
           <article className={styles.main_block_container_burger}>
-            <Links isOpened={isOpened} categories={categories} />
+            <LinksMenu isOpened={isOpened} categories={categories} />
             <div className={styles.wrapper_languages_burger}>
               <LinksLanguages isOpened={isOpened} />
             </div>

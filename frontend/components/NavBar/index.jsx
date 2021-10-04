@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import BurgerMenu from "./BurgerMenu";
 import LinksLanguages from "./LinksLanguages";
-import Links from "./Links";
+import LinksMenu from "./LinksMenu";
 import { data } from "../../js/categoriesWithServices";
 import styles from "./navBar.module.css";
 
@@ -46,7 +46,7 @@ export default function NavBar() {
               }
             ></button>
             <div>
-              <Links isOpened={isOpened} categories={categories} />
+              <LinksMenu isOpened={isOpened} categories={categories} />
             </div>
             <div className={styles.top_search_block}>
               <span className={styles.search_input_container}>
