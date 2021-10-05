@@ -10,6 +10,10 @@ export default function BurgerMenu({
   categories,
   isOpened,
 }) {
+  const doNotClose = (event) => {
+    event.stopPropagation();
+  };
+
   return (
     <nav className={`${isOpenedMainHeader && styles.top_nav_bar_block_burger}`}>
       <div
@@ -22,7 +26,7 @@ export default function BurgerMenu({
           })
         }
       >
-        <div className={styles.backgraund_burger}>
+        <div onClick={doNotClose} className={styles.backgraund_burger}>
           <article className={styles.main_block_container_burger}>
             <LinksMenu isOpened={isOpened} categories={categories} />
             <div className={styles.wrapper_languages_burger}>
