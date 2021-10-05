@@ -37,7 +37,7 @@ export default function NavBar() {
           <article className={styles.main_block_container}>
             <button
               className={styles.humburger_menu_btn}
-              onClick={() =>
+              onClick={(event) =>
                 openBurgerMenuAndCloseMainHead({
                   event,
                   setIsOpened,
