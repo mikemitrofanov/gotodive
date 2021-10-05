@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Orchid\Layouts;
+namespace App\Orchid\Layouts\Service;
 
 use Orchid\Screen\Actions\Button;
-use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
 
-class CategoryListLayout extends Table
+class ServiceListLayout extends Table
 {
     /**
      * Data source.
@@ -18,7 +17,8 @@ class CategoryListLayout extends Table
      *
      * @var string
      */
-    protected $target = 'categories';
+    protected $target = 'services';
+    protected $title = 'Services list';
 
     /**
      * Get the table cells to be displayed.
@@ -32,63 +32,61 @@ class CategoryListLayout extends Table
             TD::make('id', 'ID')
                 ->align('center')
                 ->width('30px')
-                ->render(function ($category) {
-                    return Link::make($category->id)
-                        ->route('platform.categories.edit', $category);
+                ->render(function ($service) {
+                    return Link::make($service->id)
+                        ->route('platform.services.edit', $service);
                 }),
 
             TD::make('order', 'Order')
                 ->align('center')
                 ->width('30px')
-                ->render(function ($category) {
-                    return Link::make($category->order)
-                        ->route('platform.categories.edit', $category);
+                ->render(function ($service) {
+                    return Link::make($service->order)
+                        ->route('platform.services.edit', $service);
                 }),
 
             TD::make('title', 'RU Title')
                 ->align('center')
                 ->width('100px')
-                ->render(function ($category) {
+                ->render(function ($service) {
                     app()->setLocale('ru');
-                    return Link::make($category->title)
-                        ->route('platform.categories.edit', [$category, 'ru']);
+                    return Link::make($service->title)
+                        ->route('platform.services.edit', [$service, 'ru']);
 
                 }),
 
             TD::make('title', 'UKR Title')
                 ->align('center')
                 ->width('100px')
-                ->render(function ($category) {
+                ->render(function ($service) {
                     app()->setLocale('ukr');
-                    return Link::make($category->title)
-                        ->route('platform.categories.edit', [$category, 'ukr']);
+                    return Link::make($service->title)
+                        ->route('platform.services.edit', [$service, 'ukr']);
 
                 }),
 
             TD::make('title', 'EN Title')
                 ->align('center')
                 ->width('100px')
-                ->render(function ($category) {
+                ->render(function ($service) {
                     app()->setLocale('en');
-                    return Link::make($category->title)
-                        ->route('platform.categories.edit', $category);
+                    return Link::make($service->title)
+                        ->route('platform.services.edit', $service->id);
                 }),
 
             TD::make('delete', 'Delete')
                 ->align('center')
                 ->width('100px')
-                ->render(function ($category) {
-                    app()->setLocale('en');
+                ->render(function ($service) {
                     return Button::make('Delete')
                         ->method('destroy')
                         ->icon('trash')
-                        ->confirm('Are you sure you want to delete this category and all related services?')
+                        ->confirm('Are you sure you want to delete this service?')
                         ->parameters([
-                            'id' => $category->id,
+                            'id' => $service->id,
                         ]);
 
                 }),
         ];
     }
-
 }
