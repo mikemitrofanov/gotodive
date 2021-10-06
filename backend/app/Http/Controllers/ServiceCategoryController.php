@@ -53,7 +53,7 @@ class ServiceCategoryController extends Controller
      * @param \App\Models\ServiceCategory $category
      * @return ServiceCategoryResource
      */
-    public function update($language, UpdateServiceCategoryRequest $request, ServiceCategory $serviceCategory)
+    public function update($language, ServiceCategory $serviceCategory, UpdateServiceCategoryRequest $request)
     {
         $serviceCategory->update($request->validated());
         return new ServiceCategoryResource($serviceCategory);

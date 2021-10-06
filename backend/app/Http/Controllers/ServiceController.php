@@ -7,13 +7,14 @@ use App\Http\Requests\UpdateServiceRequest;
 use App\Http\Resources\ServiceResource;
 use App\Models\Service;
 use App\Models\ServiceCategory;
+use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
 
     public function index($language, ServiceCategory $serviceCategory)
     {
-        return ServiceResource::collection($serviceCategory->services());
+        return ServiceResource::collection($serviceCategory->services);
     }
 
     public function store($language, CreateServiceRequest $request, ServiceCategory $serviceCategory)
