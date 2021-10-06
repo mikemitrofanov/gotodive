@@ -24,9 +24,8 @@ class UpdateServiceCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'category' => 'array',
-            'category.title' => 'required|string',
-            'category.order' => 'integer',
+            'title' => 'required|string',
+            'order' => 'integer',
         ];
     }
 }
