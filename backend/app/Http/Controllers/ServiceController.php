@@ -35,7 +35,6 @@ class ServiceController extends Controller
 
     public function update($language, UpdateServiceRequest $request, Service $service,)
     {
-//        dd($request);
         $service->update($request->validated());
         return new ServiceResource($service);
     }
