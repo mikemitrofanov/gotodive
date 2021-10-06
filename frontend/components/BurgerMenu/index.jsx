@@ -10,7 +10,6 @@ export default function BurgerMenu({ isOpenedMainHeader, openBurgerMenuAndCloseM
   return (
     <nav className={`${isOpenedMainHeader && styles.top_nav_bar_block_burger}`}>
       <div
-        className={styles.wrapper_burger}
         onClick={(event) =>
           openBurgerMenuAndCloseMainHead({
             event,
