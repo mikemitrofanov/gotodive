@@ -21,7 +21,9 @@
 .active_link_dropdown,
 .dropdown_content_burger,
 .dropdown_content,
-.caret_down {
+.caret_down,
+.caret_down_burger_diving,
+.caret_down_burger_specialization {
   color: #639bd1;
 }
 
@@ -54,21 +56,21 @@
   border-bottom: 1px #669aca solid;
 }
 
-.noHidden {
+.noHidden,
+.dropdown_links_burger,
+.dropdown_links {
   display: block;
 }
 
 .dropdown_links_burger {
   margin-left: 25px;
   margin-bottom: 4px;
-  display: block;
 }
 
 .dropdown_links {
   border-bottom: 1px solid #639bd1;
   margin: 18px;
   font-size: 18px;
-  display: block;
 }
 
 .wrapper_arrows {
@@ -97,7 +99,6 @@
 .caret_right_burger_specialization {
   position: absolute;
   font-size: 25px;
-  color: #639bd1;
   transform: translateY(-8%);
 }
 
