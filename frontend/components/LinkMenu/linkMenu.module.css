@@ -3,11 +3,7 @@
   margin-bottom: 7px;
   font-family: "Montserrat-Light", sans-serif;
   display: block;
-}
-
-.main_nav_links_burger:hover,
-.main_nav_links:hover {
-  color: #639bd1;
+  max-width: 150px;
 }
 
 .main_nav_links {

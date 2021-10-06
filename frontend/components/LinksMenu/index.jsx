@@ -2,7 +2,7 @@ import { useState } from "react";
 import CategoryServicesDropdown from "../CategoryServicesDropdown";
 import LinkMenu from "../LinkMenu";
 
-export default function LinksMenu({ isOpened, categories }) {
+export default function LinksMenu({ isOpened, categories}) {
   const [isOpenedDropdownDiving, setIsOpenedDropdownDiving] = useState(false);
   const [isOpenedDropdownSpecialization, setIsOpenedSpecialization] = useState(false);
 
@@ -33,7 +33,7 @@ export default function LinksMenu({ isOpened, categories }) {
     <>
       <LinkMenu isOpened={isOpened} href='/' name='Главная' />
       <CategoryServicesDropdown category={diving} style={isOpenedDropdownDiving} checkOpenDropdown={checkOpenDropdown} isOpened={isOpened} />
-      <CategoryServicesDropdown category={specialization} style={isOpenedDropdownSpecialization} checkOpenDropdown={checkOpenDropdown} isOpened={isOpened} />
+      <CategoryServicesDropdown category={specialization} style={isOpenedDropdownSpecialization} checkOpenDropdown={checkOpenDropdown} isOpened={isOpened}/>
       <LinkMenu isOpened={isOpened} href='/gallery' name='Галерея' />
       <LinkMenu isOpened={isOpened} href='/prices' name='Прайс' />
     </>
