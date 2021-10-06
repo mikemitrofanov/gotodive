@@ -14,7 +14,7 @@ use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 use App\Orchid\Screens\Service\ServiceCreateScreen;
-
+use \App\Orchid\Screens\Language\LanguageScreen;
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -129,3 +129,10 @@ Route::screen('services/{service}/edit/{lang?}', ServiceScreen::class)
             ->push('Service');
     });
 
+Route::screen('languages', LanguageScreen::class)
+    ->name('platform.languages')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push('Supported Languages');
+    });
