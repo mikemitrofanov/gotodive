@@ -32,7 +32,7 @@ class ServiceCategoryController extends Controller
      */
     public function store($language, CreateServiceCategoryRequest $request)
     {
-        $category = ServiceCategory::create($request->validated()['category']);
+        $category = ServiceCategory::create($request->validated());
         return new ServiceCategoryResource($category);
     }
 
@@ -55,7 +55,7 @@ class ServiceCategoryController extends Controller
      */
     public function update($language, ServiceCategory $serviceCategory, UpdateServiceCategoryRequest $request)
     {
-        $serviceCategory->update($request->validated()['category']);
+        $serviceCategory->update($request->validated());
         return new ServiceCategoryResource($serviceCategory);
     }
 
