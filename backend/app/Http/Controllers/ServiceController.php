@@ -33,7 +33,7 @@ class ServiceController extends Controller
         return new ServiceResource($service);
     }
 
-    public function update($language, UpdateServiceRequest $request, Service $service,)
+    public function update($language, UpdateServiceRequest $request, Service $service)
     {
         $service->update($request->validated());
         return new ServiceResource($service);
