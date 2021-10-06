@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateServiceCategoryRequest;
 use App\Models\ServiceCategory;
 use App\Orchid\Layouts\Category\ServiceCategoryUpdateLayout;
 use App\Orchid\Layouts\Service\ServiceListLayout;
+use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
@@ -90,17 +91,17 @@ class ServiceCategoryCreateScreen extends Screen
         ];
     }
 
-    public function store(CreateServiceCategoryRequest $request)
+    public function store(Request $request)
     {
         app()->setLocale($request->category['language']);
-        ServiceCategory::create($request->validated()['category']);
+        ServiceCategory::create($request['category']);
         return redirect()->route('platform.categories');
     }
 
-    public function update(ServiceCategory $serviceCategory, UpdateServiceCategoryRequest $request,)
+    public function update(ServiceCategory $serviceCategory, Request $request,)
     {
         app()->setLocale($request->category['language']);
-        $serviceCategory->update($request->validated()['category']);
+        $serviceCategory->update($request['category']);
         return redirect()->route('platform.categories');
 
     }

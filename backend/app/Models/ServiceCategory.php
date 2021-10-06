@@ -15,7 +15,7 @@ class ServiceCategory extends Model
         'title',
         'order',
     ];
-    public $translatable = ['title',];
+    public $translatable = ['title'];
 
     public function services()
     {
