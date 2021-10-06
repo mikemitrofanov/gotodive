@@ -12,7 +12,6 @@ class SetLanguage
     {
         if (!Language::all()->contains('language_code', $request->language)) {
             return abort(400, 'Language code is not supported.');
-
         }
 
         app()->setLocale($request->language);

@@ -37,7 +37,7 @@ class ServiceFactory extends Factory
             ],
             'duration' => [
                 'en' => $duration . ' minutes',
-                'ukr' => $duration . ' Nederlands',
+                'ukr' => $duration . ' хвилин',
                 'ru' => $duration . ' минут',
 
             ],
@@ -48,7 +48,7 @@ class ServiceFactory extends Factory
             ],
             'required_experience' => $this->faker->boolean() ? [
                     'en' => $experience . ' hours',
-                    'ukr' => $experience . ' Nederlands',
+                    'ukr' => $experience . 'годин',
                     'ru' => $experience . ' часов',
                 ]:null,
             'course_certificate' => $this->faker->boolean() ? [
