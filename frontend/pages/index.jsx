@@ -4,9 +4,7 @@ import { categoriesApi } from "../store/categories/action";
 import { useSelector } from "react-redux";
 
 export default function Main() {
-  const { data: categories } = useSelector(
-    categoriesApi.endpoints.getAllCategories.select()
-  );
+  const { data: categories } = useSelector(categoriesApi.endpoints.getAllCategories.select());
 
   return (
     <>

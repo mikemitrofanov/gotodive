@@ -2,14 +2,7 @@ import LinksLanguages from "../LinksLanguages";
 import LinksMenu from "../LinksMenu";
 import styles from "./burgerMenu.module.css";
 
-export default function BurgerMenu({
-  isOpenedMainHeader,
-  openBurgerMenuAndCloseMainHead,
-  setIsOpened,
-  setIsOpenedMainHeader,
-  categories,
-  isOpened,
-}) {
+export default function BurgerMenu({ isOpenedMainHeader, openBurgerMenuAndCloseMainHead, setIsOpened, setIsOpenedMainHeader, categories, isOpened }) {
   const doNotClose = (event) => {
     event.stopPropagation();
   };

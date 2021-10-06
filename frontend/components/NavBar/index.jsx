@@ -14,15 +14,8 @@ export default function NavBar() {
 
   const categories = data.data;
 
-  const openBurgerMenuAndCloseMainHead = ({
-    event,
-    setIsOpened,
-    setIsOpenedMainHeader,
-  }) => {
-    if (
-      event.target.innerText === "Дайвинг" ||
-      event.target.innerText === "Специализация"
-    ) {
+  const openBurgerMenuAndCloseMainHead = ({ event, setIsOpened, setIsOpenedMainHeader }) => {
+    if (event.target.innerText === "Дайвинг" || event.target.innerText === "Специализация") {
       event.preventDefault();
       return;
     }
@@ -51,10 +44,7 @@ export default function NavBar() {
             <div className={styles.top_search_block}>
               <span className={styles.search_input_container}>
                 <input className={styles.top_bar_search_input} />
-                <FontAwesomeIcon
-                  className={styles.color_search}
-                  icon={faSearch}
-                />
+                <FontAwesomeIcon className={styles.color_search} icon={faSearch} />
               </span>
               <LinksLanguages isOpened={isOpened} />
               <Link href='/prices'>
@@ -64,14 +54,7 @@ export default function NavBar() {
           </article>
         </div>
       </nav>
-      <BurgerMenu
-        isOpenedMainHeader={isOpenedMainHeader}
-        openBurgerMenuAndCloseMainHead={openBurgerMenuAndCloseMainHead}
-        setIsOpened={setIsOpened}
-        setIsOpenedMainHeader={setIsOpenedMainHeader}
-        categories={categories}
-        isOpened={isOpened}
-      />
+      <BurgerMenu isOpenedMainHeader={isOpenedMainHeader} openBurgerMenuAndCloseMainHead={openBurgerMenuAndCloseMainHead} setIsOpened={setIsOpened} setIsOpenedMainHeader={setIsOpenedMainHeader} categories={categories} isOpened={isOpened} />
     </section>
   );
 }
