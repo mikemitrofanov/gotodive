@@ -4,7 +4,11 @@
   margin-right: 18px;
 }
 
-@media screen and (max-width: 1230px) {
+.languages {
+  color: #9ea5a8;
+}
+
+@media screen and (max-width: 1310px) {
   .languages {
     display: none;
   }

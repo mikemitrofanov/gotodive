@@ -38,7 +38,7 @@ export default function NavBar() {
                 })
               }
             ></button>
-            <div>
+            <div className={styles.wrapper_links}>
               <LinksMenu isOpened={isOpened} categories={categories} />
             </div>
             <div className={styles.top_search_block}>

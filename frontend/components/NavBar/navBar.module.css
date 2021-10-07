@@ -87,23 +87,23 @@
   background-position: center;
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1660px) {
   .top_nav_bar_block {
     font-size: 17px;
   }
 
   .main_block_container {
-    padding: 0 120px 0 100px;
+    padding: 0 100px 0 80px;
   }
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1480px) {
   .main_block_container {
     padding: 0 65px;
   }
 }
 
-@media screen and (max-width: 1230px) {
+@media screen and (max-width: 1310px) {
   .humburger_menu_btn {
     display: block;
   }
@@ -112,7 +112,8 @@
     right: 40px;
   }
 
-  .top_bar_user_icon {
+  .top_bar_user_icon,
+  .wrapper_links {
     display: none;
   }
 }
