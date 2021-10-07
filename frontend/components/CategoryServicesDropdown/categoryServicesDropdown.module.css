@@ -1,6 +1,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 
 .main_nav_links_burger {
