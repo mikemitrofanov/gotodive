@@ -1,5 +1,5 @@
 import NavBar from "../components/NavBar";
-import HeaderBar from "../components/Header";
+import SubHeader from "../components/SubHeader";
 import Popular from "../components/Popular";
 import { withRedux } from "../hof/withRedux";
 import { categoriesApi } from "../store/categories/action";
@@ -11,8 +11,8 @@ export default function Main() {
   return (
     <>
       <NavBar />
-      <HeaderBar />
-      <Popular />
+      <SubHeader />
+      {/* <Popular /> */}
     </>
   );
 }
