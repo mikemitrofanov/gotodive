@@ -22,6 +22,11 @@ class ServiceController extends Controller
         return new ServiceResource($service);
     }
 
+    public function showPopular()
+    {
+        return ServiceResource::collection(Service::where('is_popular', true)->cursorPaginate(3));
+    }
+
     public function show(Service $service)
     {
         return new ServiceResource($service);
