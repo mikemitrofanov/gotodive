@@ -46,7 +46,7 @@ export default function NavBar() {
                 <input className={styles.top_bar_search_input} />
                 <FontAwesomeIcon className={styles.color_search} icon={faSearch} />
               </span>
-              <LinksLanguages isOpened={isOpened}/>
+              <LinksLanguages isOpened={isOpened} />
               <Link href='/prices'>
                 <a className={styles.top_bar_user_icon}></a>
               </Link>

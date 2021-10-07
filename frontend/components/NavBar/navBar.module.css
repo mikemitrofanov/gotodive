@@ -81,10 +81,9 @@
 
 .top_bar_user_icon {
   font-size: 23px;
-  padding-left: 30px;
-  background-image: url(../../public/icon_user.png);
+  padding-left: 70px;
+  background-image: url(../../public/images/header/login.png);
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
 }
 
