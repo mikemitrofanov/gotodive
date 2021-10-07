@@ -6,7 +6,7 @@ import {randomInteger} from "../../helpers/randomInteger";
 export const categoriesApi = createApi({
     reducerPath: 'categoriesApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: process.env.API_URL + '/ru',
+        baseUrl: process.env.API_URL ,
     }),
     endpoints: (build) => ({
         getCategory: build.query({
@@ -17,7 +17,7 @@ export const categoriesApi = createApi({
             query: () => 'service-categories/services'
         }),
         getPopularServices: build.query({
-            query: () => 'services/popular',
+            query: () => 'service-categories/1/services/',
             transformResponse: (baseQueryReturnValue, meta) =>
                 baseQueryReturnValue.data.map(service => service.imageUrl ? service : {
                     ...service,
