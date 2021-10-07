@@ -1,0 +1,131 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.main_nav_links_burger {
+  font-size: 18px;
+  margin-bottom: 7px;
+  font-family: "Montserrat-Light", sans-serif;
+  display: block;
+  max-width: 150px;
+}
+
+.main_nav_links {
+  margin-top: 30px;
+  color: #eaeaea;
+  text-decoration: none;
+  margin-right: 60px;
+}
+
+.active_link_dropdown,
+.dropdown_content_burger,
+.dropdown_content,
+.caret_down,
+.caret_down_burger_diving,
+.caret_down_burger_specialization {
+  color: #639bd1;
+}
+
+.dropdown_content_burger {
+  font-family: "Montserrat-Light", sans-serif;
+  display: none;
+  max-width: 200px;
+}
+
+.dropdown_content_burger > p {
+  margin: 4px 0px 4px 30px;
+}
+
+.dropdown_content_burger > p:last-of-type {
+  margin-bottom: 10px;
+}
+
+.dropdown_content {
+  position: absolute;
+  background-color: #000b2d;
+  min-width: 300px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  border-bottom: 1px #193f65 solid;
+  padding: 12px 16px;
+  z-index: 1;
+  display: none;
+}
+
+.dropdown_content > p {
+  border-bottom: 1px #669aca solid;
+}
+
+.noHidden,
+.dropdown_links_burger,
+.dropdown_links {
+  display: block;
+}
+
+.dropdown_links_burger {
+  margin-left: 25px;
+  margin-bottom: 4px;
+}
+
+.dropdown_links {
+  border-bottom: 1px solid #639bd1;
+  margin: 18px;
+  font-size: 18px;
+}
+
+.wrapper_arrows {
+  display: inline-block;
+  width: 5px;
+}
+
+.caret_right,
+.caret_down {
+  position: relative;
+  right: 55px;
+  font-size: 25px;
+}
+
+.caret_right {
+  transform: translateY(10%);
+}
+
+.caret_down {
+  transform: translateY(5%);
+}
+
+.caret_down_burger_diving,
+.caret_right_burger_diving,
+.caret_down_burger_specialization,
+.caret_right_burger_specialization {
+  position: absolute;
+  font-size: 25px;
+  transform: translateY(-8%);
+}
+
+.caret_down_burger_diving,
+.caret_right_burger_diving {
+  left: 130px;
+}
+
+.caret_down_burger_specialization,
+.caret_right_burger_specialization {
+  left: 195px;
+}
+
+@media screen and (max-width: 1450px) {
+  .main_nav_links {
+    margin-right: 35px;
+  }
+
+  .caret_right,
+  .caret_down {
+    right: 30px;
+  }
+}
+
+@media screen and (max-width: 1230px) {
+  .main_nav_links,
+  .wrapper_arrows {
+    display: none;
+  }
+}
