@@ -2,16 +2,21 @@
 
 namespace App\Models;
 
+use App\Traits\HasOrder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    use HasFactory;
+    use HasFactory, HasOrder;
 
     protected $fillable = [
+        'short_description',
+        'min_age',
+        'required_experience',
+        'max_depth',
+        'course_certificate',
         'title',
-        'link',
         'order',
         'description',
         'duration',
@@ -24,11 +29,4 @@ class Service extends Model
         return $this->belongsTo(ServiceCategory::class);
     }
 
-//todo replace set order in to trait
-
-    public function setOrderAttribute($value)
-    {
-        $value = $value ?: Service::max('order') + 1;
-        $this->attributes['order'] = $value;
-    }
 }

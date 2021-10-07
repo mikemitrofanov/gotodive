@@ -30,17 +30,10 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        try {
-            $user = User::create($request->validated());
-            return response()->json([
-                'token' => $user->createToken('authToken')->plainTextToken
-            ]);
-        } catch (QueryException) {
-            return response()->json([
-                'message' => 'Something went wrong'
-            ], 418);
-        }
-
+        $user = User::create($request->validated());
+        return response()->json([
+            'token' => $user->createToken('authToken')->plainTextToken
+        ]);
 
     }
 
