@@ -20,6 +20,7 @@ Route::get('/service-categories', [ServiceCategoryController::class, 'index']);
 Route::get('/service-categories/services', [ServiceCategoryController::class, 'withServices']);
 Route::get('/service-categories/{serviceCategory}', [ServiceCategoryController::class, 'show']);
 Route::get('/service-categories/{serviceCategory}/services', [ServiceController::class, 'index']);
+Route::get('/services/popular', [ServiceController::class, 'showPopular']);
 Route::get('/services/{service}', [ServiceController::class, 'show']);
 
 Route::post('/login', [AuthController::class, 'login']);
