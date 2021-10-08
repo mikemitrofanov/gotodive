@@ -24,7 +24,7 @@
 }
 
 .humburger_menu_btn {
-  background-image: url(../../public/menu.svg);
+  background-image: url(../../public/images/menu.svg);
   width: 40px;
   height: 40px;
   background-size: contain;
@@ -110,7 +110,7 @@
   }
 
   .search_input_container::after {
-    right: 80px;
+    right: 40px;
   }
 
   .top_bar_user_icon,
