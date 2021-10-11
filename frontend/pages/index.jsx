@@ -1,3 +1,4 @@
+import { useState } from "react";
 import NavBar from "../components/NavBar";
 import SubHeader from "../components/SubHeader";
 import Popular from "../components/Popular";
@@ -8,10 +9,12 @@ import { useSelector } from "react-redux";
 export default function Main() {
   const { data: categories } = useSelector(categoriesApi.endpoints.getAllCategories.select());
 
+  const [isOpened, setIsOpened] = useState(false);
+
   return (
     <>
-      <NavBar />
-      <SubHeader />
+      <NavBar isOpened={isOpened} setIsOpened={setIsOpened} />
+      <SubHeader  isOpened={isOpened}/>
       {/* <Popular /> */}
     </>
   );

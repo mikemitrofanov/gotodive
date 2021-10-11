@@ -1,12 +1,12 @@
 import styles from "./subHeader.module.css";
 
-export default function SubHeader() {
+export default function SubHeader({ isOpened }) {
   return (
     <section className={styles.header_container}>
       <div className={styles.header_content_container}>
         <div className={styles.wrapper_mobile_background}>
           <article className={styles.header_images_container}>
-            <img className={styles.header_logo} src='images/sub_header/logo.png' />
+            <img className={`${isOpened && styles.hidden_logo} ${styles.header_logo}`} src='images/sub_header/logo.png' />
             <img className={styles.header_image} src='images/sub_header/image_main.png' />
           </article>
           <h1 className={styles.heading_mobile}>

@@ -8,8 +8,7 @@ import LinksMenu from "../LinksMenu";
 import { data } from "../../js/categoriesWithServices";
 import styles from "./navBar.module.css";
 
-export default function NavBar() {
-  const [isOpened, setIsOpened] = useState(false);
+export default function NavBar({ isOpened, setIsOpened }) {
   const [isOpenedMainHeader, setIsOpenedMainHeader] = useState(true);
 
   const categories = data.data;

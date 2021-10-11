@@ -18,6 +18,10 @@
   margin-top: 130px;
 }
 
+.hidden_logo{
+  display: none;
+}
+
 .header_logo {
   position: absolute;
   top: 800px;
