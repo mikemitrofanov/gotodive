@@ -17,12 +17,9 @@ use \Illuminate\Foundation\Auth\EmailVerificationRequest;
 */
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
-})->middleware('auth')->name('verification.notice');
+})->middleware('auth:sanctum')->name('verification.notice');
 
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-    return redirect('platform.login');
-})->middleware(['auth', 'signed'])->name('verification.verify');
+Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])->middleware(['auth:sanctum'])->name('verification.verify');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('register', [AuthController::class, 'register']);
