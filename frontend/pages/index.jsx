@@ -14,8 +14,8 @@ export default function Main() {
   return (
     <>
       <NavBar isOpened={isOpened} setIsOpened={setIsOpened} />
-      <SubHeader  isOpened={isOpened}/>
-      {/* <Popular /> */}
+      <SubHeader isOpened={isOpened} />
+      <Popular />
     </>
   );
 }
