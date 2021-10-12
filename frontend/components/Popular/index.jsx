@@ -2,17 +2,15 @@ import SwiperCore, { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSelector } from "react-redux";
 import Media from "react-media";
-import "swiper/css/navigation";
 import { categoriesApi } from "../../store/categories/action";
 import { data_slider } from "../../js/slider";
 import styles from "./popular.module.css";
-// import ServiceShort from "./items/ServiceShort";
+import ServiceShort from "../ServiceShort";
 
 SwiperCore.use([Navigation]);
 
 export default function Popular() {
   const { data } = useSelector(categoriesApi.endpoints.getPopularServices.select());
-
   const fake_data = data_slider.data;
   const services = Array.isArray(data) ? data : fake_data;
 
@@ -32,27 +30,17 @@ export default function Popular() {
                     clickable: true,
                   }}
                   navigation={true}
-                  className={styles.slider}
                 >
                   {services.map((service) => (
-                    <SwiperSlide>
-                      <div className={styles.popular_item}>
-                        <img className={styles.popular_service_image} src={service.imageUrl} alt='Image' />
-                        <p className={styles.popular_service_title}>{service.title}</p>
-                        <p className={styles.description}>{service.description}</p>
-                        <button className={styles.popular_service_button}>Записаться</button>
-                      </div>
+                    <SwiperSlide key={service.order}>
+                      <ServiceShort service={service} />
                     </SwiperSlide>
                   ))}
                 </Swiper>
               ) : (
                 <>
                   {services.map((service) => (
-                    <article className={styles.popular_item}>
-                      <img className={styles.popular_service_image} src={service.imageUrl} alt='Image' />
-                      <p className={styles.popular_service_title}>{service.title}</p>
-                      <p className={styles.description}>{service.description}</p> <button className={styles.popular_service_button}>Записаться</button>
-                    </article>
+                    <ServiceShort key={service.order} service={service} />
                   ))}
                 </>
               )
