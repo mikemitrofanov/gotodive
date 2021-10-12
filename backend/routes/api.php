@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Password;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('/forgot-password', [AuthController::class, 'resetPassword'])->name('password.email');
+Route::post('/forgot-password', [AuthController::class, 'requestResetPasswordLink'])->name('password.email');
 
 Route::post('/reset-password/{token}', [AuthController::class, 'setNewPassword'])->name('password.reset');
 

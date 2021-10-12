@@ -41,11 +41,11 @@ class AuthController extends Controller
 
     public function verifyEmail(EmailVerificationRequest $request)
     {
-        $request->fulfill();
-        return http_redirect('www.google.com');
+         $request->fulfill();
+        return response('success', 200);
     }
 
-    public function resetPassword(Request $request)
+    public function requestResetPasswordLink(Request $request)
     {
         $request->validate(['email' => 'required|email']);
 
@@ -54,8 +54,8 @@ class AuthController extends Controller
         );
 
         return $status === Password::RESET_LINK_SENT
-            ? back()->with(['status' => __($status)])
-            : back()->withErrors(['email' => __($status)]);
+            ? response('success', 200)
+            : response('error', 400);
     }
 
     public function setNewPassword(ResetPasswordRequest $request, $token)
@@ -74,7 +74,7 @@ class AuthController extends Controller
         return $status === Password::PASSWORD_RESET
             ?  response()->json([
                 'token' => $this->user->createToken('authToken')->plainTextToken
-            ]) : back()->withErrors(['email' => [__($status)]]);
+            ]) : response('error', 400);
     }
 
 
