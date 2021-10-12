@@ -1,0 +1,104 @@
+.popular_item {
+  display: flex;
+  flex-direction: column;
+}
+
+.popular_item,
+.popular_service_image {
+  max-width: 465px;
+}
+
+.popular_service_title {
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: 1.5rem;
+}
+
+.description {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  min-height: 90px;
+}
+
+.popular_service_button {
+  font-size: 1rem;
+  color: #dfe3e0;
+  bottom: 50px;
+  width: 465px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: #05132f;
+  border: none;
+  cursor: pointer;
+}
+
+.popular_service_title,
+.popular_service_button {
+  font-family: "Montserrat-Bold", sans-serif;
+}
+
+@media screen and (max-width: 1790px) {
+  .popular_item,
+  .popular_service_image,
+  .popular_service_button {
+    max-width: 350px;
+  }
+
+  .popular_service_title {
+    font-size: 1.4rem;
+  }
+
+  .description {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+  }
+
+  .popular_service_button {
+    max-height: 40px;
+  }
+}
+
+@media screen and (max-width: 1324px) {
+  .popular_item {
+    margin: 0 auto;
+  }
+
+  .popular_service_title {
+    font-size: 1.2rem;
+  }
+
+  .popular_service_button {
+    font-size: 0.8rem;
+    height: 40px;
+    border-radius: 2px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .popular_description {
+    font-size: 0.7rem;
+  }
+
+  .popular_item,
+  .popular_service_button {
+    max-width: 290px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .popular_item {
+    max-width: 220px;
+  }
+
+  .popular_service_title {
+    font-size: 0.9rem;
+  }
+
+  .description {
+    font-size: 0.7rem;
+  }
+
+  .popular_service_button {
+    max-width: 220px;
+    height: 35px;
+  }
+}
