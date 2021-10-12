@@ -1,31 +1,139 @@
+.background_block_title {
+  background-color: #ebeeed;
+}
+
+.block_title {
+  font-size: 2.4rem;
+  font-family: "Montserrat-ExtraBold", sans-serif;
+  line-height: 1;
+  width: max-content;
+  color: #7b7c7b;
+  margin: auto;
+  text-align: center;
+  padding: 50px;
+}
+
 .main_container {
-    background: url("/images/home_hero/bckgrnd.png") no-repeat center;
-    width: 100vw;
-    background-size: cover;
+  background: url("/images/home_hero/bckgrnd.png") no-repeat center;
+  width: 100vw;
 }
 
 .content_container {
-    max-width: 1920px;
-    margin: auto;
-    height: 680px;
-    display: flex;
-    align-items: center;
-    color: #eaeaea;
-    background-size: cover;
-    justify-content: space-around;
-    text-align: center;
-    line-height: 0.1;
+  max-width: 1920px;
+  margin: auto;
+  height: 680px;
+  display: flex;
+  align-items: center;
+  color: #eaeaea;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  line-height: 0.1;
+}
 
+.main_container,
+.content_container {
+  background-size: cover;
+}
+
+.wrapper_user {
+  margin: 0px 46px 0px 46px;
 }
 
 .team_member_name {
-    font-size: 1.8rem;
-    font-family: 'Montserrat-Bold', sans-serif;
-
+  font-size: 1.8rem;
+  font-family: "Montserrat-Bold", sans-serif;
 }
 
 .team_member_description {
-    font-size: 1.2rem;
-    font-family: 'Montserrat-Light', sans-serif;
+  font-size: 1.2rem;
+  font-family: "Montserrat-Light", sans-serif;
+}
 
+@media screen and (max-width: 2024px) {
+  .content_container {
+    max-height: 600px;
+  }
+
+  .img_team {
+    max-width: 350px;
+  }
+}
+
+@media screen and (max-width: 1325px) {
+  .block_title {
+    margin-left: 100px;
+  }
+
+  .content_container {
+    min-height: 1050px;
+  }
+
+  .team_member_description {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .block_title {
+    margin-left: 20px;
+    font-size: 2rem;
+  }
+
+  .content_container {
+    min-height: 875px;
+  }
+
+  .img_team {
+    max-width: 300px;
+  }
+
+  .team_member_name {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .content_container {
+    min-height: 670px;
+  }
+
+  .img_team {
+    max-width: 220px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .block_title {
+    margin-left: -30px;
+    font-size: 1.2rem;
+  }
+
+  .content_container {
+    min-height: 600px;
+  }
+
+  .wrapper_user {
+    margin: 0px 10px 0px 10px;
+  }
+
+  .team_member_name {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .block_title {
+    margin-left: 20px;
+    padding: 50px 0px 50px 0px;
+  }
+
+  .content_container {
+    min-height: 950px;
+  }
+
+  .wrapper_user {
+    margin-top: 10px;
+  }
 }
