@@ -3,18 +3,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useSelector } from "react-redux";
 import Media from "react-media";
 import "swiper/css/navigation";
-import "swiper/css";
 import { categoriesApi } from "../../store/categories/action";
-
+import { data_slider } from "../../js/slider";
 import styles from "./popular.module.css";
-
 // import ServiceShort from "./items/ServiceShort";
 
 SwiperCore.use([Navigation]);
 
 export default function Popular() {
   const { data } = useSelector(categoriesApi.endpoints.getPopularServices.select());
-  const services = Array.isArray(data) ? data : [];
+
+  const fake_data = data_slider.data;
+  const services = Array.isArray(data) ? data : fake_data;
 
   return (
     <section className={styles.popular_container}>
