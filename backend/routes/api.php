@@ -5,6 +5,7 @@ use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 use \Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Support\Facades\Password;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,9 +16,9 @@ use \Illuminate\Foundation\Auth\EmailVerificationRequest;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/email/verify', function () {
-    return view('auth.verify-email');
-})->middleware('auth:sanctum')->name('verification.notice');
+Route::post('/forgot-password', [AuthController::class, 'resetPassword'])->name('password.email');
+
+Route::post('/reset-password/{token}', [AuthController::class, 'setNewPassword'])->name('password.reset');
 
 Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])->middleware(['auth:sanctum'])->name('verification.verify');
 
