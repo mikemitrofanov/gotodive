@@ -1,24 +1,12 @@
 .popular_container {
-  height: 860px;
-  display: flex;
-  background-color: #ebeeed;
+  min-height: 860px;
 }
 
 .popular_content_container {
   width: 100%;
-  height: max-content;
-  margin: auto;
+  min-height: 930px;
   position: relative;
-}
-
-.popular_items_container {
-  max-width: 1920px;
-  margin: auto;
-  display: flex;
-  color: #7b7c7b;
-  font-size: 1rem;
-  font-family: serif;
-  justify-content: space-around;
+  background-color: #ebeeed;
 }
 
 .popular_header {
@@ -26,17 +14,36 @@
   font-family: "Montserrat-ExtraBold", sans-serif;
   line-height: 1;
   width: max-content;
+  text-align: center;
+  padding: 90px 0px 50px 0px;
+}
+
+.popular_items_container {
+  max-width: 1920px;
+  font-size: 1rem;
+  font-family: serif;
+  justify-content: space-around;
+}
+
+.popular_container,
+.popular_item,
+.popular_items_container {
+  display: flex;
+}
+
+.popular_header,
+.popular_items_container {
   color: #7b7c7b;
   margin: auto;
-  text-align: center;
-  padding: 50px;
 }
 
 .popular_item {
-  max-width: 465px;
-  display: flex;
   flex-direction: column;
-  padding-bottom: 100px;
+}
+
+.popular_item,
+.popular_service_image {
+  max-width: 465px;
 }
 
 .popular_service_title {
@@ -44,11 +51,15 @@
   font-size: 1.5rem;
 }
 
+.description {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  min-height: 90px;
+}
+
 .popular_service_button {
   font-size: 1rem;
   color: #dfe3e0;
-  font-family: "Montserrat-Bold", sans-serif;
-  position: absolute;
   bottom: 50px;
   width: 465px;
   height: 48px;
@@ -58,31 +69,62 @@
   cursor: pointer;
 }
 
+.popular_service_title,
+.popular_service_button {
+  font-family: "Montserrat-Bold", sans-serif;
+}
+
 @media screen and (max-width: 1790px) {
-  .popular_item {
-    max-width: 350px;
+  .popular_container {
+    max-height: 718px;
+    min-height: 0px;
   }
+
+  .popular_content_container {
+    min-height: 770px;
+  }
+  .popular_header {
+    font-size: 1.8rem;
+  }
+
+  .popular_item,
+  .popular_service_image,
   .popular_service_button {
     max-width: 350px;
   }
 
-  .popular_container {
-    max-height: 718px;
-  }
   .popular_service_title {
     font-size: 1.4rem;
+  }
+
+  .description {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+  }
+
+  .popular_service_button {
+    max-height: 40px;
   }
 }
 
 @media screen and (max-width: 1324px) {
-  .popular_item {
-    margin: 0 auto;
+  .popular_content_container {
+    min-height: 700px;
   }
 
   .popular_header {
     font-size: 1.4rem;
-    margin-left: 335px;
+    margin-left: 385px;
     padding-top: 20px;
+    margin-top: 20px;
+  }
+
+  .popular_item {
+    margin: 0 auto;
+  }
+
+  .popular_service_title {
+    font-size: 1.2rem;
   }
 
   .popular_service_button {
@@ -90,13 +132,90 @@
     height: 40px;
     border-radius: 2px;
   }
+}
+
+@media screen and (max-width: 1224px) {
+  .popular_header {
+    margin-left: 185px;
+  }
+
+  .popular_items_container {
+    margin-left: -365px;
+  }
+}
+
+@media screen and (max-width: 1086px) {
+  .popular_items_container {
+    margin-left: -170px;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .popular_header {
+    margin-left: 160px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .popular_header {
+    margin-left: 100px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .popular_content_container {
+    min-height: 640px;
+  }
+
+  .popular_header {
+    margin-left: 90px;
+    margin-top: 0px;
+  }
+
+  .popular_items_container {
+    margin-left: 20px;
+  }
+
+  .popular_description {
+    font-size: 0.7rem;
+  }
+
+  .popular_item,
+  .popular_service_button {
+    max-width: 290px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .popular_header {
+    margin-left: 45px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .popular_content_container {
+    min-height: 580px;
+  }
+
+  .popular_header {
+    margin-left: 25px;
+    font-size: 1.1rem;
+  }
+
+  .popular_item {
+    max-width: 220px;
+  }
 
   .popular_service_title {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
 
   .description {
-    margin-top: 0px;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
+  }
+
+  .popular_service_button {
+    max-width: 220px;
+    height: 35px;
   }
 }
