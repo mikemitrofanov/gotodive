@@ -8,17 +8,14 @@ use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Notifications\ResetPasswordNotification;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Notifications\VerifyEmail;
-use Illuminate\Database\QueryException;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\Request;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Str;
+use Notification;
 
 class AuthController extends Controller
 {
@@ -39,50 +36,52 @@ class AuthController extends Controller
 
     }
 
-    public function verifyEmail(EmailVerificationRequest $request)
+    public function verifyEmail(Request $request)
     {
-         $request->fulfill();
-        return response('success', 200);
+        $user = User::find($request->route('id'));
+
+        if ($user->hasVerifiedEmail()) {
+            return redirect(env('FRONT_URL') . '/email/verify/already-success');
+        }
+
+        if ($user->markEmailAsVerified()) {
+            event(new Verified($user));
+        }
+
+        return redirect(env('FRONT_URL') . '/email/verify/success');
     }
 
     public function requestResetPasswordLink(Request $request)
     {
         $request->validate(['email' => 'required|email']);
 
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
+        $user = Password::getUser($request->only('email'));
+        $status = Password::createToken($user);
+        Notification::send($user, new ResetPasswordNotification($status));
 
-        return $status === Password::RESET_LINK_SENT
-            ? response('success', 200)
-            : response('error', 400);
+        return response('success', 200);
     }
 
-    public function setNewPassword(ResetPasswordRequest $request, $token)
+    public function setNewPassword(ResetPasswordRequest $request)
     {
         $status = Password::reset(
-            array_merge($request->validated(), ['token' => $token]),
+            $request->validated(),
             function ($user, $password) {
-                $user->forceFill([
-                    'password' => Hash::make($password)
-                ])->setRememberToken(Str::random(60));
+                $user->update(['password' => $password]);
                 $this->user = $user;
-                $user->save();
                 event(new PasswordReset($user));
             }
         );
         return $status === Password::PASSWORD_RESET
-            ?  response()->json([
+            ? response()->json([
                 'token' => $this->user->createToken('authToken')->plainTextToken
             ]) : response('error', 400);
     }
-
 
     public function register(RegisterRequest $request)
     {
         $user = User::create($request->validated());
         event(new Registered($user));
-
         return response()->json([
             'token' => $user->createToken('authToken')->plainTextToken
         ]);

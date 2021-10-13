@@ -24,7 +24,7 @@ class ResetPasswordRequest extends FormRequest
     public function rules()
     {
         return [
-            'token' => '',
+            'token' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:8|confirmed',
         ];

@@ -17,10 +17,8 @@ use Illuminate\Support\Facades\Password;
 |
 */
 Route::post('/forgot-password', [AuthController::class, 'requestResetPasswordLink'])->name('password.email');
-
-Route::post('/reset-password/{token}', [AuthController::class, 'setNewPassword'])->name('password.reset');
-
-Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])->middleware(['auth:sanctum'])->name('verification.verify');
+Route::post('/reset-password', [AuthController::class, 'setNewPassword'])->name('password.reset');
+Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])->name('verification.verify');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('register', [AuthController::class, 'register']);
