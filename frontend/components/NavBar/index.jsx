@@ -14,7 +14,7 @@ export default function NavBar({ isOpened, setIsOpened }) {
   const categories = data.data;
 
   const openBurgerMenuAndCloseMainHead = ({ event, setIsOpened, setIsOpenedMainHeader }) => {
-    if (event.target.innerText === "Дайвинг" || event.target.innerText === "Специализация") {
+    if (event.target.innerText === "Дайвинг" || event.target.innerText === "Специализации") {
       event.preventDefault();
       return;
     }
