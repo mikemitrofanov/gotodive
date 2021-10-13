@@ -25,14 +25,26 @@
 }
 
 .swiper-button-next:after,
-.swiper-button-prev:after {
+.swiper-button-prev:after,
+.swiper-button-next:before,
+.swiper-button-prev:before {
   font-family: swiper-icons;
-  font-size: var(--swiper-navigation-size);
   text-transform: none !important;
   letter-spacing: 0;
   text-transform: none;
   font-variant: initial;
   line-height: 1;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: var(--swiper-navigation-size);
+}
+
+.swiper-button-next:before,
+.swiper-button-prev:before {
+  font-weight: bolder;
+  font-size: 48px;
 }
 
 .swiper-button-prev,
@@ -43,8 +55,15 @@
 
 .swiper-button-prev:after,
 .swiper-rtl .swiper-button-next:after {
-  content: "prev";
   color: white;
+  position: absolute;
+}
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after,
+.swiper-button-prev:before,
+.swiper-rtl .swiper-button-next:before {
+  content: "prev";
 }
 
 .swiper-button-next,
@@ -54,9 +73,17 @@
 }
 
 .swiper-button-next:after,
-.swiper-rtl .swiper-button-prev:after {
+.swiper-rtl .swiper-button-prev:after,
+.swiper-button-next:before,
+.swiper-rtl .swiper-button-prev:before {
   content: "next";
+}
+
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
   color: white;
+  position: absolute;
+  left: 4px;
 }
 
 .swiper-button-lock {
@@ -74,5 +101,17 @@
   .swiper-button-prev:after,
   .swiper-rtl .swiper-button-next:after {
     font-size: 20px;
+  }
+
+  .swiper-button-next:before,
+  .swiper-rtl .swiper-button-prev:before,
+  .swiper-button-prev:before,
+  .swiper-rtl .swiper-button-next:before {
+    font-size: 24px;
+  }
+
+  .swiper-button-next:after,
+  .swiper-rtl .swiper-button-prev:after {
+    left: 9px;
   }
 }
