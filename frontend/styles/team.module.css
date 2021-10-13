@@ -106,7 +106,6 @@
 
 @media screen and (max-width: 700px) {
   .block_title {
-    margin-left: -30px;
     font-size: 1.2rem;
   }
 
@@ -125,7 +124,7 @@
 
 @media screen and (max-width: 479px) {
   .block_title {
-    margin-left: 20px;
+    margin-left: 40px;
     padding: 50px 0px 50px 0px;
   }
 
