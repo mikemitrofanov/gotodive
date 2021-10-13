@@ -1,67 +1,72 @@
-import {ErrorMessage, Field, Form, Formik} from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from 'yup'
 import styles from '../../styles/contactForm.module.css'
-import {FormikTextArea} from "../items/FormikTextArea";
+import { FormikTextArea } from "../items/FormikTextArea";
 
-export default function ContactForm({onSubmit}) {
+export default function ContactForm({ onSubmit }) {
 
     const validationSchema = Yup.object().shape({
-        email: Yup.string().email('Wrong email format').required('Email is required'),
-        phone: Yup.string().required('Phone is required'),
-        name: Yup.string().required('Name is required'),
+        email: Yup.string().email('Please enter a valid email. Must start with a lowercase letter, contain @ and "."').required('Email is required'),
+        phone: Yup.string().matches(
+            /^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/,
+            'Please enter a valid phone number. Must contain at least 7 digits').required('Phone is required'),
+        name: Yup.string().matches(
+            /^[A-Z][a-z]{1,64}$/,
+            'Please enter a valid name. The first letter must be capitalized').required('Name is required'),
         message: Yup.string().required('Message required'),
     })
 
-    return <Formik validateOnChange={false} initialValues={{
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
-    }} validationSchema={validationSchema} onSubmit={onSubmit}>
+    return (
+        <Formik validateOnChange={false} initialValues={{
+            name: '',
+            email: '',
+            phone: '',
+            message: ''
+        }} validationSchema={validationSchema} onSubmit={onSubmit}>
 
-        <Form className={styles.form_container}>
-            <div className={styles.subContainer}>
+            <Form className={styles.form_container}>
+                <section className={styles.subContainer}>
+                    <article className={styles.input_container}>
+                        <label className={styles.label} htmlFor="name">Имя</label>
+                        <Field name="name" className={styles.input} />
+                        <ErrorMessage
+                            name="name"
+                            component="div"
+                            className={styles.field_error}
+                        />
+                    </article>
+                    <article className={styles.input_container}>
+                        <label className={styles.label} htmlFor="email">Email</label>
+                        <Field className={styles.input} name="email" />
+                        <ErrorMessage
+                            name="email"
+                            component="div"
+                            className={styles.field_error}
+                        />
+                    </article>
+                    <article className={styles.input_container}>
+                        <label className={styles.label} htmlFor="phone">Телефон</label>
+                        <Field name="phone" className={styles.input} />
+                        <ErrorMessage
+                            name="phone"
+                            component="div"
+                            className={styles.field_error}
+                        />
+                    </article>
 
-                <div className={styles.input_container}>
-                    <label className={styles.label} htmlFor="email">Email</label>
-                    <Field className={styles.input} name="email"/>
-                    <ErrorMessage
-                        name="email"
-                        component="div"
-                        className={styles.field_error}
-                    />
-                </div>
-                <div className={styles.input_container}>
-                    <label className={styles.label} htmlFor="phone">Телефон</label>
-                    <Field name="phone" className={styles.input}/>
+                </section>
 
-                    <ErrorMessage
-                        name="phone"
-                        component="div"
-                        className={styles.field_error}
-                    />
-                </div>
-                <div className={styles.input_container}>
-                    <label className={styles.label} htmlFor="name">Имя</label>
-                    <Field name="name" className={styles.input}/>
-                    <ErrorMessage
-                        name="name"
-                        component="div"
-                        className={styles.field_error}
-                    />
-                </div>
-            </div>
+                <section className={styles.subContainer}>
+                    <article className={styles.input_container}>
+                        <FormikTextArea
+                            label="Сообщение"
+                            name="message"
+                        />
+                    </article>
+                    <button className={styles.submitBtn} type='submit'>Отправить</button>
+                </section>
 
-            <div className={styles.subContainer}>
-                <div className={styles.input_container}>
-                    <FormikTextArea
-                        label="Сообщение"
-                        name="message"
-                    />
-                </div>
-                <button className={styles.submitBtn} type='submit'>Отправить</button>
-            </div>
-
-        </Form>
-    </Formik>
+            </Form>
+        </Formik>
+    )
 }
