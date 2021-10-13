@@ -25,7 +25,7 @@ export default function ContactForm({ onSubmit }) {
         }} validationSchema={validationSchema} onSubmit={onSubmit}>
 
             <Form className={styles.form_container}>
-                <section className={styles.subContainer}>
+                <section className={styles.sub_container}>
                     <article className={styles.input_container}>
                         <label className={styles.label} htmlFor="name">Имя</label>
                         <Field name="name" className={styles.input} />
@@ -56,14 +56,14 @@ export default function ContactForm({ onSubmit }) {
 
                 </section>
 
-                <section className={styles.subContainer}>
+                <section className={styles.sub_container}>
                     <article className={styles.input_container}>
                         <FormikTextArea
                             label="Сообщение"
                             name="message"
                         />
                     </article>
-                    <button className={styles.submitBtn} type='submit'>Отправить</button>
+                    <button className={styles.submit_btn} type='submit'>Отправить</button>
                 </section>
 
             </Form>

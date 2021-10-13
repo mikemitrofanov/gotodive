@@ -1,5 +1,5 @@
 import ContactForm from "../forms/ContactForm";
-import styles from "../../styles/contactForm.module.css"
+import styles from "../../styles/contact.module.css"
 
 export default function Contact() {
 

@@ -1,5 +1,5 @@
 import { useField } from "formik";
-import styles from "../../styles/contactForm.module.css";
+import styles from "../../styles/formikTextArea.module.css";
 
 export const FormikTextArea = ({ label, ...props }) => {
     const [field, meta] = useField(props);
