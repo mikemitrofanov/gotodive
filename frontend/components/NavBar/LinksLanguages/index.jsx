@@ -1,4 +1,4 @@
-import LinkLanguages from "../LinkLanguages";
+import LinkLanguages from "./LinkLanguages";
 
 export default function LinksLanguages({ isOpened }) {
   return (

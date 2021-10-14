@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 import Media from "react-media";
 import { categoriesApi } from "../../store/categories/action";
 import { data_slider } from "../../js/slider";
+import ServiceShort from "./ServiceShort";
 import styles from "./popular.module.css";
-import ServiceShort from "../ServiceShort";
 
 SwiperCore.use([Navigation]);
 

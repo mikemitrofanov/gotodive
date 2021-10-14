@@ -1,6 +1,6 @@
 import { useState } from "react";
-import CategoryServicesDropdown from "../CategoryServicesDropdown";
-import LinkMenu from "../LinkMenu";
+import CategoryServicesDropdown from "./CategoryServicesDropdown";
+import LinkMenu from "./LinkMenu";
 
 export default function LinksMenu({ isOpened, categories}) {
   const [isOpenedDropdownDiving, setIsOpenedDropdownDiving] = useState(false);
