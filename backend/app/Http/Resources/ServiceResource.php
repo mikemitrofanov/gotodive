@@ -15,14 +15,19 @@ class ServiceResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'title' => $this->title,
-            'link' => $this->link,
             'order' => $this->order,
             'serviceCategory' => $this->service_category_id,
             'description' => $this->description,
             'duration' => $this->duration,
             'price' => $this->price,
             'isPopular' => $this->is_popular,
+            'short_description' => $this->short_description,
+            'min_age' => $this->min_age,
+            'required_experience' => $this->required_experience,
+            'max_depth' => $this->max_depth,
+            'course_certificate' => $this->course_certificate,
         ];
     }
 }

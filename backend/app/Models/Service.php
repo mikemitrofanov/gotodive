@@ -2,16 +2,22 @@
 
 namespace App\Models;
 
+use App\Traits\HasOrder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Service extends Model
 {
-    use HasFactory;
+    use HasFactory, HasOrder, HasTranslations;
 
     protected $fillable = [
+        'short_description',
+        'min_age',
+        'required_experience',
+        'max_depth',
+        'course_certificate',
         'title',
-        'link',
         'order',
         'description',
         'duration',
@@ -19,16 +25,18 @@ class Service extends Model
         'is_popular',
     ];
 
+    public $translatable = [
+        'description',
+        'short_description',
+        'title',
+        'required_experience',
+        'course_certificate',
+        'duration',
+    ];
+
     public function serviceCategory()
     {
         return $this->belongsTo(ServiceCategory::class);
     }
 
-//todo replace set order in to trait
-
-    public function setOrderAttribute($value)
-    {
-        $value = $value ?: Service::max('order') + 1;
-        $this->attributes['order'] = $value;
-    }
 }

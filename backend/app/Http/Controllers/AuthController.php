@@ -4,13 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
-use App\Http\Resources\TokenResource;
+use App\Http\Requests\ResetPasswordRequest;
+use App\Http\Requests\UpdateUserRequest;
+use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Notifications\ResetPasswordNotification;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
+use Notification;
 
 class AuthController extends Controller
 {
+    protected $user;
+
     /**
      * @OA\Post(
      *      path="/login",
@@ -36,14 +46,59 @@ class AuthController extends Controller
      */
     public function login(LoginRequest $request)
     {
-        $credentials = $request->validated();
 
-        if (Auth::attempt($credentials)) {
-            $token = Auth::user()->createToken('');
-            return new TokenResource($token);
+        if (!Auth::attempt($request->validated())) {
+            return response()->json([
+                'message' => 'The provided credentials do not match our records.'
+            ], 401);
         }
 
-        return response()->noContent(401);
+        return response()->json([
+            'token' => Auth::user()->createToken('authToken')->plainTextToken
+        ]);
+
+    }
+
+    public function verifyEmail(Request $request)
+    {
+        $user = User::find($request->route('id'));
+
+        if ($user->hasVerifiedEmail()) {
+            return redirect(env('FRONT_URL') . '/email/verify/already-success');
+        }
+
+        if ($user->markEmailAsVerified()) {
+            event(new Verified($user));
+        }
+
+        return redirect(env('FRONT_URL') . '/email/verify/success');
+    }
+
+    public function requestResetPasswordLink(Request $request)
+    {
+        $request->validate(['email' => 'required|email']);
+
+        $user = Password::getUser($request->only('email'));
+        $status = Password::createToken($user);
+        Notification::send($user, new ResetPasswordNotification($status));
+
+        return response('success', 200);
+    }
+
+    public function setNewPassword(ResetPasswordRequest $request)
+    {
+        $status = Password::reset(
+            $request->validated(),
+            function ($user, $password) {
+                $user->update(['password' => $password]);
+                $this->user = $user;
+                event(new PasswordReset($user));
+            }
+        );
+        return $status === Password::PASSWORD_RESET
+            ? response()->json([
+                'token' => $this->user->createToken('authToken')->plainTextToken
+            ]) : response('error', 400);
     }
 
     /**
@@ -68,8 +123,10 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $user = User::create($request->validated());
-        $token = $user->createToken('');
-        return new TokenResource($token);
+        event(new Registered($user));
+        return response()->json([
+            'token' => $user->createToken('authToken')->plainTextToken
+        ]);
 
     }
 
@@ -103,5 +160,15 @@ class AuthController extends Controller
         return response()->noContent();
     }
 
+    public function show()
+    {
+        return new UserResource(Auth::user());
+    }
+
+    public function update(UpdateUserRequest $request)
+    {
+        $request->user()->update($request->validated());
+        return new UserResource($request->user());
+    }
 
 }

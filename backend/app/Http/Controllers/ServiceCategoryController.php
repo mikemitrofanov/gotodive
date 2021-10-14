@@ -36,6 +36,11 @@ class ServiceCategoryController extends Controller
         return ServiceCategoryResource::collection(ServiceCategory::all());
     }
 
+    public function withServices()
+    {
+        return ServiceCategoryResource::collection(ServiceCategory::with('services')->get());
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -60,10 +65,10 @@ class ServiceCategoryController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return ServiceCategoryResource
      */
-    public function store(CreateServiceCategoryRequest $request)
+    public function store($language, CreateServiceCategoryRequest $request)
     {
         $category = ServiceCategory::create($request->validated());
-        return new ServiceCategoryResource ($category);
+        return new ServiceCategoryResource($category);
     }
 
     /**
@@ -86,11 +91,10 @@ class ServiceCategoryController extends Controller
      *
      *
      * @param \App\Models\ServiceCategory $category
-     * @return ServiceCategoryResource
      */
-    public function show(ServiceCategory $serviceCategory)
+    public function show($language, ServiceCategory $serviceCategory)
     {
-        return new ServiceCategoryResource ($serviceCategory);
+        return new ServiceCategoryResource($serviceCategory);
     }
 
     /**
@@ -118,10 +122,10 @@ class ServiceCategoryController extends Controller
      * @param \App\Models\ServiceCategory $category
      * @return ServiceCategoryResource
      */
-    public function update(UpdateServiceCategoryRequest $request, ServiceCategory $serviceCategory)
+    public function update($language, ServiceCategory $serviceCategory, UpdateServiceCategoryRequest $request)
     {
         $serviceCategory->update($request->validated());
-        return new ServiceCategoryResource ($serviceCategory);
+        return new ServiceCategoryResource($serviceCategory);
     }
 
     /**

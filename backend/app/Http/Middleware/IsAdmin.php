@@ -10,15 +10,17 @@ class IsAdmin
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
         $user = $request->user();
-
-        if ($user && $user->isAdmin == 1) {
+        $hasRights = $user->getRoles()->some(function ($role) {
+            return in_array($role->slug, ['moderator', 'admin']);
+        });
+        if ($hasRights) {
             return $next($request);
         }
 

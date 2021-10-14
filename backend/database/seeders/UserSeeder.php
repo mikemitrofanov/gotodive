@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use Orchid\Platform\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -15,18 +15,19 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        User::create([
             'name' => 'Admin',
             'email' => 'admin@test.com',
-            'password' => bcrypt('password'),
+            'password' => env('ADMIN_PASSWORD', 'password'),
             'isAdmin' => true
-        ]);
-        DB::table('users')->insert([
-            'name' => 'Admin',
+        ])->addRole(Role::firstWhere('slug', 'admin'));
+        User::create([
+            'name' => 'Moderator',
             'email' => 'email@example.com',
-            'password' => bcrypt('password'),
+            'password' => env('MODERATOR_PASSWORD', 'password'),
             'isAdmin' => true
-        ]);
+
+        ])->addRole(Role::firstWhere('slug', 'moderator'));
 
         User::factory()->count(5)->create();
     }

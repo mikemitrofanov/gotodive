@@ -15,12 +15,16 @@ class CreateServicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('link');
             $table->integer('order')->nullable();
-            $table->string('description');
-            $table->string('duration');
-            $table->string('price');
+            $table->text('title');
+            $table->text('description');
+            $table->text('short_description');
+            $table->text('duration');
+            $table->string('min_age');
+            $table->text('required_experience')->nullable();
+            $table->string('max_depth')->nullable();
+            $table->text('course_certificate')->nullable();
+            $table->integer('price');
             $table->boolean('is_popular')->default(false);
             $table->foreignId('service_category_id')->constrained('service_categories')->onDelete('cascade');
             $table->timestamps();

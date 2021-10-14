@@ -22,7 +22,11 @@ class ServiceCategoryFactory extends Factory
     public function definition()
     {
         return [
-            'title'=>$this->faker->title(),
+            'title' => [
+                'en' => $this->faker->text(8),
+                'ukr' => $this->faker->text(8),
+                'ru' => $this->faker->text(8),
+            ],
         ];
     }
 }
