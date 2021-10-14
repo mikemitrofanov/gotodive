@@ -27,9 +27,9 @@ export default function ContactForm({ onSubmit }) {
 
             <Form className={styles.form_container}>
                 <section className={styles.sub_container}>
-                    <Input name='name' info='Имя' />
-                    <Input name='email' info='Email' />
-                    <Input name='phone' info='Телефон' />
+                    <Input name='name' label='Имя' />
+                    <Input name='email' label='Email' />
+                    <Input name='phone' label='Телефон' />
                 </section>
                 <section className={styles.sub_container}>
                     <article className={styles.input_container}>

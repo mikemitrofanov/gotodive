@@ -1,10 +1,10 @@
 import { ErrorMessage, Field } from "formik";
 import styles from '../../styles/input.module.css'
 
-export default function Input({ name, info }) {
+export default function Input({ name, label }) {
   return (
     <article className={styles.input_container}>
-      <label className={styles.label} htmlFor={name}>{info}</label>
+      <label className={styles.label} htmlFor={name}>{label}</label>
       <Field name={name} className={styles.input} />
       <ErrorMessage
         name={name}
