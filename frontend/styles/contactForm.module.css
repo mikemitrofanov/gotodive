@@ -3,6 +3,7 @@
   max-width: 1100px;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .sub_container {
@@ -22,36 +23,6 @@
   display: flex;
 }
 
-.form_container,
-.input_container {
-  justify-content: space-around;
-}
-
-.label {
-  font-family: "Montserrat-Light", sans-serif;
-  font-size: 27px;
-  color: #7b7c7b;
-  line-height: 26px;
-  top: -45px;
-}
-
-.input {
-  width: 394px;
-  height: 72px;
-  border: 1px solid #7b7c7b;
-  word-break: break-word;
-  overflow: auto;
-  background-color: #ebeeed;
-  font-size: 25px;
-  letter-spacing: 0.7px;
-  padding-left: 10px;
-}
-
-.field_error {
-  bottom: -45px;
-  color: red;
-}
-
 .submit_btn {
   width: 402px;
   height: 82px;
@@ -63,11 +34,6 @@
   bottom: -100px;
   align-self: flex-end;
   cursor: pointer;
-}
-
-.label,
-.field_error,
-.submit_btn {
   position: absolute;
 }
 
@@ -75,66 +41,18 @@
   .sub_container {
     margin: 0px;
   }
-
-  .label {
-    top: -35px;
-  }
-
-  .input {
-    min-width: 1025px;
-    margin-bottom: 55px;
-  }
-
-  .field_error {
-    bottom: 37px;
-    font-size: 15px;
-  }
-}
-
-@media screen and (max-width: 1135px) {
-  .input {
-    min-width: 830px;
-  }
-}
-
-@media screen and (max-width: 989px) {
-  .input {
-    min-width: 650px;
-  }
 }
 
 @media screen and (max-width: 800px) {
-  .label {
-    font-size: 18px;
-  }
-
-  .input {
-    min-width: 550px;
-    font-size: 20px;
-  }
-
   .submit_btn {
     max-width: 250px;
     font-size: 15px;
     bottom: -80px;
-  }
-
-  .input,
-  .submit_btn {
     max-height: 50px;
   }
 }
 
 @media screen and (max-width: 700px) {
-  .input {
-    min-width: 0px;
-  }
-
-  .field_error {
-    bottom: 37px;
-    font-size: 11px;
-  }
-
   .submit_btn {
     max-width: 185px;
     max-height: 40px;
@@ -144,27 +62,8 @@
 }
 
 @media screen and (max-width: 479px) {
-  .label {
-    top: -28px;
-  }
-
-  .input {
-    max-height: 40px;
-    margin-bottom: 50px;
-    font-size: 16px;
-  }
-
-  .field_error {
-    bottom: 23px;
-  }
-
-  .input,
   .submit_btn {
     max-width: 250px;
-  }
-
-  .label,
-  .submit_btn {
     font-size: 15px;
   }
 }
