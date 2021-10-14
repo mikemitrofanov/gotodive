@@ -2,7 +2,9 @@
   display: none;
 }
 
-.backgraund_burger {
+.background_burger {
+  position:absolute;
+  z-index:1;
   background-color: #000b2d;
   width: 100%;
   color: #eaeaea;

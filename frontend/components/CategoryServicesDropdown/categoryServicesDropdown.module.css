@@ -1,6 +1,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 
 .main_nav_links_burger {
@@ -30,7 +31,6 @@
 .dropdown_content_burger {
   font-family: "Montserrat-Light", sans-serif;
   display: none;
-  max-width: 200px;
 }
 
 .dropdown_content_burger > p {
@@ -104,12 +104,12 @@
 
 .caret_down_burger_diving,
 .caret_right_burger_diving {
-  left: 130px;
+  left: 143px;
 }
 
 .caret_down_burger_specialization,
 .caret_right_burger_specialization {
-  left: 195px;
+  left: 210px;
 }
 
 @media screen and (max-width: 1450px) {
