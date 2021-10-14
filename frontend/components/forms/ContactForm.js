@@ -1,7 +1,8 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import * as Yup from 'yup'
 import styles from '../../styles/contactForm.module.css'
 import { FormikTextArea } from "../items/FormikTextArea";
+import Input from '../items/Input'
 
 export default function ContactForm({ onSubmit }) {
 
@@ -26,36 +27,10 @@ export default function ContactForm({ onSubmit }) {
 
             <Form className={styles.form_container}>
                 <section className={styles.sub_container}>
-                    <article className={styles.input_container}>
-                        <label className={styles.label} htmlFor="name">Имя</label>
-                        <Field name="name" className={styles.input} />
-                        <ErrorMessage
-                            name="name"
-                            component="div"
-                            className={styles.field_error}
-                        />
-                    </article>
-                    <article className={styles.input_container}>
-                        <label className={styles.label} htmlFor="email">Email</label>
-                        <Field className={styles.input} name="email" />
-                        <ErrorMessage
-                            name="email"
-                            component="div"
-                            className={styles.field_error}
-                        />
-                    </article>
-                    <article className={styles.input_container}>
-                        <label className={styles.label} htmlFor="phone">Телефон</label>
-                        <Field name="phone" className={styles.input} />
-                        <ErrorMessage
-                            name="phone"
-                            component="div"
-                            className={styles.field_error}
-                        />
-                    </article>
-
+                    <Input name='name' info='Имя' />
+                    <Input name='email' info='Email' />
+                    <Input name='phone' info='Телефон' />
                 </section>
-
                 <section className={styles.sub_container}>
                     <article className={styles.input_container}>
                         <FormikTextArea
@@ -65,7 +40,6 @@ export default function ContactForm({ onSubmit }) {
                     </article>
                     <button className={styles.submit_btn} type='submit'>Отправить</button>
                 </section>
-
             </Form>
         </Formik>
     )
