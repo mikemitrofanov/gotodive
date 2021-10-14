@@ -65,6 +65,27 @@
   display: none;
 }
 
+@media screen and (max-width: 1324px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 22%;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 18%;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 21%;
+  }
+}
+
 @media screen and (max-width: 440px) {
   .swiper-button-next,
   .swiper-button-prev {

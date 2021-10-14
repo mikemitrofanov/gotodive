@@ -69,13 +69,13 @@
   }
 
   .popular_items_container {
-    margin-left: -365px;
+    margin-left: -10px;
   }
 }
 
 @media screen and (max-width: 1086px) {
   .popular_items_container {
-    margin-left: -170px;
+    margin-left: 50px;
   }
 }
 

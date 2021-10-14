@@ -40,11 +40,11 @@
   .popular_item,
   .popular_service_image,
   .popular_service_button {
-    max-width: 350px;
+    max-width: 300px;
   }
 
   .popular_service_title {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   .description {
@@ -70,6 +70,26 @@
     font-size: 0.8rem;
     height: 40px;
     border-radius: 2px;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .popular_item,
+  .popular_service_image,
+  .popular_service_button {
+    max-width: 250px;
+  }
+
+  .popular_service_title {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .popular_item,
+  .popular_service_image,
+  .popular_service_button {
+    max-width: 400px;
   }
 }
 
