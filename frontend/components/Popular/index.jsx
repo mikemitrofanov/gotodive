@@ -31,16 +31,16 @@ export default function Popular() {
                   }}
                   navigation={true}
                 >
-                  {services.map((service) => (
-                    <SwiperSlide key={service.order}>
+                  {services.map((service, index) => (
+                    <SwiperSlide key={index}>
                       <ServiceShort service={service} />
                     </SwiperSlide>
                   ))}
                 </Swiper>
               ) : (
                 <>
-                  {services.map((service) => (
-                    <ServiceShort key={service.order} service={service} />
+                  {services.map((service, index) => (
+                    <ServiceShort key={index} service={service} />
                   ))}
                 </>
               )
