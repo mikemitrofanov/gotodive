@@ -22,12 +22,16 @@ class ServiceFactory extends Factory
     public function definition()
     {
         return [
-            'title'=>$this->faker->text(20),
-            'link'=>$this->faker->safeEmail(),
-            'description'=>$this->faker->text(),
-            'duration'=>$this->faker->numberBetween(1,24) . ' minutes',
-            'price'=>$this->faker->numberBetween(50, 1000) . ' $',
-            'is_popular'=>$this->faker->boolean(30),
+            'title' => $this->faker->text(20),
+            'description' => $this->faker->text(),
+            'duration' => $this->faker->numberBetween(1, 24) . ' minutes',
+            'price' => $this->faker->numberBetween(50, 1000),
+            'is_popular' => $this->faker->boolean(30),
+            'short_description' => $this->faker->text(75),
+            'min_age' => $this->faker->numberBetween(6, 30) . ' years',
+            'required_experience' => $this->faker->boolean() ?? $this->faker->numberBetween(1, 24) . ' hours',
+            'max_depth' => $this->faker->boolean() ?? $this->faker->numberBetween(1, 24) . ' meters',
+            'course_certificate' => $this->faker->boolean() ?? $this->faker->text(300),
         ];
     }
 }
