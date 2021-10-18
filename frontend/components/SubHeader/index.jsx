@@ -10,13 +10,19 @@ export default function SubHeader({ isOpened }) {
             <img className={styles.header_image} src='images/sub_header/image_main.png' />
           </article>
           <h1 data_translate='_title_start' className={styles.heading_mobile}>
-            ПОГРУЗИСЬ В<span data_translate='_title_end'> ПРИКЛЮЧЕНИЯ</span>
+            ПОГРУЗИСЬ В
           </h1>
+          <h2 data_translate='_title_end' className={styles.sub_heading_mobile}>
+            ПРИКЛЮЧЕНИЯ
+          </h2>
         </div>
         <div className={styles.wrapper_content}>
           <h1 data_translate='_title_start' className={styles.heading}>
-            ПОГРУЗИСЬ В<span data_translate='_title_end'> ПРИКЛЮЧЕНИЯ</span>
+            ПОГРУЗИСЬ В
           </h1>
+          <h2 data_translate='_title_end' className={styles.sub_heading}>
+            ПРИКЛЮЧЕНИЯ
+          </h2>
           <p data_translate='_description' className={styles.content}>
             Погружения с аквалангом — это незабываемые моменты отпуска в Хорватии! Это намного проще чем ты думаешь! Дайвинг это просто, легко и весело!
           </p>

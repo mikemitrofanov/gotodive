@@ -18,7 +18,9 @@ export default function Popular() {
   return (
     <section className={styles.popular_container}>
       <div className={styles.popular_content_container}>
-        <div className={styles.popular_header}>ПОПУЛЯРНОЕ</div>
+        <div data_translate='_popular' className={styles.popular_header}>
+          ПОПУЛЯРНОЕ
+        </div>
         <div className={styles.popular_items_container}>
           <Media
             queries={{
