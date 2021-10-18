@@ -1,42 +1,5 @@
 <?php
 
-
-/**
- * @OA\Schema(
- *     title="Get User request",
- *     description="User model",
- *     @OA\Xml(
- *         name="User"
- *     )
- * )
- */
-class UpdateUserRequest
-{
-   
-    /**
-     * @OA\Property(
-     *      title="Name",
-     *      description="Name of the User",
-     *      example="Patric Uren"
-     * )
-     *
-     * @var string
-     */
-    public $name;
-    /**
-     * @OA\Property(
-     *      title="Email",
-     *      description="User Email",
-     *      example="example@example.com"
-     * )
-     *
-     * @var string
-     */
-    public $email;
-
-
-}
-
 /**
  * @OA\Schema(
  *     title="Get User response",
@@ -46,7 +9,7 @@ class UpdateUserRequest
  *     )
  * )
  */
-class UpdateUserResponse
+class GetUserResponse
 {
     /**
      * @OA\Property(
@@ -84,12 +47,22 @@ class UpdateUserResponse
 
     /**
      * @OA\Property(
-     *      title="Is Admin",
+     *      title="roles",
      *      description="Define if user has admin rights",
-     *      example="0/1"
+     *      type="object",
+     *      example={
+     *      0: {
+     *           "id": 2,
+     *           "slug": "moderator",
+     *           "name": "Moderator",
+     *           "permissions": {
+     *              "platform.index": true
+     *              },
+     *        },
+     *     }
      * )
      *
-     * @var string
+     * @var object
      */
-    public $isAdmin;
+    public $roles;
 }

@@ -37,10 +37,9 @@ class LoginRequest{
 
 /**
  * @OA\Schema(
- *     title="Get User response",
- *     description="User model",
+ *     title="Login response",
  *     @OA\Xml(
- *         name="User"
+ *         name="Login"
  *     )
  * )
  */
@@ -49,7 +48,7 @@ class LoginResponse
     /**
      * @OA\Property(
      *      title="Token",
-     *      description="Users Token",
+     *      description="User`s Token",
      *      example="3|6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ"
      * )
      *
@@ -57,48 +56,4 @@ class LoginResponse
      */
     public $token;
 
-    /**
-     * @OA\Property(
-     *     title="Id",
-     *     description="User Id",
-     *     format="int64",
-     *     example=1
-     * )
-     *
-     * @var integer
-     */
-    private $id;
-
-    /**
-     * @OA\Property(
-     *      title="Name",
-     *      description="Name of the User",
-     *      example="Patric Uren"
-     * )
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @OA\Property(
-     *      title="Email",
-     *      description="User Email",
-     *      example="example@example.com"
-     * )
-     *
-     * @var string
-     */
-    public $email;
-
-    /**
-     * @OA\Property(
-     *      title="Is Admin",
-     *      description="Define if user has admin rights",
-     *      example="0/1"
-     * )
-     *
-     * @var string
-     */
-    public $isAdmin;
 }

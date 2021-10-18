@@ -13,7 +13,7 @@ class ServiceCategoryController extends Controller
      *
      *
      * @OA\Get(
-     *      path="/service-categories",
+     *      path="/en/service-categories",
      *      operationId="Show Categories",
      *      tags={"Service Categories"},
      *      summary="Get list of categories",
@@ -82,7 +82,7 @@ class ServiceCategoryController extends Controller
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/GetUserResponse"),
+     *          @OA\JsonContent(ref="#/components/schemas/CreateCategoryResponse"),
      *       ),
      * )
      *

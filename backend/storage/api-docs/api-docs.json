@@ -10,46 +10,14 @@
     },
     "servers": [
         {
-            "url": "http://localhost:8000",
+            "url": null,
             "description": "API Server"
+        },
+        {
+            "url": "http://localhost:8000/api"
         }
     ],
     "paths": {
-        "/login": {
-            "post": {
-                "tags": [
-                    "Auth"
-                ],
-                "summary": "Login",
-                "description": "Returns token",
-                "operationId": "Login",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/LoginRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/LoginRequest"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    }
-                }
-            }
-        },
         "/register": {
             "post": {
                 "tags": [
@@ -82,20 +50,20 @@
                 }
             }
         },
-        "/logout": {
+        "/login": {
             "post": {
                 "tags": [
                     "Auth"
                 ],
-                "summary": "Logout user",
-                "description": "Returns nothing",
-                "operationId": "Logout User",
+                "summary": "Login",
+                "description": "Returns token",
+                "operationId": "Login",
                 "requestBody": {
-                    "required": false,
+                    "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/LogoutRequest"
+                                "$ref": "#/components/schemas/LoginRequest"
                             }
                         }
                     }
@@ -106,7 +74,61 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LogoutResponse"
+                                    "$ref": "#/components/schemas/LoginResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Logout user",
+                "description": "Returns nothing",
+                "operationId": "Logout User",
+                "requestBody": {
+                    "required": false
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/users/me": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get list of projects",
+                "description": "Returns list of projects",
+                "operationId": "showUser",
+                "requestBody": {
+                    "required": false
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetUserResponse"
                                 }
                             }
                         }
@@ -117,12 +139,50 @@
                 },
                 "security": [
                     {
-                        "bearerAuth": []
+                        "apiAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update user",
+                "description": "Returns user",
+                "operationId": "Update User",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateUserRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetUserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
                     }
                 ]
             }
         },
-        "/service-categories": {
+        "/en/service-categories": {
             "get": {
                 "tags": [
                     "Service Categories"
@@ -142,7 +202,9 @@
                         }
                     }
                 }
-            },
+            }
+        },
+        "/service-categories": {
             "post": {
                 "tags": [
                     "Service Categories"
@@ -193,7 +255,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/GetUserResponse"
+                                    "$ref": "#/components/schemas/CreateCategoryResponse"
                                 }
                             }
                         }
@@ -335,7 +397,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/GetUserResponse"
+                                    "$ref": "#/components/schemas/CreateCategoryResponse"
                                 }
                             }
                         }
@@ -405,88 +467,54 @@
                     }
                 ]
             }
-        },
-        "/users": {
-            "get": {
-                "tags": [
-                    "User"
-                ],
-                "summary": "Get list of projects",
-                "description": "Returns list of projects",
-                "operationId": "showUser",
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/GetUserRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/GetUserResponse"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "User"
-                ],
-                "summary": "Update user",
-                "description": "Returns user",
-                "operationId": "Update User",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/UpdateUserRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/UpdateUserResponse"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
         }
     },
     "components": {
         "schemas": {
+            "GetUserResponse": {
+                "title": "Get User response",
+                "description": "User model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of the User",
+                        "type": "string",
+                        "example": "Patric Uren"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "description": "User Email",
+                        "type": "string",
+                        "example": "example@example.com"
+                    },
+                    "roles": {
+                        "title": "roles",
+                        "description": "Define if user has admin rights",
+                        "type": "object",
+                        "example": [
+                            {
+                                "id": 2,
+                                "slug": "moderator",
+                                "name": "Moderator",
+                                "permissions": {
+                                    "platform.index": true
+                                }
+                            }
+                        ]
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            },
             "LoginRequest": {
                 "title": "Login",
                 "description": "Login User",
@@ -510,49 +538,32 @@
                 }
             },
             "LoginResponse": {
-                "title": "Get User response",
-                "description": "User model",
+                "title": "Login response",
                 "properties": {
                     "token": {
                         "title": "Token",
-                        "description": "Users Token",
+                        "description": "User`s Token",
                         "type": "string",
                         "example": "3|6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ"
-                    },
-                    "id": {
-                        "title": "Id",
-                        "description": "User Id",
-                        "type": "integer",
-                        "format": "int64",
-                        "example": 1
-                    },
-                    "name": {
-                        "title": "Name",
-                        "description": "Name of the User",
-                        "type": "string",
-                        "example": "Patric Uren"
-                    },
-                    "email": {
-                        "title": "Email",
-                        "description": "User Email",
-                        "type": "string",
-                        "example": "example@example.com"
-                    },
-                    "isAdmin": {
-                        "title": "Is Admin",
-                        "description": "Define if user has admin rights",
-                        "type": "string",
-                        "example": "0/1"
                     }
                 },
                 "type": "object",
                 "xml": {
-                    "name": "User"
+                    "name": "Login"
                 }
             },
             "LogoutRequest": {
                 "title": "Logout",
                 "description": "Logout User",
+                "properties": {
+                    "token": {
+                        "title": "User token",
+                        "description": "User token",
+                        "type": "string",
+                        "example": "6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ"
+                    }
+                },
+                "type": "object",
                 "xml": {
                     "name": "Logout"
                 }
@@ -586,8 +597,8 @@
                         "type": "string",
                         "example": "Password"
                     },
-                    "passwordConfirmation": {
-                        "title": "$Password Confirmation",
+                    "password_confirmation": {
+                        "title": "Password Confirmation",
                         "description": "Password Confirmation of the User",
                         "type": "string",
                         "example": "Password"
@@ -607,6 +618,28 @@
                         "description": "Users Token",
                         "type": "string",
                         "example": "6|6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            },
+            "UpdateUserRequest": {
+                "title": "Get User request",
+                "description": "User model",
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of the User",
+                        "type": "string",
+                        "example": "Patric Uren"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "description": "User Email",
+                        "type": "string",
+                        "example": "example@example.com"
                     }
                 },
                 "type": "object",
@@ -660,30 +693,22 @@
                 "title": "Get User request",
                 "description": "User model",
                 "properties": {
-                    "id": {
-                        "title": "ID",
-                        "description": "ID",
-                        "type": "integer",
-                        "format": "int64",
-                        "example": 1
-                    },
-                    "name": {
-                        "title": "Name",
-                        "description": "Name of the User",
-                        "type": "string",
-                        "example": "Patric Uren"
-                    },
-                    "email": {
-                        "title": "Email",
-                        "description": "User Email",
-                        "type": "string",
-                        "example": "example@example.com"
-                    },
-                    "isAdmin": {
-                        "title": "Is Admin",
+                    "data": {
+                        "title": "categories",
                         "description": "Define if user has admin rights",
-                        "type": "string",
-                        "example": "0/1"
+                        "type": "object",
+                        "example": [
+                            {
+                                "id": 1,
+                                "title": "Alias.",
+                                "order": 1
+                            },
+                            {
+                                "id": 2,
+                                "title": "Autem.",
+                                "order": 1
+                            }
+                        ]
                     }
                 },
                 "type": "object",
@@ -767,105 +792,6 @@
                 "xml": {
                     "name": "User"
                 }
-            },
-            "GetUserRequest": {
-                "title": "Get User request",
-                "description": "User model",
-                "xml": {
-                    "name": "User"
-                }
-            },
-            "GetUserResponse": {
-                "title": "Get User response",
-                "description": "User model",
-                "properties": {
-                    "id": {
-                        "title": "ID",
-                        "description": "ID",
-                        "type": "integer",
-                        "format": "int64",
-                        "example": 1
-                    },
-                    "name": {
-                        "title": "Name",
-                        "description": "Name of the User",
-                        "type": "string",
-                        "example": "Patric Uren"
-                    },
-                    "email": {
-                        "title": "Email",
-                        "description": "User Email",
-                        "type": "string",
-                        "example": "example@example.com"
-                    },
-                    "isAdmin": {
-                        "title": "Is Admin",
-                        "description": "Define if user has admin rights",
-                        "type": "string",
-                        "example": "0/1"
-                    }
-                },
-                "type": "object",
-                "xml": {
-                    "name": "User"
-                }
-            },
-            "UpdateUserRequest": {
-                "title": "Get User request",
-                "description": "User model",
-                "properties": {
-                    "name": {
-                        "title": "Name",
-                        "description": "Name of the User",
-                        "type": "string",
-                        "example": "Patric Uren"
-                    },
-                    "email": {
-                        "title": "Email",
-                        "description": "User Email",
-                        "type": "string",
-                        "example": "example@example.com"
-                    }
-                },
-                "type": "object",
-                "xml": {
-                    "name": "User"
-                }
-            },
-            "UpdateUserResponse": {
-                "title": "Get User response",
-                "description": "User model",
-                "properties": {
-                    "id": {
-                        "title": "ID",
-                        "description": "ID",
-                        "type": "integer",
-                        "format": "int64",
-                        "example": 1
-                    },
-                    "name": {
-                        "title": "Name",
-                        "description": "Name of the User",
-                        "type": "string",
-                        "example": "Patric Uren"
-                    },
-                    "email": {
-                        "title": "Email",
-                        "description": "User Email",
-                        "type": "string",
-                        "example": "example@example.com"
-                    },
-                    "isAdmin": {
-                        "title": "Is Admin",
-                        "description": "Define if user has admin rights",
-                        "type": "string",
-                        "example": "0/1"
-                    }
-                },
-                "type": "object",
-                "xml": {
-                    "name": "User"
-                }
             }
         },
         "securitySchemes": {
@@ -874,7 +800,6 @@
                 "description": "Login with email and password to get the authentication token",
                 "name": "Token based Based",
                 "in": "header",
-                "bearerFormat": "JWT",
                 "scheme": "bearer"
             }
         }

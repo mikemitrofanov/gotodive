@@ -11,48 +11,27 @@
 
 class GetCategoriesResponse
 {
-    /**
-     * @OA\Property(
-     *     title="ID",
-     *     description="ID",
-     *     format="int64",
-     *     example=1
-     * )
-     *
-     * @var integer
-     */
-    private $id;
 
     /**
      * @OA\Property(
-     *      title="Name",
-     *      description="Name of the User",
-     *      example="Patric Uren"
-     * )
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @OA\Property(
-     *      title="Email",
-     *      description="User Email",
-     *      example="example@example.com"
-     * )
-     *
-     * @var string
-     */
-    public $email;
-
-    /**
-     * @OA\Property(
-     *      title="Is Admin",
+     *      title="categories",
      *      description="Define if user has admin rights",
-     *      example="0/1"
+     *      type="object",
+     *      example={
+     *     0: {
+     *     "id": 1,
+     *     "title": "Alias.",
+     *     "order": 1
+     *     },
+     *     1: {
+     *     "id": 2,
+     *     "title": "Autem.",
+     *     "order": 2
+     *     },
+     *     }
      * )
      *
-     * @var string
+     * @var object
      */
-    public $isAdmin;
+    public $data;
 }

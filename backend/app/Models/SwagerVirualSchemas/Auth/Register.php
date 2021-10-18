@@ -46,14 +46,14 @@ class RegisterRequest
     public $password;
     /**
      * @OA\Property(
-     *      title="$Password Confirmation",
+     *      title="Password Confirmation",
      *      description="Password Confirmation of the User",
      *      example="Password"
      * )
      *
      * @var string
      */
-    public $passwordConfirmation;
+    public $password_confirmation;
 
 }
 

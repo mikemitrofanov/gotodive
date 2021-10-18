@@ -99,7 +99,7 @@ class ServiceController extends Controller
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/GetUserResponse"),
+     *          @OA\JsonContent(ref="#/components/schemas/CreateCategoryResponse"),
      *       ),
      * )
      *

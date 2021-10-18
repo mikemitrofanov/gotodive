@@ -25,7 +25,6 @@ class Controller extends BaseController
      *     name="Token based Based",
      *     in="header",
      *     scheme="bearer",
-     *     bearerFormat="JWT",
      *     securityScheme="apiAuth",
      * )
      *

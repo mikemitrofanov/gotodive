@@ -23,6 +23,36 @@ class AuthController extends Controller
 
     /**
      * @OA\Post(
+     *      path="/register",
+     *      operationId="Create new User",
+     *      tags={"Auth"},
+     *      summary="Create user",
+     *      description="Returns created user, some fields shold be unique",
+     *
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/RegisterRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/RegisterResponse")
+     *       ),
+     * )
+     */
+
+    public function register(RegisterRequest $request)
+    {
+        $user = User::create($request->validated());
+        event(new Registered($user));
+        return response()->json([
+            'token' => $user->createToken('authToken')->plainTextToken
+        ]);
+
+    }
+
+    /**
+     * @OA\Post(
      *      path="/login",
      *      operationId="Login",
      *      tags={"Auth"},
@@ -36,7 +66,7 @@ class AuthController extends Controller
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/LoginRequest")
+     *          @OA\JsonContent(ref="#/components/schemas/LoginResponse")
      *       ),
      *      @OA\Response(
      *          response=401,
@@ -101,34 +131,6 @@ class AuthController extends Controller
             ]) : response('error', 400);
     }
 
-    /**
-     * @OA\Post(
-     *      path="/register",
-     *      operationId="Create new User",
-     *      tags={"Auth"},
-     *      summary="Create user",
-     *      description="Returns created user, some fields shold be unique",
-     *
-     *      @OA\RequestBody(
-     *          required=true,
-     *          @OA\JsonContent(ref="#/components/schemas/RegisterRequest")
-     *      ),
-     *      @OA\Response(
-     *          response=200,
-     *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/RegisterResponse")
-     *       ),
-     * )
-     */
-    public function register(RegisterRequest $request)
-    {
-        $user = User::create($request->validated());
-        event(new Registered($user));
-        return response()->json([
-            'token' => $user->createToken('authToken')->plainTextToken
-        ]);
-
-    }
 
     /**
      * @OA\Post(
@@ -137,16 +139,14 @@ class AuthController extends Controller
      *      tags={"Auth"},
      *      summary="Logout user",
      *      description="Returns nothing",
-     *      security={{"bearerAuth":{}}},
+     *      security={{"apiAuth":{}}},
      *
      *      @OA\RequestBody(
      *          required=false,
-     *          @OA\JsonContent(ref="#/components/schemas/LogoutRequest")
      *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/LogoutResponse")
      *       ),
      *      @OA\Response(
      *          response=401,
@@ -157,14 +157,63 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
-        return response()->noContent();
+        return response()->noContent(200);
     }
+
+    /**
+     * @OA\Get(
+     *      path="/users/me",
+     *      operationId="showUser",
+     *      tags={"User"},
+     *      summary="Get list of projects",
+     *      description="Returns list of projects",
+     *      security={{"apiAuth":{}}},
+     *
+     *      @OA\RequestBody(
+     *          required=false,
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/GetUserResponse"),
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *     )
+     */
 
     public function show()
     {
         return new UserResource(Auth::user());
     }
 
+    /**
+     * @OA\Put(
+     *      path="/users/me",
+     *      operationId="Update User",
+     *      tags={"User"},
+     *      summary="Update user",
+     *      description="Returns user",
+     *      security={{"apiAuth":{}}},
+     *
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/UpdateUserRequest")
+     *      ),
+     *
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/GetUserResponse")
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     * )
+     */
     public function update(UpdateUserRequest $request)
     {
         $request->user()->update($request->validated());
