@@ -1,8 +1,8 @@
-import {initializeStore, removeUndefined} from "../store";
+import { initializeStore, removeUndefined } from "../store";
 
 export const withRedux = getServerSideProps => async (ctx) => {
     const store = initializeStore();
-    const {dispatch} = store;
+    const { dispatch } = store;
     const result = await getServerSideProps(ctx, dispatch)
 
     return {

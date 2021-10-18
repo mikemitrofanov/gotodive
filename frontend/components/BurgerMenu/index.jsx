@@ -18,7 +18,7 @@ export default function BurgerMenu({ isOpenedMainHeader, openBurgerMenuAndCloseM
           })
         }
       >
-        <div onClick={doNotClose} className={styles.backgraund_burger}>
+        <div onClick={doNotClose} className={styles.background_burger}>
           <article className={styles.main_block_container_burger}>
             <LinksMenu isOpened={isOpened} categories={categories} />
             <div className={styles.wrapper_languages_burger}>
