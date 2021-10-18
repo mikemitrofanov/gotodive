@@ -20,11 +20,11 @@ export default function LinksMenu({ isOpened, categories}) {
       helperDiving();
     }
 
-    if (event.target.innerText === "Специализация" && isOpenedDropdownDiving) {
+    if (event.target.innerText === "Специализации" && isOpenedDropdownDiving) {
       helperDiving();
     }
 
-    if (event.target.innerText === "Специализация") {
+    if (event.target.innerText === "Специализации") {
       helperSpecialization();
     }
   };
