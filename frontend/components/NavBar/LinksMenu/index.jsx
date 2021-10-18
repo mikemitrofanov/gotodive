@@ -2,7 +2,7 @@ import { useState } from "react";
 import CategoryServicesDropdown from "./CategoryServicesDropdown";
 import LinkMenu from "./LinkMenu";
 
-export default function LinksMenu({ isOpened, categories}) {
+export default function LinksMenu({ isOpened, categories }) {
   const [isOpenedDropdownDiving, setIsOpenedDropdownDiving] = useState(false);
   const [isOpenedDropdownSpecialization, setIsOpenedSpecialization] = useState(false);
 
@@ -11,31 +11,34 @@ export default function LinksMenu({ isOpened, categories}) {
   const helperDiving = () => setIsOpenedDropdownDiving((setIsOpenedDropdownDiving) => !setIsOpenedDropdownDiving);
   const helperSpecialization = () => setIsOpenedSpecialization((setIsOpenedSpecialization) => !setIsOpenedSpecialization);
 
+  const d = ["Дайвинг", "Дайвінг", "Diving"];
+  const s = ["Специализации", "Спеціалізації", "Specializations"];
+
   const checkOpenDropdown = ({ event }) => {
-    if (event.target.innerText === "Дайвинг" && isOpenedDropdownSpecialization) {
+    if (d.includes(event.target.innerText) && isOpenedDropdownSpecialization) {
       helperSpecialization();
     }
 
-    if (event.target.innerText === "Дайвинг") {
+    if (d.includes(event.target.innerText)) {
       helperDiving();
     }
 
-    if (event.target.innerText === "Специализации" && isOpenedDropdownDiving) {
+    if (s.includes(event.target.innerText) && isOpenedDropdownDiving) {
       helperDiving();
     }
 
-    if (event.target.innerText === "Специализации") {
+    if (s.includes(event.target.innerText)) {
       helperSpecialization();
     }
   };
 
   return (
     <>
-      <LinkMenu isOpened={isOpened} href='/' name='Главная' />
-      <CategoryServicesDropdown category={diving} style={isOpenedDropdownDiving} checkOpenDropdown={checkOpenDropdown} isOpened={isOpened} />
-      <CategoryServicesDropdown category={specialization} style={isOpenedDropdownSpecialization} checkOpenDropdown={checkOpenDropdown} isOpened={isOpened}/>
-      <LinkMenu isOpened={isOpened} href='/gallery' name='Галерея' />
-      <LinkMenu isOpened={isOpened} href='/prices' name='Прайс' />
+      <LinkMenu data_translate='_home' isOpened={isOpened} href='/' name='Главная' />
+      <CategoryServicesDropdown data_translate='_diving' category={diving} style={isOpenedDropdownDiving} checkOpenDropdown={checkOpenDropdown} isOpened={isOpened} />
+      <CategoryServicesDropdown data_translate='_specializations' category={specialization} style={isOpenedDropdownSpecialization} checkOpenDropdown={checkOpenDropdown} isOpened={isOpened} />
+      <LinkMenu data_translate='_gallery' isOpened={isOpened} href='/gallery' name='Галерея' />
+      <LinkMenu data_translate='_price' isOpened={isOpened} href='/prices' name='Прайс' />
     </>
   );
 }

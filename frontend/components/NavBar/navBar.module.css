@@ -38,8 +38,9 @@
   font-size: 15px;
 }
 
-.top_search_block > a {
+.top_search_block > span {
   margin-right: 1rem;
+  cursor: pointer;
 }
 
 .search_input_container,

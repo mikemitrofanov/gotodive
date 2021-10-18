@@ -1,10 +1,9 @@
-import Link from "next/link";
 import styles from "./linkLanguages.module.css";
 
-export default function LinkLanguages({ isOpened, language }) {
+export default function LinkLanguages({ isOpened, language, data_language }) {
   return (
-    <Link href='/prices'>
-      <a className={`${isOpened ? styles.languages_burger : styles.languages}`}>{language}</a>
-    </Link>
+    <span data_language={data_language} className={`lang_switcher ${isOpened ? styles.languages_burger : styles.languages}`}>
+      {language}
+    </span>
   );
 }

@@ -1,3 +1,4 @@
+import "../js/interpreter.js";
 import "../styles/globals.css";
 import "../styles/swiper.min.css";
 import "../styles/navigation.min.css";
