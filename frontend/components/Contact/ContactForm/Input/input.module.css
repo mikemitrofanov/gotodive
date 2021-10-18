@@ -33,6 +33,7 @@
 .label,
 .field_error {
   position: absolute;
+  bottom: -22px;
 }
 
 @media screen and (max-width: 1325px) {
@@ -42,11 +43,11 @@
 
   .input {
     min-width: 1025px;
-    margin-bottom: 55px;
+    margin-bottom: 65px;
   }
 
   .field_error {
-    bottom: 37px;
+    bottom: 48px;
     font-size: 15px;
   }
 }
@@ -81,7 +82,6 @@
   }
 
   .field_error {
-    bottom: 37px;
     font-size: 11px;
   }
 }
@@ -100,6 +100,6 @@
   }
 
   .field_error {
-    bottom: 23px;
+    bottom: 36px;
   }
 }
