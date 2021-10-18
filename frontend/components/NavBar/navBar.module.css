@@ -24,13 +24,14 @@
 }
 
 .humburger_menu_btn {
-  background-image: url(../../public/menu.svg);
+  background-image: url(../../public/images/menu.svg);
   width: 40px;
   height: 40px;
   background-size: contain;
   border: 0;
   background-color: #000b2d;
   cursor: pointer;
+  z-index: 1;
 }
 
 .top_search_block {
@@ -81,30 +82,29 @@
 
 .top_bar_user_icon {
   font-size: 23px;
-  padding-left: 30px;
-  background-image: url(../../public/icon_user.png);
+  padding-left: 70px;
+  background-image: url(../../public/images/header_nav/icon_user.png);
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1660px) {
   .top_nav_bar_block {
     font-size: 17px;
   }
 
   .main_block_container {
-    padding: 0 120px 0 100px;
+    padding: 0 100px 0 80px;
   }
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1494px) {
   .main_block_container {
     padding: 0 65px;
   }
 }
 
-@media screen and (max-width: 1230px) {
+@media screen and (max-width: 1324px) {
   .humburger_menu_btn {
     display: block;
   }
@@ -113,7 +113,8 @@
     right: 40px;
   }
 
-  .top_bar_user_icon {
+  .top_bar_user_icon,
+  .wrapper_links {
     display: none;
   }
 }

@@ -8,14 +8,13 @@ import LinksMenu from "../LinksMenu";
 import { data } from "../../js/categoriesWithServices";
 import styles from "./navBar.module.css";
 
-export default function NavBar() {
-  const [isOpened, setIsOpened] = useState(false);
+export default function NavBar({ isOpened, setIsOpened }) {
   const [isOpenedMainHeader, setIsOpenedMainHeader] = useState(true);
 
   const categories = data.data;
 
   const openBurgerMenuAndCloseMainHead = ({ event, setIsOpened, setIsOpenedMainHeader }) => {
-    if (event.target.innerText === "Дайвинг" || event.target.innerText === "Специализация") {
+    if (event.target.innerText === "Дайвинг" || event.target.innerText === "Специализации") {
       event.preventDefault();
       return;
     }
@@ -38,7 +37,7 @@ export default function NavBar() {
                 })
               }
             ></button>
-            <div>
+            <div className={styles.wrapper_links}>
               <LinksMenu isOpened={isOpened} categories={categories} />
             </div>
             <div className={styles.top_search_block}>
@@ -46,7 +45,7 @@ export default function NavBar() {
                 <input className={styles.top_bar_search_input} />
                 <FontAwesomeIcon className={styles.color_search} icon={faSearch} />
               </span>
-              <LinksLanguages isOpened={isOpened}/>
+              <LinksLanguages isOpened={isOpened} />
               <Link href='/prices'>
                 <a className={styles.top_bar_user_icon}></a>
               </Link>
