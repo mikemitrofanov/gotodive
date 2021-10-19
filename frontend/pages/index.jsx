@@ -10,14 +10,14 @@ import Contact from "../components/Contact";
 
 export default function Main() {
   const { data: categories } = useSelector(categoriesApi.endpoints.getAllCategories.select());
-
   const [isOpened, setIsOpened] = useState(false);
+  const [language, setLanguage] = useState("");
 
   return (
     <>
-      <NavBar isOpened={isOpened} setIsOpened={setIsOpened} />
+      <NavBar isOpened={isOpened} setIsOpened={setIsOpened} setLanguage={setLanguage} />
       <SubHeader isOpened={isOpened} />
-      <Popular />
+      <Popular language={language} />
       <Team />
       <Contact />
     </>

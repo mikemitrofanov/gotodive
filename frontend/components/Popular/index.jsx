@@ -10,7 +10,7 @@ import styles from "./popular.module.css";
 
 SwiperCore.use([Navigation]);
 
-export default function Popular() {
+export default function Popular({ language }) {
   const { data } = useSelector(categoriesApi.endpoints.getPopularServices.select());
   const fake_data = data_slider.data;
   const services = Array.isArray(data) ? data : fake_data;
@@ -43,7 +43,7 @@ export default function Popular() {
                   >
                     {services.map((service, index) => (
                       <SwiperSlide key={index}>
-                        <ServiceShort service={service} />
+                        <ServiceShort language={language} service={service} />
                       </SwiperSlide>
                     ))}
                   </Swiper>
@@ -59,7 +59,7 @@ export default function Popular() {
                   >
                     {services.map((service, index) => (
                       <SwiperSlide key={index}>
-                        <ServiceShort service={service} />
+                        <ServiceShort language={language} service={service} />
                       </SwiperSlide>
                     ))}
                   </Swiper>
@@ -67,7 +67,7 @@ export default function Popular() {
                 {matches.large && (
                   <>
                     {services.map((service, index) => (
-                      <ServiceShort key={index} service={service} />
+                      <ServiceShort data_translate='_sign_up' language={language} key={index} service={service} />
                     ))}
                   </>
                 )}

@@ -8,27 +8,16 @@ export default function LinksMenu({ isOpened, categories }) {
 
   const [diving, specialization] = categories;
 
-  const helperDiving = () => setIsOpenedDropdownDiving((setIsOpenedDropdownDiving) => !setIsOpenedDropdownDiving);
-  const helperSpecialization = () => setIsOpenedSpecialization((setIsOpenedSpecialization) => !setIsOpenedSpecialization);
-
-  const d = ["Дайвинг", "Дайвінг", "Diving"];
-  const s = ["Специализации", "Спеціалізації", "Specializations"];
+  const divingVariations = ["Дайвинг", "Дайвінг", "Diving"];
+  const specializationsVariations = ["Специализации", "Спеціалізації", "Specializations"];
 
   const checkOpenDropdown = ({ event }) => {
-    if (d.includes(event.target.innerText) && isOpenedDropdownSpecialization) {
-      helperSpecialization();
+    if ((divingVariations.includes(event.target.innerText) && isOpenedDropdownSpecialization) || specializationsVariations.includes(event.target.innerText)) {
+      setIsOpenedSpecialization((setIsOpenedSpecialization) => !setIsOpenedSpecialization);
     }
 
-    if (d.includes(event.target.innerText)) {
-      helperDiving();
-    }
-
-    if (s.includes(event.target.innerText) && isOpenedDropdownDiving) {
-      helperDiving();
-    }
-
-    if (s.includes(event.target.innerText)) {
-      helperSpecialization();
+    if ((specializationsVariations.includes(event.target.innerText) && isOpenedDropdownDiving) || divingVariations.includes(event.target.innerText)) {
+      setIsOpenedDropdownDiving((setIsOpenedDropdownDiving) => !setIsOpenedDropdownDiving);
     }
   };
 

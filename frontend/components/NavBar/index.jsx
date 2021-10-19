@@ -8,7 +8,7 @@ import LinksMenu from "./LinksMenu";
 import { data } from "../../js/categoriesWithServices";
 import styles from "./navBar.module.css";
 
-export default function NavBar({ isOpened, setIsOpened }) {
+export default function NavBar({ isOpened, setIsOpened, setLanguage }) {
   const [isOpenedMainHeader, setIsOpenedMainHeader] = useState(true);
 
   const categories = data.data;
@@ -45,7 +45,7 @@ export default function NavBar({ isOpened, setIsOpened }) {
                 <input className={styles.top_bar_search_input} />
                 <FontAwesomeIcon className={styles.color_search} icon={faSearch} />
               </span>
-              <LinksLanguages isOpened={isOpened} />
+              <LinksLanguages setLanguage={setLanguage} isOpened={isOpened} />
               <Link href='/prices'>
                 <a className={styles.top_bar_user_icon}></a>
               </Link>
@@ -53,7 +53,7 @@ export default function NavBar({ isOpened, setIsOpened }) {
           </article>
         </div>
       </nav>
-      <BurgerMenu isOpenedMainHeader={isOpenedMainHeader} openBurgerMenuAndCloseMainHead={openBurgerMenuAndCloseMainHead} setIsOpened={setIsOpened} setIsOpenedMainHeader={setIsOpenedMainHeader} categories={categories} isOpened={isOpened} />
+      <BurgerMenu isOpenedMainHeader={isOpenedMainHeader} openBurgerMenuAndCloseMainHead={openBurgerMenuAndCloseMainHead} setIsOpened={setIsOpened} setIsOpenedMainHeader={setIsOpenedMainHeader} categories={categories} isOpened={isOpened} setLanguage={setLanguage} />
     </section>
   );
 }

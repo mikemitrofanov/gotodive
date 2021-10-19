@@ -30,15 +30,15 @@ export default function ContactForm({ onSubmit }) {
     >
       <Form className={styles.form_container}>
         <section className={styles.sub_container}>
-          <Input name='name' label='Имя' />
+          <Input data_translate='_name' name='name' label='Имя' />
           <Input name='email' label='Email' />
-          <Input name='phone' label='Телефон' />
+          <Input data_translate='_phone' name='phone' label='Телефон' />
         </section>
         <section className={styles.sub_container}>
           <article className={styles.input_container}>
-            <FormikTextArea label='Сообщение' name='message' />
+            <FormikTextArea name='message' />
           </article>
-          <button className={styles.submit_btn} type='submit'>
+          <button data_translate='_send' className={styles.submit_btn} type='submit'>
             Отправить
           </button>
         </section>
