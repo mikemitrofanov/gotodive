@@ -21,8 +21,7 @@ class ServiceCategoryController extends Controller
 
     public function withServices()
     {
-
-        return ServiceCategory::with('services')->get();
+        return ServiceCategoryResource::collection(ServiceCategory::with('services')->get());
     }
 
     /**
@@ -31,7 +30,7 @@ class ServiceCategoryController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return ServiceCategoryResource
      */
-    public function store(CreateServiceCategoryRequest $request)
+    public function store($language, CreateServiceCategoryRequest $request)
     {
         $category = ServiceCategory::create($request->validated());
         return new ServiceCategoryResource($category);
@@ -41,9 +40,8 @@ class ServiceCategoryController extends Controller
      * Display the specified resource.
      *
      * @param \App\Models\ServiceCategory $category
-     * @return ServiceCategoryResource
      */
-    public function show(ServiceCategory $serviceCategory)
+    public function show($language, ServiceCategory $serviceCategory)
     {
         return new ServiceCategoryResource($serviceCategory);
     }
@@ -55,7 +53,7 @@ class ServiceCategoryController extends Controller
      * @param \App\Models\ServiceCategory $category
      * @return ServiceCategoryResource
      */
-    public function update(UpdateServiceCategoryRequest $request, ServiceCategory $serviceCategory)
+    public function update($language, ServiceCategory $serviceCategory, UpdateServiceCategoryRequest $request)
     {
         $serviceCategory->update($request->validated());
         return new ServiceCategoryResource($serviceCategory);
