@@ -21,7 +21,7 @@ export default function ServiceShort({ service, language }) {
       <img className={styles.popular_service_image} src={service.imageUrl} alt='Image' />
       <p className={styles.popular_service_title}>{service.title[valueLanguages]}</p>
       <p className={styles.description}>{service.description[valueLanguages]}</p>
-      <button className={styles.popular_service_button}>Записаться</button>
+      <button className={styles.popular_service_button}>{service.buttons[valueLanguages]}</button>
     </div>
   );
 }
