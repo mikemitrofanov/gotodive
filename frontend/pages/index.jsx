@@ -1,6 +1,5 @@
 import { categoriesApi } from "../store/categories/action";
 import { useSelector } from "react-redux";
-import { useState } from "react";
 import { withRedux } from "../hof/withRedux";
 import NavBar from "../components/NavBar";
 import SubHeader from "../components/SubHeader";
@@ -8,10 +7,8 @@ import Popular from "../components/Popular";
 import Team from "../components/Team";
 import Contact from "../components/Contact";
 
-export default function Main() {
+export default function Main({ isOpened, setIsOpened, language, setLanguage }) {
   const { data: categories } = useSelector(categoriesApi.endpoints.getAllCategories.select());
-  const [isOpened, setIsOpened] = useState(false);
-  const [language, setLanguage] = useState("");
 
   return (
     <>
