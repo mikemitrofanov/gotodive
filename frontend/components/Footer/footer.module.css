@@ -1,0 +1,29 @@
+.wrapper_footer {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #000b2d;
+  color: #ebeeed;
+  font-family: "Montserrat-Light", sans-serif;
+  padding: 50px 0px 60px 0px;
+}
+
+.contact_us {
+  display: block;
+}
+
+.categories {
+  display: block;
+}
+
+.social {
+  display: block;
+}
+
+.icon {
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+.heading_gallery {
+  margin-bottom: 30px;
+}

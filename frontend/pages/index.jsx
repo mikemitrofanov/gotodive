@@ -5,6 +5,7 @@ import Popular from "../components/Popular";
 import { withRedux } from "../hof/withRedux";
 import { categoriesApi } from "../store/categories/action";
 import { useSelector } from "react-redux";
+import Footer from "../components/Footer";
 
 export default function Main() {
   const { data: categories } = useSelector(categoriesApi.endpoints.getAllCategories.select());
@@ -16,6 +17,7 @@ export default function Main() {
       <NavBar isOpened={isOpened} setIsOpened={setIsOpened} />
       <SubHeader isOpened={isOpened} />
       <Popular />
+      <Footer />
     </>
   );
 }
