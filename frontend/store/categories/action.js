@@ -9,13 +9,12 @@ export const categoriesApi = createApi({
     endpoints: (build) => ({
         getCategory: build.query({
             query: (arg) => `service-categories/${arg}`
-
         }),
         getAllCategories: build.query({
             query: () => 'service-categories/services'
         }),
         getPopularServices: build.query({
-            query: () => 'en/services/popular',
+            query: (test='ru') => `${test}/services/popular`,
             transformResponse: (baseQueryReturnValue, meta) =>
                 baseQueryReturnValue.data.map(service => service.imageUrl ? service : {
                     ...service,
@@ -25,4 +24,5 @@ export const categoriesApi = createApi({
     }),
 
 })
+
 export const { useGetServicesQuery } = categoriesApi;
