@@ -1,5 +1,5 @@
 const dictionary = {
-  "russian": {
+  "ru": {
     "_home": "Главная",
     "_diving": "Дайвинг",
     "_specializations": "Специализации",
@@ -22,7 +22,7 @@ const dictionary = {
     "_message": "Сообщение",
     "_send": "Отправить"
   },
-  "ukrainian": {
+  "ua": {
     "_home": "Головна",
     "_diving": "Дайвінг",
     "_specializations": "Спеціалізації",
@@ -45,7 +45,7 @@ const dictionary = {
     "_message": "Повідомлення",
     "_send": "Відправити"
   },
-  "english": {
+  "en": {
     "_home": "Home",
     "_diving": "Diving",
     "_specializations": "Specializations",

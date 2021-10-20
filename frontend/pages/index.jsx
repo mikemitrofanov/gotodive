@@ -1,4 +1,4 @@
-import { categoriesApi, useGetServicesQuery } from "../store/categories/action";
+import { categoriesApi } from "../store/categories/action";
 import { useSelector } from "react-redux";
 import { withRedux } from "../hof/withRedux";
 import NavBar from "../components/NavBar";
@@ -7,12 +7,8 @@ import Popular from "../components/Popular";
 import Team from "../components/Team";
 import Contact from "../components/Contact";
 
-console.log(useGetServicesQuery); //undefined
-
 export default function Main({ isOpened, setIsOpened, language, setLanguage }) {
   const { data: categories } = useSelector(categoriesApi.endpoints.getAllCategories.select());
-
-  // const { data, error, isLoading } = useGetServicesQuery('ru')
 
   return (
     <>
@@ -27,6 +23,6 @@ export default function Main({ isOpened, setIsOpened, language, setLanguage }) {
 
 export const getServerSideProps = withRedux(async (ctx, dispatch) => {
   await dispatch(categoriesApi.endpoints.getAllCategories.initiate());
-  await dispatch(categoriesApi.endpoints.getPopularServices.initiate({ test })); //test is not defined
-  return { props: { test } };
+  await dispatch(categoriesApi.endpoints.getPopularServices.initiate());
+  return { props: {} };
 });
