@@ -1,27 +1,16 @@
 <?php
 
-
 /**
  * @OA\Schema(
- *     title="Get User request",
+ *     title="Forgot Password Request",
  *     description="User model",
  *     @OA\Xml(
  *         name="User"
  *     )
  * )
  */
-class RegisterRequest
+class ForgotPasswordRequest
 {
-    /**
-     * @OA\Property(
-     *      title="Name",
-     *      description="Name of the User",
-     *      example="Patric Uren"
-     * )
-     *
-     * @var string
-     */
-    public $name;
     /**
      * @OA\Property(
      *      title="Email",
@@ -32,6 +21,16 @@ class RegisterRequest
      * @var string
      */
     public $email;
+    /**
+     * @OA\Property(
+     *      title="Token",
+     *      description="User token from email",
+     *      example="12a3272388778f3f3638317772b90126da1330a6a95a0ba9daede1494932751c"
+     * )
+     *
+     * @var string
+     */
+    public $token;
 
     /**
      * @OA\Property(
@@ -56,25 +55,29 @@ class RegisterRequest
 
 }
 
-/**
- * @OA\Schema(
- *     title="Get User response",
- *     description="User model",
- *     @OA\Xml(
- *         name="User"
- *     )
- * )
- */
-class RegisterResponse
+class ResetPasswordRequest
 {
     /**
      * @OA\Property(
-     *      title="Token",
-     *      description="Users Token",
-     *      example="6|6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ"
+     *      title="Email",
+     *      description="User Email",
+     *      example="example@example.com"
      * )
      *
      * @var string
      */
-    public $token;
+    public $email;
+}
+class ForgotPasswordResponse
+{
+    /**
+     * @OA\Property(
+     *      title="Email",
+     *      description="User Email",
+     *      example="example@example.com"
+     * )
+     *
+     * @var string
+     */
+    public $email;
 }

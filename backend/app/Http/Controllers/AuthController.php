@@ -38,6 +38,10 @@ class AuthController extends Controller
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/RegisterResponse")
      *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *      ),
      * )
      */
 
@@ -72,6 +76,10 @@ class AuthController extends Controller
      *          response=401,
      *          description="Unauthenticated",
      *      ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *      ),
      * )
      */
     public function login(LoginRequest $request)
@@ -104,9 +112,30 @@ class AuthController extends Controller
         return redirect(env('FRONT_URL') . '/email/verify/success');
     }
 
+    /**
+     * @OA\Post(
+     *      path="/forgot-password",
+     *      operationId="Request reset password link",
+     *      tags={"Auth"},
+     *      summary="Forgot Password",
+     *
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/ForgotPasswordRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *      ),
+     * )
+     */
     public function requestResetPasswordLink(Request $request)
     {
-        $request->validate(['email' => 'required|email']);
+        $request->validate(['email' => 'required|email|exists:users,email']);
 
         $user = Password::getUser($request->only('email'));
         $status = Password::createToken($user);
@@ -115,6 +144,27 @@ class AuthController extends Controller
         return response('success', 200);
     }
 
+    /**
+     * @OA\Post(
+     *      path="/reset-password",
+     *      operationId="Request reset password link",
+     *      tags={"Auth"},
+     *      summary="Forgot Password",
+     *
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/ForgotPasswordRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *      ),
+     * )
+     */
     public function setNewPassword(ResetPasswordRequest $request)
     {
         $status = Password::reset(
@@ -130,7 +180,6 @@ class AuthController extends Controller
                 'token' => $this->user->createToken('authToken')->plainTextToken
             ]) : response('error', 400);
     }
-
 
     /**
      * @OA\Post(
@@ -211,6 +260,10 @@ class AuthController extends Controller
      *      @OA\Response(
      *          response=401,
      *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
      *      ),
      * )
      */
