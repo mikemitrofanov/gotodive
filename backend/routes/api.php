@@ -4,7 +4,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
-
+use \Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Support\Facades\Password;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,8 +16,11 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('/forgot-password', [AuthController::class, 'requestResetPasswordLink'])->name('password.email');
+Route::post('/reset-password', [AuthController::class, 'setNewPassword'])->name('password.reset');
+Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])->name('verification.verify');
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('register', [AuthController::class, 'register']);
 
 Route::group(['prefix' => '{language}', 'middleware' => ['setLanguage']], function () {

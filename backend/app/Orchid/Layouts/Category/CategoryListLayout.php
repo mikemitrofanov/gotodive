@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Orchid\Layouts;
+namespace App\Orchid\Layouts\Category;
 
+use App\Models\Language;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;
@@ -19,6 +20,7 @@ class CategoryListLayout extends Table
      * @var string
      */
     protected $target = 'categories';
+    protected $TDArray = [];
 
     /**
      * Get the table cells to be displayed.
@@ -27,6 +29,17 @@ class CategoryListLayout extends Table
      */
     protected function columns(): array
     {
+        Language::all()->each(function ($language) {
+            array_push($this->TDArray, TD::make('title', $language->language_code . ' Title')
+                ->align('center')
+                ->width('100px')
+                ->render(function ($category) use ($language) {
+                    app()->setLocale($language->language_code);
+                    return Link::make($category->title)
+                        ->route('platform.categories.edit', [$category, $language->language_code]);
+                })
+            );
+        });
         return [
 
             TD::make('id', 'ID')
@@ -45,34 +58,7 @@ class CategoryListLayout extends Table
                         ->route('platform.categories.edit', $category);
                 }),
 
-            TD::make('title', 'RU Title')
-                ->align('center')
-                ->width('100px')
-                ->render(function ($category) {
-                    app()->setLocale('ru');
-                    return Link::make($category->title)
-                        ->route('platform.categories.edit', [$category, 'ru']);
-
-                }),
-
-            TD::make('title', 'UKR Title')
-                ->align('center')
-                ->width('100px')
-                ->render(function ($category) {
-                    app()->setLocale('ukr');
-                    return Link::make($category->title)
-                        ->route('platform.categories.edit', [$category, 'ukr']);
-
-                }),
-
-            TD::make('title', 'EN Title')
-                ->align('center')
-                ->width('100px')
-                ->render(function ($category) {
-                    app()->setLocale('en');
-                    return Link::make($category->title)
-                        ->route('platform.categories.edit', $category);
-                }),
+            ...$this->TDArray,
 
             TD::make('delete', 'Delete')
                 ->align('center')
