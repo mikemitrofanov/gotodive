@@ -16,32 +16,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/service-categories', [ServiceCategoryController::class, 'index']);
-Route::get('/service-categories/services', [ServiceCategoryController::class, 'withServices']);
-Route::get('/service-categories/{serviceCategory}', [ServiceCategoryController::class, 'show']);
-Route::get('/service-categories/{serviceCategory}/services', [ServiceController::class, 'index']);
-Route::get('/services/popular', [ServiceController::class, 'showPopular']);
-Route::get('/services/{service}', [ServiceController::class, 'show']);
-
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
 
+Route::group(['prefix' => '{language}', 'middleware' => ['setLanguage']], function () {
 
-Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/service-categories', [ServiceCategoryController::class, 'index']);
+    Route::get('/service-categories/services', [ServiceCategoryController::class, 'withServices']);
+    Route::get('/service-categories/{serviceCategory}', [ServiceCategoryController::class, 'show']);
+    Route::get('/service-categories/{serviceCategory}/services', [ServiceController::class, 'index']);
+    Route::get('/services/popular', [ServiceController::class, 'showPopular']);
+    Route::get('/services/{service}', [ServiceController::class, 'show']);
 
-    Route::get('/users/me', [AuthController::class, 'show']);
-    Route::put('/users/me', [AuthController::class, 'update']);
+    Route::group(['middleware' => ['auth:sanctum']], function () {
 
-    Route::group(['middleware' => ['isAdmin']], function () {
-        Route::group(['prefix' => 'service-categories'], function () {
-            Route::post('/', [ServiceCategoryController::class, 'store']);
-            Route::put('/{serviceCategory}', [ServiceCategoryController::class, 'update']);
-            Route::delete('/{serviceCategory}', [ServiceCategoryController::class, 'destroy']);
-            Route::post('{serviceCategory}/services', [ServiceController::class, 'store']);
+        Route::get('/users/me', [AuthController::class, 'show']);
+        Route::put('/users/me', [AuthController::class, 'update']);
 
+        Route::group(['middleware' => ['isAdmin']], function () {
+            Route::apiResource('/service-categories', ServiceCategoryController::class)->except('index', 'show');
+            Route::post('/service-categories/{serviceCategory}/services', [ServiceController::class, 'store']);
+            Route::apiResource('/services', ServiceController::class)->only(['update', 'destroy']);
         });
-
-        Route::put('/services/{service}', [ServiceController::class, 'update']);
-        Route::delete('/services/{service}', [ServiceController::class, 'destroy']);
     });
 });

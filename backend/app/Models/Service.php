@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Traits\HasOrder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Service extends Model
 {
-    use HasFactory, HasOrder;
+    use HasFactory, HasOrder, HasTranslations;
 
     protected $fillable = [
         'short_description',
@@ -22,6 +23,15 @@ class Service extends Model
         'duration',
         'price',
         'is_popular',
+    ];
+
+    public $translatable = [
+        'description',
+        'short_description',
+        'title',
+        'required_experience',
+        'course_certificate',
+        'duration',
     ];
 
     public function serviceCategory()

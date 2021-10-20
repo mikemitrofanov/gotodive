@@ -15,8 +15,10 @@ class ServiceCategoryResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'title' => $this->title,
             'order' => $this->order,
+            'services' => ServiceResource::collection($this->whenLoaded('services')),
         ];
     }
 }
