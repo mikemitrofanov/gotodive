@@ -3,7 +3,6 @@ import Link from "next/link";
 import styles from "./linkLanguages.module.css";
 
 export default function LinkLanguages({ isOpened, language, data_language, setLanguage }) {
-  console.log(data_language);
   const languages = useRef("");
 
   const switchLanguage = () => {
@@ -11,10 +10,10 @@ export default function LinkLanguages({ isOpened, language, data_language, setLa
   };
 
   return (
-    <Link href={`/login/${data_language}/services/popular`}>
+    // <Link href={`/login/${data_language}/services/popular`}>
       <a ref={languages} onClick={switchLanguage} data_language={data_language} className={`lang_switcher ${isOpened ? styles.languages_burger : styles.languages}`}>
         {language}
       </a>
-    </Link>
+    // </Link>
   );
 }

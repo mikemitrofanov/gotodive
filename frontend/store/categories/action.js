@@ -14,7 +14,7 @@ export const categoriesApi = createApi({
             query: () => 'service-categories/services'
         }),
         getPopularServices: build.query({
-            query: (test = 'ru') => `${test}/services/popular`,
+            query: (language = 'ru') => `${language}/services/popular`,
             transformResponse: (baseQueryReturnValue, meta) =>
                 baseQueryReturnValue.data.map(service => service.imageUrl ? service : {
                     ...service,

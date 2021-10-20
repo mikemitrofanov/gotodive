@@ -1,4 +1,5 @@
-import { categoriesApi } from "../store/categories/action";
+import { categoriesApi,useGetServicesQuery } from "../store/categories/action";
+console.log(useGetServicesQuery)
 import { useSelector } from "react-redux";
 import { withRedux } from "../hof/withRedux";
 import NavBar from "../components/NavBar";
