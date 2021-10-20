@@ -15,7 +15,6 @@
 
 .main_container {
   background: url("/images/ourteam/bckgrnd.png") no-repeat center;
-  width: 100vw;
 }
 
 .content_container {
@@ -75,10 +74,21 @@
   }
 }
 
+@media screen and (max-width: 1790px) {
+  .block_title {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 1324px) {
+  .block_title {
+    font-size: 1.4rem;
+  }
+}
+
 @media screen and (max-width: 989px) {
   .block_title {
     margin-left: 20px;
-    font-size: 2rem;
   }
 
   .content_container {

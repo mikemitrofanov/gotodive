@@ -13,6 +13,12 @@
   padding: 112px 50px 50px 50px;
 }
 
+@media screen and (max-width: 1790px) {
+  .block_title {
+    font-size: 1.8rem;
+  }
+}
+
 @media screen and (max-width: 1325px) {
   .background_block_title {
     min-height: 1200px;
@@ -22,6 +28,7 @@
     padding: 90px 50px 85px 0px;
     min-width: 1025px;
     text-align: start;
+    font-size: 1.4rem;
   }
 }
 
@@ -33,7 +40,6 @@
 
 @media screen and (max-width: 989px) {
   .block_title {
-    font-size: 2rem;
     min-width: 650px;
   }
 }
