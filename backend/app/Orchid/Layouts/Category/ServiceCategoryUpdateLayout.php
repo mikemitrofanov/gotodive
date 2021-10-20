@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Orchid\Layouts;
+namespace App\Orchid\Layouts\Category;
 
 use App\Models\Language;
+use App\Models\ServiceCategory;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Layouts\Rows;

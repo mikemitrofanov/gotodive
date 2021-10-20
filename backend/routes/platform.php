@@ -5,15 +5,16 @@ declare(strict_types=1);
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
-use App\Orchid\Screens\ServiceCategoryCreateScreen;
-use App\Orchid\Screens\ServiceCategoryScreen;
-use App\Orchid\Screens\ServiceScreen;
+use App\Orchid\Screens\Category\ServiceCategoryCreateScreen;
+use App\Orchid\Screens\Category\ServiceCategoryScreen;
+use App\Orchid\Screens\Service\ServiceScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
-
+use App\Orchid\Screens\Service\ServiceCreateScreen;
+use \App\Orchid\Screens\Language\LanguageScreen;
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -104,35 +105,34 @@ Route::screen('categories/create', ServiceCategoryCreateScreen::class)
             ->push('Create new Category');
     });
 
-Route::screen('service', ServiceScreen::class)
-    ->name('platform.service')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.categories')
-            ->push('Service');
-    });
-
-Route::screen('categories/{category}/services/create', ServiceScreen::class)
-    ->name('platform.services.create')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail
-            ->parent('platform.categories')
-            ->push('Service');
-    });
-
 Route::screen('categories/{category}/edit/{lang?}', ServiceCategoryCreateScreen::class)
     ->name('platform.categories.edit')
-    ->breadcrumbs(function (Trail $trail) {
+    ->breadcrumbs(function (Trail $trail, $category) {
         return $trail
             ->parent('platform.categories')
-            ->push('Edit Category');
+            ->push('Edit Category', route('platform.categories.edit', $category));
+    });
+
+Route::screen('categories/{category}/services/create', ServiceCreateScreen::class)
+    ->name('platform.services.create')
+    ->breadcrumbs(function (Trail $trail, $category) {
+        return $trail
+            ->parent('platform.categories.edit', $category)
+            ->push('New Service');
     });
 
 Route::screen('services/{service}/edit/{lang?}', ServiceScreen::class)
     ->name('platform.services.edit')
-    ->breadcrumbs(function (Trail $trail) {
+    ->breadcrumbs(function (Trail $trail, $service) {
         return $trail
-            ->parent('platform.categories')
-            ->push('Edit Service');
+            ->parent('platform.categories.edit', $service->serviceCategory)
+            ->push('Service');
     });
 
+Route::screen('languages', LanguageScreen::class)
+    ->name('platform.languages')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push('Supported Languages');
+    });

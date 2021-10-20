@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Orchid\Screens;
+namespace App\Orchid\Screens\Category;
 
 use App\Http\Requests\CreateServiceCategoryRequest;
 use App\Http\Requests\UpdateServiceCategoryRequest;
 use App\Models\ServiceCategory;
-use App\Orchid\Layouts\ServiceCategoryUpdateLayout;
-use App\Orchid\Layouts\ServiceListLayout;
+use App\Orchid\Layouts\Category\ServiceCategoryUpdateLayout;
+use App\Orchid\Layouts\Service\ServiceListLayout;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
