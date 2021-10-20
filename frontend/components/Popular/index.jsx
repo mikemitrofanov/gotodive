@@ -14,7 +14,6 @@ export default function Popular({ language }) {
   const { data } = useSelector(categoriesApi.endpoints.getPopularServices.select());
   const fake_data = data_slider.data;
   const services = Array.isArray(data) ? data : fake_data;
-
   return (
     <section className={styles.popular_container}>
       <div className={styles.popular_content_container}>
@@ -67,7 +66,7 @@ export default function Popular({ language }) {
                 {matches.large && (
                   <>
                     {services.map((service, index) => (
-                      <ServiceShort data_translate='_sign_up' language={language} key={index} service={service} />
+                      <ServiceShort language={language} key={index} service={service} />
                     ))}
                   </>
                 )}

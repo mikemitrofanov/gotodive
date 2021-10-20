@@ -1,8 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
 import { randomInteger } from "../../helpers/randomInteger";
 
-
-
 export const categoriesApi = createApi({
     reducerPath: 'categoriesApi',
     baseQuery: fetchBaseQuery({
@@ -17,7 +15,7 @@ export const categoriesApi = createApi({
             query: () => 'service-categories/services'
         }),
         getPopularServices: build.query({
-            query: () => 'services/popular',
+            query: () => 'en/services/popular',
             transformResponse: (baseQueryReturnValue, meta) =>
                 baseQueryReturnValue.data.map(service => service.imageUrl ? service : {
                     ...service,
