@@ -2,14 +2,13 @@
 
 /**
  * @OA\Schema(
- *     title="Forgot Password Request",
+ *     title="Reset Password request",
  *     description="User model",
- *     @OA\Xml(
- *         name="User"
- *     )
+ *     type="object",
+ *     required={"email","token","password","password_confirmation"},
  * )
  */
-class ForgotPasswordRequest
+class ResetPasswordRequest
 {
     /**
      * @OA\Property(
@@ -54,8 +53,14 @@ class ForgotPasswordRequest
     public $password_confirmation;
 
 }
-
-class ResetPasswordRequest
+/**
+ * @OA\Schema(
+ *     title="Forgot Password request",
+ *     description="User model",
+ *     type="object",
+ * )
+ */
+class ForgotPasswordRequest
 {
     /**
      * @OA\Property(
@@ -68,16 +73,25 @@ class ResetPasswordRequest
      */
     public $email;
 }
-class ForgotPasswordResponse
+/**
+ * @OA\Schema(
+ *     title="Reset Password response",
+ *     description="User model",
+ *     type="object",
+
+ * )
+ */
+
+class ResetPasswordResponse
 {
     /**
      * @OA\Property(
-     *      title="Email",
-     *      description="User Email",
-     *      example="example@example.com"
+     *      title="Token",
+     *      description="User`s Token",
+     *      example="3|6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ"
      * )
      *
      * @var string
      */
-    public $email;
+    public $token;
 }

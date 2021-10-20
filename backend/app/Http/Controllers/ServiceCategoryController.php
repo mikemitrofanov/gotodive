@@ -13,11 +13,20 @@ class ServiceCategoryController extends Controller
      *
      *
      * @OA\Get(
-     *      path="/en/service-categories",
+     *      path="/{language}/service-categories",
      *      operationId="Show Categories",
      *      tags={"Service Categories"},
      *      summary="Get list of categories",
      *      description="Returns list of projects",
+     *      @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
      *
      *      @OA\Response(
      *          response=200,
@@ -35,6 +44,36 @@ class ServiceCategoryController extends Controller
     {
         return ServiceCategoryResource::collection(ServiceCategory::all());
     }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @OA\Post(
+     *      path="/{language}/service-categories/services",
+     *      operationId="Create new Categoriy",
+     *      tags={"Service Categories"},
+     *      summary="Create Categoriy",
+     *      description="Returns created user, some fields shold be unique",
+     *      security={{"bearerAuth":{}}},
+     *         @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/CreateCategoryRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/CreateCategoryResponse")
+     *       ),
+     * )
+     */
 
     public function withServices()
     {
@@ -51,6 +90,15 @@ class ServiceCategoryController extends Controller
      *      summary="Create Categoriy",
      *      description="Returns created user, some fields shold be unique",
      *      security={{"bearerAuth":{}}},
+     *      @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
      *
      *      @OA\RequestBody(
      *          required=true,

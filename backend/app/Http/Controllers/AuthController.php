@@ -147,21 +147,26 @@ class AuthController extends Controller
     /**
      * @OA\Post(
      *      path="/reset-password",
-     *      operationId="Request reset password link",
+     *      operationId="Reset password with link",
      *      tags={"Auth"},
-     *      summary="Forgot Password",
+     *      summary="Reset Password",
      *
      *      @OA\RequestBody(
      *          required=true,
-     *          @OA\JsonContent(ref="#/components/schemas/ForgotPasswordRequest")
+     *          @OA\JsonContent(ref="#/components/schemas/ResetPasswordRequest")
      *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
+     *      @OA\JsonContent(ref="#/components/schemas/ResetPasswordResponse")
      *       ),
      *      @OA\Response(
      *          response=422,
      *          description="Unprocessable Entity",
+     *      ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Error",
      *      ),
      * )
      */

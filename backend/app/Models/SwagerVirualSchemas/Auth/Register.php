@@ -3,8 +3,9 @@
 
 /**
  * @OA\Schema(
- *     title="Get User request",
- *     description="User model",
+ *     title="Create User request",
+ *     description="User",
+ *     required={"email","name","password","password_confirmation"},
  *     @OA\Xml(
  *         name="User"
  *     )
@@ -58,7 +59,7 @@ class RegisterRequest
 
 /**
  * @OA\Schema(
- *     title="Get User response",
+ *     title="Register response",
  *     description="User model",
  *     @OA\Xml(
  *         name="User"

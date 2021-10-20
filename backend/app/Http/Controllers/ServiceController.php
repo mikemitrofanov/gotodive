@@ -11,106 +11,99 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-
-    public function index($language, ServiceCategory $serviceCategory)
-    {
-        return ServiceResource::collection($serviceCategory->services);
-    }
-
-    public function store($language, CreateServiceRequest $request, ServiceCategory $serviceCategory)
-    {
-        $service = $serviceCategory->services()->create($request->validated());
-        return new ServiceResource($service);
-    }
-
-    public function showPopular()
-    {
-        return ServiceResource::collection(Service::where('is_popular', true)->cursorPaginate(3));
-    }
-
-    public function show($language, Service $service)
-    {
-        return new ServiceResource($service);
-    }
-
-    public function update($language, UpdateServiceRequest $request, Service $service)
-    {
-        $service->update($request->validated());
-        return new ServiceResource($service);
-    }
-
-
-    public function destroy(Service $service)
-    {
-        $service->delete();
-        return response()->noContent();
-    }
-
     /**
      * @OA\Get(
-     *      path="/service-categories/{serviceCategory:id}/services",
-     *      operationId="Show Categories",
-     *      tags={"Service"},
-     *      summary="Get list of categories",
+     *      path="/service-categories/{serviceServices:id}/services",
+     *      operationId="Show Services",
+     *      tags={"Services"},
+     *      summary="Get list of Services",
      *      description="Returns list of projects",
      *
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/GetCategoriesResponse"),
+     *          @OA\JsonContent(ref="#/components/schemas/GetServicesResponse"),
      *       ),
      *     )
      */
 
-
-
+    public function index($language, ServiceCategory $serviceCategory)
+    {
+        return ServiceResource::collection($serviceCategory->services);
+    }
     /**
      * Store a newly created resource in storage.
      *
      * @OA\Post(
      *      path="/service-categories/{serviceCategory:id}/services",
-     *      operationId="Create new Categoriy",
-     *      tags={"Service"},
-     *      summary="Create Categoriy",
+     *      operationId="Create new Service",
+     *      tags={"Services"},
+     *      summary="Create Service",
      *      description="Returns created user, some fields shold be unique",
      *      security={{"bearerAuth":{}}},
      *
      *      @OA\RequestBody(
      *          required=true,
-     *          @OA\JsonContent(ref="#/components/schemas/CreateCategoryRequest")
+     *          @OA\JsonContent(ref="#/components/schemas/CreateServicesRequest")
      *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/CreateCategoryResponse")
+     *          @OA\JsonContent(ref="#/components/schemas/CreateServicesResponse")
      *       ),
      * )
      */
-
-
+    public function store($language, CreateServiceRequest $request, ServiceCategory $serviceCategory)
+    {
+        $service = $serviceCategory->services()->create($request->validated());
+        return new ServiceResource($service);
+    }
     /**
      * @OA\Get(
-     *      path="/services/{service:id}",
-     *      operationId="Show Category",
-     *      tags={"Service"},
+     *      path="/services/popular",
+     *      operationId="Show Popular Services",
+     *      tags={"Services"},
      *      summary="Get one category",
      *      description="Returns list of projects",
      *
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/CreateCategoryResponse"),
+     *          @OA\JsonContent(ref="#/components/schemas/CreateServicesResponse"),
      *       ),
      * )
      *
      */
-
+    public function showPopular()
+    {
+        return ServiceResource::collection(Service::where('is_popular', true)->cursorPaginate(3));
+    }
+    /**
+     * @OA\Get(
+     *      path="/services/{service:id}",
+     *      operationId="Show Services",
+     *      tags={"Services"},
+     *      summary="Get one category",
+     *      description="Returns list of projects",
+     *
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/CreateServicesResponse"),
+     *       ),
+     * )
+     *
+     */
+    public function show($language, Service $service)
+    {
+        return new ServiceResource($service);
+    }
 
     /**
      * @OA\Post(
      *      path="/services/{service:id}",
      *      operationId="Update service",
-     *      tags={"Service"},
+     *      tags={"Services"},
      *      summary="Create user",
      *      description="Returns created user, some fields shold be unique",
      *      security={{"bearerAuth":{}}},
@@ -126,12 +119,17 @@ class ServiceController extends Controller
      * )
      */
 
+    public function update($language, UpdateServiceRequest $request, Service $service)
+    {
+        $service->update($request->validated());
+        return new ServiceResource($service);
+    }
 
     /**
      * @OA\Delete(
      *      path="/services/{service:id}",
      *      operationId="Logout User",
-     *      tags={"Service"},
+     *      tags={"Services"},
      *      summary="Logout user",
      *      description="Returns nothing",
      *      security={{"bearerAuth":{}}},
@@ -148,4 +146,9 @@ class ServiceController extends Controller
      * )
      */
 
+    public function destroy(Service $service)
+    {
+        $service->delete();
+        return response()->noContent();
+    }
 }
