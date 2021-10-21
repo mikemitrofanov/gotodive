@@ -1,5 +1,5 @@
-import { categoriesApi, useGetServicesQuery } from "../store/categories/action";
-console.log(useGetServicesQuery);
+import { categoriesApi, useGetPopularServicesQuery } from "../store/categories/action";
+import { initializeStore, removeUndefined } from "../store";
 import { useSelector } from "react-redux";
 import { withRedux } from "../hof/withRedux";
 import NavBar from "../components/NavBar";
@@ -9,7 +9,18 @@ import Team from "../components/Team";
 import Contact from "../components/Contact";
 
 export default function Main({ isOpened, setIsOpened, language, setLanguage }) {
-  const { data: categories } = useSelector(categoriesApi.endpoints.getAllCategories.select());
+
+  // console.log(JSON.stringify(data.categoriesApi.queries));
+
+  const { data, error, isLoading } = useGetPopularServicesQuery(language);
+
+  console.log({
+    data,
+    error,
+    isLoading,
+  });
+
+
 
   return (
     <>
@@ -23,7 +34,11 @@ export default function Main({ isOpened, setIsOpened, language, setLanguage }) {
 }
 
 export const getServerSideProps = withRedux(async (ctx, dispatch) => {
-  await dispatch(categoriesApi.endpoints.getAllCategories.initiate());
-  await dispatch(categoriesApi.endpoints.getPopularServices.initiate());
+  // const { data: categories } = useSelector(categoriesApi.endpoints.getAllCategories.select());
+  // const { data, error, isLoading } = useGetPopularServicesQuery("ru");
+  const store = initializeStore();
+  await store.dispatch(categoriesApi.endpoints.getAllCategories.initiate());
+  await store.dispatch(categoriesApi.endpoints.getPopularServices.initiate("ru"));
+
   return { props: {} };
 });
