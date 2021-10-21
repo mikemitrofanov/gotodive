@@ -7,16 +7,31 @@
   padding: 50px 0px 60px 0px;
 }
 
+.heading_contact_us {
+  margin-bottom: 40px;
+}
+
 .contact_us {
   display: block;
+  margin-bottom: 20px;
+}
+
+.heading_categories {
+  margin-bottom: 40px;
 }
 
 .categories {
   display: block;
+  margin-bottom: 15px;
+}
+
+.heading_social {
+  margin-bottom: 40px;
 }
 
 .social {
   display: block;
+  margin-bottom: 20px;
 }
 
 .icon {
@@ -26,4 +41,12 @@
 
 .heading_gallery {
   margin-bottom: 30px;
+}
+
+.wrapper_gallery {
+  margin-bottom: 5px;
+}
+
+.img_gallery {
+  margin-right: 10px;
 }

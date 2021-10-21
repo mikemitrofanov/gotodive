@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <section className={styles.wrapper_footer}>
       <article>
-        <h1>Contact Us</h1>
+        <h1 className={styles.heading_contact_us}>Contact Us</h1>
         <Link href='#'>
           <a className={styles.contact_us}>
             <img className={styles.icon} src='images/footer/icons/mapIcon.png' />
@@ -32,7 +32,7 @@ export default function Footer() {
         </Link>
       </article>
       <article>
-        <h1>Categories</h1>
+        <h1 className={styles.heading_categories}>Categories</h1>
         <Link href='#'>
           <a className={styles.categories}>Дайвинг</a>
         </Link>
@@ -50,7 +50,7 @@ export default function Footer() {
         </Link>
       </article>
       <article>
-        <h1>Social</h1>
+        <h1 className={styles.heading_social}>Social</h1>
         <Link href='#'>
           <a className={styles.social}>
             <img className={styles.icon} src='images/footer/icons/instaIcon.png' />
@@ -78,16 +78,16 @@ export default function Footer() {
       </article>
       <article>
         <h1 className={styles.heading_gallery}>Gallery</h1>
-        <div>
-          <img src='images/footer/photo/img1.png' />
-          <img src='images/footer/photo/img2.png' />
-          <img src='images/footer/photo/img3.png' />
-          <img src='images/footer/photo/img4.png' />
+        <div className={styles.wrapper_gallery}>
+          <img className={styles.img_gallery} src='images/footer/photo/img1.png' />
+          <img className={styles.img_gallery} src='images/footer/photo/img2.png' />
+          <img className={styles.img_gallery} src='images/footer/photo/img3.png' />
+          <img className={styles.img_gallery} src='images/footer/photo/img4.png' />
         </div>
-        <img src='images/footer/photo/img5.png' />
-        <img src='images/footer/photo/img6.png' />
-        <img src='images/footer/photo/img7.png' />
-        <img src='images/footer/photo/img8.png' />
+        <img className={styles.img_gallery} src='images/footer/photo/img5.png' />
+        <img className={styles.img_gallery} src='images/footer/photo/img6.png' />
+        <img className={styles.img_gallery} src='images/footer/photo/img7.png' />
+        <img className={styles.img_gallery} src='images/footer/photo/img8.png' />
       </article>
     </section>
   );
