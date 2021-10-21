@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
 import { randomInteger } from "../../helpers/randomInteger";
-
 export const categoriesApi = createApi({
     reducerPath: 'categoriesApi',
     baseQuery: fetchBaseQuery({

@@ -1,10 +1,6 @@
-import { useRouter } from "next/router";
 import LinkLanguages from "./LinkLanguages";
 
 export default function LinksLanguages({ isOpened, setLanguage }) {
-  const router = useRouter();
-  const { data_language } = router.query;
-
   return (
     <>
       <LinkLanguages isOpened={isOpened} data_language='ru' language='RU' setLanguage={setLanguage} />
