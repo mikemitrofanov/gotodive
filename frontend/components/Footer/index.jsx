@@ -1,4 +1,5 @@
 import Link from "next/link";
+import "@fancyapps/ui";
 import styles from "./footer.module.css";
 
 export default function Footer() {
@@ -79,15 +80,31 @@ export default function Footer() {
       <article>
         <h1 className={styles.heading_gallery}>Gallery</h1>
         <div className={styles.wrapper_gallery}>
-          <img className={styles.img_gallery} src='images/footer/photo/img1.png' />
-          <img className={styles.img_gallery} src='images/footer/photo/img2.png' />
-          <img className={styles.img_gallery} src='images/footer/photo/img3.png' />
-          <img className={styles.img_gallery} src='images/footer/photo/img4.png' />
+          <a data-fancybox='gallery' data-src='images/footer/fancybox_photo/img1_big.png'>
+            <img className={styles.img_gallery} src='images/footer/photo/img1.png' />
+          </a>
+          <a data-fancybox='gallery' data-src='images/footer/fancybox_photo/img2_big.png'>
+            <img className={styles.img_gallery} src='images/footer/photo/img2.png' />
+          </a>
+          <a data-fancybox='gallery' data-src='images/footer/fancybox_photo/img3_big.png'>
+            <img className={styles.img_gallery} src='images/footer/photo/img3.png' />
+          </a>
+          <a data-fancybox='gallery' data-src='images/footer/fancybox_photo/img4_big.png'>
+            <img className={styles.img_gallery} src='images/footer/photo/img4.png' />
+          </a>
         </div>
-        <img className={styles.img_gallery} src='images/footer/photo/img5.png' />
-        <img className={styles.img_gallery} src='images/footer/photo/img6.png' />
-        <img className={styles.img_gallery} src='images/footer/photo/img7.png' />
-        <img className={styles.img_gallery} src='images/footer/photo/img8.png' />
+        <a data-fancybox='gallery' data-src='images/footer/fancybox_photo/img5_big.png'>
+          <img className={styles.img_gallery} src='images/footer/photo/img5.png' />
+        </a>
+        <a data-fancybox='gallery' data-src='images/footer/fancybox_photo/img6_big.png'>
+          <img className={styles.img_gallery} src='images/footer/photo/img6.png' />
+        </a>
+        <a data-fancybox='gallery' data-src='images/footer/fancybox_photo/img7_big.png'>
+          <img className={styles.img_gallery} src='images/footer/photo/img7.png' />
+        </a>
+        <a data-fancybox='gallery' data-src='images/footer/fancybox_photo/img8_big.png'>
+          <img className={styles.img_gallery} src='images/footer/photo/img8.png' />
+        </a>
       </article>
     </section>
   );

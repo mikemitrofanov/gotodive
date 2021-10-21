@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import "../styles/swiper.min.css";
 import '../styles/navigation.min.css'
+import '../styles/fancybox.css'
 import { Provider } from "react-redux";
 import { useStore } from "../store";
 
