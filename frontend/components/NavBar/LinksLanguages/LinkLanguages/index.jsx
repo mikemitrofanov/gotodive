@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 
 export default function LinkLanguages({ isOpened, language, data_language, setLanguage }) {
   const languages = useRef("");
+  
   const switchLanguage = () => {
     setLanguage(languages.current.attributes[0].value);
   };

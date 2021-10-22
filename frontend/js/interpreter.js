@@ -22,7 +22,7 @@ const dictionary = {
     "_message": "Сообщение",
     "_send": "Отправить"
   },
-  "ua": {
+  "ukr": {
     "_home": "Головна",
     "_diving": "Дайвінг",
     "_specializations": "Спеціалізації",
