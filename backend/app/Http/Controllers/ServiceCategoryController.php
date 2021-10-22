@@ -84,7 +84,7 @@ class ServiceCategoryController extends Controller
      * Store a newly created resource in storage.
      *
      * @OA\Post(
-     *      path="/service-categories",
+     *      path="/{language}/service-categories",
      *      operationId="Create new Categoriy",
      *      tags={"Service Categories"},
      *      summary="Create Categoriy",
@@ -121,12 +121,20 @@ class ServiceCategoryController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/service-categories/{serviceCategory:id}",
+     *      path="/{language}/service-categories/{serviceCategory:id}",
      *      operationId="Show Category",
      *      tags={"Service Categories"},
      *      summary="Get one category",
      *      description="Returns list of projects",
-     *
+     *       @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -148,12 +156,21 @@ class ServiceCategoryController extends Controller
     /**
      *
      * @OA\Put(
-     *      path="/service-categories/{serviceCategory:id}",
+     *      path="/{language}/service-categories/{serviceCategory:id}",
      *      operationId="Update Category",
      *      tags={"Service Categories"},
      *      summary="Create user",
      *      description="Returns created user, some fields shold be unique",
      *      security={{"bearerAuth":{}}},
+     *      @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
      *      @OA\RequestBody(
      *          required=true,
      *          @OA\JsonContent(ref="#/components/schemas/RegisterRequest")
@@ -179,12 +196,21 @@ class ServiceCategoryController extends Controller
     /**
      *
      * @OA\Delete(
-     *      path="/service-categories/{serviceCategory:id}",
+     *      path="/{language}/service-categories/{serviceCategory:id}",
      *      operationId="Logout User",
      *      tags={"Service Categories"},
      *      summary="Logout user",
      *      description="Returns nothing",
      *      security={{"bearerAuth":{}}},
+     *      @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
      *
      *      @OA\Response(
      *          response=200,
