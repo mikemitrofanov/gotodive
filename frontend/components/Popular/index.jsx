@@ -1,9 +1,8 @@
 import { Fragment } from "react";
 import SwiperCore, { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useSelector } from "react-redux";
 import Media from "react-media";
-import { categoriesApi } from "../../store/categories/action";
+import { useGetPopularServicesQuery } from "../../store/categories/action";
 import { data_slider } from "../../js/slider";
 import ServiceShort from "./ServiceShort";
 import styles from "./popular.module.css";
@@ -11,7 +10,7 @@ import styles from "./popular.module.css";
 SwiperCore.use([Navigation]);
 
 export default function Popular({ language }) {
-  const { data } = useSelector(categoriesApi.endpoints.getPopularServices.select());
+  const { data } = useGetPopularServicesQuery(language);
   const fake_data = data_slider.data;
   const services = Array.isArray(data) ? data : fake_data;
   return (
