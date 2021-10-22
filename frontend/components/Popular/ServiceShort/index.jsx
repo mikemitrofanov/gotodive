@@ -4,11 +4,11 @@ import styles from "./serviceShort.module.css";
 export default function ServiceShort({ service, language }) {
   const switchLanguage = (languages) => {
     switch (languages) {
-      case "russian":
+      case "ru":
         return 0;
-      case "ukrainian":
+      case "ukr":
         return 1;
-      case "english":
+      case "en":
         return 2;
       default:
         return 0;
