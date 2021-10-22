@@ -5,12 +5,9 @@ import { randomInteger } from "../../helpers/randomInteger";
 export const categoriesApi = createApi({
     reducerPath: 'categoriesApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: process.env.API_URL,
+        baseUrl: process.env.NEXT_PUBLIC_API_URL,
     }),
     endpoints: (build) => ({
-        getCategory: build.query({
-            query: (arg) => `service-categories/${arg}`
-        }),
         getAllCategories: build.query({
             query: () => 'service-categories/services'
         }),
