@@ -26,8 +26,8 @@ export default function LinksMenu({ isOpened, categories }) {
       <LinkMenu data_translate='_home' isOpened={isOpened} href='/' name='Главная' />
       <CategoryServicesDropdown data_translate='_diving' category={diving} style={isOpenedDropdownDiving} checkOpenDropdown={checkOpenDropdown} isOpened={isOpened} />
       <CategoryServicesDropdown data_translate='_specializations' category={specialization} style={isOpenedDropdownSpecialization} checkOpenDropdown={checkOpenDropdown} isOpened={isOpened} />
-      <LinkMenu data_translate='_gallery' isOpened={isOpened} href='/[language]/gallery' name='Галерея' />
-      <LinkMenu data_translate='_price' isOpened={isOpened} href='/[language]/prices' name='Прайс' />
+      <LinkMenu data_translate='_gallery' isOpened={isOpened} href='/gallery' name='Галерея' />
+      <LinkMenu data_translate='_price' isOpened={isOpened} href='/prices' name='Прайс' />
     </>
   );
 }
