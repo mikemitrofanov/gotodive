@@ -6,7 +6,7 @@ import "../styles/navigation.min.css";
 import { Provider } from "react-redux";
 import { useStore } from "../store";
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);
   const [isOpened, setIsOpened] = useState(false);
   const [language, setLanguage] = useState("");
@@ -17,5 +17,3 @@ function MyApp({ Component, pageProps }) {
     </Provider>
   );
 }
-
-export default MyApp;
