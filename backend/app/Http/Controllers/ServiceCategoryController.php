@@ -23,16 +23,20 @@ class ServiceCategoryController extends Controller
      *          description="Language code ",
      *          required=true,
      *          in="path",
+     *          example="en",
      *          @OA\Schema(
-     *              type="string"
+     *              type="string",
      *          )
      *      ),
-     *
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/GetCategoriesResponse"),
      *       ),
+     *       @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
      *     )
      *
      * Display a listing of the resource.
@@ -44,34 +48,34 @@ class ServiceCategoryController extends Controller
     {
         return ServiceCategoryResource::collection(ServiceCategory::all());
     }
+
     /**
-     * Store a newly created resource in storage.
      *
-     * @OA\Post(
+     * @OA\Get(
      *      path="/{language}/service-categories/services",
-     *      operationId="Create new Categoriy",
+     *      operationId="Show Services with categories",
      *      tags={"Service Categories"},
-     *      summary="Create Categoriy",
-     *      description="Returns created user, some fields shold be unique",
-     *      security={{"bearerAuth":{}}},
+     *      summary="Show Categoriy with serwices",
+     *      description="Returns array categories with serwices",
      *         @OA\Parameter(
      *          name="language",
      *          description="Language code ",
      *          required=true,
      *          in="path",
+     *          example="en",
      *          @OA\Schema(
      *              type="string"
      *          )
      *      ),
-     *      @OA\RequestBody(
-     *          required=true,
-     *          @OA\JsonContent(ref="#/components/schemas/CreateCategoryRequest")
-     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/CreateCategoryResponse")
+     *          @OA\JsonContent(ref="#/components/schemas/CategoryWithServicesResponse")
      *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
      * )
      */
 
@@ -95,11 +99,11 @@ class ServiceCategoryController extends Controller
      *          description="Language code ",
      *          required=true,
      *          in="path",
+     *          example="en",
      *          @OA\Schema(
      *              type="string"
      *          )
      *      ),
-     *
      *      @OA\RequestBody(
      *          required=true,
      *          @OA\JsonContent(ref="#/components/schemas/CreateCategoryRequest")
@@ -109,6 +113,14 @@ class ServiceCategoryController extends Controller
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/CreateCategoryResponse")
      *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
      * )
      * @param \Illuminate\Http\Request $request
      * @return ServiceCategoryResource
@@ -121,18 +133,28 @@ class ServiceCategoryController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/{language}/service-categories/{serviceCategory:id}",
+     *      path="/{language}/service-categories/{serviceCategory}",
      *      operationId="Show Category",
      *      tags={"Service Categories"},
      *      summary="Get one category",
-     *      description="Returns list of projects",
+     *      description="Returns specific category",
      *       @OA\Parameter(
      *          name="language",
      *          description="Language code ",
      *          required=true,
      *          in="path",
+     *          example="en",
      *          @OA\Schema(
      *              type="string"
+     *          )
+     *      ),
+     *      @OA\Parameter(
+     *          name="serviceCategory",
+     *          description="Category Id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
      *          )
      *      ),
      *      @OA\Response(
@@ -142,7 +164,7 @@ class ServiceCategoryController extends Controller
      *       ),
      * )
      *
-     * Display the specified resource.
+     * Display the specified category.
      *
      *
      *
@@ -156,30 +178,48 @@ class ServiceCategoryController extends Controller
     /**
      *
      * @OA\Put(
-     *      path="/{language}/service-categories/{serviceCategory:id}",
+     *      path="/{language}/service-categories/{serviceCategory}",
      *      operationId="Update Category",
      *      tags={"Service Categories"},
-     *      summary="Create user",
-     *      description="Returns created user, some fields shold be unique",
+     *      summary="Update Category",
+     *      description="Returns updated category.",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
      *          name="language",
      *          description="Language code ",
      *          required=true,
      *          in="path",
+     *          example="en",
      *          @OA\Schema(
      *              type="string"
      *          )
      *      ),
+     *     @OA\Parameter(
+     *          name="serviceCategory",
+     *          description="Category Id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
      *      @OA\RequestBody(
      *          required=true,
-     *          @OA\JsonContent(ref="#/components/schemas/RegisterRequest")
+     *          @OA\JsonContent(ref="#/components/schemas/CreateCategoryRequest")
      *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/RegisterResponse")
+     *          @OA\JsonContent(ref="#/components/schemas/CreateCategoryResponse")
      *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
      * )
      * Update the specified resource in storage.
      *
@@ -196,10 +236,10 @@ class ServiceCategoryController extends Controller
     /**
      *
      * @OA\Delete(
-     *      path="/{language}/service-categories/{serviceCategory:id}",
-     *      operationId="Logout User",
+     *      path="/{language}/service-categories/{serviceCategory}",
+     *      operationId="Delete Category",
      *      tags={"Service Categories"},
-     *      summary="Logout user",
+     *      summary="Delete Category",
      *      description="Returns nothing",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
@@ -207,22 +247,33 @@ class ServiceCategoryController extends Controller
      *          description="Language code ",
      *          required=true,
      *          in="path",
+     *          example="en",
      *          @OA\Schema(
      *              type="string"
      *          )
      *      ),
-     *
+     *       @OA\Parameter(
+     *          name="serviceCategory",
+     *          description="Category Id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/LogoutResponse")
      *       ),
      *      @OA\Response(
      *          response=401,
      *          description="Unauthenticated",
      *      ),
+     *        @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
      * )
-     * Remove the specified resource from storage.
      *
      * @param \App\Models\ServiceCategory $category
      * @return \Illuminate\Http\Response

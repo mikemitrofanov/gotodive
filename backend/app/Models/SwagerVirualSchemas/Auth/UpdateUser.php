@@ -3,7 +3,7 @@
 
 /**
  * @OA\Schema(
- *     title="Get User request",
+ *     title="Update User request",
  *     description="User model",
  *     @OA\Xml(
  *         name="User"

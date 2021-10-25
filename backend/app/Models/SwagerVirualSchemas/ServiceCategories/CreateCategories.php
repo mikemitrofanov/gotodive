@@ -1,70 +1,64 @@
 <?php
 /**
  * @OA\Schema(
- *     title="Get User request",
- *     description="User model",
+ *     title="Create category request",
+ *     description="Category model, require moderator rights",
+ *     required={"title"},
  *     @OA\Xml(
- *         name="User"
+ *         name="Category"
  *     )
  * )
  */
 class CreateCategoryRequest{
 
-}
-
-/**
- * @OA\Schema(
- *     title="Get User response",
- *     description="User model",
- *     @OA\Xml(
- *         name="User"
- *     )
- * )
- */
-class CreateCategoryResponse
-{
     /**
      * @OA\Property(
-     *     title="ID",
-     *     description="ID",
-     *     format="int64",
-     *     example=1
+     *      title="Title",
+     *      description="Category Title",
+     *      example="Scuba Diving"
+     * )
+     *
+     * @var string
+     */
+    public $title;
+
+    /**
+     * @OA\Property(
+     *      title="Order",
+     *      description="Order position to retrive Category",
+     *      example="2"
      * )
      *
      * @var integer
      */
-    private $id;
+    public $order;
+}
+/**
+ * @OA\Schema(
+ *     title="Create category response",
+ *     description="Category model",
+ *     @OA\Xml(
+ *         name="category"
+ *     )
+ * )
+ */
+
+class CreateCategoryResponse
+{
 
     /**
      * @OA\Property(
-     *      title="Name",
-     *      description="Name of the User",
-     *      example="Patric Uren"
+     *      title="Category",
+     *      description="Returns newly created category",
+     *      type="object",
+     *      example={
+     *     "id": 1,
+     *     "title": "Alias.",
+     *     "order": 1
+     *     }
      * )
      *
-     * @var string
+     * @var object
      */
-    public $name;
-
-    /**
-     * @OA\Property(
-     *      title="Email",
-     *      description="User Email",
-     *      example="example@example.com"
-     * )
-     *
-     * @var string
-     */
-    public $email;
-
-    /**
-     * @OA\Property(
-     *      title="Is Admin",
-     *      description="Define if user has admin rights",
-     *      example="0/1"
-     * )
-     *
-     * @var string
-     */
-    public $isAdmin;
+    public $data;
 }
