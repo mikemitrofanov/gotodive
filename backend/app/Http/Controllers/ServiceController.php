@@ -7,23 +7,45 @@ use App\Http\Requests\UpdateServiceRequest;
 use App\Http\Resources\ServiceResource;
 use App\Models\Service;
 use App\Models\ServiceCategory;
-use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/service-categories/{serviceServices:id}/services",
+     *      path="/{language}/service-categories/{serviceCategory}/services",
      *      operationId="Show Services",
      *      tags={"Services"},
      *      summary="Get list of Services",
      *      description="Returns list of projects",
-     *
+     *       @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          example="en",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *     @OA\Parameter(
+     *          name="serviceCategory",
+     *          description="Category Id",
+     *          required=true,
+     *          in="path",
+     *          example="1",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/GetServicesResponse"),
+     *          @OA\JsonContent(ref="#/components/schemas/GetCategoryServicesResponse"),
      *       ),
+     *       @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
      *     )
      */
 
@@ -35,22 +57,53 @@ class ServiceController extends Controller
      * Store a newly created resource in storage.
      *
      * @OA\Post(
-     *      path="/service-categories/{serviceCategory:id}/services",
+     *      path="/{language}/service-categories/{serviceCategory}/services",
      *      operationId="Create new Service",
      *      tags={"Services"},
      *      summary="Create Service",
      *      description="Returns created user, some fields shold be unique",
      *      security={{"bearerAuth":{}}},
-     *
+     *      @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          example="en",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *       @OA\Parameter(
+     *          name="serviceCategory",
+     *          description="Category Id",
+     *          required=true,
+     *          in="path",
+     *          example="1",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
      *      @OA\RequestBody(
      *          required=true,
-     *          @OA\JsonContent(ref="#/components/schemas/CreateServicesRequest")
+     *          @OA\JsonContent(ref="#/components/schemas/CreateServiceRequest")
      *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/CreateServicesResponse")
+     *          @OA\JsonContent(ref="#/components/schemas/ShowServiceResponse")
      *       ),
+     *        @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *        @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
      * )
      */
     public function store($language, CreateServiceRequest $request, ServiceCategory $serviceCategory)
@@ -60,17 +113,30 @@ class ServiceController extends Controller
     }
     /**
      * @OA\Get(
-     *      path="/services/popular",
+     *      path="/{language}/services/popular",
      *      operationId="Show Popular Services",
      *      tags={"Services"},
-     *      summary="Get one category",
-     *      description="Returns list of projects",
-     *
+     *      summary="Show Popular Services",
+     *      description="Returns list of Popular Services",
+     *      @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          example="en",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/CreateServicesResponse"),
+     *          @OA\JsonContent(ref="#/components/schemas/GetPopularServicesResponse"),
      *       ),
+     *        @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
      * )
      *
      */
@@ -80,17 +146,41 @@ class ServiceController extends Controller
     }
     /**
      * @OA\Get(
-     *      path="/services/{service:id}",
-     *      operationId="Show Services",
+     *      path="/{language}/services/{service}",
+     *      operationId="Show Service",
      *      tags={"Services"},
      *      summary="Get one category",
      *      description="Returns list of projects",
+     *      @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          example="en",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *     @OA\Parameter(
+     *          name="service",
+     *          description="Service Id",
+     *          required=true,
+     *          in="path",
+     *          example="1",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
      *
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/CreateServicesResponse"),
+     *          @OA\JsonContent(ref="#/components/schemas/ShowServiceResponse"),
      *       ),
+     *        @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
      * )
      *
      */
@@ -100,22 +190,54 @@ class ServiceController extends Controller
     }
 
     /**
-     * @OA\Post(
-     *      path="/services/{service:id}",
+     * @OA\Put(
+     *      path="/{language}/services/{service}",
      *      operationId="Update service",
      *      tags={"Services"},
      *      summary="Create user",
      *      description="Returns created user, some fields shold be unique",
      *      security={{"bearerAuth":{}}},
+     *      @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          example="en",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *     @OA\Parameter(
+     *          name="service",
+     *          description="Service Id",
+     *          required=true,
+     *          in="path",
+     *          example="1",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
      *      @OA\RequestBody(
      *          required=true,
-     *          @OA\JsonContent(ref="#/components/schemas/RegisterRequest")
+     *          @OA\JsonContent(ref="#/components/schemas/CreateServiceRequest")
      *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/RegisterResponse")
+     *          @OA\JsonContent(ref="#/components/schemas/ShowServiceResponse")
      *       ),
+     *       @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *        @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
      * )
      */
 
@@ -127,22 +249,48 @@ class ServiceController extends Controller
 
     /**
      * @OA\Delete(
-     *      path="/services/{service:id}",
+     *      path="/{language}/services/{service}",
      *      operationId="Logout User",
      *      tags={"Services"},
      *      summary="Logout user",
      *      description="Returns nothing",
      *      security={{"bearerAuth":{}}},
-     *
+     *      @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          example="en",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *     @OA\Parameter(
+     *          name="service",
+     *          description="Service Id",
+     *          required=true,
+     *          in="path",
+     *          example="1",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/LogoutResponse")
      *       ),
+     *       @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
      *      @OA\Response(
      *          response=401,
      *          description="Unauthenticated",
      *      ),
+     *        @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
      * )
      */
 

@@ -118,6 +118,10 @@ class ServiceCategoryController extends Controller
      *          description="Language code is not supported.",
      *      ),
      *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
      *          response=403,
      *          description="Forbidden"
      *      )
@@ -162,6 +166,10 @@ class ServiceCategoryController extends Controller
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/CreateCategoryResponse"),
      *       ),
+     *       @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
      * )
      *
      * Display the specified category.
@@ -217,6 +225,10 @@ class ServiceCategoryController extends Controller
      *          description="Language code is not supported.",
      *      ),
      *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
      *          response=403,
      *          description="Forbidden"
      *      )
@@ -265,6 +277,10 @@ class ServiceCategoryController extends Controller
      *          response=200,
      *          description="Successful operation",
      *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
      *      @OA\Response(
      *          response=401,
      *          description="Unauthenticated",
