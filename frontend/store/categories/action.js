@@ -9,7 +9,7 @@ export const categoriesApi = createApi({
     }),
     endpoints: (build) => ({
         getAllCategories: build.query({
-            query: () => 'service-categories/services'
+            query: (language) => `${language}/service-categories/services`
         }),
         getPopularServices: build.query({
             query: (language) => `${language}/services/popular`,
@@ -23,4 +23,4 @@ export const categoriesApi = createApi({
 
 })
 
-export const { useGetPopularServicesQuery } = categoriesApi;
+export const { useGetPopularServicesQuery, useGetAllCategoriesQuery } = categoriesApi;

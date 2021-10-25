@@ -1,10 +1,13 @@
 import { Form, Formik } from "formik";
+import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import FormikTextArea from "../ContactForm/FormikTextArea";
 import Input from "../ContactForm/Input";
 import styles from "./contactForm.module.css";
 
 export default function ContactForm({ onSubmit }) {
+  const { t } = useTranslation("translation", { useSuspense: false });
+
   const validationSchema = Yup.object().shape({
     email: Yup.string().email('Must contain @ and "."').required("Email is required"),
     phone: Yup.string()
@@ -30,16 +33,16 @@ export default function ContactForm({ onSubmit }) {
     >
       <Form className={styles.form_container}>
         <section className={styles.sub_container}>
-          <Input data_translate='_name' name='name' label='Имя' />
+          <Input name='name' label={t("contact.name")} />
           <Input name='email' label='Email' />
-          <Input data_translate='_phone' name='phone' label='Телефон' />
+          <Input name='phone' label={t("contact.phone")} />
         </section>
         <section className={styles.sub_container}>
           <article className={styles.input_container}>
             <FormikTextArea name='message' />
           </article>
-          <button data_translate='_send' className={styles.submit_btn} type='submit'>
-            Отправить
+          <button className={styles.submit_btn} type='submit'>
+            {t("contact.send")}
           </button>
         </section>
       </Form>

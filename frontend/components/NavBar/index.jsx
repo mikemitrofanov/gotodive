@@ -8,9 +8,8 @@ import LinksMenu from "./LinksMenu";
 import { data } from "../../js/categoriesWithServices";
 import styles from "./navBar.module.css";
 
-export default function NavBar({ isOpened, setIsOpened, setLanguage }) {
+export default function NavBar({ isOpened, setIsOpened, setLanguage, language }) {
   const [isOpenedMainHeader, setIsOpenedMainHeader] = useState(true);
-
   const categories = data.data;
 
   const openBurgerMenuAndCloseMainHead = ({ event, setIsOpened, setIsOpenedMainHeader }) => {
@@ -38,7 +37,7 @@ export default function NavBar({ isOpened, setIsOpened, setLanguage }) {
               }
             ></button>
             <div className={styles.wrapper_links}>
-              <LinksMenu isOpened={isOpened} categories={categories} />
+              <LinksMenu isOpened={isOpened} categories={categories} language={language} />
             </div>
             <div className={styles.top_search_block}>
               <span className={styles.search_input_container}>

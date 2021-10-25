@@ -1,7 +1,9 @@
-import { data_slider } from "../../../js/slider";
+import { useTranslation } from "react-i18next";
 import styles from "./serviceShort.module.css";
 
 export default function ServiceShort({ service, language }) {
+  const { t } = useTranslation("translation", { useSuspense: false });
+
   const switchLanguage = (languages) => {
     switch (languages) {
       case "ru":
@@ -22,7 +24,7 @@ export default function ServiceShort({ service, language }) {
       <img className={styles.popular_service_image} src={service.imageUrl} alt='Image' />
       <p className={styles.popular_service_title}>{service.id ? service.title : service.title[valueLanguages]}</p>
       <p className={styles.description}>{service.id ? service.description : service.description[valueLanguages]}</p>
-      <button className={styles.popular_service_button}>{data_slider.buttons[valueLanguages]}</button>
+      <button className={styles.popular_service_button}>{t("popular.buttons")}</button>
     </div>
   );
 }

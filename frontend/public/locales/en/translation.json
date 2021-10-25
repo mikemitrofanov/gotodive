@@ -1,0 +1,33 @@
+{
+  "navBar": {
+    "home": "Home",
+    "diving": "Diving",
+    "specializations": "Specializations",
+    "gallery": "Gallery",
+    "price": "Price"
+  },
+  "subHeader": {
+    "titleStart": "DIVE INTO",
+    "titleEnd": "ADVENTURES",
+    "description": "Scuba diving is an unforgettable holiday experience in Croatia! It's much easier than you think! Diving is simple, easy and fun!",
+    "subDescription": "Have you always wondered what it is like to breathe underwater? What is hidden under the water surface? Are you scared but curious to know? Then it's time to act! To truly enjoy your first scuba dive, you will need an instructor you can fully trust. Our experienced instructors will make sure that you are completely safe during your underwater adventures and have an unforgettable experience."
+  },
+  "popular": {
+    "popular": "POPULAR",
+    "buttons": "Sign up"
+  },
+  "team": {
+    "ourTeam": "OUR TEAM",
+    "name2": "Yurii Prokhvatilo",
+    "name3": "Rick Sanchez",
+    "greatAndTerrible": "great and terrible",
+    "justDarling": "just darling"
+  },
+  "contact": {
+    "writeToUs": "WRITE TO US",
+    "name": "Name",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send"
+  }
+}

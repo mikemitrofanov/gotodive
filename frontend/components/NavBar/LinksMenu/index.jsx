@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useGetAllCategoriesQuery } from "../../../store/categories/action";
 import CategoryServicesDropdown from "./CategoryServicesDropdown";
 import LinkMenu from "./LinkMenu";
 
-export default function LinksMenu({ isOpened, categories }) {
+export default function LinksMenu({ isOpened, categories, language }) {
+  const { t } = useTranslation("translation", { useSuspense: false });
+
   const [isOpenedDropdownDiving, setIsOpenedDropdownDiving] = useState(false);
   const [isOpenedDropdownSpecialization, setIsOpenedSpecialization] = useState(false);
 
@@ -23,11 +27,11 @@ export default function LinksMenu({ isOpened, categories }) {
 
   return (
     <>
-      <LinkMenu data_translate='_home' isOpened={isOpened} href='/' name='Главная' />
-      <CategoryServicesDropdown data_translate='_diving' category={diving} style={isOpenedDropdownDiving} checkOpenDropdown={checkOpenDropdown} isOpened={isOpened} />
-      <CategoryServicesDropdown data_translate='_specializations' category={specialization} style={isOpenedDropdownSpecialization} checkOpenDropdown={checkOpenDropdown} isOpened={isOpened} />
-      <LinkMenu data_translate='_gallery' isOpened={isOpened} href='/gallery' name='Галерея' />
-      <LinkMenu data_translate='_price' isOpened={isOpened} href='/prices' name='Прайс' />
+      <LinkMenu isOpened={isOpened} href='/' name={t("navBar.home")} />
+      <CategoryServicesDropdown data_translate='_diving' category={diving} style={isOpenedDropdownDiving} checkOpenDropdown={checkOpenDropdown} isOpened={isOpened} language={language} />
+      <CategoryServicesDropdown data_translate='_specializations' category={specialization} style={isOpenedDropdownSpecialization} checkOpenDropdown={checkOpenDropdown} isOpened={isOpened} language={language} />
+      <LinkMenu isOpened={isOpened} href='/gallery' name={t("navBar.gallery")} />
+      <LinkMenu isOpened={isOpened} href='/prices' name={t("navBar.price")} />
     </>
   );
 }

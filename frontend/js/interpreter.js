@@ -66,22 +66,21 @@ const dictionary = {
     "_name": "Name",
     "_phone": "Phone",
     "_message": "Message",
-    "_send": "Send",
-    "_test": "dfergerg"
+    "_send": "Send"
   },
 };
 
-if (typeof window === 'object') {
-  const lang_switchers = document.querySelectorAll('.lang_switcher')
-  const data_translates = document.querySelectorAll('[data_translate]')
+// if (typeof window === 'object') {
+//   const lang_switchers = document.querySelectorAll('.lang_switcher')
+//   const data_translates = document.querySelectorAll('[data_translate]')
 
-  document.addEventListener("DOMContentLoaded", function () {
-    lang_switchers.forEach((lang_switcher) => {
-      lang_switcher.addEventListener('click', (event) => {
-        data_translates.forEach((data_translate) => {
-          data_translate.innerText = dictionary[event.target.attributes[0].textContent][data_translate.attributes[0].textContent]
-        })
-      })
-    })
-  });
-}
+//   document.addEventListener("DOMContentLoaded", function () {
+//     lang_switchers.forEach((lang_switcher) => {
+//       lang_switcher.addEventListener('click', (event) => {
+//         data_translates.forEach((data_translate) => {
+//           data_translate.innerText = dictionary[event.target.attributes[0].textContent][data_translate.attributes[0].textContent]
+//         })
+//       })
+//     })
+//   });
+// }

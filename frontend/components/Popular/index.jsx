@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Fragment } from "react";
 import SwiperCore, { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,15 +11,15 @@ import styles from "./popular.module.css";
 SwiperCore.use([Navigation]);
 
 export default function Popular({ language }) {
+  const { t } = useTranslation("translation", { useSuspense: false });
   const { data } = useGetPopularServicesQuery(language);
   const fake_data = data_slider.data;
   const services = Array.isArray(data) ? data : fake_data;
+
   return (
     <section className={styles.popular_container}>
       <div className={styles.popular_content_container}>
-        <div data_translate='_popular' className={styles.popular_header}>
-          ПОПУЛЯРНОЕ
-        </div>
+        <div className={styles.popular_header}>{t("popular.popular")}</div>
         <div className={styles.popular_items_container}>
           <Media
             queries={{
@@ -41,7 +42,7 @@ export default function Popular({ language }) {
                   >
                     {services.map((service, index) => (
                       <SwiperSlide key={index}>
-                        <ServiceShort language={language} service={service} />
+                        <ServiceShort service={service} language={language} />
                       </SwiperSlide>
                     ))}
                   </Swiper>
@@ -57,7 +58,7 @@ export default function Popular({ language }) {
                   >
                     {services.map((service, index) => (
                       <SwiperSlide key={index}>
-                        <ServiceShort language={language} service={service} />
+                        <ServiceShort service={service} language={language} />
                       </SwiperSlide>
                     ))}
                   </Swiper>
@@ -65,7 +66,7 @@ export default function Popular({ language }) {
                 {matches.large && (
                   <>
                     {services.map((service, index) => (
-                      <ServiceShort language={language} key={index} service={service} />
+                      <ServiceShort key={index} service={service} language={language} />
                     ))}
                   </>
                 )}
