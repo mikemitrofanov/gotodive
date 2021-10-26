@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @OA\Schema(
  *     title="Create service request",
@@ -9,7 +10,8 @@
  *     )
  * )
  */
-class CreateServiceRequest{
+class CreateServiceRequest
+{
     /**
      * @OA\Property(
      *     title="Title",

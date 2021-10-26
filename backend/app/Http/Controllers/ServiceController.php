@@ -53,6 +53,7 @@ class ServiceController extends Controller
     {
         return ServiceResource::collection($serviceCategory->services);
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -111,6 +112,7 @@ class ServiceController extends Controller
         $service = $serviceCategory->services()->create($request->validated());
         return new ServiceResource($service);
     }
+
     /**
      * @OA\Get(
      *      path="/{language}/services/popular",
@@ -144,6 +146,7 @@ class ServiceController extends Controller
     {
         return ServiceResource::collection(Service::where('is_popular', true)->cursorPaginate(3));
     }
+
     /**
      * @OA\Get(
      *      path="/{language}/services/{service}",

@@ -53,6 +53,7 @@ class ResetPasswordRequest
     public $password_confirmation;
 
 }
+
 /**
  * @OA\Schema(
  *     title="Forgot Password request",
@@ -73,15 +74,14 @@ class ForgotPasswordRequest
      */
     public $email;
 }
+
 /**
  * @OA\Schema(
  *     title="Reset Password response",
  *     description="User model",
  *     type="object",
-
  * )
  */
-
 class ResetPasswordResponse
 {
     /**

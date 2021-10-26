@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @OA\Schema(
  *     title="Login",
@@ -8,7 +9,8 @@
  *     )
  * )
  */
-class LoginRequest{
+class LoginRequest
+{
 
     /**
      * @OA\Property(

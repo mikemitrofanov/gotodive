@@ -78,13 +78,13 @@ class GetCategoryServicesResponse
     "course_certificate": "Et doloremque dolorem quae. Ducimus non voluptas ut dolore quod. Et eum iure eaque possimus debitis nulla repellendus."
     }
     }
-
      * )
      *
      * @var object
      */
     public $data;
 }
+
 /**
  * @OA\Schema(
  *     title="Get Popular Services response",
@@ -94,7 +94,6 @@ class GetCategoryServicesResponse
  *     )
  * )
  */
-
 class GetPopularServicesResponse
 {
 

@@ -47,7 +47,7 @@ class RegisterRequest
     /**
      * @OA\Property(
      *      title="Password Confirmation",
-     *      description="Password Confirmation of the User",
+     *      description="User should confirm password",
      *      example="Password"
      * )
      *

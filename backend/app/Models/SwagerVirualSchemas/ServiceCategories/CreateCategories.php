@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @OA\Schema(
  *     title="Create category request",
@@ -9,7 +10,8 @@
  *     )
  * )
  */
-class CreateCategoryRequest{
+class CreateCategoryRequest
+{
 
     /**
      * @OA\Property(
@@ -33,6 +35,7 @@ class CreateCategoryRequest{
      */
     public $order;
 }
+
 /**
  * @OA\Schema(
  *     title="Create category response",
@@ -42,7 +45,6 @@ class CreateCategoryRequest{
  *     )
  * )
  */
-
 class CreateCategoryResponse
 {
 

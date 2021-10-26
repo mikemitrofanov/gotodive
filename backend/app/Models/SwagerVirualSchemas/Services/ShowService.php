@@ -31,7 +31,6 @@ class ShowServiceResponse
     "max_depth": "1",
     "course_certificate": "Aut ab suscipit maiores vel tempore et. Alias aperiam facere et atque quaerat vel provident. Et expedita dicta deleniti quos omnis. Aliquam voluptatem saepe consequatur."
     },
-
      * )
      *
      * @var object

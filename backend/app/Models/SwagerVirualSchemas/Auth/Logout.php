@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @OA\Schema(
  *     title="Logout",
@@ -8,7 +9,8 @@
  *     )
  * )
  */
-class LogoutRequest{
+class LogoutRequest
+{
     /**
      * @OA\Property(
      *      title="User token",
