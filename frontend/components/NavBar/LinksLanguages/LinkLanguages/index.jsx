@@ -7,7 +7,7 @@ export default function LinkLanguages({ isOpened, language, data_language, setLa
 
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
-    setLanguage(language);
+    setLanguage((language) => language);
   };
 
   return (

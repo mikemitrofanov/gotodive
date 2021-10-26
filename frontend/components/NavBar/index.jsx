@@ -7,10 +7,16 @@ import LinksLanguages from "./LinksLanguages";
 import LinksMenu from "./LinksMenu";
 import { data } from "../../js/categoriesWithServices";
 import styles from "./navBar.module.css";
+import { useGetAllCategoriesQuery } from "../../store/categories/action";
 
 export default function NavBar({ isOpened, setIsOpened, setLanguage, language }) {
   const [isOpenedMainHeader, setIsOpenedMainHeader] = useState(true);
   const categories = data.data;
+
+
+  const { data:testData } = useGetAllCategoriesQuery(language);
+  console.log(testData)
+
 
   const openBurgerMenuAndCloseMainHead = ({ event, setIsOpened, setIsOpenedMainHeader }) => {
     if (event.target.innerText === "Дайвинг" || event.target.innerText === "Специализации") {
@@ -37,7 +43,7 @@ export default function NavBar({ isOpened, setIsOpened, setLanguage, language })
               }
             ></button>
             <div className={styles.wrapper_links}>
-              <LinksMenu isOpened={isOpened} categories={categories} language={language} />
+              <LinksMenu isOpened={isOpened} categories={categories} language={language} testData={testData}/>
             </div>
             <div className={styles.top_search_block}>
               <span className={styles.search_input_container}>

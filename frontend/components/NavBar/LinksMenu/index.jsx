@@ -4,8 +4,12 @@ import { useGetAllCategoriesQuery } from "../../../store/categories/action";
 import CategoryServicesDropdown from "./CategoryServicesDropdown";
 import LinkMenu from "./LinkMenu";
 
-export default function LinksMenu({ isOpened, categories, language }) {
+export default function LinksMenu({ isOpened, categories, language,testData }) {
   const { t } = useTranslation("translation", { useSuspense: false });
+
+  console.log(testData)
+  // const { data } = useGetAllCategoriesQuery(language);
+  // console.log(data)
 
   const [isOpenedDropdownDiving, setIsOpenedDropdownDiving] = useState(false);
   const [isOpenedDropdownSpecialization, setIsOpenedSpecialization] = useState(false);
