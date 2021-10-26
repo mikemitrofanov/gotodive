@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { categoriesApi } from "../store/categories/action";
 import { withRedux } from "../hof/withRedux";
 import NavBar from "../components/NavBar";
@@ -8,14 +7,12 @@ import Team from "../components/Team";
 import Contact from "../components/Contact";
 import "../js/i18n";
 
-export default function Main({ defaultLanguage, isOpened, setIsOpened }) {
-  const [language, setLanguage] = useState(defaultLanguage);
-
+export default function Main() {
   return (
     <>
-      <NavBar isOpened={isOpened} setIsOpened={setIsOpened} setLanguage={setLanguage} language={language} />
-      <SubHeader isOpened={isOpened} />
-      <Popular language={language} />
+      <NavBar />
+      <SubHeader />
+      <Popular />
       <Team />
       <Contact />
     </>
@@ -26,5 +23,5 @@ export const getServerSideProps = withRedux(async (ctx, dispatch) => {
   await dispatch(categoriesApi.endpoints.getAllCategories.initiate("ru"));
   await dispatch(categoriesApi.endpoints.getPopularServices.initiate("ru"));
 
-  return { props: { defaultLanguage: "ru" } };
+  return { props: {} };
 });

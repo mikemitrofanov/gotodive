@@ -1,11 +1,11 @@
 import LinkLanguages from "./LinkLanguages";
 
-export default function LinksLanguages({ isOpened, setLanguage }) {
+export default function LinksLanguages({ setLanguage }) {
   return (
     <>
-      <LinkLanguages isOpened={isOpened} data_language='ru' language='RU' setLanguage={setLanguage} />
-      <LinkLanguages isOpened={isOpened} data_language='ukr' language='UKR' setLanguage={setLanguage} />
-      <LinkLanguages isOpened={isOpened} data_language='en' language='EN' setLanguage={setLanguage} />
+      <LinkLanguages data_language='ru' language='RU' setLanguage={setLanguage} />
+      <LinkLanguages data_language='ukr' language='UKR' setLanguage={setLanguage} />
+      <LinkLanguages data_language='en' language='EN' setLanguage={setLanguage} />
     </>
   );
 }

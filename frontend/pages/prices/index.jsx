@@ -1,10 +1,10 @@
 import NavBar from "../../components/NavBar";
 import { withRedux } from "../../hof/withRedux";
 
-export default function Prices({ isOpened, setIsOpened, setLanguage }) {
+export default function Prices() {
   return (
     <>
-      <NavBar isOpened={isOpened} setIsOpened={setIsOpened} setLanguage={setLanguage} />
+      <NavBar />
       Prices
     </>
   );

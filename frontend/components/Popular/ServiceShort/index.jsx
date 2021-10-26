@@ -1,8 +1,11 @@
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { defaultLanguage } from "../../../store/slice/defaultLanguageSlice";
 import styles from "./serviceShort.module.css";
 
-export default function ServiceShort({ service, language }) {
+export default function ServiceShort({ service }) {
   const { t } = useTranslation("translation", { useSuspense: false });
+  const language = useSelector(defaultLanguage);
 
   const switchLanguage = (languages) => {
     switch (languages) {
