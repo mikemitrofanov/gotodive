@@ -9,7 +9,7 @@
   margin-bottom: 7px;
   font-family: "Montserrat-Light", sans-serif;
   display: block;
-  max-width: 150px;
+  max-width: 200px;
 }
 
 .main_nav_links {
@@ -21,11 +21,19 @@
 
 .active_link_dropdown,
 .dropdown_content_burger,
-.dropdown_content,
-.caret_down,
-.caret_down_burger_diving,
-.caret_down_burger_specialization {
+.dropdown_content {
   color: #639bd1;
+}
+
+.arrows,
+.active_arrows {
+  font-size: 13px;
+  margin-left: 5px;
+  vertical-align: 0.5px;
+}
+
+.active_arrows {
+  transform: rotateZ(90deg);
 }
 
 .dropdown_content_burger {
@@ -74,59 +82,14 @@
   font-size: 18px;
 }
 
-.wrapper_arrows {
-  display: inline-block;
-  width: 5px;
-}
-
-.caret_right,
-.caret_down {
-  position: relative;
-  right: 55px;
-  font-size: 25px;
-}
-
-.caret_right {
-  transform: translateY(10%);
-}
-
-.caret_down {
-  transform: translateY(5%);
-}
-
-.caret_down_burger_diving,
-.caret_right_burger_diving,
-.caret_down_burger_specialization,
-.caret_right_burger_specialization {
-  position: absolute;
-  font-size: 25px;
-  transform: translateY(-8%);
-}
-
-.caret_down_burger_diving,
-.caret_right_burger_diving {
-  left: 143px;
-}
-
-.caret_down_burger_specialization,
-.caret_right_burger_specialization {
-  left: 210px;
-}
-
 @media screen and (max-width: 1450px) {
   .main_nav_links {
     margin-right: 35px;
   }
-
-  .caret_right,
-  .caret_down {
-    right: 30px;
-  }
 }
 
 @media screen and (max-width: 1230px) {
-  .main_nav_links,
-  .wrapper_arrows {
+  .main_nav_links {
     display: none;
   }
 }
