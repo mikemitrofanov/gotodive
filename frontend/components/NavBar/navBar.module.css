@@ -89,7 +89,7 @@
   background-position: center;
 }
 
-@media screen and (max-width: 1660px) {
+@media screen and (max-width: 1680px) {
   .top_nav_bar_block {
     font-size: 17px;
   }
@@ -99,9 +99,9 @@
   }
 }
 
-@media screen and (max-width: 1494px) {
+@media screen and (max-width: 1520px) {
   .main_block_container {
-    padding: 0 65px;
+    padding: 0 55px;
   }
 }
 

@@ -17,7 +17,7 @@ export default function LinkLanguages({ language, data_language }) {
   };
 
   return (
-    <Link href={data_language} locale={data_language}>
+    <Link href={`/${data_language}`} locale={data_language}>
       <a onClick={(event) => changeLanguage(event, data_language)} className={`lang_switcher ${isOpenBurgerMenu ? styles.languages_burger : styles.languages}`}>
         {language}
       </a>

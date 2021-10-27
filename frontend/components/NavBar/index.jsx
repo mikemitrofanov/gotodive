@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
 import { changeStateBurgerMenu, stateBurgerMenu } from "../../store/slice/burgerMenuSlice";
 import { changeStateMainMenu } from "../../store/slice/mainMenuSlice";
-import { data } from "../../js/categoriesWithServices";
 import LinksLanguages from "./LinksLanguages";
 import styles from "./navBar.module.css";
 import BurgerMenu from "./BurgerMenu";
@@ -13,13 +12,8 @@ import LinksMenu from "./LinksMenu";
 export default function NavBar() {
   const isOpenBurgerMenu = useSelector(stateBurgerMenu);
   const dispatch = useDispatch();
-  const categories = data.data;
 
-  const openBurgerMenuAndCloseMainHead = ({ event }) => {
-    if (event.target.innerText === "Дайвинг" || event.target.innerText === "Специализации") {
-      event.preventDefault();
-      return;
-    }
+  const openBurgerMenuAndCloseMainHead = () => {
     dispatch(changeStateMainMenu());
     dispatch(changeStateBurgerMenu());
   };
@@ -29,16 +23,9 @@ export default function NavBar() {
       <nav className={`${isOpenBurgerMenu && styles.top_nav_bar_block}`}>
         <div className={styles.wrapper_main_head}>
           <article className={styles.main_block_container}>
-            <button
-              className={styles.humburger_menu_btn}
-              onClick={(event) =>
-                openBurgerMenuAndCloseMainHead({
-                  event,
-                })
-              }
-            ></button>
+            <button className={styles.humburger_menu_btn} onClick={() => openBurgerMenuAndCloseMainHead()}></button>
             <div className={styles.wrapper_links}>
-              <LinksMenu categories={categories} />
+              <LinksMenu />
             </div>
             <div className={styles.top_search_block}>
               <span className={styles.search_input_container}>
@@ -53,7 +40,7 @@ export default function NavBar() {
           </article>
         </div>
       </nav>
-      <BurgerMenu categories={categories} />
+      <BurgerMenu />
     </section>
   );
 }

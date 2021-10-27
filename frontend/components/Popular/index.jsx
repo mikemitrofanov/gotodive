@@ -6,7 +6,7 @@ import { Fragment } from "react";
 import Media from "react-media";
 import { useGetPopularServicesQuery } from "../../store/categories/action";
 import { defaultLanguage } from "../../store/slice/defaultLanguageSlice";
-import { data_slider } from "../../js/slider";
+import { fakeDataPopular } from "../../js/slider";
 import ServiceShort from "./ServiceShort";
 import styles from "./popular.module.css";
 
@@ -16,8 +16,7 @@ export default function Popular() {
   const { t } = useTranslation("translation", { useSuspense: false });
   const language = useSelector(defaultLanguage);
   const { data } = useGetPopularServicesQuery(language);
-  const services = Array.isArray(data) ? data : fake_data;
-  const fake_data = data_slider.data;
+  const services = Array.isArray(data) ? data : fakeDataPopular.data;
 
   return (
     <section className={styles.popular_container}>
