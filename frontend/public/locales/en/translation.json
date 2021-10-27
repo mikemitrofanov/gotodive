@@ -1,8 +1,6 @@
 {
   "navBar": {
     "home": "Home",
-    "diving": "Diving",
-    "specializations": "Specializations",
     "gallery": "Gallery",
     "price": "Price"
   },

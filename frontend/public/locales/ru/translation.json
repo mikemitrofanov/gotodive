@@ -1,8 +1,6 @@
 {
   "navBar": {
     "home": "Главная",
-    "diving": "Дайвинг",
-    "specializations": "Специализации",
     "gallery": "Галерея",
     "price": "Прайс"
   },
