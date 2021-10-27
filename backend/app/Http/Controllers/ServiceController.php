@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddPhotoRequest;
 use App\Http\Requests\CreateServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use App\Http\Resources\ServiceResource;
+use App\Models\Photo;
 use App\Models\Service;
 use App\Models\ServiceCategory;
+use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
@@ -301,5 +304,15 @@ class ServiceController extends Controller
     {
         $service->delete();
         return response()->noContent();
+    }
+
+    public function addPhotos($language, Service $service, AddPhotoRequest $request)
+    {
+        foreach ($request->photos as $photo) {
+
+            (new Photo)->savePhoto($service, $photo);
+        }
+        return new ServiceResource(Service::where('id', $service->id)->with('photos')->first());
+
     }
 }

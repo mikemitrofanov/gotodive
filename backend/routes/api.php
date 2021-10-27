@@ -41,6 +41,7 @@ Route::group(['prefix' => '{language}', 'middleware' => ['setLanguage']], functi
     Route::get('/services/{service}', [ServiceController::class, 'show']);
 
     Route::group(['middleware' => ['isAdmin', 'auth:sanctum']], function () {
+        Route::post('services/{service}/add-photo', [ServiceController::class, 'addPhotos']);
         Route::apiResource('/service-categories', ServiceCategoryController::class)->except('index', 'show');
         Route::post('/service-categories/{serviceCategory}/services', [ServiceController::class, 'store']);
         Route::apiResource('/services', ServiceController::class)->only(['update', 'destroy']);
