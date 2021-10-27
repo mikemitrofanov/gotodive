@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
-import { useTranslation } from "react-i18next";
-import { Fragment } from "react";
-import SwiperCore, { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation } from "swiper";
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { Fragment } from "react";
 import Media from "react-media";
 import { useGetPopularServicesQuery } from "../../store/categories/action";
 import { defaultLanguage } from "../../store/slice/defaultLanguageSlice";
@@ -16,8 +16,8 @@ export default function Popular() {
   const { t } = useTranslation("translation", { useSuspense: false });
   const language = useSelector(defaultLanguage);
   const { data } = useGetPopularServicesQuery(language);
-  const fake_data = data_slider.data;
   const services = Array.isArray(data) ? data : fake_data;
+  const fake_data = data_slider.data;
 
   return (
     <section className={styles.popular_container}>

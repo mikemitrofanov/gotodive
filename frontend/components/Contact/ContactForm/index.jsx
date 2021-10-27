@@ -1,9 +1,9 @@
-import { Form, Formik } from "formik";
 import { useTranslation } from "react-i18next";
+import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import FormikTextArea from "../ContactForm/FormikTextArea";
-import Input from "../ContactForm/Input";
 import styles from "./contactForm.module.css";
+import Input from "../ContactForm/Input";
 
 export default function ContactForm({ onSubmit }) {
   const { t } = useTranslation("translation", { useSuspense: false });

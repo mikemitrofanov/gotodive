@@ -1,6 +1,6 @@
-import { useSelector } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSelector } from "react-redux";
 import { stateBurgerMenu } from "../../../../store/slice/burgerMenuSlice";
 import styles from "./categoryServicesDropdown.module.css";
 

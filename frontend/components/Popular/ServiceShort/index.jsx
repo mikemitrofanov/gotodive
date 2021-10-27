@@ -23,11 +23,11 @@ export default function ServiceShort({ service }) {
   const valueLanguages = switchLanguage(language);
 
   return (
-    <div className={styles.popular_item}>
+    <article className={styles.popular_item}>
       <img className={styles.popular_service_image} src={service.imageUrl} alt='Image' />
       <p className={styles.popular_service_title}>{service.id ? service.title : service.title[valueLanguages]}</p>
       <p className={styles.description}>{service.id ? service.description : service.description[valueLanguages]}</p>
       <button className={styles.popular_service_button}>{t("popular.buttons")}</button>
-    </div>
+    </article>
   );
 }

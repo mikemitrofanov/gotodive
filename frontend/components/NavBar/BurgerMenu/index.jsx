@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import { stateMainMenu } from "../../../store/slice/mainMenuSlice";
 import LinksLanguages from "../LinksLanguages";
-import LinksMenu from "../LinksMenu";
 import styles from "./burgerMenu.module.css";
+import LinksMenu from "../LinksMenu";
 
 export default function BurgerMenu({ categories, setLanguage }) {
   const isOpenMainMenu = useSelector(stateMainMenu);

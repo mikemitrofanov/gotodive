@@ -1,23 +1,21 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { changeStateDivingDropdownMenu, stateDivingDropdownMenu } from "../../../store/slice/divingDropdownMenu";
 import { changeStateSpecializationsDropdownMenu, stateSpecializationsDropdownMenu } from "../../../store/slice/specializationsDropdownMenu";
-import { defaultLanguage } from "../../../store/slice/defaultLanguageSlice";
+import { changeStateDivingDropdownMenu, stateDivingDropdownMenu } from "../../../store/slice/divingDropdownMenu";
 import { useGetAllCategoriesQuery } from "../../../store/categories/action";
+import { defaultLanguage } from "../../../store/slice/defaultLanguageSlice";
 import CategoryServicesDropdown from "./CategoryServicesDropdown";
 import LinkMenu from "./LinkMenu";
 
 export default function LinksMenu({ categories }) {
+  const isOpenSpecializationsDropdownMenu = useSelector(stateSpecializationsDropdownMenu);
   const { t } = useTranslation("translation", { useSuspense: false });
   const isOpenDivingDropdownMenu = useSelector(stateDivingDropdownMenu);
-  const isOpenSpecializationsDropdownMenu = useSelector(stateSpecializationsDropdownMenu);
-  const dispatch = useDispatch();
   const language = useSelector(defaultLanguage);
-
   const { data } = useGetAllCategoriesQuery(language);
-  console.log(data);
-
   const [diving, specialization] = categories;
+  const dispatch = useDispatch();
+  console.log(data);
 
   // const divingVariations = ["Дайвинг", "Дайвінг", "Diving"];
   // const specializationsVariations = ["Специализации", "Спеціалізації", "Specializations"];

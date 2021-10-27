@@ -1,14 +1,14 @@
-import { useSelector, useDispatch } from "react-redux";
-import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import BurgerMenu from "./BurgerMenu";
-import LinksLanguages from "./LinksLanguages";
-import LinksMenu from "./LinksMenu";
-import { data } from "../../js/categoriesWithServices";
-import { changeStateMainMenu } from "../../store/slice/mainMenuSlice";
+import { useSelector, useDispatch } from "react-redux";
+import Link from "next/link";
 import { changeStateBurgerMenu, stateBurgerMenu } from "../../store/slice/burgerMenuSlice";
+import { changeStateMainMenu } from "../../store/slice/mainMenuSlice";
+import { data } from "../../js/categoriesWithServices";
+import LinksLanguages from "./LinksLanguages";
 import styles from "./navBar.module.css";
+import BurgerMenu from "./BurgerMenu";
+import LinksMenu from "./LinksMenu";
 
 export default function NavBar() {
   const isOpenBurgerMenu = useSelector(stateBurgerMenu);
