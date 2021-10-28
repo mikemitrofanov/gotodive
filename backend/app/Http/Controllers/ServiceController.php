@@ -18,7 +18,7 @@ class ServiceController extends Controller
      *      operationId="Show Services",
      *      tags={"Services"},
      *      summary="Get list of Services",
-     *      description="Returns list of projects",
+     *      description="Returns list of services related to serten Category",
      *       @OA\Parameter(
      *          name="language",
      *          description="Language code ",
@@ -64,7 +64,7 @@ class ServiceController extends Controller
      *      operationId="Create new Service",
      *      tags={"Services"},
      *      summary="Create Service",
-     *      description="Returns created user, some fields shold be unique",
+     *      description="Returns created Service.",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
      *          name="language",
@@ -155,7 +155,7 @@ class ServiceController extends Controller
      *      operationId="Show Service",
      *      tags={"Services"},
      *      summary="Get one category",
-     *      description="Returns list of projects",
+     *      description="Returns specific Service",
      *      @OA\Parameter(
      *          name="language",
      *          description="Language code ",
@@ -199,8 +199,8 @@ class ServiceController extends Controller
      *      path="/{language}/services/{service}",
      *      operationId="Update service",
      *      tags={"Services"},
-     *      summary="Create user",
-     *      description="Returns created user, some fields shold be unique",
+     *      summary="Update Service",
+     *      description="Returns updated Service",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
      *          name="language",
@@ -255,9 +255,9 @@ class ServiceController extends Controller
     /**
      * @OA\Delete(
      *      path="/{language}/services/{service}",
-     *      operationId="Logout User",
+     *      operationId="Delete Service",
      *      tags={"Services"},
-     *      summary="Logout user",
+     *      summary="Delete Service",
      *      description="Returns nothing",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
