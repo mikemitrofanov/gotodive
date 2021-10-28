@@ -1,13 +1,13 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { useSelector } from "react-redux";
 import { defaultLanguage } from "../../../store/slice/defaultLanguageSlice";
 import { switchLanguage } from "../../../helpers/switchLanguage";
 import styles from "./serviceShort.module.css";
 
 export default function ServiceShort({ service }) {
-  const { t } = useTranslation("translation", { useSuspense: false });
   const language = useSelector(defaultLanguage);
   const valueLanguages = switchLanguage(language);
+  const { t } = useTranslation("common");
 
   return (
     <article className={styles.popular_item}>

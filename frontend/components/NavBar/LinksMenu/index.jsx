@@ -1,10 +1,9 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import CategoryServicesDropdown from "./CategoryServicesDropdown";
-
 import LinkMenu from "./LinkMenu";
 
 export default function LinksMenu() {
-  const { t } = useTranslation("translation", { useSuspense: false });
+  const { t } = useTranslation("common");
 
   return (
     <>

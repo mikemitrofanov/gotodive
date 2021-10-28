@@ -1,10 +1,10 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { useField } from "formik";
 import styles from "./formikTextArea.module.css";
 
 export default function FormikTextArea({ ...props }) {
-  const { t } = useTranslation("translation", { useSuspense: false });
   const [field, meta] = useField(props);
+  const { t } = useTranslation("common");
 
   return (
     <>

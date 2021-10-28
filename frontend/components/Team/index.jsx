@@ -1,8 +1,8 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import styles from "./team.module.css";
 
 export default function Team() {
-  const { t } = useTranslation("translation", { useSuspense: false });
+  const { t } = useTranslation("common");
 
   return (
     <section className={styles.background_block_title}>

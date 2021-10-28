@@ -1,5 +1,5 @@
 import SwiperCore, { Navigation } from "swiper";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { useSelector } from "react-redux";
 import Media from "react-media";
 import { useGetPopularServicesQuery } from "../../store/categories/action";
@@ -12,10 +12,10 @@ import Slider from "./Slider";
 SwiperCore.use([Navigation]);
 
 export default function Popular() {
-  const { t } = useTranslation("translation", { useSuspense: false });
   const language = useSelector(defaultLanguage);
   const { data } = useGetPopularServicesQuery(language);
   const services = Array.isArray(data) ? data : fakeDataPopular.data;
+  const { t } = useTranslation("common");
 
   return (
     <section className={styles.popular_container}>

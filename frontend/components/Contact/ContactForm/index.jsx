@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import FormikTextArea from "../ContactForm/FormikTextArea";
@@ -6,7 +6,7 @@ import styles from "./contactForm.module.css";
 import Input from "../ContactForm/Input";
 
 export default function ContactForm({ onSubmit }) {
-  const { t } = useTranslation("translation", { useSuspense: false });
+  const { t } = useTranslation("common");
 
   const validationSchema = Yup.object().shape({
     email: Yup.string().email('Must contain @ and "."').required("Email is required"),

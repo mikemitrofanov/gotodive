@@ -1,11 +1,12 @@
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { setDefaultLanguage } from "../store/slice/defaultLanguageSlice";
 import { categoriesApi } from "../store/categories/action";
-import { withRedux } from "../hof/withRedux";
-import NavBar from "../components/NavBar";
 import SubHeader from "../components/SubHeader";
+import { withRedux } from "../hof/withRedux";
 import Popular from "../components/Popular";
-import Team from "../components/Team";
 import Contact from "../components/Contact";
-import "../js/i18n";
+import NavBar from "../components/NavBar";
+import Team from "../components/Team";
 
 export default function Main() {
   return (
@@ -19,9 +20,14 @@ export default function Main() {
   );
 }
 
-export const getServerSideProps = withRedux(async (ctx, dispatch) => {
-  await dispatch(categoriesApi.endpoints.getAllCategories.initiate("ru"));
-  await dispatch(categoriesApi.endpoints.getPopularServices.initiate("ru"));
+export const getServerSideProps = withRedux(async ({ locale }, dispatch) => {
+  await dispatch(categoriesApi.endpoints.getAllCategories.initiate(locale));
+  await dispatch(categoriesApi.endpoints.getPopularServices.initiate(locale));
+  dispatch(setDefaultLanguage(locale));
 
-  return { props: {} };
+  return {
+    props: {
+      ...(await serverSideTranslations(locale)),
+    },
+  };
 });

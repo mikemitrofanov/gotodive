@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { stateBurgerMenu } from "../../store/slice/burgerMenuSlice";
 import styles from "./subHeader.module.css";
 
 export default function SubHeader() {
-  const { t } = useTranslation("translation", { useSuspense: false });
+  const { t } = useTranslation("common");
   const isOpenBurgerMenu = useSelector(stateBurgerMenu);
 
   return (
