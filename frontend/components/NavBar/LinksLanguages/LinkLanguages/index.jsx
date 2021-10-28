@@ -13,7 +13,7 @@ export default function LinkLanguages({ language, data_language }) {
   const changeLanguage = (event, language) => {
     i18n.changeLanguage(language);
     dispatch(setDefaultLanguage(language));
-    // event.preventDefault();
+    event.preventDefault();
   };
 
   return (

@@ -1,14 +1,13 @@
-import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { Fragment } from "react";
 import Media from "react-media";
 import { useGetPopularServicesQuery } from "../../store/categories/action";
 import { defaultLanguage } from "../../store/slice/defaultLanguageSlice";
 import { fakeDataPopular } from "../../js/slider";
 import ServiceShort from "./ServiceShort";
 import styles from "./popular.module.css";
+import Slider from "./Slider";
 
 SwiperCore.use([Navigation]);
 
@@ -25,40 +24,9 @@ export default function Popular() {
         <div className={styles.popular_items_container}>
           <Media queries={{ small: "(max-width: 799px)", medium: "(min-width: 800px) and (max-width: 1324px)", large: "(min-width: 1325px)" }}>
             {(matches) => (
-              <Fragment>
-                {matches.small && (
-                  <Swiper
-                    slidesPerView={1}
-                    spaceBetween={30}
-                    loop={true}
-                    pagination={{
-                      clickable: true,
-                    }}
-                    navigation={true}
-                  >
-                    {services.map((service, index) => (
-                      <SwiperSlide key={index}>
-                        <ServiceShort service={service} />
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                )}
-                {matches.medium && (
-                  <Swiper
-                    slidesPerView={2}
-                    loop={true}
-                    pagination={{
-                      clickable: true,
-                    }}
-                    navigation={true}
-                  >
-                    {services.map((service, index) => (
-                      <SwiperSlide key={index}>
-                        <ServiceShort service={service} />
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                )}
+              <>
+                {matches.small && <Slider numberOfSlides={1} />}
+                {matches.medium && <Slider numberOfSlides={2} />}
                 {matches.large && (
                   <>
                     {services.map((service, index) => (
@@ -66,7 +34,7 @@ export default function Popular() {
                     ))}
                   </>
                 )}
-              </Fragment>
+              </>
             )}
           </Media>
         </div>
