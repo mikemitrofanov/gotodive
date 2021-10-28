@@ -43,7 +43,7 @@
   }
 
   .popular_content_container {
-    min-height: 770px;
+    min-height: 755px;
   }
   .popular_header {
     font-size: 1.8rem;
@@ -52,7 +52,7 @@
 
 @media screen and (max-width: 1324px) {
   .popular_content_container {
-    min-height: 700px;
+    min-height: 650px;
   }
 
   .popular_header {
@@ -93,7 +93,7 @@
 
 @media screen and (max-width: 700px) {
   .popular_content_container {
-    min-height: 640px;
+    min-height: 600px;
   }
 
   .popular_header {
@@ -114,7 +114,7 @@
 
 @media screen and (max-width: 440px) {
   .popular_content_container {
-    min-height: 580px;
+    min-height: 520px;
   }
 
   .popular_header {

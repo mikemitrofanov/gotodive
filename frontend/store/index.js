@@ -1,6 +1,11 @@
-import {configureStore} from "@reduxjs/toolkit";
-import {categoriesApi} from "./categories/action";
-import {useMemo} from 'react'
+import { configureStore } from "@reduxjs/toolkit";
+import statusMainMenuReducer from './slice/mainMenuSlice'
+import statusBurgerMenuReducer from './slice/burgerMenuSlice'
+import defaultLanguageReducer from './slice/defaultLanguageSlice'
+import statusDivingDropdownMenuReducer from './slice/divingDropdownMenu'
+import statusSpecializationsDropdownMenuReducer from './slice/specializationsDropdownMenu'
+import { categoriesApi } from "./categories/action";
+import { useMemo } from 'react'
 
 let store
 const initialState = {};
@@ -8,12 +13,16 @@ const initialState = {};
 function initStore(preloadedState = initialState) {
     return configureStore({
         reducer: {
-            [categoriesApi.reducerPath]: categoriesApi.reducer
+            [categoriesApi.reducerPath]: categoriesApi.reducer,
+            statusMainMenu: statusMainMenuReducer,
+            statusBurgerMenu: statusBurgerMenuReducer,
+            language: defaultLanguageReducer,
+            statusDivingDropdownMenu: statusDivingDropdownMenuReducer,
+            statusSpecializationsDropdownMenu: statusSpecializationsDropdownMenuReducer
         },
         preloadedState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(categoriesApi.middleware),
     })
-
 }
 
 export const initializeStore = (preloadedState) => {

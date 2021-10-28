@@ -18,7 +18,9 @@
   margin-top: 130px;
 }
 
-.hidden_logo{
+.hidden_logo,
+.heading_mobile,
+.sub_heading_mobile {
   display: none;
 }
 
@@ -34,13 +36,18 @@
   left: 2.5%;
 }
 
-.heading_mobile,
-.heading_mobile > span {
-  display: none;
-}
-
 .wrapper_content {
   margin-top: 90px;
+}
+
+.heading_mobile,
+.heading {
+  margin-bottom: 0px;
+}
+
+.sub_heading_mobile,
+.sub_heading {
+  margin-top: 0px;
 }
 
 .heading_mobile,
@@ -51,8 +58,8 @@
   max-width: 500px;
 }
 
-.heading_mobile > span,
-.heading > span {
+.sub_heading_mobile,
+.sub_heading {
   font-size: 4.1rem;
   font-family: "Montserrat-Bold", sans-serif;
   line-height: 1;
@@ -72,6 +79,8 @@
   font-size: 0.8rem;
 }
 
+.sub_heading_mobile,
+.sub_heading,
 .heading_mobile,
 .heading,
 .content {
@@ -147,7 +156,7 @@
     max-width: 500px;
   }
 
-  .heading > span {
+  .sub_heading {
     font-size: 3.4rem;
   }
 
@@ -190,7 +199,7 @@
     padding: 0px;
   }
 
-  .heading_mobile > span,
+  .sub_heading_mobile,
   .header_content_container,
   .heading_mobile {
     display: block;
@@ -202,6 +211,10 @@
     padding-top: 550px;
   }
 
+  .sub_heading_mobile {
+    margin-left: 303px;
+  }
+
   .wrapper_content {
     min-height: 460px;
     margin-top: 0px;
@@ -210,7 +223,7 @@
   }
 
   .heading,
-  .heading > span {
+  .sub_heading {
     display: none;
   }
 
@@ -238,6 +251,10 @@
 @media screen and (max-width: 1224px) {
   .header_logo {
     left: 200px;
+  }
+
+  .sub_heading_mobile {
+    margin-left: 180px;
   }
 
   .header_image,
@@ -272,8 +289,9 @@
     margin-left: 130px;
   }
 
-  .heading_mobile > span {
+  .sub_heading_mobile {
     font-size: 3.5rem;
+    margin-left: 155px;
   }
 
   .content,
@@ -294,6 +312,10 @@
 
   .heading_mobile {
     margin-left: 70px;
+  }
+
+  .sub_heading_mobile {
+    margin-left: 87px;
   }
 
   .content,
@@ -322,7 +344,7 @@
     padding-top: 360px;
   }
 
-  .heading_mobile > span {
+  .sub_heading_mobile {
     font-size: 2.4rem;
   }
 
@@ -366,12 +388,16 @@
     padding-top: 320px;
   }
 
+  .sub_heading_mobile {
+    margin-left: 43px;
+  }
+
   .header_image,
   .heading_mobile {
     margin-left: 30px;
   }
 
-  .heading_mobile > span {
+  .sub_heading_mobile {
     font-size: 2.1rem;
   }
 
@@ -421,8 +447,9 @@
     padding-top: 260px;
   }
 
-  .heading_mobile > span {
+  .sub_heading_mobile {
     font-size: 1.6rem;
+    margin-left: 26px;
   }
 
   .wrapper_content {
