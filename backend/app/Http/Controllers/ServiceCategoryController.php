@@ -17,7 +17,7 @@ class ServiceCategoryController extends Controller
      *      operationId="Show Categories",
      *      tags={"Service Categories"},
      *      summary="Get list of categories",
-     *      description="Returns list of projects",
+     *      description="Returns list of categories",
      *      @OA\Parameter(
      *          name="language",
      *          description="Language code ",
@@ -92,7 +92,7 @@ class ServiceCategoryController extends Controller
      *      operationId="Create new Categoriy",
      *      tags={"Service Categories"},
      *      summary="Create Categoriy",
-     *      description="Returns created user, some fields shold be unique",
+     *      description="Returns created category",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
      *          name="language",

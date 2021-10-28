@@ -15,7 +15,7 @@ class Controller extends BaseController
      *      title="GoToDive OpenApi Documentation",
      *      description="L5 Swagger OpenApi description",
      *      @OA\Contact(
-     *          email="test@test.com"
+     *          email=L5_SWAGGER_CONST_CONTACT_EMAIL
      *      ),
      * )
      *
