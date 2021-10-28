@@ -9,13 +9,14 @@ class PhotoController extends Controller
 {
 
     /**
-     * @OA\Delete(
+     * @OA\Get(
      *      path="/photos/",
      *      operationId="Show all Photos",
      *      tags={"Photos"},
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/CreateServiceRequest"),
      *       ),
      * )
      */

@@ -306,10 +306,10 @@ class ServiceController extends Controller
     }
 
     /**
-     * @OA\Put(
+     * @OA\Post(
      *      path="/{language}/services/{service}/add-photo",
      *      operationId="Add photo for service",
-     *      tags={"Photo"},
+     *      tags={"Photos"},
      *      summary="Add Photo",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
@@ -334,7 +334,10 @@ class ServiceController extends Controller
      *      ),
      *      @OA\RequestBody(
      *          required=true,
-     *          @OA\JsonContent(ref="#/components/schemas/CreateServiceRequest")
+     *       @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *          @OA\Schema (ref="#/components/schemas/AddPhotoRequest")
+     * )
      *      ),
      *      @OA\Response(
      *          response=200,
