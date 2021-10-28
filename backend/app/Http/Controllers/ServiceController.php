@@ -9,7 +9,6 @@ use App\Http\Resources\ServiceResource;
 use App\Models\Photo;
 use App\Models\Service;
 use App\Models\ServiceCategory;
-use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
@@ -147,7 +146,7 @@ class ServiceController extends Controller
      */
     public function showPopular()
     {
-        return ServiceResource::collection(Service::where('is_popular', true)->cursorPaginate(3));
+        return ServiceResource::collection(Service::where('is_popular', true)->with('photos')->cursorPaginate(3));
     }
 
     /**
@@ -192,7 +191,7 @@ class ServiceController extends Controller
      */
     public function show($language, Service $service)
     {
-        return new ServiceResource($service);
+        return new ServiceResource(Service::where('id', $service->id)->with('photos')->first());
     }
 
     /**

@@ -28,7 +28,7 @@ class Photo extends Model
 
     public function deleteFile()
     {
-        Storage::delete('public/' . $this->url);
+        Storage::delete(['public/' . $this->url, 'public/' . $this->optimized_url]);
     }
 
     public function service()

@@ -1,11 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
-use \Illuminate\Foundation\Auth\EmailVerificationRequest;
-use Illuminate\Support\Facades\Password;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +22,7 @@ Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])-
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('register', [AuthController::class, 'register']);
+Route::get('photos', [PhotoController::class, 'index']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
@@ -45,5 +45,6 @@ Route::group(['prefix' => '{language}', 'middleware' => ['setLanguage']], functi
         Route::apiResource('/service-categories', ServiceCategoryController::class)->except('index', 'show');
         Route::post('/service-categories/{serviceCategory}/services', [ServiceController::class, 'store']);
         Route::apiResource('/services', ServiceController::class)->only(['update', 'destroy']);
+        Route::delete('photos/{photo}', [PhotoController::class, 'destroy']);
     });
 });
