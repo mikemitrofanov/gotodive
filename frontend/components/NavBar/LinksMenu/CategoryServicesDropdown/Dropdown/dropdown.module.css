@@ -82,6 +82,11 @@
   font-size: 18px;
 }
 
+.dropdown_links_burger:focus,
+.dropdown_links:focus {
+  color: #9ea5a8;
+}
+
 @media screen and (max-width: 1450px) {
   .main_nav_links {
     margin-right: 35px;
