@@ -80,6 +80,7 @@
   border-bottom: 1px solid #639bd1;
   margin: 18px;
   font-size: 18px;
+  text-indent: 0.5em;
 }
 
 .dropdown_links_burger:focus,
