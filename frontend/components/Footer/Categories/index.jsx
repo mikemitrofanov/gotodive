@@ -17,8 +17,8 @@ export default function Categories() {
     <article className={styles.categories_wrapper}>
       <h1 className={styles.categories_heading}>Categories</h1>
       {categories.data ? (
-        categories.data.map((category) => (
-          <Link href='#'>
+        categories.data.map((category, index) => (
+          <Link key={index} href='#'>
             <a className={styles.categories}>{category.title}</a>
           </Link>
         ))
