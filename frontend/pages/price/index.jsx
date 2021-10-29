@@ -4,7 +4,7 @@ import { categoriesApi } from "../../store/categories/action";
 import { withRedux } from "../../hof/withRedux";
 import NavBar from "../../components/NavBar";
 
-export default function Prices() {
+export default function Price() {
   return (
     <>
       <NavBar />
