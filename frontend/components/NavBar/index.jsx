@@ -1,51 +1,38 @@
-import { useState } from "react";
-import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import BurgerMenu from "../BurgerMenu";
-import LinksLanguages from "../LinksLanguages";
-import LinksMenu from "../LinksMenu";
-import { data } from "../../js/categoriesWithServices";
+import { useSelector, useDispatch } from "react-redux";
+import Link from "next/link";
+import { changeStateBurgerMenu, stateBurgerMenu } from "../../store/slice/burgerMenuSlice";
+import { changeStateMainMenu } from "../../store/slice/mainMenuSlice";
+import LinksLanguages from "./LinksLanguages";
 import styles from "./navBar.module.css";
+import BurgerMenu from "./BurgerMenu";
+import LinksMenu from "./LinksMenu";
 
-export default function NavBar({ isOpened, setIsOpened }) {
-  const [isOpenedMainHeader, setIsOpenedMainHeader] = useState(true);
+export default function NavBar() {
+  const isOpenBurgerMenu = useSelector(stateBurgerMenu);
+  const dispatch = useDispatch();
 
-  const categories = data.data;
-
-  const openBurgerMenuAndCloseMainHead = ({ event, setIsOpened, setIsOpenedMainHeader }) => {
-    if (event.target.innerText === "Дайвинг" || event.target.innerText === "Специализации") {
-      event.preventDefault();
-      return;
-    }
-    setIsOpenedMainHeader((isOpenedMainHeader) => !isOpenedMainHeader);
-    setIsOpened((isOpened) => !isOpened);
+  const openBurgerMenuAndCloseMainHead = () => {
+    dispatch(changeStateMainMenu());
+    dispatch(changeStateBurgerMenu());
   };
 
   return (
     <section>
-      <nav className={`${isOpened && styles.top_nav_bar_block}`}>
+      <nav className={`${isOpenBurgerMenu && styles.top_nav_bar_block}`}>
         <div className={styles.wrapper_main_head}>
           <article className={styles.main_block_container}>
-            <button
-              className={styles.humburger_menu_btn}
-              onClick={(event) =>
-                openBurgerMenuAndCloseMainHead({
-                  event,
-                  setIsOpened,
-                  setIsOpenedMainHeader,
-                })
-              }
-            ></button>
+            <button className={styles.humburger_menu_btn} onClick={() => openBurgerMenuAndCloseMainHead()}></button>
             <div className={styles.wrapper_links}>
-              <LinksMenu isOpened={isOpened} categories={categories} />
+              <LinksMenu />
             </div>
             <div className={styles.top_search_block}>
               <span className={styles.search_input_container}>
                 <input className={styles.top_bar_search_input} />
                 <FontAwesomeIcon className={styles.color_search} icon={faSearch} />
               </span>
-              <LinksLanguages isOpened={isOpened} />
+              <LinksLanguages />
               <Link href='/prices'>
                 <a className={styles.top_bar_user_icon}></a>
               </Link>
@@ -53,7 +40,7 @@ export default function NavBar({ isOpened, setIsOpened }) {
           </article>
         </div>
       </nav>
-      <BurgerMenu isOpenedMainHeader={isOpenedMainHeader} openBurgerMenuAndCloseMainHead={openBurgerMenuAndCloseMainHead} setIsOpened={setIsOpened} setIsOpenedMainHeader={setIsOpenedMainHeader} categories={categories} isOpened={isOpened} />
+      <BurgerMenu />
     </section>
   );
 }
