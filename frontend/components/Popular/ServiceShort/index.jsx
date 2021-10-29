@@ -1,6 +1,6 @@
 import { useTranslation } from "next-i18next";
 import { useSelector } from "react-redux";
-import { defaultLanguage } from "../../../store/slice/defaultLanguageSlice";
+import { defaultLanguage } from "../../../store/slices/defaultLanguage";
 import { switchLanguage } from "../../../helpers/switchLanguage";
 import styles from "./serviceShort.module.css";
 

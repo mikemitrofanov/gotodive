@@ -1,5 +1,5 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { setDefaultLanguage } from "../store/slice/defaultLanguageSlice";
+import { setDefaultLanguage } from "../store/slices/defaultLanguage";
 import { categoriesApi } from "../store/categories/action";
 import SubHeader from "../components/SubHeader";
 import Popular from "../components/Popular";

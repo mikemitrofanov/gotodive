@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { stateBurgerMenu } from "../../../../store/slice/burgerMenuSlice";
+import { stateBurgerMenu } from "../../../../store/slices/burgerMenu";
 import styles from "./linkLanguages.module.css";
 import { useRouter } from "next/router";
 

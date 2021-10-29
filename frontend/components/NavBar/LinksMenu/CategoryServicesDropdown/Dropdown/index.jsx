@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
-import { defaultLanguage } from "../../../../../store/slice/defaultLanguageSlice";
-import { stateBurgerMenu } from "../../../../../store/slice/burgerMenuSlice";
+import { defaultLanguage } from "../../../../../store/slices/defaultLanguage";
+import { stateBurgerMenu } from "../../../../../store/slices/burgerMenu";
 import { switchLanguage } from "../../../../../helpers/switchLanguage";
 import styles from "./dropdown.module.css";
 

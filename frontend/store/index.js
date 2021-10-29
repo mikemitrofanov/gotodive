@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import statusMainMenuReducer from './slice/mainMenuSlice'
-import statusBurgerMenuReducer from './slice/burgerMenuSlice'
-import defaultLanguageReducer from './slice/defaultLanguageSlice'
-import statusDivingDropdownMenuReducer from './slice/divingDropdownMenu'
-import statusSpecializationsDropdownMenuReducer from './slice/specializationsDropdownMenu'
+import statusMainMenuReducer from './slices/mainMenu'
+import statusBurgerMenuReducer from './slices/burgerMenu'
+import defaultLanguageReducer from './slices/defaultLanguage'
+import statusDivingDropdownMenuReducer from './slices/divingDropdownMenu'
+import statusSpecializationsDropdownMenuReducer from './slices/specializationsDropdownMenu'
 import { categoriesApi } from "./categories/action";
 import { useMemo } from 'react'
 

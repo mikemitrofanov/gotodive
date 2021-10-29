@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
-import { changeStateSpecializationsDropdownMenu, stateSpecializationsDropdownMenu } from "../../../../store/slice/specializationsDropdownMenu";
-import { changeStateDivingDropdownMenu, stateDivingDropdownMenu } from "../../../../store/slice/divingDropdownMenu";
+import { changeStateSpecializationsDropdownMenu, stateSpecializationsDropdownMenu } from "../../../../store/slices/specializationsDropdownMenu";
+import { changeStateDivingDropdownMenu, stateDivingDropdownMenu } from "../../../../store/slices/divingDropdownMenu";
 import { useGetAllCategoriesQuery } from "../../../../store/categories/action";
-import { defaultLanguage } from "../../../../store/slice/defaultLanguageSlice";
-import { fakeDataNavMenu } from "../../../../js/categoriesWithServices";
+import { defaultLanguage } from "../../../../store/slices/defaultLanguage";
+import { fakeDataNavMenu } from "../../../../fakeDatabase/fakeDataNavMenu";
 import Dropdown from "./Dropdown";
 
 export default function CategoryServicesDropdown() {
