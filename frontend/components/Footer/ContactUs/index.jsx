@@ -1,14 +1,17 @@
+import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import styles from "./contactUs.module.css";
 
 export default function ContactUs() {
+  const { t } = useTranslation("common");
+
   return (
     <article className={styles.contact_us_wrapper}>
       <h1 className={styles.contact_us_heading}>Contact Us</h1>
       <Link href='#'>
         <a className={styles.contact_us}>
           <img className={styles.icon} src='images/footer/icons/mapIcon.png' />
-          999, Моя Улица, Хорватия
+          999, {t("footer.contactUs")}
         </a>
       </Link>
       <Link href='#'>
