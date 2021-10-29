@@ -29,7 +29,19 @@ class ShowServiceResponse
     "min_age": "30",
     "required_experience": "",
     "max_depth": "1",
-    "course_certificate": "Aut ab suscipit maiores vel tempore et. Alias aperiam facere et atque quaerat vel provident. Et expedita dicta deleniti quos omnis. Aliquam voluptatem saepe consequatur."
+    "course_certificate": "Aut ab suscipit maiores vel tempore et. Alias aperiam facere et atque quaerat vel provident. Et expedita dicta deleniti quos omnis. Aliquam voluptatem saepe consequatur.",
+                "photos":{
+     *          {
+     *          "id": 1,
+     *           "photo_url": "images/1110f3157b27168a194ab74b235c517f.png",
+     *           "optimized_photo_url": "optimized/6381d8253c912ccd8980d588e9d4fd1e.png"
+     *          },
+     *           {
+     *          "id": 1,
+     *           "photo_url": "images/1110f3157b27168a194ab74b235c517f.png",
+     *           "optimized_photo_url": "optimized/6381d8253c912ccd8980d588e9d4fd1e.png"
+     *          },
+     *     }
     },
      * )
      *

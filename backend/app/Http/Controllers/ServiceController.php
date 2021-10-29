@@ -337,7 +337,7 @@ class ServiceController extends Controller
      *       @OA\MediaType(
      *             mediaType="multipart/form-data",
      *          @OA\Schema (ref="#/components/schemas/AddPhotoRequest")
-     * )
+     *          )
      *      ),
      *      @OA\Response(
      *          response=200,
@@ -355,7 +355,7 @@ class ServiceController extends Controller
      *        @OA\Response(
      *          response=403,
      *          description="Forbidden"
-     *      )
+     *      ),
      * )
      */
 

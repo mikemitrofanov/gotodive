@@ -14,15 +14,13 @@ class AddPhotoRequest
      * @OA\Property(
      *       title="Photos",
      *       type="array",
-     *     minItems=2,
+     *       minItems=1,
      *       @OA\Items(
      *              description="file to upload",
      *              type="string",
      *              format="binary",
-     *
      *       )
      * )
-     *
      */
     public $photos;
 
