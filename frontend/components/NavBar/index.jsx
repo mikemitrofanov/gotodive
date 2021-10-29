@@ -33,7 +33,7 @@ export default function NavBar() {
                 <FontAwesomeIcon className={styles.color_search} icon={faSearch} />
               </span>
               <LinksLanguages />
-              <Link href='/prices'>
+              <Link href='/price'>
                 <a className={styles.top_bar_user_icon}></a>
               </Link>
             </div>
