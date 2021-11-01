@@ -34,7 +34,7 @@ export default function Categories() {
           <Link href='#'>
             <a className={styles.categories}>{t("footer.excursions")}</a>
           </Link>
-          <Link href='#'>
+          <Link href='/price'>
             <a className={styles.categories}>{t("footer.price")}</a>
           </Link>
         </>
