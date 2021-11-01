@@ -5,8 +5,8 @@
   background-position: center;
   font-family: "Montserrat-Regular", sans-serif;
   min-height: 900px;
-  padding-left: 750px;
-  padding-right: 800px;
+  padding-left: 450px;
+  padding-right: 400px;
 }
 
 .header_content_container {
@@ -27,7 +27,7 @@
 .header_logo {
   position: absolute;
   top: 800px;
-  left: 800px;
+  left: 400px;
 }
 
 .heading_mobile {
