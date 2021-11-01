@@ -14,7 +14,7 @@ SwiperCore.use([Navigation]);
 export default function Popular() {
   const language = useSelector(defaultLanguage);
   const { data } = useGetPopularServicesQuery(language);
-  const services = Array.isArray(data) ? data : fakeDataPopular.data;
+  const services = data ? data : fakeDataPopular;
   const { t } = useTranslation("common");
 
   return (
