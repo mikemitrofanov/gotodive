@@ -27,5 +27,13 @@
     "phone": "Телефон",
     "message": "Сообщение",
     "send": "Отправить"
+  },
+  "footer": {
+    "contactUs": "Моя Улица, Хорватия",
+    "diving": "Дайвинг",
+    "divingTraining": "Обучение дайвингу",
+    "becomeDivePro": "Стань ДАЙВ ПРО",
+    "excursions": "Экскурсии",
+    "price": "Прайс"
   }
 }
