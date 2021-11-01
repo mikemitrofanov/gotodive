@@ -8,7 +8,7 @@ import ServiceShort from "../ServiceShort";
 export default function Slider({ numberOfSlides }) {
   const language = useSelector(defaultLanguage);
   const { data } = useGetPopularServicesQuery(language);
-  const services = Array.isArray(data) ? data : fakeDataPopular.data;
+  const services = data ? data : fakeDataPopular;
 
   return (
     <Swiper
