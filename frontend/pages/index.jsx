@@ -6,6 +6,7 @@ import { withRedux } from "../hof/withRedux";
 import Popular from "../components/Popular";
 import Contact from "../components/Contact";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import Team from "../components/Team";
 
 export default function Main() {
@@ -16,6 +17,7 @@ export default function Main() {
       <Popular />
       <Team />
       <Contact />
+      <Footer />
     </>
   );
 }
