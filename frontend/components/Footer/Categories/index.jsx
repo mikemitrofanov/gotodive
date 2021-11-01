@@ -1,8 +1,8 @@
 import { useTranslation } from "next-i18next";
 import { useSelector } from "react-redux";
 import Link from "next/link";
-import { defaultLanguage } from "../../../store/slices/defaultLanguage";
 import { useGetAllCategoriesQuery } from "../../../store/categories/action";
+import { defaultLanguage } from "../../../store/slices/defaultLanguage";
 import styles from "./categories.module.css";
 
 export default function Categories() {

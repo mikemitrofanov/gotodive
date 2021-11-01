@@ -1,8 +1,8 @@
-import ContactUs from "./ContactUs";
-import Categories from "./Categories";
-import Social from "./Social";
-import Gallery from "./Gallery";
 import styles from "./footer.module.css";
+import Categories from "./Categories";
+import ContactUs from "./ContactUs";
+import Gallery from "./Gallery";
+import Social from "./Social";
 
 export default function Footer() {
   return (
