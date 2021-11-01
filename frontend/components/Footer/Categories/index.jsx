@@ -1,22 +1,20 @@
+import { useTranslation } from "next-i18next";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import { defaultLanguage } from "../../../store/slices/defaultLanguage";
 import { useGetAllCategoriesQuery } from "../../../store/categories/action";
-import { fakeDataFooter } from "../../../fakeDatabase/fakeDataFooter";
-import { switchLanguage } from "../../../helpers/switchLanguage";
 import styles from "./categories.module.css";
 
 export default function Categories() {
-  const { diving, divingTraining, becomeDivePro, excursions, price } = fakeDataFooter;
   const language = useSelector(defaultLanguage);
-  const valueLanguages = switchLanguage(language);
   const { data } = useGetAllCategoriesQuery(language);
-  const categories = data ? data : fakeDataFooter;
+  const { t } = useTranslation("common");
+  const categories = data ? data : [];
 
   return (
     <article className={styles.categories_wrapper}>
       <h1 className={styles.categories_heading}>Categories</h1>
-      {categories.data ? (
+      {categories.data?.length ? (
         categories.data.map((category, index) => (
           <Link key={index} href='#'>
             <a className={styles.categories}>{category.title}</a>
@@ -25,19 +23,19 @@ export default function Categories() {
       ) : (
         <>
           <Link href='#'>
-            <a className={styles.categories}>{diving[valueLanguages]}</a>
+            <a className={styles.categories}>{t("footer.diving")}</a>
           </Link>
           <Link href='#'>
-            <a className={styles.categories}>{divingTraining[valueLanguages]}</a>
+            <a className={styles.categories}>{t("footer.divingTraining")}</a>
           </Link>
           <Link href='#'>
-            <a className={styles.categories}>{becomeDivePro[valueLanguages]}</a>
+            <a className={styles.categories}>{t("footer.becomeDivePro")}</a>
           </Link>
           <Link href='#'>
-            <a className={styles.categories}>{excursions[valueLanguages]}</a>
+            <a className={styles.categories}>{t("footer.excursions")}</a>
           </Link>
           <Link href='#'>
-            <a className={styles.categories}>{price[valueLanguages]}</a>
+            <a className={styles.categories}>{t("footer.price")}</a>
           </Link>
         </>
       )}
