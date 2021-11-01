@@ -1,16 +1,37 @@
-export const fakeDataNavMenu = {
-  dataDiving:
+export const fakeDataNavMenu = [
   {
-    titleDiving: ["Дайвинг", "Дайвінг", "Diving"],
-    diving: ["Scuba diving", "Supervised Diver (Scuba Diver)", "Open Water Diver"]
+    id: 1,
+    title: ["Дайвинг", "Дайвінг", "Diving"],
+    services: [{
+      title: "Scuba diving"
+    }, {
+      title: "Supervised Diver (Scuba Diver)"
+    }, {
+      title: "Open Water Diver"
+    }]
   },
-  dataSpecializations:
   {
-    titleSpecializations: ["Специализации", "Спеціалізації", "Specializations"],
-    specializations: ["Advanced Open Water Diver", "Recreational Trimix Diver", "Rescue Diver", "Elite Diver / Master Diver", "Complex Navigation Diver", "Deep Diver", "Drift Diver", "Dry suit diver"]
-  }
-}
-
+    id: 2,
+    title: ["Специализации", "Спеціалізації", "Specializations"],
+    services: [{
+      title: "Advanced Open Water Diver"
+    }, {
+      title: "Recreational Trimix Diver"
+    }, {
+      title: "Rescue Diver"
+    }, {
+      title: "Elite Diver / Master Diver"
+    }, {
+      title: "Complex Navigation Diver"
+    }, {
+      title: "Deep Diver"
+    }, {
+      title: "Drift Diver"
+    }, {
+      title: "Dry suit diver"
+    }]
+  },
+]
 
 
 

@@ -1,3 +1,8 @@
+.wrapper_dropdown {
+  display: inline-block;
+  max-width: 1100px;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
