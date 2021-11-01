@@ -12,8 +12,8 @@ export default function SubHeader() {
       <div className={styles.header_content_container}>
         <div className={styles.wrapper_mobile_background}>
           <article className={styles.header_images_container}>
-            <img className={`${isOpenBurgerMenu && styles.hidden_logo} ${styles.header_logo}`} src='images/sub_header/logo.png' />
-            <img className={styles.header_image} src='images/sub_header/image_main.png' />
+            <img className={`${isOpenBurgerMenu && styles.hidden_logo} ${styles.header_logo}`} src='images/subHeader/logo.png' />
+            <img className={styles.header_image} src='images/subHeader/scuba.png' />
           </article>
           <h1 className={styles.heading_mobile}>{t("subHeader.titleStart")}</h1>
           <h2 className={styles.sub_heading_mobile}>{t("subHeader.titleEnd")}</h2>
