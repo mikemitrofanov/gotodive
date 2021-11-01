@@ -1,5 +1,5 @@
 .header_container {
-  background: url("/images/sub_header/background.png");
+  background: url("/images/subHeader/background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -176,7 +176,7 @@
     background: none;
   }
   .wrapper_mobile_background {
-    background: url("/images/sub_header/background_mobile.png");
+    background: url("/images/subHeader/backgroundMobileVersion.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
