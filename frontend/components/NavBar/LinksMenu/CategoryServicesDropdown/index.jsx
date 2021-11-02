@@ -1,22 +1,21 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useGetAllCategoriesQuery } from "../../../../store/categories/action";
-import { defaultLanguage } from "../../../../store/slice/defaultLanguageSlice";
-import { fakeDataNavMenu } from "../../../../js/categoriesWithServices";
-import { stateBurgerMenu } from "../../../../store/slice/burgerMenuSlice";
+import { defaultLanguage } from "../../../../store/slices/defaultLanguage";
+import { fakeDataNavBar } from "../../../../fakeDatabase/fakeDataNavBar";
+import { stateBurgerMenu } from "../../../../store/slices/burgerMenu";
 import { switchLanguage } from "../../../../helpers/switchLanguage";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import styles from "./categoryServicesDropdown.module.css";
 
 export default function CategoryServicesDropdown() {
   const isOpenBurgerMenu = useSelector(stateBurgerMenu);
   const language = useSelector(defaultLanguage);
   const { data } = useGetAllCategoriesQuery(language);
-  const dropdown = data ? data.data : fakeDataNavMenu;
+  const dropdown = data ? data.data : fakeDataNavBar;
   const [dataDropdown, setDataDropdown] = useState(dropdown);
   const valueLanguages = switchLanguage(language);
-
 
   const checkOpenDropdown = (event) => {
     const newData = dataDropdown.map((item) => {
@@ -51,6 +50,5 @@ export default function CategoryServicesDropdown() {
         </span>
       ))}
     </span>
-
   );
 }

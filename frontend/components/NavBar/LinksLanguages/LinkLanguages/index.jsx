@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 import { stateBurgerMenu } from "../../../../store/slices/burgerMenu";
 import styles from "./linkLanguages.module.css";
-import { useRouter } from "next/router";
 
 export default function LinkLanguages({ language, data_language }) {
   const isOpenBurgerMenu = useSelector(stateBurgerMenu);

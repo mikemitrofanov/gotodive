@@ -1,10 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useMemo } from 'react'
-import defaultLanguageReducer from './slice/defaultLanguageSlice'
-import statusBurgerMenuReducer from './slice/burgerMenuSlice'
 import defaultLanguageReducer from './slices/defaultLanguage'
 import statusBurgerMenuReducer from './slices/burgerMenu'
-import statusMainMenuReducer from './slice/mainMenuSlice'
 import statusMainMenuReducer from './slices/mainMenu'
 import { categoriesApi } from "./categories/action";
 
