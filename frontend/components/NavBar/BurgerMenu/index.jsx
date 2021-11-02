@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { stateMainMenu } from "../../../store/slice/mainMenuSlice";
+import { stateMainMenu } from "../../../store/slices/mainMenu";
 import LinksLanguages from "../LinksLanguages";
 import styles from "./burgerMenu.module.css";
 import LinksMenu from "../LinksMenu";

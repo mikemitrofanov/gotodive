@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import "../styles/navigation.min.css";
 import { useStore } from "../store";
 import "../styles/swiper.min.css";
+import "../styles/fancybox.css";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {

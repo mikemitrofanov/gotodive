@@ -27,5 +27,8 @@
     "phone": "Phone",
     "message": "Message",
     "send": "Send"
+  },
+  "footer": {
+    "contactUs": "My Street, Croatia"
   }
 }
