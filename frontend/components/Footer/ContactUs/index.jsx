@@ -10,25 +10,25 @@ export default function ContactUs() {
       <h1 className={styles.contact_us_heading}>Contact Us</h1>
       <Link href='#'>
         <a className={styles.contact_us}>
-          <img className={styles.icon} src='images/footer/icons/mapIcon.png' />
+          <img className={styles.icon} src='images/footer/icons/map.png' />
           999, {t("footer.contactUs")}
         </a>
       </Link>
       <Link href='#'>
         <a className={styles.contact_us}>
-          <img className={styles.icon} src='images/footer/icons/TelIcon.png' />
+          <img className={styles.icon} src='images/footer/icons/phone.png' />
           270-177-6026, 275-198-7978
         </a>
       </Link>
       <Link href='#'>
         <a className={styles.contact_us}>
-          <img className={styles.icon} src='images/footer/icons/facebookIcon.png' />
+          <img className={styles.icon} src='images/footer/icons/facebook.png' />
           @GotoDive
         </a>
       </Link>
       <Link href='#'>
         <a className={styles.contact_us}>
-          <img className={styles.icon} src='images/footer/icons/mailIcon.png' />
+          <img className={styles.icon} src='images/footer/icons/mail.png' />
           GotoDive@gmail.com
         </a>
       </Link>
