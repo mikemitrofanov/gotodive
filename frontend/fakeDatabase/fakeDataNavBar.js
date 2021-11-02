@@ -1,4 +1,4 @@
-export const fakeDataNavMenu = [
+export const fakeDataNavBar = [
   {
     id: 1,
     title: ["Дайвинг", "Дайвінг", "Diving"],
