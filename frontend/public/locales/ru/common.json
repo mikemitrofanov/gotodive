@@ -29,11 +29,15 @@
     "send": "Отправить"
   },
   "footer": {
+<<<<<<< HEAD
     "contactUs": "Моя Улица, Хорватия",
     "diving": "Дайвинг",
     "divingTraining": "Обучение дайвингу",
     "becomeDivePro": "Стань ДАЙВ ПРО",
     "excursions": "Экскурсии",
     "price": "Прайс"
+=======
+    "contactUs": "Моя Улица, Хорватия"
+>>>>>>> dev
   }
 }

@@ -29,11 +29,15 @@
     "send": "Send"
   },
   "footer": {
+<<<<<<< HEAD
     "contactUs": "My Street, Croatia",
     "diving": "Diving",
     "divingTraining": "Diving training",
     "becomeDivePro": "Become a DIVE PRO",
     "excursions": "Excursions",
     "price": "Price"
+=======
+    "contactUs": "My Street, Croatia"
+>>>>>>> dev
   }
 }

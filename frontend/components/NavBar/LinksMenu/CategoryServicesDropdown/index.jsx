@@ -17,6 +17,7 @@ export default function CategoryServicesDropdown() {
   const [dataDropdown, setDataDropdown] = useState(dropdown);
   const valueLanguages = switchLanguage(language);
 
+
   const checkOpenDropdown = (event) => {
     const newData = dataDropdown.map((item) => {
       if (item.id === Number(event.target.id)) {
@@ -50,5 +51,6 @@ export default function CategoryServicesDropdown() {
         </span>
       ))}
     </span>
+
   );
 }

@@ -1,8 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSelector } from "react-redux";
 import { useGetPopularServicesQuery } from "../../../store/categories/action";
-import { defaultLanguage } from "../../../store/slice/defaultLanguageSlice";
-import { fakeDataPopular } from "../../../js/slider";
+import { defaultLanguage } from "../../../store/slices/defaultLanguage";
+import { fakeDataPopular } from "../../../fakeDatabase/fakeDataPopular";
 import ServiceShort from "../ServiceShort";
 
 export default function Slider({ numberOfSlides }) {

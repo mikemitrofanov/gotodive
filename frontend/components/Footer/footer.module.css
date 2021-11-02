@@ -1,0 +1,14 @@
+.footer_wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #000b2d;
+  color: #ebeeed;
+  font-family: "Montserrat-Light", sans-serif;
+  padding: 50px 0px 60px 0px;
+}
+
+@media screen and (max-width: 800px) {
+  .footer_wrapper {
+    display: block;
+  }
+}

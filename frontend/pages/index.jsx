@@ -1,10 +1,11 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { setDefaultLanguage } from "../store/slice/defaultLanguageSlice";
+import { setDefaultLanguage } from "../store/slices/defaultLanguage";
 import { categoriesApi } from "../store/categories/action";
 import SubHeader from "../components/SubHeader";
-import { withRedux } from "../hof/withRedux";
 import Popular from "../components/Popular";
 import Contact from "../components/Contact";
+import { withRedux } from "../hof/withRedux";
+import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import Team from "../components/Team";
 
@@ -16,6 +17,7 @@ export default function Main() {
       <Popular />
       <Team />
       <Contact />
+      <Footer />
     </>
   );
 }

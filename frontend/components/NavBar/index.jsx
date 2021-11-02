@@ -2,8 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
-import { changeStateBurgerMenu, stateBurgerMenu } from "../../store/slice/burgerMenuSlice";
-import { changeStateMainMenu } from "../../store/slice/mainMenuSlice";
+import { changeStateBurgerMenu, stateBurgerMenu } from "../../store/slices/burgerMenu";
+import { changeStateMainMenu } from "../../store/slices/mainMenu";
 import LinksLanguages from "./LinksLanguages";
 import styles from "./navBar.module.css";
 import BurgerMenu from "./BurgerMenu";
@@ -33,7 +33,7 @@ export default function NavBar() {
                 <FontAwesomeIcon className={styles.color_search} icon={faSearch} />
               </span>
               <LinksLanguages />
-              <Link href='/prices'>
+              <Link href='/price'>
                 <a className={styles.top_bar_user_icon}></a>
               </Link>
             </div>
