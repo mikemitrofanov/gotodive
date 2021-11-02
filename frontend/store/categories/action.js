@@ -16,7 +16,7 @@ export const categoriesApi = createApi({
             transformResponse: (baseQueryReturnValue, meta) =>
                 baseQueryReturnValue.data.map(service => service.imageUrl ? service : {
                     ...service,
-                    'imageUrl': `/images/slider/img${randomInteger(1, 3)}.png`
+                    'imageUrl': `/images/popular/image${randomInteger(1, 3)}.png`
                 }),
         }),
     }),
