@@ -1,10 +1,10 @@
 import { useTranslation } from "next-i18next";
 import { useSelector } from "react-redux";
-import { stateBurgerMenu } from "../../store/slices/burgerMenu";
+import { burgerMenuState} from "../../store/slice/burgerMenu";
 import styles from "./subHeader.module.css";
 
 export default function SubHeader() {
-  const isOpenBurgerMenu = useSelector(stateBurgerMenu);
+  const isBurgerMenuOpen = useSelector(burgerMenuState);
   const { t } = useTranslation("common");
 
   return (
@@ -12,7 +12,7 @@ export default function SubHeader() {
       <div className={styles.header_content_container}>
         <div className={styles.wrapper_mobile_background}>
           <article className={styles.header_images_container}>
-            <img className={`${isOpenBurgerMenu && styles.hidden_logo} ${styles.header_logo}`} src='images/subHeader/logo.png' />
+            <img className={`${isBurgerMenuOpen && styles.hidden_logo} ${styles.header_logo}`} src='images/subHeader/logo.png' />
             <img className={styles.header_image} src='images/subHeader/scuba.png' />
           </article>
           <h1 className={styles.heading_mobile}>{t("subHeader.titleStart")}</h1>

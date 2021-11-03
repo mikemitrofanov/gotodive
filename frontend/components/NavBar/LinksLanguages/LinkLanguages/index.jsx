@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { stateBurgerMenu } from "../../../../store/slices/burgerMenu";
+import { burgerMenuState } from "../../../../store/slice/burgerMenu";
 import styles from "./linkLanguages.module.css";
 
 export default function LinkLanguages({ language, data_language }) {
-  const isOpenBurgerMenu = useSelector(stateBurgerMenu);
+  const isBurgerMenuOpen = useSelector(burgerMenuState);
   const router = useRouter();
 
   const changeLanguage = async (language) => {
@@ -12,7 +12,7 @@ export default function LinkLanguages({ language, data_language }) {
   };
 
   return (
-    <span onClick={() => changeLanguage(data_language)} className={`lang_switcher ${isOpenBurgerMenu ? styles.languages_burger : styles.languages}`}>
+    <span onClick={() => changeLanguage(data_language)} className={`lang_switcher ${isBurgerMenuOpen ? styles.languages_burger : styles.languages}`}>
       {language}
     </span>
   );
