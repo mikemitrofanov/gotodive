@@ -3,7 +3,6 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
 import { changeStateBurgerMenu, stateBurgerMenu } from "../../store/slices/burgerMenu";
-import { changeStateMainMenu } from "../../store/slices/mainMenu";
 import LinksLanguages from "./LinksLanguages";
 import styles from "./navBar.module.css";
 import BurgerMenu from "./BurgerMenu";
@@ -13,8 +12,7 @@ export default function NavBar() {
   const isOpenBurgerMenu = useSelector(stateBurgerMenu);
   const dispatch = useDispatch();
 
-  const openBurgerMenuAndCloseMainHead = () => {
-    dispatch(changeStateMainMenu());
+  const openBurgerMenu = () => {
     dispatch(changeStateBurgerMenu());
   };
 
@@ -23,7 +21,7 @@ export default function NavBar() {
       <nav className={`${isOpenBurgerMenu && styles.top_nav_bar_block}`}>
         <div className={styles.wrapper_main_head}>
           <article className={styles.main_block_container}>
-            <button className={styles.humburger_menu_btn} onClick={() => openBurgerMenuAndCloseMainHead()}></button>
+            <button className={styles.humburger_menu_btn} onClick={() => openBurgerMenu()}></button>
             <div className={styles.wrapper_links}>
               <LinksMenu />
             </div>

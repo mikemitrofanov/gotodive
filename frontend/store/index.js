@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useMemo } from 'react'
 import statusBurgerMenuReducer from './slices/burgerMenu'
-import statusMainMenuReducer from './slices/mainMenu'
 import { categoriesApi } from "./categories/action";
 
 let store
@@ -11,7 +10,6 @@ function initStore(preloadedState = initialState) {
     return configureStore({
         reducer: {
             [categoriesApi.reducerPath]: categoriesApi.reducer,
-            statusMainMenu: statusMainMenuReducer,
             statusBurgerMenu: statusBurgerMenuReducer
         },
         preloadedState,
