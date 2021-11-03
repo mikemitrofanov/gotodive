@@ -1,13 +1,12 @@
 import { useTranslation } from "next-i18next";
-import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { useGetAllCategoriesQuery } from "../../../store/categories/action";
-import { defaultLanguage } from "../../../store/slices/defaultLanguage";
 import styles from "./categories.module.css";
 
 export default function Categories() {
-  const language = useSelector(defaultLanguage);
-  const { data } = useGetAllCategoriesQuery(language);
+  const router = useRouter();
+  const { data } = useGetAllCategoriesQuery(router.locale);
   const { t } = useTranslation("common");
   const categories = data ? data : [];
 

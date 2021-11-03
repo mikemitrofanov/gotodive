@@ -1,5 +1,4 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { setDefaultLanguage } from "../store/slices/defaultLanguage";
 import { categoriesApi } from "../store/categories/action";
 import SubHeader from "../components/SubHeader";
 import Popular from "../components/Popular";
@@ -25,7 +24,6 @@ export default function Main() {
 export const getServerSideProps = withRedux(async ({ locale }, dispatch) => {
   await dispatch(categoriesApi.endpoints.getAllCategories.initiate(locale));
   await dispatch(categoriesApi.endpoints.getPopularServices.initiate(locale));
-  dispatch(setDefaultLanguage(locale));
 
   return {
     props: {

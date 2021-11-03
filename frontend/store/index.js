@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useMemo } from 'react'
-import defaultLanguageReducer from './slices/defaultLanguage'
 import statusBurgerMenuReducer from './slices/burgerMenu'
 import statusMainMenuReducer from './slices/mainMenu'
 import { categoriesApi } from "./categories/action";
@@ -13,8 +12,7 @@ function initStore(preloadedState = initialState) {
         reducer: {
             [categoriesApi.reducerPath]: categoriesApi.reducer,
             statusMainMenu: statusMainMenuReducer,
-            statusBurgerMenu: statusBurgerMenuReducer,
-            language: defaultLanguageReducer,
+            statusBurgerMenu: statusBurgerMenuReducer
         },
         preloadedState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(categoriesApi.middleware),

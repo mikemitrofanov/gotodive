@@ -1,10 +1,9 @@
 import SwiperCore, { Navigation } from "swiper";
 import { useTranslation } from "next-i18next";
-import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 import Media from "react-media";
 import { useGetPopularServicesQuery } from "../../store/categories/action";
 import { fakeDataPopular } from "../../fakeDatabase/fakeDataPopular";
-import { defaultLanguage } from "../../store/slices/defaultLanguage";
 import ServiceShort from "./ServiceShort";
 import styles from "./popular.module.css";
 import Slider from "./Slider";
@@ -12,8 +11,8 @@ import Slider from "./Slider";
 SwiperCore.use([Navigation]);
 
 export default function Popular() {
-  const language = useSelector(defaultLanguage);
-  const { data } = useGetPopularServicesQuery(language);
+  const router = useRouter();
+  const { data } = useGetPopularServicesQuery(router.locale);
   const services = data ? data : fakeDataPopular;
   const { t } = useTranslation("common");
 

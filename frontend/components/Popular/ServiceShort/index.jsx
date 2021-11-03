@@ -1,12 +1,11 @@
 import { useTranslation } from "next-i18next";
-import { useSelector } from "react-redux";
-import { defaultLanguage } from "../../../store/slices/defaultLanguage";
+import { useRouter } from "next/router";
 import { switchLanguage } from "../../../helpers/switchLanguage";
 import styles from "./serviceShort.module.css";
 
 export default function ServiceShort({ service }) {
-  const language = useSelector(defaultLanguage);
-  const valueLanguages = switchLanguage(language);
+  const router = useRouter();
+  const valueLanguages = switchLanguage(router.locale);
   const { t } = useTranslation("common");
 
   return (

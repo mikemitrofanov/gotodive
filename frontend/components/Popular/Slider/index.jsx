@@ -1,13 +1,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 import { useGetPopularServicesQuery } from "../../../store/categories/action";
-import { defaultLanguage } from "../../../store/slices/defaultLanguage";
 import { fakeDataPopular } from "../../../fakeDatabase/fakeDataPopular";
 import ServiceShort from "../ServiceShort";
 
 export default function Slider({ numberOfSlides }) {
-  const language = useSelector(defaultLanguage);
-  const { data } = useGetPopularServicesQuery(language);
+  const router = useRouter();
+  const { data } = useGetPopularServicesQuery(router.locale);
   const services = data ? data : fakeDataPopular;
 
   return (
