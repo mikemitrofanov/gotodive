@@ -1,14 +1,29 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { setDefaultLanguage } from "../../store/slice/defaultLanguageSlice";
+import Media from "react-media";
+import { setDefaultLanguage } from "../../store/slices/defaultLanguage";
 import { categoriesApi } from "../../store/categories/action";
 import { withRedux } from "../../hof/withRedux";
+import Gallery from "../../components/Gallery";
 import NavBar from "../../components/NavBar";
+import Footer from "../../components/Footer";
 
-export default function Gallery() {
+export default function GalleryPage() {
   return (
     <>
       <NavBar />
-      Gallery
+      <Media queries={{ medium: "(max-width: 1324px)" }}>
+        {(matches) =>
+          matches.medium ? (
+            <>
+              <Gallery />
+              <Gallery />
+            </>
+          ) : (
+            <Gallery />
+          )
+        }
+      </Media>
+      <Footer />
     </>
   );
 }

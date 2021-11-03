@@ -1,0 +1,10 @@
+.wrapper_images {
+  display: flex;
+}
+
+.images {
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+  float: left;
+}
