@@ -1,5 +1,5 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { categoriesApi } from "../../store/categories/action";
+import { categoriesApi } from "../../store/api/categories";
 import { withRedux } from "../../hof/withRedux";
 import NavBar from "../../components/NavBar";
 

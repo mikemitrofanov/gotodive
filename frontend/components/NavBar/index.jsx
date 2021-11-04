@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
-import { changeBurgerMenuState, burgerMenuState} from "../../store/slice/burgerMenu";
+import { changeBurgerMenuState, burgerMenuState} from "../../store/slices/burgerMenu";
 import LinksLanguages from "./LinksLanguages";
 import styles from "./navBar.module.css";
 import BurgerMenu from "./BurgerMenu";

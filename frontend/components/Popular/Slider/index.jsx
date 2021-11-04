@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import { useGetPopularServicesQuery } from "../../../store/categories/action";
+import { useGetPopularServicesQuery } from "../../../store/api/categories";
 import image1 from "../../../public/images/popular/image1.png";
 import image2 from "../../../public/images/popular/image2.png";
 import image3 from "../../../public/images/popular/image3.png";

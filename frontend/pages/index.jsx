@@ -1,5 +1,5 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { categoriesApi } from "../store/categories/action";
+import { categoriesApi } from "../store/api/categories";
 import SubHeader from "../components/SubHeader";
 import Popular from "../components/Popular";
 import Contact from "../components/Contact";

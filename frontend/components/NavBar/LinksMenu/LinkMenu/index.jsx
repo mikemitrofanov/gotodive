@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import Link from "next/link";
-import { burgerMenuState} from "../../../../store/slice/burgerMenu";
+import { burgerMenuState} from "../../../../store/slices/burgerMenu";
 import styles from "./linkMenu.module.css";
 
 export default function LinkMenu({ href, name }) {

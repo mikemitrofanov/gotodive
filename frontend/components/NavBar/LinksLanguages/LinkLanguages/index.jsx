@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { burgerMenuState } from "../../../../store/slice/burgerMenu";
+import { burgerMenuState } from "../../../../store/slices/burgerMenu";
 import styles from "./linkLanguages.module.css";
 
 export default function LinkLanguages({ language, data_language }) {

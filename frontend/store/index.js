@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useMemo } from 'react'
-import burgerMenuStatusReducer from './slice/burgerMenu'
-import { categoriesApi } from "./categories/action";
+import burgerMenuStatusReducer from './slices/burgerMenu'
+import { categoriesApi } from "./api/categories";
 
 let store
 const initialState = {};

@@ -3,8 +3,8 @@ import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { useGetAllCategoriesQuery } from "../../../../store/categories/action";
-import { burgerMenuState } from "../../../../store/slice/burgerMenu";
+import { useGetAllCategoriesQuery } from "../../../../store/api/categories";
+import { burgerMenuState } from "../../../../store/slices/burgerMenu";
 import styles from "./categoryServicesDropdown.module.css";
 
 export default function CategoryServicesDropdown() {

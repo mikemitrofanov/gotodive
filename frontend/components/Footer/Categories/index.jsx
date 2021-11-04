@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { useGetAllCategoriesQuery } from "../../../store/categories/action";
+import { useGetAllCategoriesQuery } from "../../../store/api/categories";
 import styles from "./categories.module.css";
 
 export default function Categories() {
