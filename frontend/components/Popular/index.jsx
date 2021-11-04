@@ -3,7 +3,9 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import Media from "react-media";
 import { useGetPopularServicesQuery } from "../../store/categories/action";
-import { fakeDataPopular } from "../../fakeDatabase/fakeDataPopular";
+import image1 from "../../public/images/popular/image1.png";
+import image2 from "../../public/images/popular/image2.png";
+import image3 from "../../public/images/popular/image3.png";
 import ServiceShort from "./ServiceShort";
 import styles from "./popular.module.css";
 import Slider from "./Slider";
@@ -13,7 +15,6 @@ SwiperCore.use([Navigation]);
 export default function Popular() {
   const router = useRouter();
   const { data } = useGetPopularServicesQuery(router.locale);
-  const services = data ? data : fakeDataPopular;
   const { t } = useTranslation("common");
 
   return (
@@ -28,9 +29,15 @@ export default function Popular() {
                 {matches.medium && <Slider numberOfSlides={2} />}
                 {matches.large && (
                   <>
-                    {services.map((service, index) => (
-                      <ServiceShort key={index} service={service} />
-                    ))}
+                    {data ? (
+                      data.map((service, index) => <ServiceShort key={index} src={service.imageUrl} title={service.title} description={service.description} />)
+                    ) : (
+                      <>
+                        <ServiceShort src={image1.src} title={t("popular.recreationalCourses")} description={t("popular.description")} />
+                        <ServiceShort src={image2.src} title={t("popular.technicalCourses")} description={t("popular.description")} />
+                        <ServiceShort src={image3.src} title={t("popular.cave")} description={t("popular.description")} />
+                      </>
+                    )}
                   </>
                 )}
               </>

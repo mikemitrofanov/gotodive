@@ -12,6 +12,10 @@
   },
   "popular": {
     "popular": "POPULAR",
+    "recreationalCourses": "Recreational courses",
+    "technicalCourses": "Technical courses",
+    "cave": "Cave",
+    "description": "To truly enjoy your first scuba dive, you will need an instructor you can fully trust. Our experienced instructors will make sure that you are completely safe during your underwater adventures and have an unforgettable experience.",
     "buttons": "Sign up"
   },
   "team": {
@@ -35,6 +39,5 @@
     "becomeDivePro": "Become a DIVE PRO",
     "excursions": "Excursions",
     "price": "Price"
-
   }
 }

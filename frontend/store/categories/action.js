@@ -1,6 +1,5 @@
 import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 import { createApi } from '@reduxjs/toolkit/query/react';
-import { randomInteger } from "../../helpers/randomInteger";
 
 export const categoriesApi = createApi({
     reducerPath: 'categoriesApi',
@@ -16,7 +15,7 @@ export const categoriesApi = createApi({
             transformResponse: (baseQueryReturnValue, meta) =>
                 baseQueryReturnValue.data.map(service => service.imageUrl ? service : {
                     ...service,
-                    'imageUrl': `/images/popular/image${randomInteger(1, 3)}.png`
+                    'imageUrl': `/images/popular/image1.png`
                 }),
         }),
     }),
