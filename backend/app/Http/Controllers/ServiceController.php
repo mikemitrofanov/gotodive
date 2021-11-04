@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddPhotoRequest;
 use App\Http\Requests\CreateServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use App\Http\Resources\ServiceResource;
+use App\Models\Photo;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 
@@ -144,7 +146,7 @@ class ServiceController extends Controller
      */
     public function showPopular()
     {
-        return ServiceResource::collection(Service::where('is_popular', true)->cursorPaginate(3));
+        return ServiceResource::collection(Service::where('is_popular', true)->with('photos')->cursorPaginate(3));
     }
 
     /**
@@ -189,7 +191,7 @@ class ServiceController extends Controller
      */
     public function show($language, Service $service)
     {
-        return new ServiceResource($service);
+        return new ServiceResource(Service::where('id', $service->id)->with('photos')->first());
     }
 
     /**
@@ -301,5 +303,69 @@ class ServiceController extends Controller
     {
         $service->delete();
         return response()->noContent();
+    }
+
+    /**
+     * @OA\Post(
+     *      path="/{language}/services/{service}/add-photo",
+     *      operationId="Add photo for service",
+     *      tags={"Photos"},
+     *      summary="Add Photo",
+     *      security={{"bearerAuth":{}}},
+     *      @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          example="en",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *     @OA\Parameter(
+     *          name="service",
+     *          description="Service Id",
+     *          required=true,
+     *          in="path",
+     *          example="1",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\RequestBody(
+     *          required=true,
+     *       @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *          @OA\Schema (ref="#/components/schemas/AddPhotoRequest")
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/ShowServiceResponse")
+     *       ),
+     *       @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *        @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     * )
+     */
+
+    public function addPhotos($language, Service $service, AddPhotoRequest $request)
+    {
+        foreach ($request->photos as $photo) {
+
+            (new Photo)->savePhoto($service, $photo);
+        }
+        return new ServiceResource(Service::where('id', $service->id)->with('photos')->first());
+
     }
 }

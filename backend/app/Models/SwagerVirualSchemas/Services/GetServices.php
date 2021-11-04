@@ -115,7 +115,19 @@ class GetPopularServicesResponse
     "min_age": "17",
     "required_experience": "14 hours",
     "max_depth": "1",
-    "course_certificate": "Qui rerum qui iste voluptatem. Blanditiis quia culpa aut. Et aperiam voluptatem soluta deserunt. Enim quis totam occaecati debitis."
+    "course_certificate": "Qui rerum qui iste voluptatem. Blanditiis quia culpa aut. Et aperiam voluptatem soluta deserunt. Enim quis totam occaecati debitis.",
+    "photos":{
+     *          {
+     *          "id": 1,
+     *           "photo_url": "images/1110f3157b27168a194ab74b235c517f.png",
+     *           "optimized_photo_url": "optimized/6381d8253c912ccd8980d588e9d4fd1e.png"
+     *          },
+     *           {
+     *          "id": 1,
+     *           "photo_url": "images/1110f3157b27168a194ab74b235c517f.png",
+     *           "optimized_photo_url": "optimized/6381d8253c912ccd8980d588e9d4fd1e.png"
+     *          },
+     *     }
     },
     {
     "id": 4,
@@ -130,7 +142,19 @@ class GetPopularServicesResponse
     "min_age": "26",
     "required_experience": "8 hours",
     "max_depth": "1",
-    "course_certificate": "Et doloremque dolorem quae. Ducimus non voluptas ut dolore quod. Et eum iure eaque possimus debitis nulla repellendus."
+    "course_certificate": "Et doloremque dolorem quae. Ducimus non voluptas ut dolore quod. Et eum iure eaque possimus debitis nulla repellendus.",
+     *     "photos":{
+     *          {
+     *          "id": 1,
+     *           "photo_url": "images/1110f3157b27168a194ab74b235c517f.png",
+     *           "optimized_photo_url": "optimized/6381d8253c912ccd8980d588e9d4fd1e.png"
+     *          },
+     *           {
+     *          "id": 1,
+     *           "photo_url": "images/1110f3157b27168a194ab74b235c517f.png",
+     *           "optimized_photo_url": "optimized/6381d8253c912ccd8980d588e9d4fd1e.png"
+     *          },
+     *     }
     },
     {
     "id": 6,
@@ -145,7 +169,19 @@ class GetPopularServicesResponse
     "min_age": "26",
     "required_experience": "13 hours",
     "max_depth": "0",
-    "course_certificate": ""
+    "course_certificate": "",
+     *     "photos":{
+     *          {
+     *          "id": 1,
+     *           "photo_url": "images/1110f3157b27168a194ab74b235c517f.png",
+     *           "optimized_photo_url": "optimized/6381d8253c912ccd8980d588e9d4fd1e.png"
+     *          },
+     *           {
+     *          "id": 1,
+     *           "photo_url": "images/1110f3157b27168a194ab74b235c517f.png",
+     *           "optimized_photo_url": "optimized/6381d8253c912ccd8980d588e9d4fd1e.png"
+     *          },
+     *     }
     }
     ,
     "links": {
