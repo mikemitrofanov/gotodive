@@ -21,6 +21,67 @@ class AuthController extends Controller
 {
     protected $user;
 
+    /**
+     * @OA\Post(
+     *      path="/register",
+     *      operationId="Create new User",
+     *      tags={"Auth"},
+     *      summary="Create user",
+     *      description="Returns created user, some fields shold be unique",
+     *
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/RegisterRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/RegisterResponse")
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *      ),
+     * )
+     */
+
+    public function register(RegisterRequest $request)
+    {
+        $user = User::create($request->validated());
+        event(new Registered($user));
+        return response()->json([
+            'token' => $user->createToken('authToken')->plainTextToken
+        ]);
+
+    }
+
+    /**
+     * @OA\Post(
+     *      path="/login",
+     *      operationId="Login",
+     *      tags={"Auth"},
+     *      summary="Login",
+     *      description="Returns token",
+     *
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/LoginRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/LoginResponse")
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *      ),
+     * )
+     */
     public function login(LoginRequest $request)
     {
 
@@ -51,9 +112,30 @@ class AuthController extends Controller
         return redirect(env('FRONT_URL') . '/email/verify/success');
     }
 
+    /**
+     * @OA\Post(
+     *      path="/forgot-password",
+     *      operationId="Request reset password link",
+     *      tags={"Auth"},
+     *      summary="Forgot Password",
+     *
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/ForgotPasswordRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *      ),
+     * )
+     */
     public function requestResetPasswordLink(Request $request)
     {
-        $request->validate(['email' => 'required|email']);
+        $request->validate(['email' => 'required|email|exists:users,email']);
 
         $user = Password::getUser($request->only('email'));
         $status = Password::createToken($user);
@@ -62,6 +144,32 @@ class AuthController extends Controller
         return response('success', 200);
     }
 
+    /**
+     * @OA\Post(
+     *      path="/reset-password",
+     *      operationId="Reset password with link",
+     *      tags={"Auth"},
+     *      summary="Reset Password",
+     *
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/ResetPasswordRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *      @OA\JsonContent(ref="#/components/schemas/ResetPasswordResponse")
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *      ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Error",
+     *      ),
+     * )
+     */
     public function setNewPassword(ResetPasswordRequest $request)
     {
         $status = Password::reset(
@@ -78,27 +186,92 @@ class AuthController extends Controller
             ]) : response('error', 400);
     }
 
-    public function register(RegisterRequest $request)
-    {
-        $user = User::create($request->validated());
-        event(new Registered($user));
-        return response()->json([
-            'token' => $user->createToken('authToken')->plainTextToken
-        ]);
-
-    }
-
+    /**
+     * @OA\Post(
+     *      path="/logout",
+     *      operationId="Logout User",
+     *      tags={"Auth"},
+     *      summary="Logout user",
+     *      description="Returns nothing",
+     *      security={{"apiAuth":{}}},
+     *
+     *      @OA\RequestBody(
+     *          required=false,
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     * )
+     */
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
         return response()->noContent();
     }
 
+    /**
+     * @OA\Get(
+     *      path="/users/me",
+     *      operationId="showUser",
+     *      tags={"User"},
+     *      summary="Get list of projects",
+     *      description="Returns list of projects",
+     *      security={{"apiAuth":{}}},
+     *
+     *      @OA\RequestBody(
+     *          required=false,
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/GetUserResponse"),
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *     )
+     */
+
     public function show()
     {
         return new UserResource(Auth::user());
     }
 
+    /**
+     * @OA\Put(
+     *      path="/users/me",
+     *      operationId="Update User",
+     *      tags={"User"},
+     *      summary="Update user",
+     *      description="Returns user",
+     *      security={{"apiAuth":{}}},
+     *
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/UpdateUserRequest")
+     *      ),
+     *
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/GetUserResponse")
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *      ),
+     * )
+     */
     public function update(UpdateUserRequest $request)
     {
         $request->user()->update($request->validated());
