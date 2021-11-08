@@ -9,7 +9,7 @@ export default function Categories() {
 
   return (
     <>
-      {data ? (
+      {data && (
         <article className={styles.categories_wrapper}>
           <h1 className={styles.categories_heading}>Categories</h1>
           {data.data.map((category, index) => (
@@ -18,7 +18,7 @@ export default function Categories() {
             </Link>
           ))}
         </article>
-      ) : null}
+      )}
     </>
   );
 }
