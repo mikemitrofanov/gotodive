@@ -34,3 +34,25 @@ a {
   font-family: "Montserrat-ExtraBold";
   src: url("../public/fonts/montserrat/Montserrat-ExtraBold.ttf");
 }
+.ant-carousel .slick-prev,
+.ant-carousel .slick-next,
+.ant-carousel .slick-prev:hover,
+.ant-carousel .slick-next:hover {
+  font-size: inherit;
+  font-family: swiper-icons;
+  color: black;
+}
+
+.ant-carousel .slick-prev,
+.ant-carousel .slick-prev:hover {
+
+  z-index: 2;
+  color: black;
+}
+
+.ant-carousel .slick-next,
+.ant-carousel .slick-next:hover {
+
+  z-index: 2;
+  color: black;
+}

@@ -30,7 +30,7 @@ class CategorySeeder extends Seeder
 
 
         DB::table('categories')->insert([
-            'title' => 'Scuba Diving',
+            'title' => 'Scuba innerPages',
             'link' => 'scuba-diving',
             'order' => 3,
             'isSubcategory' => true,

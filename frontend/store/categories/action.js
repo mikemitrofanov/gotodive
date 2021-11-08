@@ -1,6 +1,6 @@
-import { fetchBaseQuery } from "@reduxjs/toolkit/query";
-import { createApi } from '@reduxjs/toolkit/query/react';
-import { randomInteger } from "../../helpers/randomInteger";
+import {fetchBaseQuery} from "@reduxjs/toolkit/query";
+import {createApi} from '@reduxjs/toolkit/query/react';
+import {randomInteger} from "../../helpers/randomInteger";
 
 export const categoriesApi = createApi({
     reducerPath: 'categoriesApi',
@@ -19,6 +19,14 @@ export const categoriesApi = createApi({
                     'imageUrl': `/images/slider/img${randomInteger(1, 3)}.png`
                 }),
         }),
+        getCategories: build.query({
+            query: (language) => `${language}/service-categories`
+        }),
+        getService: build.query({
+            query: ({language, id}) => `${language}/services/${id}`
+        }),
+
+
         // getPopularServices: build.query({
         //     query: (language) => `${language}/services/popular`,
         //     transformResponse: (baseQueryReturnValue, meta) =>
@@ -35,4 +43,9 @@ export const categoriesApi = createApi({
 
 })
 
-export const { useGetPopularServicesQuery, useGetAllCategoriesQuery } = categoriesApi;
+export const {
+    useGetPopularServicesQuery,
+    useGetAllCategoriesQuery,
+    useGetCategoriesQuery,
+    useGetService,
+} = categoriesApi;
