@@ -1,0 +1,22 @@
+.dropdown_links {
+  border-bottom: 1px solid #639bd1;
+  margin: 18px;
+  font-size: 18px !;
+  text-indent: 0.5em;
+}
+
+.dropdown_links_burger {
+  margin-left: 25px;
+  margin-bottom: 4px;
+}
+
+.dropdown_links_burger:focus,
+.dropdown_links:focus {
+  color: #9ea5a8 !important;
+}
+
+.dropdown_links_burger,
+.dropdown_links {
+  display: block;
+  color: #639bd1 !important;
+}
