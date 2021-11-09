@@ -1,8 +1,13 @@
 import styles from "./content.module.css";
 import ContentSlider from "../contentSlider";
 import Media from "react-media";
+import {useGetServiceQuery} from "../../../store/categories/action";
+import {useSelector} from "react-redux";
+import {defaultLanguage} from "../../../store/slice/defaultLanguageSlice";
 
-export default function Content() {
+export default function Content({id}) {
+    const language = useSelector(defaultLanguage);
+    const { data: service } = useGetServiceQuery({language, id});
 
     return (
         <>
@@ -11,7 +16,7 @@ export default function Content() {
             </div>
             <div className={styles.background}>
                 <div className={styles.container}>
-                    <img className={styles.logo} src='images/sub_header/logo.png'/>
+                    <img className={styles.logo} src='/images/sub_header/logo.png'/>
                     <div className={styles.body}>
 
                         <div>
@@ -22,10 +27,10 @@ export default function Content() {
                                             <>
                                                 <h2 className={styles.title}>Open Water Diver </h2>
                                                 <div className={styles.img_box}>
-                                                    <img alt='img' src='images/diving/img1.png'/>
-                                                    <img alt='img' src='images/diving/img2.png'/>
-                                                    <img alt='img' src='images/diving/img3.png'/>
-                                                    <img alt='img' src='images/diving/img4.png'/>
+                                                    <img alt='img' src='/images/diving/img1.png'/>
+                                                    <img alt='img' src='/images/diving/img2.png'/>
+                                                    <img alt='img' src='/images/diving/img3.png'/>
+                                                    <img alt='img' src='/images/diving/img4.png'/>
                                                 </div>
                                             </>
                                         )}
@@ -34,43 +39,32 @@ export default function Content() {
                             </Media>
                         </div>
                         <div className={styles.content_box}>
-                            <h2 className={styles.title}>Open Water Diver </h2>
+                            <h2 className={styles.title}>
+                                {service.title}
+                            </h2>
                             <p>
-                                Курс Open Water Diver – это первая базовая ступень во время обучения
-                                дайвингу. Во время курса
-                                Open Water Diver закладываются фундаментальные навыки и знания, благодаря которым ваши
-                                подводные
-                                приключения будут проходить безопасно и весело. За 3 дня обучения вы совершите 6
-                                погружений,
-                                отработаете все базовые навыки дайвера и сможете насладится подводными красотами
-                                Адриатического
-                                моря Хорватии. <br/>
-                                Если вас интересует более подробная информация свяжитесь с нами или же записывайтесь на
-                                курс
-                                Опен Вотер Дайвер (Open Water Diver) в Сплите, Хорватия прямо сейчас!
+                                {service.description}
                             </p>
                             <div className={styles.text_wrap}>
                                 <p className={styles.text}>
                                     <span className={styles.bold_text}>Продолжительность программы: </span>
-                                    3 дня (6 погружений)
+                                    {service.duration}
                                 </p>
                                 <p className={styles.text}>
                                     <span className={styles.bold_text}>Минимальный возраст: </span>
-                                    10 лет
+                                    {service.min_age}
                                 </p>
                                 <p className={styles.text}>
                                     <span className={styles.bold_text}>Предварительный сертифицированный опыт: </span>
-                                    не требуется
+                                    {service.required_experience}
                                 </p>
                                 <p className={styles.text}>
                                     <span className={styles.bold_text}>Максимальная глубина погружений: </span>
-                                    18 метров
+                                    {service.max_depth}
                                 </p>
                             </div>
                             <p className={styles.style_text}>
-                                После успешного прохождения курса вы получаете международный
-                                дайверский сертификат с правом
-                                погружений на глубину 18 метров под контролем инструктора
+                                {service.course_certificate}
                             </p>
                             <button className={styles.btn}>
                                 Записаться
@@ -90,10 +84,10 @@ export default function Content() {
                                 {matches.medium && <ContentSlider numberOfSlides={3}/>}
                                 {matches.large && (
                                     <div className={styles.img_box_row}>
-                                        <img alt='img' src='images/diving/img1.png'/>
-                                        <img alt='img' src='images/diving/img2.png'/>
-                                        <img alt='img' src='images/diving/img3.png'/>
-                                        <img alt='img' src='images/diving/img4.png'/>
+                                        <img alt='img' src='/images/diving/img1.png'/>
+                                        <img alt='img' src='/images/diving/img2.png'/>
+                                        <img alt='img' src='/images/diving/img3.png'/>
+                                        <img alt='img' src='/images/diving/img4.png'/>
                                     </div>
                                 )}
                             </>

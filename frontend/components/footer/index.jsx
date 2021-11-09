@@ -12,22 +12,22 @@ export default function Footer() {
                     </h3>
                     <a className={styles.link}>
                         <img className={styles.icon} alt='address'
-                             src='images/footer/icons/mapIcon.png'/>
+                             src='/images/footer/icons/mapIcon.png'/>
                         999, Моя Улица, Хорватия
                     </a>
                     <a className={styles.link}>
                         <img className={styles.icon} alt='tel'
-                             src='images/footer/icons/telIcon.png'/>
+                             src='/images/footer/icons/telIcon.png'/>
                         270-177-6026, 275-198-7978
                     </a>
                     <a className={styles.link}>
                         <img className={styles.icon} alt='facebook'
-                             src='images/footer/icons/facebookIcon.png'/>
+                             src='/images/footer/icons/facebookIcon.png'/>
                         @GotoDive
                     </a>
                     <a className={styles.link}>
                         <img className={styles.icon} alt='email'
-                             src='images/footer/icons/mailIcon.png'/>
+                             src='/images/footer/icons/mailIcon.png'/>
                         GotoDive@gmail.com
                     </a>
                 </div>
@@ -47,22 +47,22 @@ export default function Footer() {
                     </h3>
                     <a className={styles.link}>
                         <img className={styles.icon} alt='contact'
-                             src='images/footer/icons/instaIcon.png'/>
+                             src='/images/footer/icons/instaIcon.png'/>
                         @GotoDive
                     </a>
                     <a className={styles.link}>
                         <img className={styles.icon} alt='contact'
-                             src='images/footer/icons/telegramIcon.png'/>
+                             src='/images/footer/icons/telegramIcon.png'/>
                         @GotoDive
                     </a>
                     <a className={styles.link}>
                         <img className={styles.icon} alt='contact'
-                             src='images/footer/icons/watsupIcon.png'/>
+                             src='/images/footer/icons/watsupIcon.png'/>
                         @GotoDive
                     </a>
                     <a className={styles.link}>
                         <img className={styles.icon} alt='contact'
-                             src='images/footer/icons/viberIcon.png'/>
+                             src='/images/footer/icons/viberIcon.png'/>
                         @GotoDive
                     </a>
                 </div>
@@ -80,15 +80,15 @@ export default function Footer() {
                                     <a>
                                         <div className={styles.gallery_img}>
                                             <img alt='img'
-                                                 src='images/footer/photo/img1.png'/>
+                                                 src='/images/footer/photo/img1.png'/>
                                             <img alt='img'
-                                                 src='images/footer/photo/img2.png'/>
+                                                 src='/images/footer/photo/img2.png'/>
                                         </div>
                                         <div className={styles.gallery_img}>
                                             <img alt='img'
-                                                 src='images/footer/photo/img5.png'/>
+                                                 src='/images/footer/photo/img5.png'/>
                                             <img alt='img'
-                                                 src='images/footer/photo/img6.png'/>
+                                                 src='/images/footer/photo/img6.png'/>
                                         </div>
                                     </a>
                                 )}
@@ -96,23 +96,23 @@ export default function Footer() {
                                     <a>
                                         <div className={styles.gallery_img}>
                                             <img alt='img'
-                                                 src='images/footer/photo/img1.png'/>
+                                                 src='/images/footer/photo/img1.png'/>
                                             <img alt='img'
-                                                 src='images/footer/photo/img2.png'/>
+                                                 src='/images/footer/photo/img2.png'/>
                                             <img alt='img'
-                                                 src='images/footer/photo/img3.png'/>
+                                                 src='/images/footer/photo/img3.png'/>
                                             <img alt='img'
-                                                 src='images/footer/photo/img4.png'/>
+                                                 src='/images/footer/photo/img4.png'/>
                                         </div>
                                         <div className={styles.gallery_img}>
                                             <img alt='img'
-                                                 src='images/footer/photo/img5.png'/>
+                                                 src='/images/footer/photo/img5.png'/>
                                             <img alt='img'
-                                                 src='images/footer/photo/img6.png'/>
+                                                 src='/images/footer/photo/img6.png'/>
                                             <img alt='img'
-                                                 src='images/footer/photo/img7.png'/>
+                                                 src='/images/footer/photo/img7.png'/>
                                             <img alt='img'
-                                                 src='images/footer/photo/img8.png'/>
+                                                 src='/images/footer/photo/img8.png'/>
                                         </div>
                                     </a>
                                 )}

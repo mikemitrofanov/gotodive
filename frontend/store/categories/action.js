@@ -23,7 +23,10 @@ export const categoriesApi = createApi({
             query: (language) => `${language}/service-categories`
         }),
         getService: build.query({
-            query: ({language, id}) => `${language}/services/${id}`
+            query: ({language, id}) => `${language}/services/${id}`,
+            transformResponse: response => {
+                return response.data
+            }
         }),
 
 
@@ -47,5 +50,5 @@ export const {
     useGetPopularServicesQuery,
     useGetAllCategoriesQuery,
     useGetCategoriesQuery,
-    useGetService,
+    useGetServiceQuery,
 } = categoriesApi;
