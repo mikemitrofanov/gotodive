@@ -44,37 +44,36 @@ export default function CategoryServicesDropdown() {
                     id={category.id}
                     onClick={handleOnClickCategory}
                     className={
-                        `ui selection dropdown 
-                         ${(isShow && Number(showMenu?.id) === Number(category.id)) && "visible active"} 
-                         ${isBurgerMenuOpen
-                            ? styles.dropdown_burger
-                            : styles.dropdown} 
-                         ${isShow && Number(showMenu?.id) === Number(category.id) && styles.active_link_dropdown}`
+                        `${isShow && (Number(showMenu?.id) === Number(category.id)) && styles.active_link_dropdown} 
+                    ${isBurgerMenuOpen ? styles.main_nav_links_burger : styles.main_nav_links}`
                     }
                 >
-                 <span className={`text ${isBurgerMenuOpen ? styles.main_nav_links_burger : styles.main_nav_links}`}>
-                 </span>
                     {category.title}
                     <FontAwesomeIcon
-                        className={`${isShow && Number(showMenu?.id) === Number(category.id)
-                            ? styles.active_arrows
-                            : styles.arrows} `}
+                        className={
+                            `${isShow && (Number(showMenu?.id) === Number(category.id))
+                                ? styles.active_arrows
+                                : styles.arrows} `
+                        }
                         icon={faPlay}
                     />
                     {isShow && (
-                        <div onClick={doNotClose}
-                             ref={ref}
-                             className={`menu ${(Number(showMenu?.id) === Number(category.id)) && "visible transition"} 
-                     ${isBurgerMenuOpen
-                                 ? styles.wrapper_dropdown_burger
-                                 : styles.wrapper_dropdown}`}
+                        <div
+                            onClick={doNotClose}
+                            ref={ref}
+                            className={
+                                `${Number(showMenu?.id) === Number(category.id)
+                                    ? styles.active_dropdown_content
+                                    : styles.dropdown_content} 
+                                ${!isBurgerMenuOpen && styles.dropdown_content}`
+                            }
                         >
                             {category.services.map((service) => (
                                 <DropdownItems key={service.id} service={service}/>
                             ))}
                         </div>
                     )}
-          </span>
+                </span>
             ))}
         </>
     )

@@ -1,12 +1,10 @@
 import { appWithTranslation } from "next-i18next";
 import { Provider } from "react-redux";
-import 'semantic-ui-css/semantic.css'
 import { useStore } from "../store";
 import "../styles/navigation.css";
 import "../styles/fancybox.css";
 import "../styles/globals.css";
 import "../styles/swiper.css";
-
 
 function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);
