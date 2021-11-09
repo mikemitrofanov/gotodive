@@ -24,10 +24,10 @@ export default function CategoryServicesDropdown() {
       setShowMenu(event ? { id: event.target.id } : { id: "" });
     };
 
-    document.body.addEventListener("click", onBodyClick);
+    document.addEventListener("click", onBodyClick);
 
     return () => {
-      document.body.removeEventListener("click", onBodyClick);
+      document.removeEventListener("click", onBodyClick);
     };
   }, []);
 
@@ -43,11 +43,10 @@ export default function CategoryServicesDropdown() {
     <>
       {data &&
         data.data.map((category) => (
-          <span key={category.id} ref={ref} onClick={changeStateShowMenu} id={category.id} className={`ui selection dropdown ${Number(showMenu?.id) === Number(category.id) ? "visible active" : ""} ${isBurgerMenuOpen ? styles.dropdown_burger : styles.dropdown} ${Number(showMenu?.id) === Number(category.id) && styles.active_link_dropdown}`}>
-            <span className={`text ${isBurgerMenuOpen ? styles.main_nav_links_burger : styles.main_nav_links}`}></span>
+          <span ref={ref} key={category.id} id={category.id} onClick={changeStateShowMenu} className={`${Number(showMenu?.id) === Number(category.id) && styles.active_link_dropdown} ${isBurgerMenuOpen ? styles.main_nav_links_burger : styles.main_nav_links}`}>
             {category.title}
             <FontAwesomeIcon className={`${Number(showMenu?.id) === Number(category.id) ? styles.active_arrows : styles.arrows} `} icon={faPlay} />
-            <div onClick={doNotClose} className={`menu ${Number(showMenu?.id) === Number(category.id) ? "visible transition" : ""} ${isBurgerMenuOpen ? styles.wrapper_dropdown_burger : styles.wrapper_dropdown}`}>
+            <div onClick={doNotClose} className={`${Number(showMenu?.id) === Number(category.id) ? styles.active_dropdown_content : styles.dropdown_content} ${!isBurgerMenuOpen && styles.dropdown_content}`}>
               {category.services.map((dataDrodown) => (
                 <DropdownItems key={dataDrodown.id} dataDrodown={dataDrodown} />
               ))}

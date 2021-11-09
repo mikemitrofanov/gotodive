@@ -1,5 +1,5 @@
-import { burgerMenuState } from "../../../../../store/slices/burgerMenu";
 import { useSelector } from "react-redux";
+import { burgerMenuState } from "../../../../../store/slices/burgerMenu";
 import styles from "./dropdownItems.module.css";
 
 export default function DropdownItems({ dataDrodown }) {
