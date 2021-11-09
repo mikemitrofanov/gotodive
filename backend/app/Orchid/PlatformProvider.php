@@ -49,6 +49,11 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.languages')
                 ->permission('platform.systems.users'),
 
+            Menu::make(__('Photos'))
+                ->icon('photo')
+                ->route('platform.photos')
+                ->permission('platform.systems.users'),
+
 
         ];
     }

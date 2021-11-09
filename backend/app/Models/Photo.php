@@ -6,12 +6,31 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
+use Orchid\Screen\AsSource;
+use Orchid\Filters\Filterable;
 
 class Photo extends Model
 {
-    use HasFactory;
+    use HasFactory, AsSource, Filterable;
 
     protected $fillable = ['url', 'optimized_url'];
+
+    /**
+     * @var array
+     */
+    protected $allowedFilters = [
+        'service_id',
+        'created_at',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $allowedSorts = [
+        'id',
+        'service_id',
+        'created_at',
+    ];
 
     public function savePhoto($service, $photo)
     {
