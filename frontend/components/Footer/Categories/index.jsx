@@ -5,15 +5,15 @@ import styles from "./categories.module.css";
 
 export default function Categories() {
   const router = useRouter();
-  const { data } = useGetAllCategoriesQuery(router.locale);
+  const { data: categories } = useGetAllCategoriesQuery(router.locale);
 
   return (
     <>
-      {data && (
+      {categories && (
         <article className={styles.categories_wrapper}>
           <h1 className={styles.categories_heading}>Categories</h1>
-          {data.data.map((category, index) => (
-            <Link key={index} href='#'>
+          {categories.map(category => (
+            <Link key={category.id} href='#'>
               <a className={styles.categories}>{category.title}</a>
             </Link>
           ))}

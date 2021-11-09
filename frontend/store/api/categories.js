@@ -8,7 +8,10 @@ export const categoriesApi = createApi({
     }),
     endpoints: (build) => ({
         getAllCategories: build.query({
-            query: (language) => `${language}/service-categories/services`
+            query: (language) => `${language}/service-categories/services`,
+            transformResponse: (response, meta) => {
+                return response.data
+            }
         }),
         getPopularServices: build.query({
             query: (language) => `${language}/services/popular`,
