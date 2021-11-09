@@ -1,11 +1,11 @@
 import {useEffect} from "react";
 
-export function useOnClickOutside(ref, handler) {
+export function useOnClickOutside(idItem, handler) {
     useEffect(
         () => {
             const listener = (event) => {
 
-                if (!ref.current || ref.current.contains(event.target)) {
+                if (idItem === event.target.id) {
                     return;
                 }
                 handler(event);
@@ -18,6 +18,6 @@ export function useOnClickOutside(ref, handler) {
             };
         },
 
-        [ref, handler]
+        [idItem, handler]
     );
 }
