@@ -17,7 +17,7 @@ export default function CategoryServicesDropdown() {
 
   useEffect(() => {
     const onBodyClick = (event) => {
-      if (ref.current.contains(event.target)) {
+      if (ref.current?.contains(event.target)) {
         return;
       }
 
