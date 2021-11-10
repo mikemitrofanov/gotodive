@@ -64,6 +64,17 @@ class ServiceScreen extends Screen
     public function layout(): array
     {
         return [
+            Layout::modal('Upload new photos', [
+                Layout::rows([
+                    Input::make('photos')
+                        ->type('file')
+                        ->required()
+                        ->multiple()
+                        ->title('Photo')
+                        ->help('Supported image types: .jpeg/png/jpg/gif/svg/webp. Max filesize: 2MB'),
+                ]),
+            ]),
+
             Layout::tabs([
                 'Service Information' => [
                     Layout::block(ServiceUpdateLayout::class)
@@ -78,20 +89,9 @@ class ServiceScreen extends Screen
                 ],
 
                 'Service Photos' => [
-                    Layout::modal('Upload new photos', [
-                        Layout::rows([
-                            Input::make('photos')
-                                ->type('file')
-                                ->required()
-                                ->multiple()
-                                ->title('Photo')
-                                ->help('Supported image types: .jpeg/png/jpg/gif/svg/webp. Max filesize: 2MB'),
-                        ]),
-                    ]),
-
                     PhotoListLayout::class,
                 ],
-            ])
+            ]),
         ];
     }
 

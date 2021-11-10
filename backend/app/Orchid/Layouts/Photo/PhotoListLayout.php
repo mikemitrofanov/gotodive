@@ -38,8 +38,10 @@ class PhotoListLayout extends Table
                 ->align('center')
                 ->width('20px')
                 ->render(function ($photo) {
-                    $image_url = asset("storage/" . $photo->optimized_url);
-                    return "<img src='{$image_url}' alt='image {$photo->id}' width='200'>";
+                    $image_optimized = asset("storage/" . $photo->optimized_url);
+                    $image_fullsize = asset("storage/" . $photo->url);
+                    return
+                        "<a href='{$image_fullsize}'><img src='{$image_optimized}' alt='image {$photo->id}' width='200'></a>";
                 }),
 
             TD::make('service_id', 'Service ID')
