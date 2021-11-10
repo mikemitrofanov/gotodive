@@ -7,7 +7,8 @@ import {useRouter} from "next/router";
 
 export default function InnerPage({id}) {
     const router = useRouter();
-    const {data : service} = useGetServicesQuery({language: router.locale, id});
+    const language = router.locale === 'uk' ? 'ukr' : router.locale;
+    const {data : service} = useGetServicesQuery({language , id});
 
     return (
         <div style={{
@@ -26,7 +27,8 @@ export default function InnerPage({id}) {
 }
 
 export const getServerSideProps = withRedux(async ({params, locale}, dispatch) => {
-    await dispatch(categoriesApi.endpoints.getServices.initiate({language: locale, id: params.service}));
+    const language = locale === 'uk' ? 'ukr' : locale;
+    await dispatch(categoriesApi.endpoints.getServices.initiate({language, id: params.service}));
 
     return {
         props: {

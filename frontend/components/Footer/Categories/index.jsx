@@ -5,7 +5,8 @@ import styles from "./categories.module.css";
 
 export default function Categories() {
   const router = useRouter();
-  const { data: categories } = useGetAllCategoriesQuery(router.locale);
+
+  const { data: categories } = useGetAllCategoriesQuery(router.locale === 'uk' ? 'ukr': router.locale);
 
   return (
     <>

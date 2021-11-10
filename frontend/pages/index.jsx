@@ -23,7 +23,7 @@ export default function Main() {
 
 export const getServerSideProps = withRedux(async ({ locale }, dispatch) => {
     const language = locale === 'uk' ? 'ukr' : locale;
-console.log(language)
+
     await dispatch(categoriesApi.endpoints.getAllCategories.initiate(language));
   await dispatch(categoriesApi.endpoints.getPopularServices.initiate(language));
 
