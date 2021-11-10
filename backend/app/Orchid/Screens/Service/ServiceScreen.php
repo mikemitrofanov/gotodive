@@ -104,12 +104,21 @@ class ServiceScreen extends Screen
 
     public function uploadPhoto(Service $service, AddPhotoRequest $request)
     {
+        $identical_filenames = [];
+
         foreach ($request->photos as $photo) {
 
-            (new Photo)->savePhoto($service, $photo);
+            if (!(new Photo)->savePhoto($service, $photo)) {
+                array_push($identical_filenames, $photo->getClientOriginalName());
+            }
         }
 
-        Toast::info('Photos successfully uploaded');
+        if (count($identical_filenames)) {
+            Toast::warning('File(s) ' . implode(', ', $identical_filenames) . ' already exist in database');
+        } else {
+            Toast::info('Photos successfully uploaded');
+        }
+
         return redirect()->route('platform.services.edit', $service->id);
     }
 

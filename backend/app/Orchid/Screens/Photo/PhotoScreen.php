@@ -91,13 +91,21 @@ class PhotoScreen extends Screen
         ]);
 
         $service = Service::where('id', $validated['service'])->first();
+        $identical_filenames = [];
 
         foreach ($validated['photos'] as $photo) {
 
-            (new Photo)->savePhoto($service, $photo);
+            if (!(new Photo)->savePhoto($service, $photo)) {
+                array_push($identical_filenames, $photo->getClientOriginalName());
+            }
         }
 
-        Toast::info('Photos successfully uploaded');
+        if (count($identical_filenames)) {
+            Toast::warning('File(s) ' . implode(', ', $identical_filenames) . ' already exist in database');
+        } else {
+            Toast::info('Photos successfully uploaded');
+        }
+
         return redirect()->route('platform.photos');
     }
 
