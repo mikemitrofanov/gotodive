@@ -3,8 +3,9 @@ import {burgerMenuState} from "../../../../../store/slices/burgerMenu";
 import styles from "./dropdownItem.module.css";
 import {useEffect, useState} from "react";
 import {showDropdownItem, showMenu} from "../../../../../store/slices/DropdownMenuSlice";
+import Link from "next/link";
 
-export default function DropdownItem({category, currentItemId}) {
+export default function DropdownItem({category}) {
     const isBurgerMenuOpen = useSelector(burgerMenuState);
     const [onClickService, SetOnClickService] = useState(null);
     const showItem = useSelector(showDropdownItem);
@@ -33,24 +34,29 @@ export default function DropdownItem({category, currentItemId}) {
     return (
         <>
             <div
-
                 className={
-                    `${showItem.includes(`${currentItemId}`)
+                    `${showItem.includes(`${category.id}`)
                         ? styles.active_dropdown_content
                         : styles.dropdown_content}
                          ${!isBurgerMenuOpen && styles.dropdown_content}`
                 }
             >
                 {category.services.map((service) => (
-                    <a
-                        onClick={handleOnClickService}
+                    <Link
                         key={service.id}
-                        id={service.id}
-                        href='#'
-                        className={`${isBurgerMenuOpen ? styles.dropdown_links_burger : styles.dropdown_links}`}
+                        href={{
+                            pathname: '/[category]/[service]',
+                            query: {category: `${category.title}`, service: `${service.id}`},
+                        }}
                     >
-                        {service.title}
-                    </a>
+                        <a
+                            onClick={handleOnClickService}
+                            id={service.id}
+                            className={`${isBurgerMenuOpen ? styles.dropdown_links_burger : styles.dropdown_links}`}
+                        >
+                            {service.title}
+                        </a>
+                    </Link>
                 ))}
             </div>
         </>

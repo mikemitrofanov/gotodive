@@ -44,7 +44,6 @@ export default function DropdownMenu() {
                     />
                     <DropdownItem
                         category={category}
-                        currentItemId={category.id}
                     />
           </span>
             ))}

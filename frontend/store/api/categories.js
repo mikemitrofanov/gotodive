@@ -1,5 +1,5 @@
-import { fetchBaseQuery } from "@reduxjs/toolkit/query";
-import { createApi } from '@reduxjs/toolkit/query/react';
+import {fetchBaseQuery} from "@reduxjs/toolkit/query";
+import {createApi} from '@reduxjs/toolkit/query/react';
 
 export const categoriesApi = createApi({
     reducerPath: 'categoriesApi',
@@ -9,10 +9,11 @@ export const categoriesApi = createApi({
     endpoints: (build) => ({
         getAllCategories: build.query({
             query: (language) => `${language}/service-categories/services`,
-            transformResponse: (response, meta) => {
+            transformResponse: response => {
                 return response.data
             }
         }),
+
         getPopularServices: build.query({
             query: (language) => `${language}/services/popular`,
             transformResponse: (baseQueryReturnValue, meta) =>
@@ -21,8 +22,17 @@ export const categoriesApi = createApi({
                     'imageUrl': `/images/popular/image1.png`
                 }),
         }),
-    }),
-
+        getServices: build.query({
+            query: ({language, id}) => `${language}/services/${id}`,
+            transformResponse: response => {
+                return response.data
+            }
+        }),
+    })
 })
 
-export const { useGetPopularServicesQuery, useGetAllCategoriesQuery } = categoriesApi;
+export const {
+    useGetPopularServicesQuery,
+    useGetAllCategoriesQuery,
+    useGetServicesQuery,
+} = categoriesApi;
