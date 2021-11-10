@@ -1,28 +1,23 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlay} from "@fortawesome/free-solid-svg-icons";
-import {useState} from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useRouter} from "next/router";
 import {useGetAllCategoriesQuery} from "../../../../store/api/categories";
 import {burgerMenuState} from "../../../../store/slices/burgerMenu";
-import styles from "./categoryServicesDropdown.module.css";
-import DropdownItems from "./DropdownItems";
-import {useOnClickOutside} from "../../../../hooks/useOnClickOutside";
+import styles from "./DropdownMenu.module.css";
+import DropdownItem from "./DropdownItem";
+import {showDropdownItem, showMenu} from "../../../../store/slices/DropdownMenuSlice";
 
-export default function CategoryServicesDropdown() {
+export default function DropdownMenu() {
     const router = useRouter();
     const isBurgerMenuOpen = useSelector(burgerMenuState);
-    const [showMenu, setShowMenu] = useState({id: ""});
+    const showItem = useSelector(showDropdownItem);
     const {data: categories} = useGetAllCategoriesQuery(router.locale);
-
-    useOnClickOutside(showMenu.id, () => setShowMenu({id: ""}))
+    const dispatch = useDispatch();
 
     const handleOnClickCategory = (e) => {
-        if (showMenu.id === e.target.id) {
-            setShowMenu({id: ''})
-            return
-        }
-        setShowMenu({id:e.target.id})
+        e.stopPropagation()
+        dispatch(showMenu(showItem.includes(e.target.id) ? [] : [e.target.id]));
     }
 
     return (
@@ -34,7 +29,7 @@ export default function CategoryServicesDropdown() {
                     id={category.id}
                     onClick={handleOnClickCategory}
                     className={
-                        `${+showMenu.id === category.id && styles.active_link_dropdown} 
+                        `${showItem.includes(`${category.id}`) && styles.active_link_dropdown} 
                       ${isBurgerMenuOpen ? styles.main_nav_links_burger : styles.main_nav_links}`
                     }
                 >
@@ -42,18 +37,17 @@ export default function CategoryServicesDropdown() {
                     <FontAwesomeIcon
                         icon={faPlay}
                         className={
-                            `${+showMenu.id === category.id
+                            `${showItem.includes(`${category.id}`)
                                 ? styles.active_arrows
                                 : styles.arrows}`
                         }
                     />
-                    <DropdownItems
-                        services={category.services}
-                        activeItemId={+showMenu.id}
+                    <DropdownItem
+                        category={category}
                         currentItemId={category.id}
                     />
           </span>
             ))}
         </>
-    );
+    )
 }

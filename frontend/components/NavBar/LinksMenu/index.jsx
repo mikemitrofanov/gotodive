@@ -1,5 +1,5 @@
 import { useTranslation } from "next-i18next";
-import CategoryServicesDropdown from "./CategoryServicesDropdown";
+import CategoryServicesDropdown from "./DropdownMenu";
 import LinkMenu from "./LinkMenu";
 
 export default function LinksMenu() {
