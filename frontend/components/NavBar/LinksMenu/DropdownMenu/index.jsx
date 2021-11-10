@@ -12,7 +12,7 @@ export default function DropdownMenu() {
     const router = useRouter();
     const isBurgerMenuOpen = useSelector(burgerMenuState);
     const showItem = useSelector(showDropdownItem);
-    const {data: categories} = useGetAllCategoriesQuery(router.locale);
+    const {data: categories} = useGetAllCategoriesQuery(router.locale === 'uk' ? 'ukr': router.locale);
     const dispatch = useDispatch();
 
     const handleOnClickCategory = (e) => {

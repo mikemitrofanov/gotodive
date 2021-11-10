@@ -7,25 +7,25 @@ export default function Social() {
       <h1 className={styles.social_heading}>Social</h1>
       <Link href='#'>
         <a className={styles.social}>
-          <img className={styles.icon} src='images/footer/icons/instagram.png' />
+          <img className={styles.icon} src='/images/footer/icons/instagram.png' />
           @GotoDive
         </a>
       </Link>
       <Link href='#'>
         <a className={styles.social}>
-          <img className={styles.icon} src='images/footer/icons/telegram.png' />
+          <img className={styles.icon} src='/images/footer/icons/telegram.png' />
           @GotoDive
         </a>
       </Link>
       <Link href='#'>
         <a className={styles.social}>
-          <img className={styles.icon} src='images/footer/icons/whatsApp.png' />
+          <img className={styles.icon} src='/images/footer/icons/whatsApp.png' />
           @GotoDive
         </a>
       </Link>
       <Link href='#'>
         <a className={styles.social}>
-          <img className={styles.icon} src='images/footer/icons/viber.png' />
+          <img className={styles.icon} src='/images/footer/icons/viber.png' />
           @GotoDive
         </a>
       </Link>
