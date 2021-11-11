@@ -1,12 +1,12 @@
 .header_container {
-  background: url("/images/sub_header/background.png");
+  background: url("/images/subHeader/background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   font-family: "Montserrat-Regular", sans-serif;
   min-height: 900px;
-  padding-left: 750px;
-  padding-right: 800px;
+  padding-left: 450px;
+  padding-right: 400px;
 }
 
 .header_content_container {
@@ -27,7 +27,7 @@
 .header_logo {
   position: absolute;
   top: 800px;
-  left: 800px;
+  left: 400px;
 }
 
 .heading_mobile {
@@ -176,7 +176,7 @@
     background: none;
   }
   .wrapper_mobile_background {
-    background: url("/images/sub_header/background_mobile.png");
+    background: url("/images/subHeader/backgroundMobileVersion.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
