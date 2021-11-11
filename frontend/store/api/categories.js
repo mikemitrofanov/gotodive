@@ -28,6 +28,13 @@ export const categoriesApi = createApi({
                 return response.data
             }
         }),
+
+        getPhotoGallery: build.query({
+            query: () => '/photos',
+            transformResponse: response => {
+                return response.data
+            }
+        })
     })
 })
 
@@ -35,4 +42,5 @@ export const {
     useGetPopularServicesQuery,
     useGetAllCategoriesQuery,
     useGetServicesQuery,
+    useGetPhotoGalleryQuery
 } = categoriesApi;

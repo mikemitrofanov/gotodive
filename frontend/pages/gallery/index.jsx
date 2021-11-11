@@ -17,6 +17,7 @@ export default function GalleryPage() {
 
 export const getServerSideProps = withRedux(async ({ locale }, dispatch) => {
   await dispatch(categoriesApi.endpoints.getAllCategories.initiate(locale));
+  await dispatch(categoriesApi.endpoints.getPhotoGallery.initiate());
 
   return { props: { ...(await serverSideTranslations(locale)) } };
 });
