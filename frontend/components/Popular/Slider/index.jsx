@@ -1,14 +1,16 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useSelector } from "react-redux";
-import { useGetPopularServicesQuery } from "../../../store/categories/action";
-import { defaultLanguage } from "../../../store/slices/defaultLanguage";
-import { fakeDataPopular } from "../../../fakeDatabase/fakeDataPopular";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import { useGetPopularServicesQuery } from "../../../store/api/categories";
+import image1 from "../../../public/images/popular/image1.png";
+import image2 from "../../../public/images/popular/image2.png";
+import image3 from "../../../public/images/popular/image3.png";
 import ServiceShort from "../ServiceShort";
 
 export default function Slider({ numberOfSlides }) {
-  const language = useSelector(defaultLanguage);
-  const { data } = useGetPopularServicesQuery(language);
-  const services = Array.isArray(data) ? data : fakeDataPopular.data;
+  const router = useRouter();
+  const { data } = useGetPopularServicesQuery(router.locale);
+  const { t } = useTranslation("common");
 
   return (
     <Swiper
@@ -20,11 +22,25 @@ export default function Slider({ numberOfSlides }) {
       }}
       navigation={true}
     >
-      {services.map((service, index) => (
-        <SwiperSlide key={index}>
-          <ServiceShort service={service} />
-        </SwiperSlide>
-      ))}
+      {data ? (
+        data.map((service, index) => (
+          <SwiperSlide key={index}>
+            <ServiceShort src={service.imageUrl} title={service.title} description={service.description} />
+          </SwiperSlide>
+        ))
+      ) : (
+        <>
+          <SwiperSlide>
+            <ServiceShort src={image1.src} title={t("popular.recreationalCourses")} description={t("popular.description")} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <ServiceShort src={image2.src} title={t("popular.technicalCourses")} description={t("popular.description")} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <ServiceShort src={image3.src} title={t("popular.cave")} description={t("popular.description")} />
+          </SwiperSlide>
+        </>
+      )}
     </Swiper>
   );
 }

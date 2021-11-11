@@ -12,26 +12,42 @@ class Controller extends BaseController
     /**
      * @OA\Info(
      *      version="1.0.0",
-     *      title="GoToDive API documentation",
+     *      title="GoToDive OpenApi Documentation",
      *      description="L5 Swagger OpenApi description",
      *      @OA\Contact(
-     *          email="admin@admin.com"
+     *          email=L5_SWAGGER_CONST_CONTACT_EMAIL
      *      ),
-     *      @OA\License(
-     *          name="Apache 2.0",
-     *          url="http://www.apache.org/licenses/LICENSE-2.0.html"
-     *      )
+     * )
+     *
+     * @OA\SecurityScheme(
+     *     type="http",
+     *     description="Login with email and password to get the authentication token",
+     *     name="Token based Based",
+     *     in="header",
+     *     scheme="bearer",
+     *     securityScheme="apiAuth",
      * )
      *
      * @OA\Server(
      *      url=L5_SWAGGER_CONST_HOST,
-     *      description="Demo API Server"
+     *      description="API Server"
      * )
-
      *
      * @OA\Tag(
-     *     name="Projects",
-     *     description="API Endpoints of Projects"
+     *     name="Auth",
+     *     description="API Endpoints of Auth"
+     * )
+     * @OA\Tag(
+     *     name="User",
+     *     description="API Endpoints of Auth"
+     * )
+     * @OA\Tag(
+     *     name="Service Categories",
+     *     description="API Endpoints of Categories"
+     * )
+     * @OA\Tag(
+     *     name="Services",
+     *     description="API Endpoints of Services"
      * )
      */
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;

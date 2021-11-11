@@ -1,0 +1,44 @@
+.main_nav_links_burger {
+    font-size: 18px;
+    margin-bottom: 7px;
+    font-family: "Montserrat-Light", sans-serif;
+    display: block;
+    max-width: 200px;
+}
+
+.main_nav_links {
+    color: #eaeaea;
+    text-decoration: none;
+    margin-right: 60px;
+    cursor: pointer;
+    position: relative;
+}
+
+.active_arrows {
+    transform: rotateZ(90deg);
+}
+
+.arrows,
+.active_arrows {
+    font-size: 13px;
+    margin-left: 5px;
+    vertical-align: 0.5px;
+}
+
+.active_arrows,
+.active_link_dropdown,
+.dropdown_content {
+    color: #639bd1;
+}
+
+@media screen and (max-width: 1450px) {
+    .main_nav_links {
+        margin-right: 35px;
+    }
+}
+
+@media screen and (max-width: 1230px) {
+    .main_nav_links {
+        display: none;
+    }
+}

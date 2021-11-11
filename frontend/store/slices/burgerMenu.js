@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const statusBurgerMenuSlice = createSlice({
-  name: 'isTheBurgerMenuOpen',
-  initialState: { value: false },
+const burgerMenuSlice = createSlice({
+  name: 'burgerMenu',
+  initialState: { isMenuOpened: false },
   reducers: {
-    changeStateBurgerMenu(state) {
-      state.value = !state.value
+    changeBurgerMenuState(state) {
+      state.isMenuOpened = !state.isMenuOpened
     }
   },
 })
 
-export const { changeStateBurgerMenu } = statusBurgerMenuSlice.actions
-export const stateBurgerMenu = state => state.statusBurgerMenu.value
-export default statusBurgerMenuSlice.reducer
+export const { changeBurgerMenuState } = burgerMenuSlice.actions
+export const burgerMenuState = state => state.burgerMenuStatus.isMenuOpened
+export default burgerMenuSlice.reducer

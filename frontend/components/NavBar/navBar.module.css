@@ -24,7 +24,7 @@
 }
 
 .humburger_menu_btn {
-  background-image: url(../../public/images/menu.svg);
+  background-image: url(../../public/images/navBar/burgerMenuButton.svg);
   width: 40px;
   height: 40px;
   background-size: contain;
@@ -84,7 +84,7 @@
 .top_bar_user_icon {
   font-size: 23px;
   padding-left: 70px;
-  background-image: url(../../public/images/header_nav/icon_user.png);
+  background-image: url(../../public/images/navBar/userIcon.png);
   background-repeat: no-repeat;
   background-position: center;
 }
