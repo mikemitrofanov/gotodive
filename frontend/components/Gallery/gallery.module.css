@@ -1,10 +1,23 @@
-.wrapper_images {
-  display: flex;
+.container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.images {
-  cursor: pointer;
-  width: 100%;
-  height: auto;
-  float: left;
+.wrapper {
+    width: 50%;
+    font-size: 0px;
+}
+
+.wrapper:nth-child(2n - 1) {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.fancybox_wrap {
+    font-size: 0px;
+}
+
+.image {
+    cursor: pointer;
+    object-fit: cover;
 }
