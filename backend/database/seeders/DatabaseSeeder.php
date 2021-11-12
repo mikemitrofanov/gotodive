@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Photo;
 use Illuminate\Database\Seeder;
 
 
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LanguageSeeder::class);
         $this->call(ServiceCategorySeeder::class);
         $this->call(ServiceSeeder::class);
+        $this->call(PhotoSeeder::class);
 
     }
 }

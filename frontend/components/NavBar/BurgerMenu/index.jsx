@@ -1,18 +1,18 @@
 import { useSelector } from "react-redux";
-import { stateMainMenu } from "../../../store/slice/mainMenuSlice";
+import { burgerMenuState } from "../../../store/slices/burgerMenu";
 import LinksLanguages from "../LinksLanguages";
 import styles from "./burgerMenu.module.css";
 import LinksMenu from "../LinksMenu";
 
 export default function BurgerMenu() {
-  const isOpenMainMenu = useSelector(stateMainMenu);
+  const isBurgerMenuOpen = useSelector(burgerMenuState);
 
   const doNotClose = (event) => {
     event.stopPropagation();
   };
 
   return (
-    <nav className={`${isOpenMainMenu && styles.top_nav_bar_block_burger}`}>
+    <nav className={`${!isBurgerMenuOpen && styles.top_nav_bar_block_burger}`}>
       <div onClick={doNotClose} className={styles.background_burger}>
         <article className={styles.main_block_container_burger}>
           <LinksMenu />

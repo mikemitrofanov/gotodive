@@ -2,28 +2,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
-import { changeStateBurgerMenu, stateBurgerMenu } from "../../store/slice/burgerMenuSlice";
-import { changeStateMainMenu } from "../../store/slice/mainMenuSlice";
+import { changeBurgerMenuState, burgerMenuState} from "../../store/slices/burgerMenu";
 import LinksLanguages from "./LinksLanguages";
 import styles from "./navBar.module.css";
 import BurgerMenu from "./BurgerMenu";
 import LinksMenu from "./LinksMenu";
 
 export default function NavBar() {
-  const isOpenBurgerMenu = useSelector(stateBurgerMenu);
+  const isBurgerMenuOpen = useSelector(burgerMenuState);
   const dispatch = useDispatch();
 
-  const openBurgerMenuAndCloseMainHead = () => {
-    dispatch(changeStateMainMenu());
-    dispatch(changeStateBurgerMenu());
+  const openBurgerMenu = () => {
+    dispatch(changeBurgerMenuState());
   };
 
   return (
     <section>
-      <nav className={`${isOpenBurgerMenu && styles.top_nav_bar_block}`}>
+      <nav className={`${isBurgerMenuOpen && styles.top_nav_bar_block}`}>
         <div className={styles.wrapper_main_head}>
           <article className={styles.main_block_container}>
-            <button className={styles.humburger_menu_btn} onClick={() => openBurgerMenuAndCloseMainHead()}></button>
+            <button className={styles.humburger_menu_btn} onClick={() => openBurgerMenu()}></button>
             <div className={styles.wrapper_links}>
               <LinksMenu />
             </div>
@@ -33,7 +31,7 @@ export default function NavBar() {
                 <FontAwesomeIcon className={styles.color_search} icon={faSearch} />
               </span>
               <LinksLanguages />
-              <Link href='/prices'>
+              <Link href='/price'>
                 <a className={styles.top_bar_user_icon}></a>
               </Link>
             </div>
