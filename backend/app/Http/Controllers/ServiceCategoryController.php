@@ -294,7 +294,7 @@ class ServiceCategoryController extends Controller
      * @param \App\Models\ServiceCategory $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ServiceCategory $serviceCategory)
+    public function destroy($language, ServiceCategory $serviceCategory)
     {
         $serviceCategory->delete();
         return response()->noContent();

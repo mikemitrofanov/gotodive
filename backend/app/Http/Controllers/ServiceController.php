@@ -299,7 +299,7 @@ class ServiceController extends Controller
      * )
      */
 
-    public function destroy(Service $service)
+    public function destroy($language, Service $service)
     {
         $service->delete();
         return response()->noContent();
@@ -366,6 +366,5 @@ class ServiceController extends Controller
             (new Photo)->savePhoto($service, $photo);
         }
         return new ServiceResource(Service::where('id', $service->id)->with('photos')->first());
-
     }
 }

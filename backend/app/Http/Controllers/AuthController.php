@@ -15,7 +15,7 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
-use Notification;
+use Illuminate\Support\Facades\Notification;
 
 class AuthController extends Controller
 {
@@ -52,7 +52,6 @@ class AuthController extends Controller
         return response()->json([
             'token' => $user->createToken('authToken')->plainTextToken
         ]);
-
     }
 
     /**
@@ -94,7 +93,6 @@ class AuthController extends Controller
         return response()->json([
             'token' => Auth::user()->createToken('authToken')->plainTextToken
         ]);
-
     }
 
     public function verifyEmail(Request $request)
@@ -277,5 +275,4 @@ class AuthController extends Controller
         $request->user()->update($request->validated());
         return new UserResource($request->user());
     }
-
 }
