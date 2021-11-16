@@ -2,7 +2,7 @@
 
 /**
  * @OA\Schema(
- *     title="Login",
+ *     title="Login request",
  *     description="Login User",
  *     @OA\Xml(
  *         name="Login"
@@ -34,7 +34,6 @@ class LoginRequest
      * @var string
      */
     public $email;
-
 }
 
 /**
@@ -57,5 +56,4 @@ class LoginResponse
      * @var string
      */
     public $token;
-
 }

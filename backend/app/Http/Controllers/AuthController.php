@@ -27,7 +27,7 @@ class AuthController extends Controller
      *      operationId="Create new User",
      *      tags={"Auth"},
      *      summary="Create user",
-     *      description="Returns created user, some fields shold be unique",
+     *      description="Returns created user, some fields should be unique",
      *
      *      @OA\RequestBody(
      *          required=true,
@@ -115,7 +115,7 @@ class AuthController extends Controller
      *      path="/forgot-password",
      *      operationId="Request reset password link",
      *      tags={"Auth"},
-     *      summary="Forgot Password",
+     *      summary="Forgot password",
      *
      *      @OA\RequestBody(
      *          required=true,
@@ -147,7 +147,7 @@ class AuthController extends Controller
      *      path="/reset-password",
      *      operationId="Reset password with link",
      *      tags={"Auth"},
-     *      summary="Reset Password",
+     *      summary="Reset password",
      *
      *      @OA\RequestBody(
      *          required=true,
@@ -197,7 +197,7 @@ class AuthController extends Controller
      *          required=false,
      *      ),
      *      @OA\Response(
-     *          response=200,
+     *          response=204,
      *          description="Successful operation",
      *       ),
      *      @OA\Response(
@@ -217,8 +217,8 @@ class AuthController extends Controller
      *      path="/users/me",
      *      operationId="showUser",
      *      tags={"User"},
-     *      summary="Get list of projects",
-     *      description="Returns list of projects",
+     *      summary="Get user",
+     *      description="Returns currently authenticated user",
      *      security={{"apiAuth":{}}},
      *
      *      @OA\RequestBody(
@@ -247,7 +247,7 @@ class AuthController extends Controller
      *      operationId="Update User",
      *      tags={"User"},
      *      summary="Update user",
-     *      description="Returns user",
+     *      description="Returns currently authenticated user",
      *      security={{"apiAuth":{}}},
      *
      *      @OA\RequestBody(
