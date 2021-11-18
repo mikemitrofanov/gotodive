@@ -2,22 +2,18 @@ import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {categoriesApi} from "../../store/api/categories";
 import {withRedux} from "../../hof/withRedux";
 import Gallery from "../../components/Gallery";
-import NavBar from "../../components/NavBar";
-import Footer from "../../components/Footer";
+import MainLayout from "../../components/layouts/MainLayout";
 
 export default function GalleryPage() {
-  return (
-    <>
-      <NavBar />
-        <Gallery />
-      <Footer />
-    </>
-  );
+
+    return <Gallery/>
 }
 
-export const getServerSideProps = withRedux(async ({ locale }, dispatch) => {
-  await dispatch(categoriesApi.endpoints.getAllCategories.initiate(locale));
-  await dispatch(categoriesApi.endpoints.getPhotoGallery.initiate());
+GalleryPage.layout = MainLayout;
 
-  return { props: { ...(await serverSideTranslations(locale)) } };
+export const getServerSideProps = withRedux(async ({locale}, dispatch) => {
+    await dispatch(categoriesApi.endpoints.getAllCategories.initiate(locale));
+    await dispatch(categoriesApi.endpoints.getPhotoGallery.initiate());
+
+    return {props: {...(await serverSideTranslations(locale))}};
 });
