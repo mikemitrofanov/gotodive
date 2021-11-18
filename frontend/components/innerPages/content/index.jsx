@@ -23,7 +23,7 @@ export default function Content({id}) {
         course_certificate
     } = service || {};
     const {t} = useTranslation("inner_page");
-    console.log(service)
+
     return (
         <>
             <div className={styles.background}>
@@ -36,6 +36,7 @@ export default function Content({id}) {
                         </div>
 
                         <div className={styles.content_box}>
+                            <h2 className={styles.title_medium}>{title}</h2>
                             <p>{description}</p>
                             <div className={styles.text_wrap}>
                                 {duration && (

@@ -1,6 +1,20 @@
 .container {
-    padding-bottom: 105px;
+    padding-bottom: calc(30px + 75 * ((100vw - 360px) / 1560));
+    color: #7b7c7b;
 }
+
+.slide {
+    display: flex;
+    justify-content: center;
+}
+
 .container_img {
-    margin: 0 50px;
+    width: calc(190px + 25 * ((100vw - 360px) / 1560));
+    height: calc(200px + 20 * ((100vw - 360px) / 1560));
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.swiper > div {
+    top: 50%;
 }

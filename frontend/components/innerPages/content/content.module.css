@@ -1,5 +1,5 @@
 .container {
-    padding: 0 165px;
+    padding: 0 calc(45px + 120 * ((100vw - 360px) / 1560));
     max-width: 1920px;
     margin: auto;
     position: relative;
@@ -13,7 +13,9 @@
     display: flex;
     width: 100%;
     margin: 0 auto;
-    padding: 105px 0 70px;
+    padding-top: calc(30px + 75 * ((100vw - 360px) / 1560));
+    padding-bottom: calc(40px + 30 * ((100vw - 360px) / 1560));
+
 }
 
 .title {
@@ -23,6 +25,11 @@
     font-weight: 800;
     text-transform: uppercase;
     margin-bottom: 60px;
+    margin-top: 0;
+}
+
+.title_medium {
+    display: none;
 }
 
 .img_box {
@@ -50,12 +57,14 @@
 .content_box {
     display: flex;
     flex-direction: column;
-    font-size: 24px;
+    font-size: calc(11px + 13 * ((100vw - 360px) / 1560));
     line-height: 137.5%;
     color: #7b7c7b;
     font-family: "Lora-Regular", serif;
 }
-
+.content_box > p {
+    margin: 0;
+}
 .content_box .title {
     display: none;
 }
@@ -75,7 +84,7 @@
 }
 
 .text {
-    margin-bottom: 30px;
+    margin-bottom: calc(15px + 15 * ((100vw - 360px) / 1560));
 }
 
 .bold_text {
@@ -85,22 +94,23 @@
 }
 
 .style_text {
-    font-size: 24px;
+    font-size: calc(11px + 13 * ((100vw - 360px) / 1560));
     line-height: 137.5%;
     color: #7699c8;
     font-weight: 400;
+    margin: 0;
 }
 
 .btn {
-    height: 80px;
-    width: 400px;
-    font-size: 21px;
+    height: calc(30px + 50 * ((100vw - 360px) / 1560));
+    width: calc(90px + 310 * ((100vw - 360px) / 1560));
+    font-size: calc(9px + 12 * ((100vw - 360px) / 1560));
     color: #dfe3e0;
     font-weight: 700;
     font-family: "Montserrat", sans-serif;
     background-color: #051330;
     border: 1px solid #000106;
-    margin-top: 40px;
+    margin-top: calc(12px + 28 * ((100vw - 360px) / 1560));
     align-self: end;
     cursor: pointer;
 }
@@ -108,5 +118,16 @@
 @media screen and (max-width: 1699px) {
     .large {
         display: none;
+    }
+
+    .title_medium {
+        display: block;
+        font-family: "Montserrat-ExtraBold", sans-serif;
+        size: calc(25px + 10 * ((100vw - 360px) / 1560));
+        color: #7b7c7b;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: calc(20px + 40 * ((100vw - 360px) / 1560));
     }
 }
