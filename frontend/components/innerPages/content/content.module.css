@@ -45,13 +45,18 @@
 }
 
 .img_box_row img {
-    padding-right: 50px;
     margin: 0 auto;
 
 }
 
 .img_box_row img:last-child {
     padding-right: 0;
+}
+
+.img {
+    width: calc(190px + 25 * ((100vw - 360px) / 1560));
+    height: calc(200px + 20 * ((100vw - 360px) / 1560));
+    overflow: hidden;
 }
 
 .content_box {
@@ -62,9 +67,11 @@
     color: #7b7c7b;
     font-family: "Lora-Regular", serif;
 }
+
 .content_box > p {
     margin: 0;
 }
+
 .content_box .title {
     display: none;
 }
