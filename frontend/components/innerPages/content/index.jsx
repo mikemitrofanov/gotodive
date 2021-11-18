@@ -1,76 +1,88 @@
 import styles from "./content.module.css";
 import ContentSlider from "../contentSlider";
 import Media from "react-media";
-import {useGetServiceQuery} from "../../../store/categories/action";
-import {useSelector} from "react-redux";
-import {defaultLanguage} from "../../../store/slice/defaultLanguageSlice";
+import {useGetServicesQuery} from "../../../store/api/categories";
+import {useRouter} from "next/router";
+import {useTranslation} from "next-i18next";
+import ContentImage from "./contentImage";
 
 export default function Content({id}) {
-    const language = useSelector(defaultLanguage);
-    const { data: service } = useGetServiceQuery({language, id});
-
+    const router = useRouter();
+    const language = router.locale === 'uk' ? 'ukr' : router.locale;
+    const {data: service} = useGetServicesQuery({language, id});
+    const {
+        title,
+        description,
+        duration,
+        min_age,
+        required_experience,
+        max_depth,
+        certification_requirements,
+        min_logged_dives,
+        max_end,
+        course_certificate
+    } = service || {};
+    const {t} = useTranslation("inner_page");
+    console.log(service)
     return (
         <>
-            <div className={styles.container__main_img}>
-                <img className={styles.main_img} alt='img' src='/images/diving/header.png'/>
-            </div>
             <div className={styles.background}>
                 <div className={styles.container}>
-                    <img className={styles.logo} src='/images/sub_header/logo.png'/>
-                    <div className={styles.body}>
+                    <div className={styles.wrapper}>
 
-                        <div>
-                            <Media queries={{large: "(min-width: 1700px)"}}>
-                                {(matches) => (
-                                    <>
-                                        {matches.large && (
-                                            <>
-                                                <h2 className={styles.title}>Open Water Diver </h2>
-                                                <div className={styles.img_box}>
-                                                    <img alt='img' src='/images/diving/img1.png'/>
-                                                    <img alt='img' src='/images/diving/img2.png'/>
-                                                    <img alt='img' src='/images/diving/img3.png'/>
-                                                    <img alt='img' src='/images/diving/img4.png'/>
-                                                </div>
-                                            </>
-                                        )}
-                                    </>
-                                )}
-                            </Media>
+                        <div className={styles.large}>
+                            <h2 className={styles.title}>{title}</h2>
+                            <ContentImage className={styles.img_box}/>
                         </div>
+
                         <div className={styles.content_box}>
-                            <h2 className={styles.title}>
-                                {service.title}
-                            </h2>
-                            <p>
-                                {service.description}
-                            </p>
+                            <p>{description}</p>
                             <div className={styles.text_wrap}>
-                                <p className={styles.text}>
-                                    <span className={styles.bold_text}>Продолжительность программы: </span>
-                                    {service.duration}
-                                </p>
-                                <p className={styles.text}>
-                                    <span className={styles.bold_text}>Минимальный возраст: </span>
-                                    {service.min_age}
-                                </p>
-                                <p className={styles.text}>
-                                    <span className={styles.bold_text}>Предварительный сертифицированный опыт: </span>
-                                    {service.required_experience}
-                                </p>
-                                <p className={styles.text}>
-                                    <span className={styles.bold_text}>Максимальная глубина погружений: </span>
-                                    {service.max_depth}
-                                </p>
+                                {duration && (
+                                    <p className={styles.text}>
+                                    <span className={styles.bold_text}>
+                                      {t("content.duration")}
+                                    </span>
+                                        {duration}
+                                    </p>
+                                )}
+                                {min_age && (
+                                    <p className={styles.text}>
+                                    <span className={styles.bold_text}>
+                                      {t("content.min_age")}
+                                    </span>
+                                        {min_age}
+                                    </p>
+                                )}
+                                {required_experience && (
+                                    <p className={styles.text}>
+                                    <span className={styles.bold_text}>
+                                        {t("content.required_experience")}
+                                    </span>
+                                        {required_experience}
+                                    </p>
+                                )}
+                                {max_depth && (
+                                    <p className={styles.text}>
+                                    <span className={styles.bold_text}>
+                                           {t("content.max_depth")}
+                                    </span>
+                                        {max_depth}
+                                    </p>
+                                )}
                             </div>
-                            <p className={styles.style_text}>
-                                {service.course_certificate}
-                            </p>
+                            {course_certificate && (
+                                <p className={styles.style_text}>
+                                    {course_certificate}
+                                </p>
+                            )}
                             <button className={styles.btn}>
-                                Записаться
+                                {t("button")}
                             </button>
                         </div>
                     </div>
+
+
                     <Media
                         queries={{
                             small: "(max-width: 1099px)",
@@ -83,16 +95,12 @@ export default function Content({id}) {
                                 {matches.small && <ContentSlider numberOfSlides={1}/>}
                                 {matches.medium && <ContentSlider numberOfSlides={3}/>}
                                 {matches.large && (
-                                    <div className={styles.img_box_row}>
-                                        <img alt='img' src='/images/diving/img1.png'/>
-                                        <img alt='img' src='/images/diving/img2.png'/>
-                                        <img alt='img' src='/images/diving/img3.png'/>
-                                        <img alt='img' src='/images/diving/img4.png'/>
-                                    </div>
+                                    <ContentImage className={styles.img_box_row}/>
                                 )}
                             </>
                         )}
                     </Media>
+
                 </div>
             </div>
         </>

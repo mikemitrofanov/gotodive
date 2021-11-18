@@ -1,3 +1,6 @@
 .container {
     padding-bottom: 105px;
 }
+.container_img {
+    margin: 0 50px;
+}
