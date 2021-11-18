@@ -33,11 +33,9 @@
     "send": "Send"
   },
   "footer": {
-    "contactUs": "My Street, Croatia",
-    "diving": "Diving",
-    "divingTraining": "Diving training",
-    "becomeDivePro": "Become a DIVE PRO",
-    "excursions": "Excursions",
-    "price": "Price"
+    "contactUs": "Contact Us",
+    "categories": "Categories",
+    "social": "Social",
+    "gallery": "Gallery"
   }
 }
