@@ -121,7 +121,9 @@
     align-self: end;
     cursor: pointer;
 }
-
+.btn:hover {
+    opacity: 85%;
+}
 @media screen and (max-width: 1699px) {
     .large {
         display: none;
