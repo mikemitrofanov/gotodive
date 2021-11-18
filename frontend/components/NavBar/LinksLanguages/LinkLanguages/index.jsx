@@ -12,8 +12,11 @@ export default function LinkLanguages({language, data_language}) {
     };
 
     return (
-        <span onClick={() => changeLanguage(data_language)}
-              className={`lang_switcher ${isBurgerMenuOpen ? styles.languages_burger : styles.languages}`}>
+        <span
+            onClick={() => changeLanguage(data_language)}
+              // className={`lang_switcher ${isBurgerMenuOpen ? styles.languages_burger : styles.languages}`}
+              className={styles.lang_switcher}
+        >
       {language}
     </span>
     );

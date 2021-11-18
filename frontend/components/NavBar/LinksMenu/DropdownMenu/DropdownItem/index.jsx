@@ -32,33 +32,31 @@ export default function DropdownItem({category}) {
     }
 
     return (
-        <>
-            <div
-                className={
-                    `${showItem.includes(`${category.id}`)
-                        ? styles.active_dropdown_content
-                        : styles.dropdown_content}
+        <div
+            className={
+                `${showItem.includes(`${category.id}`)
+                    ? styles.active_dropdown_content
+                    : styles.dropdown_content}
                          ${!isBurgerMenuOpen && styles.dropdown_content}`
-                }
-            >
-                {category.services.map((service) => (
-                    <Link
-                        key={service.id}
-                        href={{
-                            pathname: '/[category]/[service]',
-                            query: {category: `${category.title}`, service: `${service.id}`},
-                        }}
+            }
+        >
+            {category.services.map(service => (
+                <Link
+                    key={service.id}
+                    href={{
+                        pathname: '/[category]/[service]',
+                        query: {category: `${category.title}`, service: `${service.id}`},
+                    }}
+                >
+                    <a
+                        onClick={handleOnClickService}
+                        id={service.id}
+                        className={`${isBurgerMenuOpen ? styles.dropdown_links_burger : styles.dropdown_links}`}
                     >
-                        <a
-                            onClick={handleOnClickService}
-                            id={service.id}
-                            className={`${isBurgerMenuOpen ? styles.dropdown_links_burger : styles.dropdown_links}`}
-                        >
-                            {service.title}
-                        </a>
-                    </Link>
-                ))}
-            </div>
-        </>
+                        {service.title}
+                    </a>
+                </Link>
+            ))}
+        </div>
     )
 }

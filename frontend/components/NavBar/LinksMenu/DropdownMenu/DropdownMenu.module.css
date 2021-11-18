@@ -42,3 +42,14 @@
         display: none;
     }
 }
+
+
+.menu_item {
+    cursor: pointer;
+}
+
+.wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}

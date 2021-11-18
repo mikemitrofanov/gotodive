@@ -13,3 +13,14 @@
     display: none;
   }
 }
+
+
+.lang_switcher {
+  margin-right: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #dfe3e0;
+  font-weight: 500;
+  font-family: "Montserrat-Regular", sans-serif;
+  cursor: pointer;
+}

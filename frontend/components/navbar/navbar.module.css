@@ -1,0 +1,73 @@
+.background {
+    background-color: #000b2d;
+}
+
+.container {
+    max-width: 1920px;
+    padding: 0 calc(45px + 120 * ((100vw - 360px) / 1560));
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top_nav_bar_block,
+.humburger_menu_btn {
+    display: none;
+}
+
+.humburger_menu_btn {
+    background-image: url(../../public/images/navBar/burgerMenuButton.svg);
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    border: 0;
+    background-color: #000b2d;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.search_input_container > input {
+    height: 35px;
+    width: 230px;
+    padding: 0 45px 0 10px;
+}
+
+.search_input_container::after {
+    content: " ";
+    right: 83px;
+    position: relative;
+    border-left: 2px solid;
+    color: #193f65;
+}
+
+.search_input_container > svg {
+    font-size: 15px;
+    position: relative;
+    right: 55px;
+    cursor: pointer;
+}
+
+.top_bar_search_input {
+    background-color: #000b2d;
+    border: solid 2px #193f65;
+    margin-right: 30px;
+    outline: none;
+    color: #eaeaea;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.color_search {
+    color: #193f65;
+}
+
+.top_bar_user_icon {
+    font-size: 23px;
+    padding-left: 25px;
+    margin-left: 20px;
+    background-image: url(../../public/images/navBar/userIcon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
