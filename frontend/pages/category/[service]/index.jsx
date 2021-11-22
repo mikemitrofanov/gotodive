@@ -19,10 +19,10 @@ InnerPage.layout = MainLayout;
 
 export const getServerSideProps = withRedux(async ({params, locale}, dispatch) => {
     const language = locale === 'uk' ? 'ukr' : locale;
-    const {data} = await dispatch(categoriesApi.endpoints.getServices.initiate({language, id: params.service}));
+    const {error} = await dispatch(categoriesApi.endpoints.getServices.initiate({language, id: params.service}));
     await dispatch(categoriesApi.endpoints.getPhotoGallery.initiate());
-    
-    if (!data) {
+
+    if (error && error.originalStatus === 404) {
         return {
             notFound: true,
         }
