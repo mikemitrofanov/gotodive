@@ -9,12 +9,12 @@ export default function Error404() {
         <div className={styles.error}>
             <NavBar/>
             <div className={styles.container}>
-                <h1>
+                <h1 className={styles.title}>
                     404 - Page Not Found
                 </h1>
                 <Link href={'/'}>
                     <a className={styles.btn}>
-                        Go home
+                        Go to home page
                     </a>
                 </Link>
             </div>
@@ -22,4 +22,3 @@ export default function Error404() {
         </div>
     )
 }
-
