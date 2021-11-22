@@ -45,8 +45,8 @@ export default function DropdownItem({category}) {
                     <Link
                         key={service.id}
                         href={{
-                            pathname: '/[category]/[service]',
-                            query: {category: `${category.title}`, service: `${service.id}`},
+                            pathname: '/category/[service]',
+                            query: {service: `${service.id}`},
                         }}
                     >
                         <a
