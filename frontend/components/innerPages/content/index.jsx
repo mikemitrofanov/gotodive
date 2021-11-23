@@ -1,7 +1,7 @@
 import styles from "./content.module.css";
 import ContentSlider from "../contentSlider";
 import Media from "react-media";
-import {useGetServicesQuery} from "../../../store/api/categories";
+import {useGetServicesQuery} from "../../../redux/slices/apiSlice";
 import {useRouter} from "next/router";
 import {useTranslation} from "next-i18next";
 import ContentImage from "./contentImage";
@@ -23,7 +23,7 @@ export default function Content({id}) {
         course_certificate
     } = service || {};
     const {t} = useTranslation("inner_page");
-    console.log(service)
+
     return (
         <>
             <div className={styles.background}>

@@ -1,5 +1,5 @@
 import {withRedux} from "../../../hof/withRedux";
-import {categoriesApi} from "../../../store/api/categories";
+import {apiSlice} from "../../../redux/slices/apiSlice";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import Content from "../../../components/innerPages/content";
 import Header from "../../../components/innerPages/header";
@@ -19,7 +19,7 @@ InnerPage.layout = MainLayout;
 
 export const getServerSideProps = withRedux(async ({params, locale}, dispatch) => {
     const language = locale === 'uk' ? 'ukr' : locale;
-    await dispatch(categoriesApi.endpoints.getServices.initiate({language, id: params.service}));
+    await dispatch(apiSlice.endpoints.getServices.initiate({language, id: params.service}));
 
     return {
         props: {

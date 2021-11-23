@@ -1,7 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {useMemo} from 'react';
-import {categoriesApi} from "./api/categories";
-import DropdownMenuReducer from "./slices/DropdownMenuSlice";
+import {apiSlice} from "./slices/apiSlice";
+import navbarReducer from "./slices/navbarSlice";
 
 let store
 const initialState = {};
@@ -9,11 +9,11 @@ const initialState = {};
 function initStore(preloadedState = initialState) {
     return configureStore({
         reducer: {
-            [categoriesApi.reducerPath]: categoriesApi.reducer,
-            dropdownMenu: DropdownMenuReducer,
+            [apiSlice.reducerPath]: apiSlice.reducer,
+            navbar: navbarReducer,
         },
         preloadedState,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(categoriesApi.middleware),
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
     })
 }
 

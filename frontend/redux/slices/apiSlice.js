@@ -1,8 +1,8 @@
 import {fetchBaseQuery} from "@reduxjs/toolkit/query";
 import {createApi} from '@reduxjs/toolkit/query/react';
 
-export const categoriesApi = createApi({
-    reducerPath: 'categoriesApi',
+export const apiSlice = createApi({
+    reducerPath: 'api',
     baseQuery: fetchBaseQuery({
         baseUrl: process.env.NEXT_PUBLIC_API_URL,
     }),
@@ -22,6 +22,7 @@ export const categoriesApi = createApi({
                     'imageUrl': `/images/popular/image1.png`
                 }),
         }),
+
         getServices: build.query({
             query: ({language, id}) => `${language}/services/${id}`,
             transformResponse: response => {
@@ -43,4 +44,4 @@ export const {
     useGetAllCategoriesQuery,
     useGetServicesQuery,
     useGetPhotoGalleryQuery
-} = categoriesApi;
+} = apiSlice;
