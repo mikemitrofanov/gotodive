@@ -1,14 +1,14 @@
-import { useSelector } from "react-redux";
+import styles from "./menuItem.module.css";
 import Link from "next/link";
-import { burgerMenuState} from "../../../../store/slices/burgerMenu";
-import styles from "./linkMenu.module.css";
 
-export default function MenuItem({ href, name }) {
-  const isBurgerMenuOpen = useSelector(burgerMenuState);
+export default function MenuItem(props) {
+    const {href, text, ...prop} = props;
 
-  return (
-    <Link href={href}>
-      <a className={`${isBurgerMenuOpen ? styles.main_nav_links_burger : styles.main_nav_links}`}>{name}</a>
-    </Link>
-  );
+    return (
+        <Link href={href}>
+            <a className={styles.link} {...prop}>
+                {text}
+            </a>
+        </Link>
+    )
 }

@@ -1,46 +1,26 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faPlay} from "@fortawesome/free-solid-svg-icons";
-import {useDispatch, useSelector} from "react-redux";
-import {burgerMenuState} from "../../../../store/slices/burgerMenu";
-import styles from "./DropdownMenu.module.css";
+import styles from "./dropdownMenu.module.css";
 import DropdownItem from "./DropdownItem";
-import {showDropdownItem, showMenu} from "../../../../store/slices/DropdownMenuSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {openDropdown, openDropdownMenu} from "../../../../redux/slices/navbarSlice";
 
 export default function DropdownMenu({category}) {
-    const isBurgerMenuOpen = useSelector(burgerMenuState);
-    const showItem = useSelector(showDropdownItem);
+    const openedDropdownMenu = useSelector(openDropdown);
     const dispatch = useDispatch();
 
     const handleOnClickCategory = (e) => {
         e.stopPropagation()
-        dispatch(showMenu(showItem.includes(e.target.id) ? [] : [e.target.id]));
+        dispatch(openDropdownMenu(openedDropdownMenu.includes(e.target.id) ? [] : [e.target.id]));
     }
 
+    const isOpenedDropdownMenu = openedDropdownMenu.includes(`${category.id}`);
+
     return (
-        <>
-            <span className={styles.wrap}>
-               <a
-                   key={category.id}
-                   id={category.id}
-                   onClick={handleOnClickCategory}
-                   className={
-                       `${styles.menu_item}
-                    ${showItem.includes(`${category.id}`) && styles.active_link_dropdown} 
-                      ${isBurgerMenuOpen && styles.main_nav_links_burger}`
-                   }
-               >
+        <div className={styles.wrapper}>
+            <a key={category.id} id={category.id} onClick={handleOnClickCategory}
+               className={`${styles.menu_item} ${isOpenedDropdownMenu && styles.menu_item_active}`}>
                 {category.title}
             </a>
-            <FontAwesomeIcon
-                icon={faPlay}
-                className={
-                    `${showItem.includes(`${category.id}`)
-                        ? styles.active_arrows
-                        : styles.arrows}`
-                }
-            />
-            </span>
             <DropdownItem category={category}/>
-        </>
+        </div>
     )
 }

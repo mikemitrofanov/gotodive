@@ -1,14 +1,12 @@
-import {useDispatch, useSelector} from "react-redux";
-import {burgerMenuState} from "../../../../../store/slices/burgerMenu";
 import styles from "./dropdownItem.module.css";
-import {useEffect, useState} from "react";
-import {showDropdownItem, showMenu} from "../../../../../store/slices/DropdownMenuSlice";
 import Link from "next/link";
+import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {openDropdown, openDropdownMenu} from "../../../../../redux/slices/navbarSlice";
 
 export default function DropdownItem({category}) {
-    const isBurgerMenuOpen = useSelector(burgerMenuState);
     const [onClickService, SetOnClickService] = useState(null);
-    const showItem = useSelector(showDropdownItem);
+    const openedDropdownMenu = useSelector(openDropdown);
     const dispatch = useDispatch();
 
     useEffect(
@@ -17,42 +15,31 @@ export default function DropdownItem({category}) {
                 if (onClickService === e.target) {
                     return;
                 }
-                dispatch(showMenu([]));
+                dispatch(openDropdownMenu([]));
             }
             document.addEventListener("click", listener);
             return () => {
                 document.removeEventListener("click", listener);
             }
-        }, [onClickService]
-    );
+        }, [onClickService, dispatch]
+    )
 
     const handleOnClickService = (e) => {
         e.stopPropagation()
         SetOnClickService(e.target)
     }
 
+    const isOpenDropdownMenu = openedDropdownMenu.includes(`${category.id}`);
+
     return (
-        <div
-            className={
-                `${showItem.includes(`${category.id}`)
-                    ? styles.active_dropdown_content
-                    : styles.dropdown_content}
-                         ${!isBurgerMenuOpen && styles.dropdown_content}`
-            }
-        >
+        <div onClick={handleOnClickService}
+             className={`${isOpenDropdownMenu ? styles.dropdown_content_active : styles.dropdown_content}`}>
             {category.services.map(service => (
                 <Link
                     key={service.id}
-                    href={{
-                        pathname: '/[category]/[service]',
-                        query: {category: `${category.title}`, service: `${service.id}`},
-                    }}
+                    href={{pathname: '/category/[service]', query: {service: `${service.id}`}}}
                 >
-                    <a
-                        onClick={handleOnClickService}
-                        id={service.id}
-                        className={`${isBurgerMenuOpen ? styles.dropdown_links_burger : styles.dropdown_links}`}
-                    >
+                    <a id={service.id} className={styles.title}>
                         {service.title}
                     </a>
                 </Link>

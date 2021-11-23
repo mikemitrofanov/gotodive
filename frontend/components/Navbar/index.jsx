@@ -1,8 +1,8 @@
 import styles from "./navbar.module.css";
-import ListMenu from "../Navbar/MenuList";
-import ListLanguages from "../Navbar/ListLanguages";
-import BurgerMenu from "../Navbar/BurgerMenu";
-import SearchInput from "../Navbar/SearchInput";
+import BurgerMenu from "./BurgerMenu";
+import MenuList from "./MenuList";
+import SearchInput from "./SearchInput";
+import LanguageSwitchers from "./LanguageSwitchers";
 
 export default function Navbar() {
 
@@ -11,10 +11,10 @@ export default function Navbar() {
             <BurgerMenu/>
             <div className={styles.background}>
                 <div className={styles.container}>
-                    <ListMenu/>
+                    <MenuList/>
                     <div className={styles.wrapper}>
                         <SearchInput/>
-                        <ListLanguages/>
+                        <LanguageSwitchers/>
                         <a href='#' className={styles.wrap_user}>
                             <div className={styles.icon_user}/>
                         </a>
