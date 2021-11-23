@@ -1,17 +1,22 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-const DropdownMenuSlice = createSlice({
-    name: 'dropdownMenu',
+const NavbarSlice = createSlice({
+    name: 'navbar',
     initialState: {
-      openDropdown:  []
+        openDropdown: [],
+        isOpenBurgerMenu: false,
     },
     reducers: {
-        showMenu: (state, action) => {
+        openDropdownMenu: (state, action) => {
             state.openDropdown = action.payload;
+        },
+        openBurgerMenu: (state, action) => {
+            state.isOpenBurgerMenu = action.payload;
         }
     }
 })
 
-export const {showMenu} = DropdownMenuSlice.actions;
-export const  openDropdown = state => state.dropdownMenu.openDropdown;
-export default DropdownMenuSlice.reducer;
+export const {openDropdownMenu, openBurgerMenu} = NavbarSlice.actions;
+export const openDropdown = state => state.navbar.openDropdown;
+export const isOpenBurgerMenu = state => state.navbar.isOpenBurgerMenu;
+export default NavbarSlice.reducer;
