@@ -11,12 +11,18 @@
     align-items: center;
 }
 
+@media screen and (max-width: 1499px) {
+    .container {
+        display: none;
+    }
+}
+
 .wrapper {
     display: flex;
     align-items: center;
 }
 
-.wrapper > div {
+.wrapper > div:first-child {
     margin-right: 40px;
 }
 
