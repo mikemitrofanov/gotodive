@@ -3,7 +3,7 @@ import Link from "next/link";
 import { burgerMenuState} from "../../../../store/slices/burgerMenu";
 import styles from "./linkMenu.module.css";
 
-export default function LinkMenu({ href, name }) {
+export default function MenuItem({ href, name }) {
   const isBurgerMenuOpen = useSelector(burgerMenuState);
 
   return (

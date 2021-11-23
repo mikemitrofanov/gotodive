@@ -1,6 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {useMemo} from 'react';
-import burgerMenuStatusReducer from './slices/burgerMenu';
 import {categoriesApi} from "./api/categories";
 import DropdownMenuReducer from "./slices/DropdownMenuSlice";
 
@@ -11,7 +10,6 @@ function initStore(preloadedState = initialState) {
     return configureStore({
         reducer: {
             [categoriesApi.reducerPath]: categoriesApi.reducer,
-            burgerMenu: burgerMenuStatusReducer,
             dropdownMenu: DropdownMenuReducer,
         },
         preloadedState,
@@ -46,6 +44,7 @@ export function useStore(initialState) {
     const store = useMemo(() => initializeStore(initialState), [initialState])
     return store
 }
+
 export function removeUndefined(state) {
     if (typeof state === 'undefined') return null
     if (Array.isArray(state)) return state.map(removeUndefined)

@@ -14,8 +14,8 @@
   }
 }
 
-
 .lang_switcher {
+  display: inline-block;
   margin-right: 20px;
   font-size: 14px;
   line-height: 20px;
@@ -23,4 +23,8 @@
   font-weight: 500;
   font-family: "Montserrat-Regular", sans-serif;
   cursor: pointer;
+}
+
+.lang_switcher:last-child {
+  margin-right: 40px;
 }

@@ -3,15 +3,15 @@ import {createSlice} from "@reduxjs/toolkit";
 const DropdownMenuSlice = createSlice({
     name: 'dropdownMenu',
     initialState: {
-      showDropdownItem:  []
+      openDropdown:  []
     },
     reducers: {
         showMenu: (state, action) => {
-            state.showDropdownItem = action.payload;
+            state.openDropdown = action.payload;
         }
     }
 })
 
 export const {showMenu} = DropdownMenuSlice.actions;
-export const  showDropdownItem = state => state.dropdownMenu.showDropdownItem;
+export const  openDropdown = state => state.dropdownMenu.openDropdown;
 export default DropdownMenuSlice.reducer;

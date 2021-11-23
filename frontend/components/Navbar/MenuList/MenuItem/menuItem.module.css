@@ -1,0 +1,10 @@
+.link {
+  font-size: calc(16px + 4 * ((100vw - 360px) / 1560));
+  color: #dfe3e0;
+  font-weight: 400;
+  font-family: "Montserrat-Regular", sans-serif;
+  cursor: pointer;
+}
+.link:hover {
+  color: #639bd1;
+}
