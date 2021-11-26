@@ -1,0 +1,32 @@
+.background {
+    background-color: #ebeeed;
+}
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: calc(40px + 60 * ((100vw - 360px) / 1560));
+    padding-left: calc(45px + 120 * ((100vw - 360px) / 1560));
+    padding-bottom: calc(40px + 40 * ((100vw - 360px) / 1560));
+    padding-right: calc(45px + 120 * ((100vw - 360px) / 1560));
+}
+
+.title {
+    font-size: calc(14px + 25 * ((100vw - 360px) / 1560));
+    font-weight: 800;
+    color: #7b7c7b;
+    font-family: "Montserrat-ExtraBold", sans-serif;
+    margin-bottom: calc(25px + 25 * ((100vw - 360px) / 1560));
+}
+
+@media screen and (min-width: 1921px) {
+    .container {
+        padding: 100px 165px 80px;
+    }
+
+    .title {
+        font-size: 39px;
+        margin-bottom: 50px;
+    }
+}
