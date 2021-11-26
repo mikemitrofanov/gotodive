@@ -7,7 +7,7 @@ export default function Categories() {
 
     return (
         <article className={`${styles.wrapper} ${styles.categories}`}>
-            <h1 className={styles.title}>Categories</h1>
+            <h5 className={styles.title}>Categories</h5>
             <Link href='#'>
                 <a className={styles.category}>{t("footer.contactUs")}</a>
             </Link>

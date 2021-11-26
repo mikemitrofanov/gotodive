@@ -5,7 +5,7 @@ export default function Social() {
 
     return (
         <article className={`${styles.wrapper} ${styles.social}`}>
-            <h1 className={styles.title}>Social</h1>
+            <h5 className={styles.title}>Social</h5>
             <Link href='#'>
                 <a className={styles.instagram}>@GotoDive</a>
             </Link>

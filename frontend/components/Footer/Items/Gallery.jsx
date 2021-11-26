@@ -4,7 +4,7 @@ export default function Gallery() {
 
     return (
         <article className={`${styles.wrapper} ${styles.gallery}`}>
-            <h1 className={styles.title}>Gallery</h1>
+            <h5 className={styles.title}>Gallery</h5>
             <a className={styles.link} href='/gallery'>
                 <img className={styles.img} alt='photo_gallery' src='/images/footer/gallery/img1.png'/>
                 <img className={styles.img} alt='photo_gallery' src='/images/footer/gallery/img2.png'/>

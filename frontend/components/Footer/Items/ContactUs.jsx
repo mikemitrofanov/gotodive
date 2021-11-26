@@ -7,7 +7,7 @@ export default function ContactUs() {
 
     return (
         <article className={`${styles.wrapper} ${styles.contact}`}>
-            <h1 className={styles.title}>Contact Us</h1>
+            <h5 className={styles.title}>Contact Us</h5>
             <Link href='#'>
                 <a className={styles.location}>{t("footer.contactUs")}</a>
             </Link>
