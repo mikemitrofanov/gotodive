@@ -1,15 +1,15 @@
-import styles from "./contact.module.css";
+import styles from "./contactUs.module.css";
 import {useTranslation} from "next-i18next";
-import ContactForm from "./Items";
+import Form from "./Items/ContactForm";
 
-export default function Contact() {
+export default function ContactUs() {
     const {t} = useTranslation("common");
 
     return (
         <section className={styles.background}>
             <div className={styles.container}>
-                <h1 className={styles.title}>{t("contact.writeToUs")}</h1>
-                <ContactForm/>
+                <h2 className={styles.title}>{t("contact.writeToUs")}</h2>
+                <Form/>
             </div>
         </section>
     )

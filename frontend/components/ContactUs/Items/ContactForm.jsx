@@ -1,4 +1,4 @@
-import styles from "./contactForm.module.css";
+import styles from "../contactUs.module.css";
 import {useTranslation} from "next-i18next";
 import {Form, Formik} from "formik";
 import * as Yup from "yup";
@@ -16,7 +16,7 @@ const validationSchema = Yup.object().shape({
     message: Yup.string().required("Message required"),
 });
 
-export default function MainForm() {
+export default function ContactForm() {
     const {t} = useTranslation("common");
 
     const handleSubmit = async (values) => {
@@ -37,14 +37,14 @@ export default function MainForm() {
         >
             <Form className={styles.form}>
                 <div className={styles.wrapper}>
-                    <Input name='name' label={t("contact.name")}/>
-                    <Input name='email' label='Email'/>
-                    <Input name='phone' label={t("contact.phone")}/>
-                </div>
-                <div className={styles.wrapper}>
+                    <div className={styles.inner_wrapper}>
+                        <Input name='name' label={t("contact.name")}/>
+                        <Input name='email' label='Email'/>
+                        <Input name='phone' label={t("contact.phone")}/>
+                    </div>
                     <TextArea name='message'/>
-                    <button className={styles.button} type='submit'>{t("contact.send")}</button>
                 </div>
+                <button className={styles.button} type='submit'>{t("contact.send")}</button>
             </Form>
         </Formik>
     )
