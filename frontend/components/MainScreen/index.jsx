@@ -1,15 +1,15 @@
-import styles from "./subHeader.module.css";
+import styles from "./mainScreen.module.css";
 import {useTranslation} from "next-i18next";
 
-export default function SubHeader() {
+export default function MainScreen() {
     const {t} = useTranslation("common");
 
     return (
         <section className={styles.background}>
             <div className={styles.container}>
                 <div className={styles.wrap_image}>
-                    <img className={styles.logo} alt='logo' src='/images/subHeader/logo.png'/>
-                    <img className={styles.image} alt='diving' src='/images/subHeader/scuba.png'/>
+                    <img className={styles.logo} alt='logo' src='/images/mainScreen/logo.png'/>
+                    <img className={styles.image} alt='diving' src='/images/mainScreen/scuba.png'/>
                 </div>
                 <div className={styles.wrap_text}>
                     <h1 className={styles.title}>
