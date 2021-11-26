@@ -1,31 +1,31 @@
-import { useTranslation } from "next-i18next";
+import {useTranslation} from "next-i18next";
 import styles from "./team.module.css";
 
 export default function Team() {
-  const { t } = useTranslation("common");
+    const {t} = useTranslation("common");
 
-  return (
-    <section className={styles.background_block_title}>
-      <h1 className={styles.block_title}>{t("team.ourTeam")}</h1>
-      <div className={styles.main_container}>
-        <div className={styles.content_container}>
-          <article className={styles.wrapper_user}>
-            <img src='/images/team/alexGerman.png' className={styles.img_team} />
-            <p className={styles.team_member_name}>Alex German</p>
-            <p className={styles.team_member_description}>{t("team.greatAndTerrible")}</p>
-          </article>
-          <article className={styles.wrapper_user}>
-            <img src='/images/team/yuriiProkhvatilo.png' className={styles.img_team} />
-            <p className={styles.team_member_name}>{t("team.name2")}</p>
-            <p className={styles.team_member_description}>{t("team.greatAndTerrible")}</p>
-          </article>
-          <article className={styles.wrapper_user}>
-            <img src='/images/team/rickSanches.png' className={styles.img_team} />
-            <p className={styles.team_member_name}>{t("team.name3")}</p>
-            <p className={styles.team_member_description}>{t("team.justDarling")}</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  );
+    return (
+        <section className={styles.background}>
+            <div className={styles.container}>
+                <h2 className={styles.title}>{t("team.ourTeam")}</h2>
+                <div className={styles.card_list}>
+                    <div className={styles.card}>
+                        <img className={styles.photo} alt='photo' src='/images/team/alexGerman.png'/>
+                        <h3 className={styles.name}>{t("team.name2")}</h3>
+                        <p className={styles.description}>{t("team.greatAndTerrible")}</p>
+                    </div>
+                    <div className={styles.card}>
+                        <img className={styles.photo} alt='photo' src='/images/team/yuriiProkhvatilo.png'/>
+                        <h3 className={styles.name}>{t("team.name2")}</h3>
+                        <p className={styles.description}>{t("team.greatAndTerrible")}</p>
+                    </div>
+                    <div className={styles.card}>
+                        <img className={styles.photo} alt='photo' src='/images/team/rickSanches.png'/>
+                        <h3 className={styles.name}>{t("team.name3")}</h3>
+                        <p className={styles.description}>{t("team.justDarling")}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
 }
