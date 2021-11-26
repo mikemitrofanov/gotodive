@@ -33,11 +33,9 @@
     "send": "Відправити"
   },
   "footer": {
-    "contactUs": "Моя Вулиця, Хорватія",
-    "diving": "Дайвінг",
-    "divingTraining": "Навчання дайвінгу",
-    "becomeDivePro": "Стань ДАЙВ ПРО",
-    "excursions": "Екскурсії",
-    "price": "Прайс"
+    "contactUs": "Зв'яжіться з нами",
+    "categories": "Категорії",
+    "social": "Соц. мережі",
+    "gallery": "Галерея"
   }
 }
