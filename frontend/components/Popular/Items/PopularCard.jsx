@@ -1,4 +1,4 @@
-import styles from "./serviceShort.module.css";
+import styles from "../popular.module.css";
 import {useTranslation} from "next-i18next";
 
 export default function PopularCard({src, title, description}) {
