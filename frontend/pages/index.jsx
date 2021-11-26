@@ -1,5 +1,5 @@
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import {categoriesApi} from "../store/api/categories";
+import {apiSlice} from "../redux/slices/apiSlice";
 import SubHeader from "../components/SubHeader";
 import Popular from "../components/Popular";
 import Contact from "../components/Contact";
@@ -15,20 +15,21 @@ export default function MainPage() {
             <Team/>
             <Contact/>
         </>
-    );
+    )
 }
 
 MainPage.layout = MainLayout;
 
 export const getServerSideProps = withRedux(async ({locale}, dispatch) => {
     const language = locale === 'uk' ? 'ukr' : locale;
-    await dispatch(categoriesApi.endpoints.getAllCategories.initiate(language));
-    await dispatch(categoriesApi.endpoints.getPopularServices.initiate(language));
-    await dispatch(categoriesApi.endpoints.getPhotoGallery.initiate());
+
+    await dispatch(apiSlice.endpoints.getAllCategories.initiate(language));
+    await dispatch(apiSlice.endpoints.getPopularServices.initiate(language));
+    await dispatch(apiSlice.endpoints.getPhotoGallery.initiate());
 
     return {
         props: {
             ...(await serverSideTranslations(locale)),
-        },
-    };
-});
+        }
+    }
+})

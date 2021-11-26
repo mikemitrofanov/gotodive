@@ -1,7 +1,7 @@
 import {useRouter} from "next/router";
 import Link from "next/link";
-import {useGetAllCategoriesQuery} from "../../../store/api/categories";
 import styles from "./categories.module.css";
+import {useGetAllCategoriesQuery} from "../../../redux/slices/apiSlice";
 
 export default function Categories({title}) {
     const router = useRouter();

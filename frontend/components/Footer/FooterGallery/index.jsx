@@ -1,6 +1,6 @@
 import "@fancyapps/ui";
 import styles from "./footerGallery.module.css";
-import {useGetPhotoGalleryQuery} from "../../../store/api/categories";
+import {useGetPhotoGalleryQuery} from "../../../redux/slices/apiSlice";
 
 export default function FooterGallery({title}) {
     const {data: photoList} = useGetPhotoGalleryQuery();
