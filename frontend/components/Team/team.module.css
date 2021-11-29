@@ -1,148 +1,97 @@
-.background_block_title {
-  background-color: #ebeeed;
+.background {
+    background: url("../../public/images/team/background.png") no-repeat center;
+    background-size: cover;
 }
 
-.block_title {
-  font-size: 2.4rem;
-  font-family: "Montserrat-ExtraBold", sans-serif;
-  line-height: 1;
-  width: max-content;
-  color: #7b7c7b;
-  margin: auto;
-  text-align: center;
-  padding: 30px 50px 50px 50px;
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: calc(40px + 60 * ((100vw - 360px) / 1560));
+    padding-left: calc(45px + 120 * ((100vw - 360px) / 1560));
+    padding-bottom: calc(40px + 40 * ((100vw - 360px) / 1560));
+    padding-right: calc(45px + 120 * ((100vw - 360px) / 1560));
 }
 
-.main_container {
-  background: url("/images/team/background.png") no-repeat center;
+.title {
+    font-size: calc(14px + 25 * ((100vw - 360px) / 1560));
+    font-weight: 800;
+    font-family: "Montserrat-ExtraBold", sans-serif;
+    color: #ffffff;
+    margin-bottom: calc(25px + 25 * ((100vw - 360px) / 1560));
 }
 
-.content_container {
-  max-width: 1920px;
-  margin: auto;
-  height: 680px;
-  display: flex;
-  align-items: center;
-  color: #eaeaea;
-  justify-content: space-around;
-  flex-direction: row;
-  flex-wrap: wrap;
-  text-align: center;
-  line-height: 0.1;
+.card_list {
+    display: flex;
+    justify-content: space-between;
+    gap: calc(25px + 40 * ((100vw - 360px) / 1560));
+    flex-wrap: wrap;
 }
 
-.main_container,
-.content_container {
-  background-size: cover;
+.card {
+    flex: 1 1 auto;
 }
 
-.wrapper_user {
-  margin: 0px 46px 0px 46px;
+.photo {
+    width: calc(120px + 280 * ((100vw - 360px) / 1560));
+    height: calc(120px + 280 * ((100vw - 360px) / 1560));
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: calc(15px + 15 * ((100vw - 360px) / 1560));
 }
 
-.team_member_name {
-  font-size: 1.8rem;
-  font-family: "Montserrat-Bold", sans-serif;
+.name {
+    font-size: calc(11px + 24 * ((100vw - 360px) / 1560));
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "Montserrat-Bold", sans-serif;
+    line-height: 1.25;
 }
 
-.team_member_description {
-  font-size: 1.2rem;
-  font-family: "Montserrat-Light", sans-serif;
+.description {
+    font-size: calc(8px + 14 * ((100vw - 360px) / 1560));
+    color: #ffffff;
+    font-weight: 300;
+    font-family: "Montserrat-Light", sans-serif;
+    line-height: 1.25;
 }
 
-@media screen and (max-width: 2024px) {
-  .content_container {
-    max-height: 600px;
-  }
+@media screen and (max-width: 767px) {
+    .description {
+        display: none;
+    }
 
-  .img_team {
-    max-width: 350px;
-  }
+    .title {
+        text-align: left;
+    }
 }
 
-@media screen and (max-width: 1325px) {
-  .block_title {
-    margin-left: 100px;
-  }
+@media screen and (min-width: 1921px) {
+    .container {
+        padding: 100px 165px 80px;
+    }
 
-  .content_container {
-    min-height: 1050px;
-  }
+    .title {
+        font-size: 39px;
+        margin-bottom: 50px;
+    }
 
-  .team_member_description {
-    display: none;
-  }
-}
+    .card_list {
+        gap: 80px;
+    }
 
-@media screen and (max-width: 1790px) {
-  .block_title {
-    font-size: 1.8rem;
-  }
-}
+    .photo {
+        width: 400px;
+        height: 400px;
+        margin-bottom: 30px;
+    }
 
-@media screen and (max-width: 1324px) {
-  .block_title {
-    font-size: 1.4rem;
-  }
-}
+    .name {
+        font-size: 35px;
+    }
 
-@media screen and (max-width: 989px) {
-  .block_title {
-    margin-left: 20px;
-  }
-
-  .content_container {
-    min-height: 875px;
-  }
-
-  .img_team {
-    max-width: 300px;
-  }
-
-  .team_member_name {
-    font-size: 1.5rem;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .content_container {
-    min-height: 670px;
-  }
-
-  .img_team {
-    max-width: 220px;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .block_title {
-    font-size: 1.2rem;
-  }
-
-  .content_container {
-    min-height: 600px;
-  }
-
-  .wrapper_user {
-    margin: 0px 10px 0px 10px;
-  }
-
-  .team_member_name {
-    font-size: 1rem;
-  }
-}
-
-@media screen and (max-width: 479px) {
-  .block_title {
-    margin-left: 40px;
-    padding: 50px 0px 50px 0px;
-  }
-
-  .content_container {
-    min-height: 950px;
-  }
-
-  .wrapper_user {
-    margin-top: 10px;
-  }
+    .description {
+        font-size: 22px;
+    }
 }

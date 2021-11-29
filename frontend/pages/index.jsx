@@ -1,19 +1,20 @@
-import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import {apiSlice} from "../redux/slices/apiSlice";
-import SubHeader from "../components/SubHeader";
 import Popular from "../components/Popular";
-import Contact from "../components/Contact";
-import {withRedux} from "../hof/withRedux";
+import MainScreen from "../components/MainScreen";
+import ContactUs from "../components/ContactUs";
 import Team from "../components/Team";
 import MainLayout from "../components/layouts/MainLayout";
+import {withRedux} from "../hof/withRedux";
+import {apiSlice} from "../redux/slices/apiSlice";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 export default function MainPage() {
+
     return (
         <>
-            <SubHeader/>
+            <MainScreen/>
             <Popular/>
             <Team/>
-            <Contact/>
+            <ContactUs/>
         </>
     )
 }

@@ -79,16 +79,6 @@ body {
     font-size: 19px;
 }
 
-/*#__next {*/
-/*  max-width: 2490px;*/
-/*  margin: 0 auto;*/
-/*}*/
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
 @font-face {
     font-family: "Montserrat-Light";
     src: url("../public/fonts/montserrat/Montserrat-Light.ttf");
@@ -108,26 +98,3 @@ a {
     font-family: "Montserrat-ExtraBold";
     src: url("../public/fonts/montserrat/Montserrat-ExtraBold.ttf");
 }
-
-/*.ant-carousel .slick-prev,*/
-/*.ant-carousel .slick-next,*/
-/*.ant-carousel .slick-prev:hover,*/
-/*.ant-carousel .slick-next:hover {*/
-/*    font-size: inherit;*/
-/*    font-family: swiper-icons;*/
-/*    color: #848484;*/
-/*}*/
-
-/*.ant-carousel .slick-prev,*/
-/*.ant-carousel .slick-prev:hover {*/
-
-/*    z-index: 2;*/
-/*    color: #848484;*/
-/*}*/
-
-/*.ant-carousel .slick-next,*/
-/*.ant-carousel .slick-next:hover {*/
-
-/*    z-index: 2;*/
-/*    color: #848484;*/
-/*}*/
