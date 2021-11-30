@@ -4,7 +4,7 @@
     "gallery": "Gallery",
     "price": "Price"
   },
-  "subHeader": {
+  "mainScreen": {
     "titleStart": "DIVE INTO",
     "titleEnd": "ADVENTURES",
     "description": "Scuba diving is an unforgettable holiday experience in Croatia! It's much easier than you think! Diving is simple, easy and fun!",
@@ -34,7 +34,13 @@
   },
   "footer": {
     "contactUs": "Contact Us",
+    "location": "777, st. My, Country",
     "categories": "Categories",
+    "category-1": "Diving",
+    "category-2": "Diving training",
+    "category-3": "Become a DIVE PRO",
+    "category-4": "Excursions",
+    "category-5": "Price",
     "social": "Social",
     "gallery": "Gallery"
   }
