@@ -26,35 +26,35 @@ class ServiceFactory extends Factory
 
         return [
             'title' => [
-                'en' => $this->faker->text(15),
-                'ukr' => $this->faker->text(20),
-                'ru' => $this->faker->text(25),
+                'en' => $this->faker->realText(15),
+                'uk' => $this->faker->realText(20),
+                'ru' => $this->faker->realText(25),
             ],
             'description' => [
-                'en' => $this->faker->text(250),
-                'ukr' => $this->faker->text(300),
-                'ru' => $this->faker->text(350),
+                'en' => $this->faker->realText(250),
+                'uk' => $this->faker->realText(300),
+                'ru' => $this->faker->realText(350),
             ],
             'duration' => [
                 'en' => $duration . ' minutes',
-                'ukr' => $duration . ' хвилин',
+                'uk' => $duration . ' хвилин',
                 'ru' => $duration . ' минут',
 
             ],
             'short_description' => [
-                'en' => $this->faker->text(75),
-                'ukr' => $this->faker->text(60),
-                'ru' => $this->faker->text(90),
+                'en' => $this->faker->realText(75),
+                'uk' => $this->faker->realText(60),
+                'ru' => $this->faker->realText(90),
             ],
             'required_experience' => $this->faker->boolean() ? [
                     'en' => $experience . ' hours',
-                    'ukr' => $experience . 'годин',
+                    'uk' => $experience . 'годин',
                     'ru' => $experience . ' часов',
                 ]:null,
             'course_certificate' => $this->faker->boolean() ? [
-                    'en' => $this->faker->text(250),
-                    'ukr' => $this->faker->text(300),
-                    'ru' => $this->faker->text(350),
+                    'en' => $this->faker->realText(250),
+                    'uk' => $this->faker->realText(300),
+                    'ru' => $this->faker->realText(350),
                 ]:null,
             'price' => $this->faker->numberBetween(50, 1000),
             'is_popular' => $this->faker->boolean(30),
