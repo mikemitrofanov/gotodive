@@ -22,10 +22,8 @@ export default function MainPage() {
 MainPage.layout = MainLayout;
 
 export const getServerSideProps = withRedux(async ({locale}, dispatch) => {
-    const language = locale === 'uk' ? 'ukr' : locale;
-
-    await dispatch(apiSlice.endpoints.getAllCategories.initiate(language));
-    await dispatch(apiSlice.endpoints.getPopularServices.initiate(language));
+    await dispatch(apiSlice.endpoints.getAllCategories.initiate(locale));
+    await dispatch(apiSlice.endpoints.getPopularServices.initiate(locale));
     await dispatch(apiSlice.endpoints.getPhotoGallery.initiate());
 
     return {

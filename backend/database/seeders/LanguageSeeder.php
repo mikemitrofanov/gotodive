@@ -14,7 +14,7 @@ class LanguageSeeder extends Seeder
      */
     public function run()
     {
-        $languages = ['ru', 'en', 'ukr'];
+        $languages = ['ru', 'en', 'uk'];
         foreach ($languages as $lang) {
             Language::create([
                 'language_code' => $lang

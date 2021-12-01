@@ -7,8 +7,7 @@ import TextContent from "./TextContent";
 
 export default function Content({id}) {
     const router = useRouter();
-    const language = router.locale === 'uk' ? 'ukr' : router.locale;
-    const {data: service} = useGetServicesQuery({language, id});
+    const {data: service} = useGetServicesQuery({language: router.locale, id});
 
     return (
         <section className={styles.background}>

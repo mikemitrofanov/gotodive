@@ -8,7 +8,7 @@ import ListItemLink from "../../ui/ListItemLink";
 export default function MenuList() {
     const {t} = useTranslation("common");
     const router = useRouter();
-    const {data: categories} = useGetAllCategoriesQuery(router.locale === 'uk' ? 'ukr' : router.locale);
+    const {data: categories} = useGetAllCategoriesQuery(router.locale);
 
     return (
         <nav>
