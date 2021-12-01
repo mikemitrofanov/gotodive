@@ -1,34 +1,36 @@
-import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import {categoriesApi} from "../store/api/categories";
-import SubHeader from "../components/SubHeader";
-import Popular from "../components/Popular";
-import Contact from "../components/Contact";
-import {withRedux} from "../hof/withRedux";
-import Team from "../components/Team";
+import Popular from "../components/popular";
+import MainScreen from "../components/mainScreen";
+import ContactUs from "../components/contactUs";
+import Team from "../components/team";
 import MainLayout from "../components/layouts/MainLayout";
+import {withRedux} from "../hof/withRedux";
+import {apiSlice} from "../redux/slices/apiSlice";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 export default function MainPage() {
+
     return (
         <>
-            <SubHeader/>
+            <MainScreen/>
             <Popular/>
             <Team/>
-            <Contact/>
+            <ContactUs/>
         </>
-    );
+    )
 }
 
 MainPage.layout = MainLayout;
 
 export const getServerSideProps = withRedux(async ({locale}, dispatch) => {
     const language = locale === 'uk' ? 'ukr' : locale;
-    await dispatch(categoriesApi.endpoints.getAllCategories.initiate(language));
-    await dispatch(categoriesApi.endpoints.getPopularServices.initiate(language));
-    await dispatch(categoriesApi.endpoints.getPhotoGallery.initiate());
+
+    await dispatch(apiSlice.endpoints.getAllCategories.initiate(language));
+    await dispatch(apiSlice.endpoints.getPopularServices.initiate(language));
+    await dispatch(apiSlice.endpoints.getPhotoGallery.initiate());
 
     return {
         props: {
             ...(await serverSideTranslations(locale)),
-        },
-    };
-});
+        }
+    }
+})

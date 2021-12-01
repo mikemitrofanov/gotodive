@@ -1,11 +1,27 @@
-import NavBar from "../NavBar";
-import Footer from "../Footer";
+import Navbar from "../navbar";
+import Footer from "../footer";
+import Head from "next/head";
+import {useRouter} from "next/router";
 
 export default function MainLayout({children}) {
+    const router = useRouter();
 
     return (
         <>
-            <NavBar/>
+            <Head>
+                <title>
+                    gotodive |
+                    {router.asPath
+                        .split('')
+                        .map(item => {
+                            return (item === '/') ? ' ' : item
+                        })
+                        .join('')
+                    }
+                </title>
+                <link rel="icon" href='/favicon.ico'/>
+            </Head>
+            <Navbar/>
             {children}
             <Footer/>
         </>

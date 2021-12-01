@@ -1,26 +1,20 @@
 import {withRedux} from "../../../hof/withRedux";
-import {categoriesApi} from "../../../store/api/categories";
+import {apiSlice} from "../../../redux/slices/apiSlice";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import Content from "../../../components/innerPages/content";
-import Header from "../../../components/innerPages/header";
 import MainLayout from "../../../components/layouts/MainLayout";
+import Service from "../../../components/service";
 
-export default function InnerPage({id}) {
+export default function ServicePage({id}) {
 
-    return (
-        <>
-            <Header/>
-            <Content id={id}/>
-        </>
-    )
+    return <Service id={id}/>
 }
 
-InnerPage.layout = MainLayout;
+ServicePage.layout = MainLayout;
 
 export const getServerSideProps = withRedux(async ({params, locale}, dispatch) => {
     const language = locale === 'uk' ? 'ukr' : locale;
-    const {error} = await dispatch(categoriesApi.endpoints.getServices.initiate({language, id: params.service}));
-    await dispatch(categoriesApi.endpoints.getPhotoGallery.initiate());
+    const {error} = await dispatch(apiSlice.endpoints.getServices.initiate({language, id: params.service}));
+    await dispatch(apiSlice.endpoints.getPhotoGallery.initiate());
 
     if (error && error.originalStatus === 404) {
         return {
@@ -32,6 +26,6 @@ export const getServerSideProps = withRedux(async ({params, locale}, dispatch) =
         props: {
             ...(await serverSideTranslations(locale)),
             id: params.service,
-        },
-    };
-});
+        }
+    }
+})
