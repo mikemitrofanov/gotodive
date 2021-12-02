@@ -157,6 +157,11 @@
     display: none;
 }
 
+.images_down img {
+    width: 100%;
+    object-fit: cover;
+}
+
 @media screen and (max-width: 1341px) {
     .swiper_container {
         display: block;
@@ -196,8 +201,16 @@
 }
 
 @media screen and (min-width: 1921px) {
+    .container {
+        padding: 0 165px;
+    }
+
     .wrapper {
         padding: 105px 0;
+    }
+
+    .container_image {
+        padding-bottom: 875px;
     }
 
     .container_logo {
@@ -206,6 +219,7 @@
 
     .logo {
         max-width: 176px;
+        top: 813px;
     }
 
     .title {
@@ -215,5 +229,29 @@
 
     .description {
         margin-bottom: 60px;
+    }
+
+    .button {
+        height: 80px;
+        width: 400px;
+        font-size: 21px;
+        margin-top: 40px;
+    }
+
+    .img {
+        width: 215px;
+        height: 220px;
+    }
+
+    .content_box {
+        font-size: 24px;
+    }
+
+    .text {
+        margin-bottom: 30px;
+    }
+
+    .style_text {
+        font-size: 24px;
     }
 }
