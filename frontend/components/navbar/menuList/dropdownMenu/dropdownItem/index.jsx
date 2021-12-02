@@ -37,7 +37,7 @@ export default function DropdownItem({category}) {
             {category.services.map(service => (
                 <Link
                     key={service.id}
-                    href={{pathname: '/category/[service]', query: {service: `${service.id}`}}}
+                    href={{pathname: '/category/[service]', query: {service: service.id}}}
                 >
                     <a id={service.id} className={styles.title}>
                         {service.title}

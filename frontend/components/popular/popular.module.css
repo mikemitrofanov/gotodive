@@ -37,7 +37,7 @@
     transform: translateY(-300%);
 }
 
-.slide a, .slide img, .slide div {
+.slide .button, .slide img, .slide div {
     width: 70%;
     margin-right: auto;
     margin-left: auto;
@@ -48,6 +48,20 @@
     flex-direction: column;
     justify-content: space-between;
     flex: 33%;
+    transition: all 0.5s ease-out;
+}
+
+.card:hover {
+    transform: scale(1.02, 1.02);
+}
+
+.slider .card:hover {
+    transform: none;
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
 }
 
 .image {

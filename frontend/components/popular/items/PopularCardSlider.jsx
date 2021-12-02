@@ -31,6 +31,7 @@ export default function PopularCardSlider() {
                             src={`${process.env.NEXT_PUBLIC_URL}/${item.photos[0].photo_url}`}
                             title={item.title}
                             description={item.description}
+                            id={item.id}
                         />
                     </SwiperSlide>
                 )))
