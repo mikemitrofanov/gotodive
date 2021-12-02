@@ -27,19 +27,12 @@ export const apiSlice = createApi({
         getServices: build.query({
             query: ({language, id}) => `${language}/services/${id}`,
             transformResponse: response => {
-                let photos = [];
-
-                for (let i = 0; i < 4; i++) {
-                    response.data.photos[i]
-                        ? photos = [...photos, {
-                            optimized_photo_url: `${url}/${response.data.photos[i].optimized_photo_url}`,
-                            id: i
-                        }]
-                        : photos = [...photos, {
-                            optimized_photo_url: `${url}/${response.data.photos[0].optimized_photo_url}`,
-                            id: i
-                        }]
-                }
+                const photos = response.data.photos.map(photo => {
+                    return {
+                        ...photo,
+                        optimized_photo_url: `${url}/${photo.optimized_photo_url}`
+                    }
+                })
 
                 return {...response.data, photos}
             }
@@ -48,17 +41,15 @@ export const apiSlice = createApi({
         getPhotoGallery: build.query({
             query: () => '/photos',
             transformResponse: response => {
-                let data = [];
-                response.data.map(photo => {
-                    const newPhoto = {
+               const photoList = response.data.map(photo => {
+                   return {
                         ...photo,
                         photo_url: `${url}/${photo.photo_url}`,
                         optimized_photo_url: `${url}/${photo.optimized_photo_url}`
                     }
-                    data = [...data, newPhoto];
                 })
 
-                return data
+                return photoList
             }
         })
     })
