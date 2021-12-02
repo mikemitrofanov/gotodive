@@ -30,27 +30,18 @@ export const apiSlice = createApi({
                 let photos = [];
 
                 for (let i = 0; i < 4; i++) {
-                    response.data.photos[i]?.optimized_photo_url
+                    response.data.photos[i]
                         ? photos = [...photos, {
                             optimized_photo_url: `${url}/${response.data.photos[i].optimized_photo_url}`,
-                            id: i + 1
+                            id: i
                         }]
                         : photos = [...photos, {
                             optimized_photo_url: `${url}/${response.data.photos[0].optimized_photo_url}`,
-                            id: i + 1
+                            id: i
                         }]
                 }
 
-                let data = response.data;
-
-                ['title', 'description', 'duration', 'min_age', 'required_experience', 'max_depth',
-                    'certification_requirements', 'min_logged_dives', 'max_end', 'course_certificate']
-                    .forEach(param => {
-
-                        if (!data[param]) data[param] = null
-                    })
-
-                return {...data, photos}
+                return {...response.data, photos}
             }
         }),
 
