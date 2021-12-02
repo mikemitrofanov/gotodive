@@ -4,7 +4,7 @@ import ContactUs from "./items/ContactUs";
 import Gallery from "./items/Gallery";
 import Social from "./items/Social";
 import {useTranslation} from "next-i18next";
-import {useGetPhotoGalleryQuery} from "../../redux/slices/apiSlice";
+import {useGetPhotoGalleryQuery} from "@/redux/slices/apiSlice";
 
 export default function Footer() {
     const {t} = useTranslation("common");

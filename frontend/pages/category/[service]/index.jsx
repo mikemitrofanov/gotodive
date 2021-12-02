@@ -1,5 +1,5 @@
-import {withRedux} from "../../../hof/withRedux";
-import {apiSlice} from "../../../redux/slices/apiSlice";
+import {withRedux} from "@/hof/withRedux";
+import {apiSlice} from "@/redux/slices/apiSlice";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import MainLayout from "../../../components/layouts/MainLayout";
 import Service from "../../../components/service";

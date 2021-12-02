@@ -1,7 +1,7 @@
 import styles from "./dropdownMenu.module.css";
 import DropdownItem from "./dropdownItem";
 import {useDispatch, useSelector} from "react-redux";
-import {openDropdown, openDropdownMenu} from "../../../../redux/slices/navbarSlice";
+import {openDropdown, openDropdownMenu} from "@/redux/slices/navbarSlice";
 
 export default function DropdownMenu({category}) {
     const openedDropdownMenu = useSelector(openDropdown);

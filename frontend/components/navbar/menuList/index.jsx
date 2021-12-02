@@ -2,7 +2,7 @@ import styles from "./menuList.module.css";
 import DropdownMenu from "./dropdownMenu";
 import {useTranslation} from "next-i18next";
 import {useRouter} from "next/router";
-import {useGetAllCategoriesQuery} from "../../../redux/slices/apiSlice";
+import {useGetAllCategoriesQuery} from "@/redux/slices/apiSlice";
 import ListItemLink from "../../ui/ListItemLink";
 
 export default function MenuList() {

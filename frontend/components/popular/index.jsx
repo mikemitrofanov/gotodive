@@ -3,7 +3,7 @@ import {useTranslation} from "next-i18next";
 import PopularCard from "./items/PopularCard";
 import PopularCardSlider from "./items/PopularCardSlider";
 import {useRouter} from "next/router";
-import {useGetPopularServicesQuery} from "../../redux/slices/apiSlice";
+import {useGetPopularServicesQuery} from "@/redux/slices/apiSlice";
 
 export default function Popular() {
     const router = useRouter();

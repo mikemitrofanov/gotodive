@@ -1,6 +1,6 @@
 import styles from "../service.module.css";
 import ImagesSlider from "./ImagesSlider";
-import {useGetServicesQuery} from "../../../redux/slices/apiSlice";
+import {useGetServicesQuery} from "@/redux/slices/apiSlice";
 import {useRouter} from "next/router";
 import Images from "./Images";
 import TextContent from "./TextContent";

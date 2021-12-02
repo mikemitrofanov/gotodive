@@ -1,6 +1,6 @@
 import styles from "./gallery.module.css";
 import "@fancyapps/ui";
-import {useGetPhotoGalleryQuery} from "../../redux/slices/apiSlice";
+import {useGetPhotoGalleryQuery} from "@/redux/slices/apiSlice";
 import Image from 'next/image';
 
 export default function Gallery() {

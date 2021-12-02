@@ -3,7 +3,7 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation} from "swiper";
 import PopularCard from "./PopularCard";
 import {useRouter} from "next/router";
-import {useGetPopularServicesQuery} from "../../../redux/slices/apiSlice";
+import {useGetPopularServicesQuery} from "@/redux/slices/apiSlice";
 
 const params = {
     modules: [Navigation],
