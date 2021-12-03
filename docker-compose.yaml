@@ -29,7 +29,6 @@ services:
         - /app/vendor
       networks:
         - app-network
-        - db-network
       depends_on:
         - database
 
@@ -45,9 +44,8 @@ services:
         MYSQL_PASSWORD: ${DB_PASSWORD}
         MYSQL_USER: ${DB_USERNAME}
       networks:
-        - db-network
+        - app-network
 
 networks:
   app-network:
     driver: bridge
-  db-network:
