@@ -13,9 +13,7 @@ export default function MainLayout({children}) {
                     gotodive |
                     {router.asPath
                         .split('')
-                        .map(item => {
-                            return (item === '/') ? ' ' : item
-                        })
+                        .map(item => (item === '/') ? ' ' : item )
                         .join('')
                     }
                 </title>
