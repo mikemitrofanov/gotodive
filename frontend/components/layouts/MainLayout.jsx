@@ -11,11 +11,10 @@ export default function MainLayout({children}) {
             <Head>
                 <title>
                     gotodive |
-                    {router.asPath
+                    {
+                      router.asPath
                         .split('')
-                        .map(item => {
-                            return (item === '/') ? ' ' : item
-                        })
+                        .map(item => (item === '/') ? ' ' : item)
                         .join('')
                     }
                 </title>

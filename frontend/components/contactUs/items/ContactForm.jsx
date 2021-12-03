@@ -3,8 +3,11 @@ import {Form, Formik} from "formik";
 import Input from "./Input";
 import TextArea from "./TextArea";
 import {initialValues, validationSchema} from "../data";
+import { useTranslation } from 'next-i18next'
 
-export default function ContactForm({t}) {
+export default function ContactForm() {
+    const {t} = useTranslation("common");
+
     const handleSubmit = async (values) => {
         console.log('ContactForm values', values)
     }

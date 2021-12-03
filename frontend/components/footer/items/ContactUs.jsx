@@ -1,7 +1,9 @@
 import styles from "../footer.module.css";
 import ListItemLink from "../../ui/ListItemLink";
+import { useTranslation } from 'next-i18next'
 
-export default function ContactUs({t}) {
+export default function ContactUs() {
+    const {t} = useTranslation("common");
 
     return (
         <article className={`${styles.wrapper} ${styles.contact}`}>
