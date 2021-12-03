@@ -21,10 +21,12 @@ export default function MainPage() {
 
 MainPage.layout = MainLayout;
 
-export const getServerSideProps = withRedux(async ({locale}, { dispatch }) => {
+export const getServerSideProps = withRedux(async ({locale}, { dispatch, getState }) => {
     await dispatch(apiSlice.endpoints.getAllCategories.initiate(locale));
     await dispatch(apiSlice.endpoints.getPopularServices.initiate(locale));
     await dispatch(apiSlice.endpoints.getPhotoGallery.initiate());
+
+    console.log(getState().api.queries['getPhotoGallery(undefined)'])
 
     return {
         props: {
