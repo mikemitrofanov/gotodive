@@ -22,7 +22,7 @@
     align-items: center;
 }
 
-.wrapper > div:first-child {
+.wrapper > form {
     margin-right: 40px;
 }
 
@@ -35,4 +35,10 @@
     background-size: cover;
     width: 25px;
     height: 30px;
+}
+
+@media screen and (min-width: 1921px) {
+    .container {
+        padding: 0 165px;
+    }
 }
