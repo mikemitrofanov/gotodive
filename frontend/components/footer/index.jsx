@@ -6,7 +6,7 @@ import Social from "./items/Social";
 import {useGetPhotoGalleryQuery} from "../../redux/slices/apiSlice";
 
 export default function Footer() {
-    const {data: photoList, loading} = useGetPhotoGalleryQuery();
+    const {data: photoList} = useGetPhotoGalleryQuery();
 
     return (
         <section className={styles.background}>
@@ -14,7 +14,7 @@ export default function Footer() {
                 <ContactUs />
                 <Categories />
                 <Social />
-                { !loading && <Gallery photoList={photoList}/> }
+                <Gallery photoList={photoList}/>
             </div>
         </section>
     )

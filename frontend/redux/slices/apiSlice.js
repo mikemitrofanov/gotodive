@@ -2,7 +2,7 @@ import { fetchBaseQuery } from '@reduxjs/toolkit/query'
 import { createApi } from '@reduxjs/toolkit/query/react'
 
 const url = process.env.NEXT_PUBLIC_URL
-const apiUrl = process.env.NEXT_PUBLIC_API_URL
+const apiUrl = typeof window === 'object' ? process.env.NEXT_PUBLIC_API_URL : process.env.NEXT_INTERNAL_API_URL
 
 export const apiSlice = createApi({
   reducerPath: 'api',
