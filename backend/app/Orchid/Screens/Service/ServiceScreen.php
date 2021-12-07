@@ -5,7 +5,7 @@ namespace App\Orchid\Screens\Service;
 use App\Http\Requests\AddPhotoRequest;
 use App\Models\Photo;
 use App\Models\Service;
-use App\Orchid\Layouts\Photo\PhotoListLayout;
+use App\Orchid\Layouts\Service\ServicePhotosLayout;
 use App\Orchid\Layouts\Service\ServiceUpdateLayout;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
@@ -89,7 +89,16 @@ class ServiceScreen extends Screen
                 ],
 
                 'Service Photos' => [
-                    PhotoListLayout::class,
+                    Layout::block(ServicePhotosLayout::class)
+                        ->title('Service Photos')
+                        ->description('Update Service photos. Select photos to be displayed on a service page (max number - 4).')
+                        ->commands(
+                            Button::make('Update')
+                                ->type(Color::DEFAULT())
+                                ->icon('check')
+                                ->method('updateShownPhotos')
+                        ),
+
                 ],
             ]),
         ];
@@ -100,6 +109,23 @@ class ServiceScreen extends Screen
         app()->setLocale($request->service['language']);
         $service->update($request->service);
         return redirect()->route('platform.services.edit', [$service, $request->service['language']]);
+    }
+
+    public function updateShownPhotos(Service $service, Request $request)
+    {
+        $shown_photos = $request->shown_photos;
+
+        if (is_null($shown_photos)) $shown_photos = [];
+
+        if (count($shown_photos) > 4) {
+            Toast::warning('Max number of selected photos must be less than 5');
+            return redirect()->route('platform.services.edit', $service->id);
+        }
+
+        foreach ($service->photos as $photo) {
+            $photo->is_shown = in_array($photo->id, $shown_photos) ? 1 : 0;
+            $photo->save();
+        }
     }
 
     public function uploadPhoto(Service $service, AddPhotoRequest $request)

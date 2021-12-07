@@ -191,7 +191,11 @@ class ServiceController extends Controller
      */
     public function show($language, Service $service)
     {
-        return new ServiceResource(Service::where('id', $service->id)->with('photos')->first());
+        return new ServiceResource(Service::where('id', $service->id)
+            ->with(['photos' => function ($query) {
+                $query->where('is_shown', true);
+            }])
+            ->first());
     }
 
     /**

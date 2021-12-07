@@ -14,7 +14,7 @@ class Photo extends Model
 {
     use HasFactory, AsSource, Filterable;
 
-    protected $fillable = ['url', 'optimized_url'];
+    protected $fillable = ['url', 'optimized_url', 'is_shown'];
 
     /**
      * @var array
@@ -42,10 +42,14 @@ class Photo extends Model
             if ($this->identical($photo, $stored_photo)) return null;
         }
 
-        $newPhoto = $service->photos()->create([
+        $photo_data = [
             'url' => $photo->store('images', 'public'),
             'optimized_url' => $photo->store('optimized', 'public'),
-        ]);
+        ];
+        $newPhoto = (is_null($service)) ?
+            Photo::create($photo_data) :
+            $service->photos()->create($photo_data);
+
         $manager = new ImageManager(array('driver' => 'imagick'));
         $manager->make('storage/' . $newPhoto->optimized_url)
             ->resize(320, 240)

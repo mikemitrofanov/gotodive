@@ -72,9 +72,9 @@ class PhotoScreen extends Screen
                         ->help('Supported image types: .jpeg/png/jpg/gif/svg/webp. Max filesize: 2MB'),
 
                     Select::make('service')
-                        ->required()
                         ->title('Service')
-                        ->fromModel(Service::class, 'title'),
+                        ->fromModel(Service::class, 'title')
+                        ->empty('Not specified', 0),
                 ]),
             ]),
 
@@ -87,10 +87,12 @@ class PhotoScreen extends Screen
         $validated = $request->validate([
             'photos' => 'array|required',
             'photos.*' => 'image|distinct|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'service' => 'required'
         ]);
 
-        $service = Service::where('id', $validated['service'])->first();
+        $service = (is_null($request->service) || $request->service == 0) ?
+            null :
+            Service::where('id', $request->service)->first();
+
         $identical_filenames = [];
 
         foreach ($validated['photos'] as $photo) {

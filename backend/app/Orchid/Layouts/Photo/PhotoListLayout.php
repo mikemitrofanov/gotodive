@@ -50,6 +50,7 @@ class PhotoListLayout extends Table
                 ->align('center')
                 ->width('30px')
                 ->render(function ($photo) {
+                    if (is_null($photo->service_id)) return 'not specified';
                     return Link::make($photo->service_id)->route('platform.services.edit', $photo->service_id);
                 }),
 
