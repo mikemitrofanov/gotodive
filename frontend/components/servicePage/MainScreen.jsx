@@ -1,4 +1,4 @@
-import styles from "../service.module.css";
+import styles from "./servicePage.module.css";
 
 export default function MainScreen() {
 
@@ -11,3 +11,4 @@ export default function MainScreen() {
         </div>
     )
 }
+

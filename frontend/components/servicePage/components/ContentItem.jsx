@@ -1,11 +1,11 @@
-import styles from "../service.module.css";
+import styles from "../servicePage.module.css";
 
 export default function ContentItem({title, value}) {
 
     return (
         <>
             {value && (
-                <p className={styles.text}>
+                <p>
                     <span className={styles.bold_text}>{title}</span>
                     {value}
                 </p>
