@@ -3,9 +3,8 @@
 }
 
 .container {
-    max-width: 1920px;
-    padding: calc(50px + 30 * ((100vw - 360px) / 1560)) calc(45px + 120 * ((100vw - 360px) / 1560));
-    margin: 0 auto;
+    padding-top: calc(50px + 30 * ((100vw - 360px) / 1560));
+    padding-bottom: calc(50px + 30 * ((100vw - 360px) / 1560));
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -141,7 +140,8 @@
 
 @media screen and (min-width: 1921px) {
     .container {
-        padding: 80px 165px;
+        padding-top: 80px;
+        padding-bottom: 80px;
         row-gap: 80px;
     }
 

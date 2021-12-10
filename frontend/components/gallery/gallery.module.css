@@ -6,16 +6,16 @@
 
 .wrapper {
     width: 50%;
-    font-size: 0px;
+}
+
+.wrapper,
+.fancybox_wrap {
+    font-size: 0;
 }
 
 .wrapper:nth-child(2n - 1) {
     display: flex;
     justify-content: flex-end;
-}
-
-.fancybox_wrap {
-    font-size: 0px;
 }
 
 .image {
