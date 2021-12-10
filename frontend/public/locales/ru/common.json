@@ -19,28 +19,19 @@
     "buttons": "Записаться"
   },
   "team": {
-    "ourTeam": "НАША КОМАНДА",
-    "name2": "Юрии Прохватило",
-    "name3": "Рик Санчес",
-    "greatAndTerrible": "великий и ужасный",
-    "justDarling": "просто душка"
+    "ourTeam": "НАША КОМАНДА"
   },
   "contact": {
     "writeToUs": "ПИШИТЕ НАМ",
     "name": "Имя",
     "phone": "Телефон",
     "message": "Сообщение",
-    "send": "Отправить"
+    "send": "Отправить",
+
   },
   "footer": {
     "contactUs": "Связаться с нами",
-    "location": "777, ул. Моя, Страна",
     "categories": "Категории",
-    "category-1": "Дайвинг",
-    "category-2": "Обучение дайвингу",
-    "category-3": "Стань ДАЙВ ПРО",
-    "category-4": "Экскурсии",
-    "category-5": "Прайс",
     "social": "Соц. сети",
     "gallery": "Галерея"
   }
