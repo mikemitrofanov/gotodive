@@ -1,12 +1,13 @@
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import {apiSlice} from "@/redux/slices/apiSlice";
+import {apiSlice, useGetPhotoGalleryQuery} from "@/redux/slices/apiSlice";
 import {withRedux} from "@/hof/withRedux";
-import Gallery from "../../components/gallery";
-import MainLayout from "../../components/layouts/MainLayout";
+import Gallery from "@/components/gallery";
+import MainLayout from "@/components/layouts/MainLayout";
 
 export default function GalleryPage() {
+    const {data: photoList} = useGetPhotoGalleryQuery();
 
-    return <Gallery/>
+    return <Gallery photoList={photoList}/>
 }
 
 GalleryPage.layout = MainLayout;

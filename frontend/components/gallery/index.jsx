@@ -1,10 +1,8 @@
 import styles from "./gallery.module.css";
 import "@fancyapps/ui";
-import {useGetPhotoGalleryQuery} from "@/redux/slices/apiSlice";
 import Image from 'next/image';
 
-export default function Gallery() {
-    const {data: photoList} = useGetPhotoGalleryQuery();
+export default function Gallery({photoList}) {
 
     return (
         <div className={styles.container}>
