@@ -1,20 +1,49 @@
-import Popular from "../components/popular";
-import MainScreen from "../components/mainScreen";
-import ContactUs from "../components/contactUs";
-import Team from "../components/team";
+import Popular from "@/components/mainPage/Popular";
+import MainScreen from "@/components/mainPage/MainScreen";
+import ContactUs from "@/components/mainPage/ContactUs";
+import Team from "@/components/mainPage/Team";
 import MainLayout from "../components/layouts/MainLayout";
 import {withRedux} from "@/hof/withRedux";
-import {apiSlice} from "@/redux/slices/apiSlice";
+import {apiSlice, useGetPopularServicesQuery} from "@/redux/slices/apiSlice";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {useTranslation} from "next-i18next";
+import {useRouter} from "next/router";
+
+export const teamMembers = [
+    {
+        id: 1,
+        photo: '/images/team/alexGerman.png',
+        name: "Aleksandr German",
+        description: "great and terrible"
+    },
+    {
+        id: 2,
+        photo: '/images/team/yuriiProkhvatilo.png',
+        name: "Yurii Prokhvatilo",
+        description: "great and terrible"
+    },
+    {
+        id: 3,
+        photo: '/images/team/rickSanches.png',
+        name: "Rick Sanchez",
+        description: "just darling"
+    }
+]
 
 export default function MainPage() {
+    const router = useRouter();
+    const {data: popular} = useGetPopularServicesQuery(router.locale);
+    const {t} = useTranslation("common");
+    const handleSubmit = async (values) => {
+        console.log('ContactForm values', values)
+    }
 
     return (
         <>
-            <MainScreen/>
-            <Popular/>
-            <Team/>
-            <ContactUs/>
+            <MainScreen t={t}/>
+            <Popular title={t("popular.popular")} popular={popular}/>
+            <Team title={t("team.ourTeam")} teamMembers={teamMembers}/>
+            <ContactUs t={t} handleSubmit={handleSubmit}/>
         </>
     )
 }

@@ -1,4 +1,4 @@
-import styles from "../team.module.css";
+import styles from "../styles/team.module.css";
 
 export default function MemberCard({src, name, description}) {
 
