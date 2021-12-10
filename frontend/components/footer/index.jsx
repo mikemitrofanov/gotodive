@@ -1,23 +1,20 @@
 import styles from "./footer.module.css";
-import Categories from "./items/Categories";
-import ContactUs from "./items/ContactUs";
-import Gallery from "./items/Gallery";
-import Social from "./items/Social";
+import Categories from "./components/Categories";
+import ContactUs from "./components/ContactUs";
+import Gallery from "./components/Gallery";
+import Social from "./components/Social";
+import Container from "@/components/shared/Container";
 import {useTranslation} from "next-i18next";
-import {useGetPhotoGalleryQuery} from "@/redux/slices/apiSlice";
 
-export default function Footer() {
+export default function Footer({photoList, dataFooter}) {
     const {t} = useTranslation("common");
-    const {data: photoList} = useGetPhotoGalleryQuery();
 
     return (
-        <section className={styles.background}>
-            <div className={styles.container}>
-                <ContactUs t={t}/>
-                <Categories t={t}/>
-                <Social t={t}/>
-                <Gallery t={t} photoList={photoList}/>
-            </div>
-        </section>
+        <Container background={styles.background} container={styles.container}>
+            <ContactUs title={t("footer.contactUs")} data={dataFooter.contactUs}/>
+            <Categories title={t("footer.contactUs")}  data={dataFooter.categories}/>
+            <Social title={t("footer.contactUs")}  data={dataFooter.social}/>
+            <Gallery title={t("footer.contactUs")} photoList={photoList}/>
+        </Container>
     )
 }
