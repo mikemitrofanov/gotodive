@@ -1,7 +1,9 @@
 import styles from "../footer.module.css";
 import ListItemLink from "../../ui/ListItemLink";
+import { useTranslation } from 'next-i18next'
 
-export default function Categories({t}) {
+export default function Categories() {
+    const {t} = useTranslation("common");
 
     return (
         <article className={`${styles.wrapper} ${styles.categories}`}>

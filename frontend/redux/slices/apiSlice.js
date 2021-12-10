@@ -1,8 +1,8 @@
-import {fetchBaseQuery} from "@reduxjs/toolkit/query";
-import {createApi} from '@reduxjs/toolkit/query/react';
+import {fetchBaseQuery} from '@reduxjs/toolkit/query'
+import {createApi} from '@reduxjs/toolkit/query/react'
 
-const url = process.env.NEXT_PUBLIC_URL;
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const url = process.env.NEXT_PUBLIC_URL
+const apiUrl = typeof window === 'object' ? process.env.NEXT_PUBLIC_API_URL : process.env.NEXT_INTERNAL_API_URL
 
 export const apiSlice = createApi({
     reducerPath: 'api',
@@ -41,8 +41,8 @@ export const apiSlice = createApi({
         getPhotoGallery: build.query({
             query: () => '/photos',
             transformResponse: response => {
-               const photoList = response.data.map(photo => {
-                   return {
+                const photoList = response.data.map(photo => {
+                    return {
                         ...photo,
                         photo_url: `${url}/${photo.photo_url}`,
                         optimized_photo_url: `${url}/${photo.optimized_photo_url}`
@@ -60,4 +60,4 @@ export const {
     useGetAllCategoriesQuery,
     useGetServicesQuery,
     useGetPhotoGalleryQuery
-} = apiSlice;
+} = apiSlice

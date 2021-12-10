@@ -9,7 +9,7 @@ export default function ContactUs() {
         <section className={styles.background}>
             <div className={styles.container}>
                 <h2 className={styles.title}>{t("contact.writeToUs")}</h2>
-                <ContactForm t={t}/>
+                <ContactForm />
             </div>
         </section>
     )

@@ -12,7 +12,7 @@ export default function GalleryPage() {
 
 GalleryPage.layout = MainLayout;
 
-export const getServerSideProps = withRedux(async ({locale}, dispatch) => {
+export const getServerSideProps = withRedux(async ({locale}, { dispatch }) => {
     await dispatch(apiSlice.endpoints.getAllCategories.initiate(locale));
     await dispatch(apiSlice.endpoints.getPhotoGallery.initiate());
 

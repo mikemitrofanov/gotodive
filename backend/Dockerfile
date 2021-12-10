@@ -1,4 +1,4 @@
-FROM php:alpine
+FROM php:8.0-alpine
 
 RUN docker-php-ext-install pdo_mysql
 
@@ -14,4 +14,6 @@ RUN php artisan key:generate
 RUN php artisan l5-swagger:generate
 
 CMD php artisan serve --host 0.0.0.0
+
+EXPOSE 8000
 
