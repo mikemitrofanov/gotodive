@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddPhotoRequest;
 use App\Http\Requests\CreateServiceRequest;
+use App\Http\Requests\SearchServicesRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use App\Http\Resources\ServiceResource;
 use App\Models\Photo;
@@ -191,6 +192,8 @@ class ServiceController extends Controller
      */
     public function show($language, Service $service)
     {
+        dd($service);
+
         return new ServiceResource(Service::where('id', $service->id)->with('photos')->first());
     }
 
@@ -366,6 +369,53 @@ class ServiceController extends Controller
             (new Photo)->savePhoto($service, $photo);
         }
         return new ServiceResource(Service::where('id', $service->id)->with('photos')->first());
+    }
 
+    /**
+     * @OA\Get(
+     *      path="/{language}/search",
+     *      operationId="Search Services",
+     *      tags={"Services"},
+     *      summary="Search Services",
+     *      description="Returns array of matching Services",
+     *      @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          example="en",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Parameter(
+     *          name="search",
+     *          description="Search parameter",
+     *          required=true,
+     *          example="scuba",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/SearchServicesResponse"),
+     *       ),
+     *        @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
+     * )
+     *
+     */
+
+    public function search($language, SearchServicesRequest $request)
+    {
+        $search = $request->validated();
+        $search['language'] = $language;
+        $services = Service::filter($search)->get();
+
+        return ServiceResource::collection($services);
     }
 }
