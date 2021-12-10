@@ -5,7 +5,6 @@ import Gallery from "./items/Gallery";
 import Social from "./items/Social";
 import {useGetPhotoGalleryQuery} from "@/redux/slices/apiSlice";
 
-
 export default function Footer() {
     const {data: photoList} = useGetPhotoGalleryQuery();
 
