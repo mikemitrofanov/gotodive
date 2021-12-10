@@ -20,7 +20,15 @@ export const apiSlice = createApi({
         getPopularServices: build.query({
             query: (language) => `${language}/services/popular`,
             transformResponse: response => {
-                return response.data
+                return response.data.map(item => {
+                    return {
+                        ...item,
+                        photos: {
+                            ...item.photos[0],
+                            photo_url: `${url}/${item.photos[0].photo_url}`
+                        }
+                    }
+                })
             }
         }),
 
@@ -41,8 +49,8 @@ export const apiSlice = createApi({
         getPhotoGallery: build.query({
             query: () => '/photos',
             transformResponse: response => {
-               const photoList = response.data.map(photo => {
-                   return {
+                const photoList = response.data.map(photo => {
+                    return {
                         ...photo,
                         photo_url: `${url}/${photo.photo_url}`,
                         optimized_photo_url: `${url}/${photo.optimized_photo_url}`
@@ -51,7 +59,17 @@ export const apiSlice = createApi({
 
                 return photoList
             }
-        })
+        }),
+
+        getSearchResult: build.query({
+            query: (language, searchQuery) => ({
+                url: `${language}/search/${searchQuery}`,
+                method: 'POST',
+                body: searchQuery
+            }),
+            transformResponse: response => response.data
+        }),
+
     })
 })
 
@@ -59,5 +77,6 @@ export const {
     useGetPopularServicesQuery,
     useGetAllCategoriesQuery,
     useGetServicesQuery,
-    useGetPhotoGalleryQuery
+    useGetPhotoGalleryQuery,
+    useGetSearchResultQuery,
 } = apiSlice;
