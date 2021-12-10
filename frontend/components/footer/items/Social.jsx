@@ -1,7 +1,9 @@
 import styles from "../footer.module.css";
 import ListItemLink from "../../ui/ListItemLink";
+import { useTranslation } from 'next-i18next'
 
-export default function Social({t}) {
+export default function Social() {
+    const {t} = useTranslation("common");
 
     return (
         <article className={`${styles.wrapper} ${styles.social}`}>

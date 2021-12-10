@@ -14,7 +14,7 @@
 }
 
 .menu_item:after {
-    content: url(../../../../public/images/navBar/arrow_right.svg);
+    content: url(../../../../public/img/navBar/arrow_right.svg);
     position: absolute;
     margin-left: 10px;
     object-fit: cover;
@@ -25,7 +25,7 @@
 }
 
 .menu_item:hover:after {
-    content: url(../../../../public/images/navBar/arrow_right_hover.svg);
+    content: url(../../../../public/img/navBar/arrow_right_hover.svg);
 }
 
 .menu_item_active {
@@ -33,5 +33,5 @@
 }
 
 .menu_item_active.menu_item:after {
-    content: url(../../../../public/images/navBar/arrow_down.svg);
+    content: url(../../../../public/img/navBar/arrow_down.svg);
 }

@@ -1,6 +1,8 @@
 import styles from "../footer.module.css";
+import { useTranslation } from 'next-i18next'
 
-export default function Gallery({photoList, t}) {
+export default function Gallery({ photoList }) {
+    const {t} = useTranslation("common");
 
     return (
         <article className={`${styles.wrapper} ${styles.gallery}`}>
@@ -13,7 +15,8 @@ export default function Gallery({photoList, t}) {
                         src={photo.optimized_photo_url}
                         key={photo.id}
                     />
-                ))}
+                  ))
+                }
             </a>
         </article>
     )

@@ -31,7 +31,7 @@
 }
 
 .icon_user {
-    background-image: url(../../public/images/navBar/userIcon.png);
+    background-image: url(../../public/img/navBar/userIcon.png);
     background-size: cover;
     width: 25px;
     height: 30px;

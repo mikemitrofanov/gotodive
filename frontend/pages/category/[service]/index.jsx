@@ -11,7 +11,7 @@ export default function ServicePage({id}) {
 
 ServicePage.layout = MainLayout;
 
-export const getServerSideProps = withRedux(async ({params, locale}, dispatch) => {
+export const getServerSideProps = withRedux(async ({params, locale}, { dispatch }) => {
     const {error} = await dispatch(apiSlice.endpoints.getServices.initiate({language: locale, id: params.service}));
     await dispatch(apiSlice.endpoints.getPhotoGallery.initiate());
 
