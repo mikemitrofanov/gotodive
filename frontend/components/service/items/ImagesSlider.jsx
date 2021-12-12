@@ -19,7 +19,7 @@ const params = {
     }
 }
 
-export default function ImagesSlider({photos}) {
+export default function ImagesSlider({photos = []}) {
 
     return (
         <div className={styles.swiper_container}>

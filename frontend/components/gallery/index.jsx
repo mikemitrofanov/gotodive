@@ -4,7 +4,7 @@ import {useGetPhotoGalleryQuery} from "../../redux/slices/apiSlice";
 import Image from 'next/image';
 
 export default function Gallery() {
-    const {data: photoList} = useGetPhotoGalleryQuery();
+    const {data: photoList = []} = useGetPhotoGalleryQuery();
 
     return (
         <div className={styles.container}>
