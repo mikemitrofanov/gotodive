@@ -1,0 +1,86 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease-out;
+    height: 100%;
+    width: calc(230px + 240 * ((100vw - 360px) / 1560));
+}
+
+.card:hover {
+    transform: scale(1.02, 1.02);
+}
+
+.image {
+    width: 100%;
+    height: calc(152px + 158 * ((100vw - 360px) / 1560));
+    margin-bottom: calc(20px + 20 * ((100vw - 360px) / 1560));
+    object-fit: cover;
+}
+
+.title {
+    font-size: calc(14px + 16 * ((100vw - 360px) / 1560));
+    color: #7b7c7b;
+    font-weight: 700;
+    font-family: "Montserrat-Bold", sans-serif;
+}
+
+.description {
+    font-size: calc(9px + 10 * ((100vw - 360px) / 1560));
+    line-height: 1.44;
+    color: #7b7c7b;
+    font-weight: 400;
+    font-family: "Lora-Regular", serif;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.title,
+.description {
+    text-align: left;
+    margin-bottom: calc(15px + 5 * ((100vw - 360px) / 1560));
+}
+
+.button {
+    font-size: calc(9px + 9 * ((100vw - 360px) / 1560));
+    color: #dfe3e0;
+    font-weight: 700;
+    font-family: "Montserrat-Bold", sans-serif;
+    padding: calc(7px + 8 * ((100vw - 360px) / 1560)) 0;
+    width: 100%;
+    background-color: #05132f;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #032243;
+    color: #fff;
+}
+
+@media screen and (min-width: 1921px) {
+    .card {
+        width: 470px;
+    }
+
+    .image {
+        height: 300px;
+        margin-bottom: 40px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .description {
+        font-size: 19px;
+    }
+
+    .title, .description {
+        margin-bottom: 20px;
+    }
+
+    .button {
+        font-size: 18px;
+        padding: 15px;
+    }
+}
