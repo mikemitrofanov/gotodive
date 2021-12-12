@@ -2,8 +2,8 @@ import styles from "./menuList.module.css";
 import DropdownMenu from "./dropdownMenu";
 import {useTranslation} from "next-i18next";
 import {useRouter} from "next/router";
-import {useGetAllCategoriesQuery} from "../../../redux/slices/apiSlice";
-import ListItemLink from "../../ui/ListItemLink";
+import {useGetAllCategoriesQuery} from "@/redux/slices/apiSlice";
+import ListItemLink from "../../shared/Link";
 
 export default function MenuList() {
     const {t} = useTranslation("common");
@@ -16,7 +16,7 @@ export default function MenuList() {
                 <li>
                     <ListItemLink
                         href='/'
-                        text={t("navBar.home")}
+                        children={t("navBar.home")}
                         className={styles.link}
                     />
                 </li>
@@ -29,14 +29,14 @@ export default function MenuList() {
                 <li>
                     <ListItemLink
                         href='/gallery'
-                        text={t("navBar.gallery")}
+                        children={t("navBar.gallery")}
                         className={styles.link}
                     />
                 </li>
                 <li>
                     <ListItemLink
                         href='/file/price.pdf'
-                        text={t("navBar.price")}
+                        children={t("navBar.price")}
                         target='_blank'
                         className={styles.link}
                     />

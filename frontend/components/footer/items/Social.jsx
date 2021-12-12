@@ -1,5 +1,5 @@
 import styles from "../footer.module.css";
-import ListItemLink from "../../ui/ListItemLink";
+import ListItemLink from "../../shared/Link";
 import { useTranslation } from 'next-i18next'
 
 export default function Social() {
@@ -8,10 +8,10 @@ export default function Social() {
     return (
         <article className={`${styles.wrapper} ${styles.social}`}>
             <h5 className={styles.title}>{t("footer.social")}</h5>
-            <ListItemLink className={styles.instagram} href='#' text={'@GotoDive'}/>
-            <ListItemLink className={styles.telegram} href='#' text={'@GotoDive'}/>
-            <ListItemLink className={styles.whatsApp} href='#' text={'@GotoDive'}/>
-            <ListItemLink className={styles.viber} href='#' text={'@GotoDive'}/>
+            <ListItemLink className={styles.instagram} href='#' children={'@GotoDive'}/>
+            <ListItemLink className={styles.telegram} href='#' children={'@GotoDive'}/>
+            <ListItemLink className={styles.whatsApp} href='#' children={'@GotoDive'}/>
+            <ListItemLink className={styles.viber} href='#' children={'@GotoDive'}/>
         </article>
     )
 }
