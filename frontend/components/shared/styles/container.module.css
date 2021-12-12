@@ -1,0 +1,13 @@
+.container {
+    padding-left: calc(30px + 135 * ((100vw - 360px) / 1560));
+    padding-right: calc(30px + 135 * ((100vw - 360px) / 1560));
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 1921px) {
+    .container {
+        padding-left: 165px;
+        padding-right: 165px;
+    }
+}
