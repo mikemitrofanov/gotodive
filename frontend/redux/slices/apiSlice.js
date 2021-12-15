@@ -61,6 +61,10 @@ export const apiSlice = createApi({
         photo_url: `${url}/${photo.photo_url}`,
         optimized_photo_url: `${url}/${photo.optimized_photo_url}`
       }))
+    }),
+    getMetadata: build.query({
+      query: ({language, slug}) => `${language}/metadata-page/${slug}`,
+      transformResponse: response => response.data
     })
   })
 })
@@ -69,5 +73,6 @@ export const {
   useGetPopularServicesQuery,
   useGetAllCategoriesQuery,
   useGetServicesQuery,
-  useGetPhotoGalleryQuery
+  useGetPhotoGalleryQuery,
+  useGetMetadataQuery,
 } = apiSlice
