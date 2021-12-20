@@ -1,12 +1,10 @@
-import styles from "./mainLayout.module.css";
 import Footer from "../shared/footer";
 import styles from "./mainLayouts.module.css";
-import Header from "../shared/header";
-import Footer from "../footer";
 import Head from "next/head";
 import {useRouter} from "next/router";
-import {useGetPhotoGalleryQuery} from "@/redux/slices/apiSlice";
-import Navbar from "@/components/navbar";
+import {useGetPhotoGalleryQuery, useGetAllCategoriesQuery} from "@/redux/slices/apiSlice";
+import Navbar from "@/components/shared/header/components/navbar";
+import Header from "@/components/shared/header";
 
 const dataFooter = {
     'contactUs':
@@ -46,7 +44,7 @@ export default function MainLayout({children}) {
                 </title>
                 <link rel="icon" href='/favicon.ico'/>
             </Head>
-            <Navbar/>
+            <Header categories={categories}/>
             <main className={styles.main}>{children}</main>
             <Footer photoList={photoList} dataFooter={dataFooter}/>
         </>
