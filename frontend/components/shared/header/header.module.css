@@ -126,18 +126,18 @@
 }
 
 .title:after {
-    content: url(../../../public/images/header/arrow_right.svg);
+    content: url(../../../public/images/navBar/arrow_right.svg);
     position: absolute;
     margin-left: 10px;
     object-fit: cover;
 }
 
 .title:hover:after {
-    content: url(../../../public/images/header/arrow_right_hover.svg);
+    content: url(../../../public/images/navBar/arrow_right_hover.svg);
 }
 
 .title_active.title:after {
-    content: url(../../../public/images/header/arrow_down.svg);
+    content: url(../../../public/images/navBar/arrow_down.svg);
 }
 
 .dropdown {
@@ -226,7 +226,7 @@
 }
 
 .icon_magnifier {
-    background-image: url(../../../public/images/header/search.svg);
+    background-image: url(../../../public/images/navBar/search.svg);
     background-color: #000b2d;
     width: calc(10px + 8 * ((100vw - 360px) / 1560));
     height: calc(10px + 8 * ((100vw - 360px) / 1560));
