@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 Route::post('/forgot-password', [AuthController::class, 'requestResetPasswordLink'])->name('password.email');
 Route::post('/reset-password', [AuthController::class, 'setNewPassword'])->name('password.reset');
 Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])->name('verification.verify');
@@ -39,6 +40,8 @@ Route::group(['prefix' => '{language}', 'middleware' => ['setLanguage']], functi
     Route::get('/service-categories/{serviceCategory}/services', [ServiceController::class, 'index']);
     Route::get('/services/popular', [ServiceController::class, 'showPopular']);
     Route::get('/services/{service}', [ServiceController::class, 'show']);
+
+    Route::get('/search', [ServiceController::class, 'search']);
 
     Route::group(['middleware' => ['isAdmin', 'auth:sanctum']], function () {
         Route::post('services/{service}/add-photo', [ServiceController::class, 'addPhotos']);

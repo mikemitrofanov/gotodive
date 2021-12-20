@@ -7,6 +7,7 @@ use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\Category\ServiceCategoryCreateScreen;
 use App\Orchid\Screens\Category\ServiceCategoryScreen;
+use App\Orchid\Screens\Contact\ContactScreen;
 use App\Orchid\Screens\Service\ServiceScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
@@ -137,6 +138,15 @@ Route::screen('languages', LanguageScreen::class)
         return $trail
             ->parent('platform.index')
             ->push('Supported Languages');
+    });
+
+
+Route::screen('contacts', ContactScreen::class)
+    ->name('platform.contacts')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push('Contacts');
     });
 
 Route::screen('photos', PhotoScreen::class)
