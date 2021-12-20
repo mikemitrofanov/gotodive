@@ -13,6 +13,7 @@ use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
+use App\Models\Service;
 
 
 class ServiceCategoryCreateScreen extends Screen
@@ -103,6 +104,11 @@ class ServiceCategoryCreateScreen extends Screen
         app()->setLocale($request->category['language']);
         $serviceCategory->update($request['category']);
         return redirect()->route('platform.categories');
+    }
 
+    public function destroyService(Service $service)
+    {
+        $service->delete();
+        return redirect()->route('platform.categories.edit', $service->service_category_id);
     }
 }

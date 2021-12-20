@@ -2,8 +2,8 @@
 
 /**
  * @OA\Schema(
- *     title="Create service request",
- *     description="service model",
+ *     title="Create Service request",
+ *     description="Service model, requires moderator rights",
  *     required={"title", "description","duration","price","short_description","min_age",},
  *     @OA\Xml(
  *         name="Service"
@@ -15,8 +15,8 @@ class CreateServiceRequest
     /**
      * @OA\Property(
      *     title="Title",
-     *     description="Name of service",
-     *     example="Deap hard diving"
+     *     description="Name of the service",
+     *     example="Deep hard diving"
      * )
      *
      * @var string
@@ -26,7 +26,7 @@ class CreateServiceRequest
     /**
      * @OA\Property(
      *      title="Order",
-     *      description="Order number when retrive services",
+     *      description="Order position to retrieve service",
      *      format="int64",
      *      example="1"
      * )
@@ -37,7 +37,7 @@ class CreateServiceRequest
     /**
      * @OA\Property(
      *     title="Description",
-     *     description="Long Service description",
+     *     description="Long service description",
      *     example="Doloremque repellat earum iure vitae iusto. Doloremque et reiciendis doloribus. "
      * )
      *
@@ -67,7 +67,7 @@ class CreateServiceRequest
     /**
      * @OA\Property(
      *     title="IsPopular",
-     *     description="Shows 1 if servrice is popular",
+     *     description="Shows 1 if service is popular",
      *     example="1"
      * )
      *
@@ -77,7 +77,7 @@ class CreateServiceRequest
     /**
      * @OA\Property(
      *     title="Short Description",
-     *     description="Short Service description",
+     *     description="Short service description",
      *     example="Doloremque repellat earum iure."
      * )
      *
@@ -87,7 +87,7 @@ class CreateServiceRequest
     /**
      * @OA\Property(
      *     title="Minimum Age",
-     *     description="Shows minimum age to sing up for service",
+     *     description="Shows minimum age required to sign up for service",
      *     example="10"
      * )
      *
@@ -97,7 +97,7 @@ class CreateServiceRequest
     /**
      * @OA\Property(
      *     title="Required Experience",
-     *     description="Shows required experience to sing up for service",
+     *     description="Shows experience required to sign up for service",
      *     example="15 hours"
      * )
      *
@@ -107,7 +107,7 @@ class CreateServiceRequest
     /**
      * @OA\Property(
      *     title="Maximum Depth",
-     *     description="Shows max depth user will dive to",
+     *     description="Shows max depth customer will dive to",
      *     example="15 meters"
      * )
      *
@@ -116,9 +116,9 @@ class CreateServiceRequest
     private $max_depth;
     /**
      * @OA\Property(
-     *     title="Cource sertificate",
-     *     description="Shows required sertificete",
-     *     example="super duper diver sertificete"
+     *     title="Course certificate",
+     *     description="Shows required certificate",
+     *     example="super duper diver certificate"
      * )
      *
      * @var string

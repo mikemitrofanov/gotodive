@@ -12,18 +12,10 @@
   },
   "popular": {
     "popular": "POPULAR",
-    "recreationalCourses": "Recreational courses",
-    "technicalCourses": "Technical courses",
-    "cave": "Cave",
-    "description": "To truly enjoy your first scuba dive, you will need an instructor you can fully trust. Our experienced instructors will make sure that you are completely safe during your underwater adventures and have an unforgettable experience.",
     "buttons": "Sign up"
   },
   "team": {
-    "ourTeam": "OUR TEAM",
-    "name2": "Yurii Prokhvatilo",
-    "name3": "Rick Sanchez",
-    "greatAndTerrible": "great and terrible",
-    "justDarling": "just darling"
+    "ourTeam": "OUR TEAM"
   },
   "contact": {
     "writeToUs": "WRITE TO US",
@@ -34,13 +26,7 @@
   },
   "footer": {
     "contactUs": "Contact Us",
-    "location": "777, st. My, Country",
     "categories": "Categories",
-    "category-1": "Diving",
-    "category-2": "Diving training",
-    "category-3": "Become a DIVE PRO",
-    "category-4": "Excursions",
-    "category-5": "Price",
     "social": "Social",
     "gallery": "Gallery"
   }

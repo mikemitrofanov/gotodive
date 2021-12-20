@@ -35,6 +35,9 @@ class UpdateServiceRequest extends FormRequest
             'required_experience' => 'string',
             'max_depth' => 'string',
             'course_certificate' => 'string',
+            'certification_requirements' => 'string',
+            'min_logged_dives' => 'integer',
+            'max_end' => 'string',
         ];
     }
 }

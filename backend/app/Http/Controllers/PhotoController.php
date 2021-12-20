@@ -10,9 +10,11 @@ class PhotoController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/photos/",
+     *      path="/photos",
      *      operationId="Show all Photos",
      *      tags={"Photos"},
+     *      summary="Get photos",
+     *      description="Returns array of all photos",
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -54,7 +56,7 @@ class PhotoController extends Controller
      *          )
      *      ),
      *      @OA\Response(
-     *          response=200,
+     *          response=204,
      *          description="Successful operation",
      *       ),
      *       @OA\Response(

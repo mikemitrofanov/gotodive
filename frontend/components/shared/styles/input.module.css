@@ -1,0 +1,61 @@
+.wrap_input {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.label {
+    font-family: "Montserrat-Regular", sans-serif;
+    font-size: calc(8px + 19 * ((100vw - 360px) / 1560));
+    color: #7b7c7b;
+    margin-bottom: calc(5px + 15 * ((100vw - 360px) / 1560));
+}
+
+.input {
+    width: 100%;
+    height: calc(20px + 50 * ((100vw - 360px) / 1560));
+    border: calc(1px + 1 * ((100vw - 360px) / 1560)) solid #7b7c7b;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: calc(10px + 14 * ((100vw - 360px) / 1560));
+    letter-spacing: 0.7px;
+    padding: 0 10px;
+}
+
+.input:hover {
+    border: calc(1px + 1 * ((100vw - 360px) / 1560)) solid #7699c8;
+}
+
+.error {
+    font-size: calc(6px + 16 * ((100vw - 360px) / 1560));
+    color: red;
+    position: absolute;
+    left: 0;
+    bottom: calc(-6px - 9 * ((100vw - 360px) / 1560));
+    transform: translateY(50%);
+}
+
+.label, .error {
+    align-self: flex-start;
+}
+
+@media screen and (min-width: 1921px) {
+    .label {
+        font-size: 27px;
+        margin-bottom: 20px;
+    }
+
+    .input {
+        height: 70px;
+        font-size: 24px;
+        border: 2px solid #7b7c7b;
+    }
+
+    .input:hover {
+        border: 2px solid #7699c8;
+    }
+
+    .error {
+        font-size: 22px;
+        bottom: -15px;
+    }
+}

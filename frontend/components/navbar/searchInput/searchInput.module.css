@@ -21,7 +21,7 @@
 }
 
 .icon_magnifier {
-    background-image: url(../../../public/img/navBar/search.svg);
+    background-image: url(../../../public/images/navBar/search.svg);
     width: calc(10px + 8 * ((100vw - 360px) / 1560));
     height: calc(10px + 8 * ((100vw - 360px) / 1560));
     background-size: cover;
