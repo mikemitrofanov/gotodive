@@ -25,7 +25,7 @@ class AddPhotoRequest extends FormRequest
     {
         return [
             'photos' => 'array|required',
-            'photos.*' => 'image|mimes:jpeg,png,jpg,gif,svg|required'
+            'photos.*' => 'image|distinct|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ];
     }
 }

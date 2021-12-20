@@ -28,6 +28,9 @@ class ServiceResource extends JsonResource
             'required_experience' => $this->required_experience,
             'max_depth' => $this->max_depth,
             'course_certificate' => $this->course_certificate,
+            'certification_requirements' => $this->certification_requirements,
+            'min_logged_dives' => $this->min_logged_dives,
+            'max_end' => $this->max_end,
             'photos' => PhotoResource::collection($this->whenLoaded('photos')),
         ];
     }

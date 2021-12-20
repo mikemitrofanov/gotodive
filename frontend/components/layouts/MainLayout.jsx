@@ -1,5 +1,8 @@
 import styles from "./mainLayout.module.css";
 import Footer from "../shared/footer";
+import styles from "./mainLayouts.module.css";
+import Header from "../shared/header";
+import Footer from "../footer";
 import Head from "next/head";
 import {useRouter} from "next/router";
 import {useGetPhotoGalleryQuery} from "@/redux/slices/apiSlice";
@@ -26,6 +29,7 @@ const dataFooter = {
 
 export default function MainLayout({children}) {
     const router = useRouter();
+    const {data: categories} = useGetAllCategoriesQuery(router.locale);
     const {data: photoList = []} = useGetPhotoGalleryQuery();
 
     return (

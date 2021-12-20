@@ -23,6 +23,9 @@ class Service extends Model
         'duration',
         'price',
         'is_popular',
+        'certification_requirements',
+        'min_logged_dives',
+        'max_end',
     ];
 
     public $translatable = [
@@ -32,6 +35,8 @@ class Service extends Model
         'required_experience',
         'course_certificate',
         'duration',
+        'certification_requirements',
+        'max_end',
     ];
 
     public function serviceCategory()
@@ -42,5 +47,27 @@ class Service extends Model
     public function photos()
     {
         return $this->hasMany(Photo::class);
+    }
+
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
+    }
+
+    /**
+     * Scope a query.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeFilter($query, array $filters)
+    {
+        return $query->when(
+            $filters['search'] ?? false,
+            fn ($query, $search) =>
+            //case insensitive search in JSON columns
+            $query->whereRaw('LOWER(title->"$.' . $filters['language'] . '") LIKE ?', mb_strtolower('%' . $search . '%'))
+                ->orWhereRaw('LOWER(description->"$.' . $filters['language'] . '") LIKE ?', mb_strtolower('%' . $search . '%'))
+        );
     }
 }

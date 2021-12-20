@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "eb6c80ed-5481-4f98-b5eb-2424c80e790a",
-		"name": "GoToDive",
+		"_postman_id": "2d907e0c-9292-40e1-9300-d6b2539e4633",
+		"name": "gotodive",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -12,19 +12,13 @@
 					"name": "login",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
 								{
 									"key": "email",
-									"value": "email@example.com",
+									"value": "admin@test.com",
 									"type": "text"
 								},
 								{
@@ -53,62 +47,37 @@
 					"response": []
 				},
 				{
-					"name": "logout",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:8000\n",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000\n"
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create user",
+					"name": "register",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
 								{
 									"key": "name",
-									"value": "asdf asdg",
+									"value": "test",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "asd23rbfl@mail.comqq",
+									"value": "test@test.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "1",
+									"value": "testtest",
 									"type": "text"
 								},
 								{
 									"key": "password_confirmation",
-									"value": "1",
+									"value": "testtest",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8001/api/register",
+							"raw": "http://127.0.0.1:8000/api/register",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -116,7 +85,7 @@
 								"0",
 								"1"
 							],
-							"port": "8001",
+							"port": "8000",
 							"path": [
 								"api",
 								"register"
@@ -126,35 +95,55 @@
 					"response": []
 				},
 				{
-					"name": "get user",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "logout",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "7|aigIMNxOIJtxjzZqGfD76fJTOXdigT7y4KDLUtcN",
+									"value": "1|MTS1Vv6NTEIzEqCWHOoNwzXmQR0Lm0xdT4eEMxx2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCurrentUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|P4OqronNpROjlCkhJ8H39YawKwLknVToBn7gINQm",
 									"type": "string"
 								}
 							]
 						},
 						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
+						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/users/1",
+							"raw": "http://127.0.0.1:8000/api/users/me",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -166,315 +155,44 @@
 							"path": [
 								"api",
 								"users",
-								"1"
+								"me"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "get users list",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "updateCurrentUser",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2|XgrytOuPSWVPgtDEpKfA2MQkPv30jyTB7UrpedQL",
+									"value": "2|P4OqronNpROjlCkhJ8H39YawKwLknVToBn7gINQm",
 									"type": "string"
 								}
 							]
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "search",
-									"value": "use",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/users?",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"users"
-							],
-							"query": [
-								{
-									"key": "username",
-									"value": "u",
-									"disabled": true
-								},
-								{
-									"key": "page",
-									"value": "2",
-									"disabled": true
-								},
-								{
-									"key": "",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Post image",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "1|OPykkHbaQA6a0CgSrFMzSDhOIctReMwMDj5U445I",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "text"
-								},
-								{
-									"key": "name",
-									"value": "f,djmdfm",
-									"type": "text"
-								},
-								{
-									"key": "avatar",
-									"type": "file",
-									"src": "/home/student/Pictures/Screenshot from 2021-05-13 12-40-08.png"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/profile",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"profile"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update user",
-					"request": {
 						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
 								{
 									"key": "name",
-									"value": "sdabasb",
+									"value": "test1",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "aas6v45@asfb.co",
+									"value": "test1@test.com",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8001/api/users",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8001",
-							"path": [
-								"api",
-								"users"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"auth": {
-				"type": "bearer",
-				"bearer": [
-					{
-						"key": "token",
-						"value": "jwawsQIUS5XcWYCgfbAiYjjkHzNAT9UNatfvpR8w",
-						"type": "string"
-					}
-				]
-			},
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
-			]
-		},
-		{
-			"name": "post",
-			"item": [
-				{
-					"name": "create post",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "content",
-									"value": "asdgasg",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"posts"
-							]
-						},
-						"description": "http://localhost:8000/api/posts"
-					},
-					"response": []
-				},
-				{
-					"name": "update post",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/login",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get user posts",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get post",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "57|Tdyiv3jXFhTZtJsx7hqMyp5ugpsSJfWeTWjP1pv3",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/users/1/posts",
+							"raw": "http://127.0.0.1:8000/api/users/me",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -486,36 +204,100 @@
 							"path": [
 								"api",
 								"users",
-								"1",
-								"posts"
+								"me"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "like post",
+					"name": "forgotPassword??",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
 								{
-									"key": "token",
-									"value": "57|Tdyiv3jXFhTZtJsx7hqMyp5ugpsSJfWeTWjP1pv3",
-									"type": "string"
+									"key": "email",
+									"value": "test@test.com",
+									"type": "text"
 								}
 							]
 						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/forgot-password",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resetPassword??",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "token",
+									"value": "fdsdfsdfsdf",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "test1test1",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "test1test1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/reset-password",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verifyEmail??",
+					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/users/1/posts",
+							"raw": "http://127.0.0.1:8000/api/email/verify/1/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -526,49 +308,10 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"users",
+								"email",
+								"verify",
 								"1",
-								"posts"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete post",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "62|0iMQ7IPxz1a5dSwcgxn2qum8wVzW6tn5i7W94ZLb",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/1",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"posts",
-								"1"
+								""
 							]
 						}
 					},
@@ -577,21 +320,15 @@
 			]
 		},
 		{
-			"name": "Category",
+			"name": "categories & services",
 			"item": [
 				{
-					"name": "get",
+					"name": "serviceCategories",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/service-categories/2",
+							"raw": "http://127.0.0.1:8000/api/en/service-categories",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -602,103 +339,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"service-categories",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getWithService",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/service-categories/2",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"service-categories",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "store",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "title",
-									"value": "title e",
-									"type": "text"
-								},
-								{
-									"key": "order",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "link",
-									"value": "fgljsdhg",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/service-categories",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
+								"en",
 								"service-categories"
 							]
 						}
@@ -706,49 +347,12 @@
 					"response": []
 				},
 				{
-					"name": "update",
+					"name": "categoriesWithServices",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "title",
-									"value": "sdfhg",
-									"type": "text"
-								},
-								{
-									"key": "order",
-									"value": "null",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "text"
-								}
-							]
-						},
+						"method": "GET",
+						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/service-categories/4",
+							"raw": "http://127.0.0.1:8000/api/en/service-categories/services",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -759,6 +363,242 @@
 							"port": "8000",
 							"path": [
 								"api",
+								"en",
+								"service-categories",
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "serviceCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/en/service-categories/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"en",
+								"service-categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "services",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/en/service-categories/1/services",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"en",
+								"service-categories",
+								"1",
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "popularServices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/en/services/popular",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"en",
+								"services",
+								"popular"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "service",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/en/services/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"en",
+								"services",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create serviceCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|y5ISOV5s6qqVX7i6gbrnqOAfwXPScqA2RkVAxrCB",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "test category",
+									"type": "text"
+								},
+								{
+									"key": "order",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/en/service-categories",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"en",
+								"service-categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit serviceCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|y5ISOV5s6qqVX7i6gbrnqOAfwXPScqA2RkVAxrCB",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "upd test",
+									"type": "text"
+								},
+								{
+									"key": "order",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/en/service-categories/5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"en",
+								"service-categories",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete serviceCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|y5ISOV5s6qqVX7i6gbrnqOAfwXPScqA2RkVAxrCB",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/en/service-categories/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"en",
 								"service-categories",
 								"4"
 							]
@@ -767,108 +607,26 @@
 					"response": []
 				},
 				{
-					"name": "delete",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "services",
-			"item": [
-				{
-					"name": "get",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/service-categories/2",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"service-categories",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "show",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/service-categories/2",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"service-categories",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "store",
+					"name": "create service",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ",
+									"value": "1|6IuyYpTUM7Cd1uNSaYQVfCktawunrm2XCOcVUFCm",
 									"type": "string"
 								}
 							]
 						},
 						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
 								{
 									"key": "title",
-									"value": "title e",
+									"value": "test service",
 									"type": "text"
 								},
 								{
@@ -877,35 +635,70 @@
 									"type": "text"
 								},
 								{
-									"key": "link",
-									"value": "fgljsdhg",
-									"type": "text"
-								},
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "text",
-									"disabled": true
-								},
-								{
 									"key": "description",
-									"value": "65411",
+									"value": "bla bla bla",
 									"type": "text"
 								},
 								{
 									"key": "duration",
-									"value": "684",
+									"value": "10",
 									"type": "text"
 								},
 								{
 									"key": "price",
-									"value": "351",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "isPopular",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "short_description",
+									"value": "bla",
+									"type": "text"
+								},
+								{
+									"key": "min_age",
+									"value": "18",
+									"type": "text"
+								},
+								{
+									"key": "required_experience",
+									"value": "none",
+									"type": "text"
+								},
+								{
+									"key": "max_depth",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "course_certificate",
+									"value": "none",
+									"type": "text"
+								},
+								{
+									"key": "certification_requirements",
+									"value": "bla",
+									"type": "text"
+								},
+								{
+									"key": "min_logged_dives",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "max_end",
+									"value": "10m",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/service-categories/1/services",
+							"raw": "http://127.0.0.1:8000/api/en/service-categories/1/services",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -916,6 +709,7 @@
 							"port": "8000",
 							"path": [
 								"api",
+								"en",
 								"service-categories",
 								"1",
 								"services"
@@ -925,69 +719,98 @@
 					"response": []
 				},
 				{
-					"name": "store Copy",
+					"name": "edit service",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "6fLEwUHhb8HXBVWD07NQtcioHznVOlv700isztFJ",
+									"value": "1|6IuyYpTUM7Cd1uNSaYQVfCktawunrm2XCOcVUFCm",
 									"type": "string"
 								}
 							]
 						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
+						"method": "PUT",
+						"header": [],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
+							"mode": "urlencoded",
+							"urlencoded": [
 								{
 									"key": "title",
-									"value": "title e",
+									"value": "upd",
 									"type": "text"
 								},
 								{
 									"key": "order",
-									"value": "1",
+									"value": "2",
 									"type": "text"
-								},
-								{
-									"key": "link",
-									"value": "fgljsdhg",
-									"type": "text"
-								},
-								{
-									"key": "_method",
-									"value": "PUT",
-									"type": "text",
-									"disabled": true
 								},
 								{
 									"key": "description",
-									"value": "65411",
+									"value": "upd",
 									"type": "text"
 								},
 								{
 									"key": "duration",
-									"value": "684",
+									"value": "30",
 									"type": "text"
 								},
 								{
 									"key": "price",
-									"value": "351",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "isPopular",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "short_description",
+									"value": "upd",
+									"type": "text"
+								},
+								{
+									"key": "min_age",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "required_experience",
+									"value": "upd",
+									"type": "text"
+								},
+								{
+									"key": "max_depth",
+									"value": "30",
+									"type": "text"
+								},
+								{
+									"key": "course_certificate",
+									"value": "upd",
+									"type": "text"
+								},
+								{
+									"key": "certification_requirements",
+									"value": "upd",
+									"type": "text"
+								},
+								{
+									"key": "min_logged_dives",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "max_end",
+									"value": "upd",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/service-categories/1/services",
+							"raw": "http://127.0.0.1:8000/api/en/services/10",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -998,59 +821,56 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"service-categories",
-								"1",
-								"services"
+								"en",
+								"services",
+								"10"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "delete",
+					"name": "delete service",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|y5ISOV5s6qqVX7i6gbrnqOAfwXPScqA2RkVAxrCB",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/en/services/18",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"en",
+								"services",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search services",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "messages",
-			"item": [
-				{
-					"name": "send message",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "message",
-									"value": "hellodfg jdfgj ",
-									"type": "text"
-								},
-								{
-									"key": "recipient_id",
-									"value": "2",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/messages/2",
+							"raw": "http://127.0.0.1:8000/api/en/search?search=rabbit",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1061,96 +881,31 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"messages",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create Conversation",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "message",
-									"value": "hellodfg jdfgj ",
-									"type": "text"
-								},
-								{
-									"key": "recipient_id",
-									"value": "2",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/conversations?userId=2hfg",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"conversations"
+								"en",
+								"search"
 							],
 							"query": [
 								{
-									"key": "userId",
-									"value": "2hfg"
+									"key": "search",
+									"value": "rabbit"
 								}
 							]
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "photos",
+			"item": [
 				{
-					"name": "get messages",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "photos",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "message",
-									"value": "hellodfg jdfgj ",
-									"type": "text"
-								},
-								{
-									"key": "recipient_id",
-									"value": "2",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						},
+						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/messages/2",
+							"raw": "http://127.0.0.1:8000/api/photos",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1161,75 +916,99 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"messages",
-								"2"
+								"photos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addPhotos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|y5ISOV5s6qqVX7i6gbrnqOAfwXPScqA2RkVAxrCB",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photos[0]",
+									"type": "file",
+									"src": "/home/developer/Downloads/default-test.png"
+								},
+								{
+									"key": "photos[1]",
+									"type": "file",
+									"src": "/home/developer/Downloads/default-avatar.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/en/services/1/add-photo",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"en",
+								"services",
+								"1",
+								"add-photo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|y5ISOV5s6qqVX7i6gbrnqOAfwXPScqA2RkVAxrCB",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/en/photos/61",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"en",
+								"photos",
+								"61"
 							]
 						}
 					},
 					"response": []
 				}
-			],
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
 			]
-		},
-		{
-			"name": "curcor",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": ""
-				}
-			},
-			"response": []
-		}
-	],
-	"auth": {
-		"type": "bearer",
-		"bearer": [
-			{
-				"key": "token",
-				"value": "XHj4C9e4sxAtMUK0EA3SgpjLdHEDHfJGZ2EYFBzk",
-				"type": "string"
-			}
-		]
-	},
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
 		}
 	]
 }

@@ -30,14 +30,16 @@ class ServiceListLayout extends Table
     protected function columns(): array
     {
         Language::all()->each(function ($language) {
-            array_push($this->TDArray, TD::make('title', $language->language_code . ' Title')
-                ->align('center')
-                ->width('100px')
-                ->render(function ($service) use ($language) {
-                    app()->setLocale($language->language_code);
-                    return Link::make($service->title)
-                        ->route('platform.services.edit', [$service, $language->language_code]);
-                })
+            array_push(
+                $this->TDArray,
+                TD::make('title', $language->language_code . ' Title')
+                    ->align('center')
+                    ->width('100px')
+                    ->render(function ($service) use ($language) {
+                        app()->setLocale($language->language_code);
+                        return Link::make($service->title)
+                            ->route('platform.services.edit', [$service, $language->language_code]);
+                    })
             );
         });
         return [
@@ -64,13 +66,12 @@ class ServiceListLayout extends Table
                 ->width('100px')
                 ->render(function ($service) {
                     return Button::make('Delete')
-                        ->method('destroy')
+                        ->method('destroyService')
                         ->icon('trash')
                         ->confirm('Are you sure you want to delete this service?')
                         ->parameters([
                             'id' => $service->id,
                         ]);
-
                 }),
         ];
     }
