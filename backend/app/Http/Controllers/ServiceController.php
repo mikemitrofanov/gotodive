@@ -391,15 +391,6 @@ class ServiceController extends Controller
      *              type="string"
      *          )
      *      ),
-     *      @OA\Parameter(
-     *          name="search",
-     *          description="Search parameter",
-     *          required=true,
-     *          example="scuba",
-     *          @OA\Schema(
-     *              type="string"
-     *          )
-     *      ),
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
