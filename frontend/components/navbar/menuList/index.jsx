@@ -3,7 +3,7 @@ import DropdownMenu from "./dropdownMenu";
 import {useTranslation} from "next-i18next";
 import {useRouter} from "next/router";
 import {useGetAllCategoriesQuery} from "@/redux/slices/apiSlice";
-import ListItemLink from "../../shared/Link";
+import Link from "../../shared/Link";
 
 export default function MenuList() {
     const {t} = useTranslation("common");
@@ -14,7 +14,7 @@ export default function MenuList() {
         <nav>
             <ul className={styles.list}>
                 <li>
-                    <ListItemLink
+                    <Link
                         href='/'
                         children={t("navBar.home")}
                         className={styles.link}
@@ -27,14 +27,14 @@ export default function MenuList() {
                     </li>
                 ))}
                 <li>
-                    <ListItemLink
+                    <Link
                         href='/gallery'
                         children={t("navBar.gallery")}
                         className={styles.link}
                     />
                 </li>
                 <li>
-                    <ListItemLink
+                    <Link
                         href='/file/price.pdf'
                         children={t("navBar.price")}
                         target='_blank'
