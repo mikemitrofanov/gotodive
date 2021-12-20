@@ -2,7 +2,7 @@ import styles from "./burgerMenu.module.css";
 import MenuList from "../menuList";
 import LanguageSwitchers from "../languageSwitchers";
 import SearchInput from "../searchInput";
-import {isOpenBurgerMenu, openBurgerMenu} from "../../../redux/slices/navbarSlice";
+import {isOpenBurgerMenu, openBurgerMenu} from "@/redux/slices/navbarSlice";
 import {useDispatch, useSelector} from "react-redux";
 
 export default function BurgerMenu() {

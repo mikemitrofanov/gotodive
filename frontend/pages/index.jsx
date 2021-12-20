@@ -3,8 +3,8 @@ import MainScreen from "../components/mainScreen";
 import ContactUs from "../components/contactUs";
 import Team from "../components/team";
 import MainLayout from "../components/layouts/MainLayout";
-import {withRedux} from "../hof/withRedux";
-import {apiSlice} from "../redux/slices/apiSlice";
+import {withRedux} from "@/hof/withRedux";
+import {apiSlice} from "@/redux/slices/apiSlice";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 export default function MainPage() {

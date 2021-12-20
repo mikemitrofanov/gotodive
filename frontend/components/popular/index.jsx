@@ -3,7 +3,7 @@ import {useTranslation} from "next-i18next";
 import PopularCard from "./items/PopularCard";
 import PopularCardSlider from "./items/PopularCardSlider";
 import {useRouter} from "next/router";
-import {useGetPopularServicesQuery} from "../../redux/slices/apiSlice";
+import {useGetPopularServicesQuery} from "@/redux/slices/apiSlice";
 
 export default function Popular() {
     const router = useRouter();
@@ -23,6 +23,7 @@ export default function Popular() {
                                 src={`${process.env.NEXT_PUBLIC_URL}/${item.photos[0].photo_url}`}
                                 title={item.title}
                                 description={item.description}
+                                id={item.id}
                             />
                         ))}
                         <PopularCardSlider/>

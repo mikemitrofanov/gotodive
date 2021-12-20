@@ -1,13 +1,13 @@
 import styles from "../service.module.css";
 import ImagesSlider from "./ImagesSlider";
-import {useGetServicesQuery} from "../../../redux/slices/apiSlice";
+import {useGetServicesQuery} from "@/redux/slices/apiSlice";
 import {useRouter} from "next/router";
 import Images from "./Images";
 import TextContent from "./TextContent";
 
 export default function Content({id}) {
     const router = useRouter();
-    const {data: service} = useGetServicesQuery({language: router.locale, id});
+    const {data: service = {}} = useGetServicesQuery({language: router.locale, id});
 
     return (
         <section className={styles.background}>
