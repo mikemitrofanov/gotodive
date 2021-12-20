@@ -27,29 +27,50 @@ export const apiSlice = createApi({
         getServices: build.query({
             query: ({language, id}) => `${language}/services/${id}`,
             transformResponse: response => {
-                const photos = response.data.photos.map(photo => {
-                    return {
-                        ...photo,
-                        optimized_photo_url: `${url}/${photo.optimized_photo_url}`
-                    }
-                })
+                let photos = []
 
-                return {...response.data, photos}
+                for (let i = 0; i < 4; i++) {
+                    response.data.photos[i]?.optimized_photo_url
+                        ? photos = [...photos, {
+                            optimized_photo_url: `${url}/${response.data.photos[i].optimized_photo_url}`,
+                            id: i + 1
+                        }]
+                        : photos = [...photos, {
+                            optimized_photo_url: `${url}/${response.data.photos[0].optimized_photo_url}`,
+                            id: i + 1
+                        }]
+                }
+
+                let data = response.data;
+
+                ['title', 'description', 'duration', 'min_age', 'required_experience', 'max_depth',
+                    'certification_requirements', 'min_logged_dives', 'max_end', 'course_certificate']
+                    .forEach(param => {
+
+                        if (!data[param]) data[param] = null
+                    })
+
+                return {...data, photos}
             }
         }),
 
         getPhotoGallery: build.query({
             query: () => '/photos',
-            transformResponse: response => {
-                return response.data.map(photo => {
-                    return {
-                        ...photo,
-                        photo_url: `${url}/${photo.photo_url}`,
-                        optimized_photo_url: `${url}/${photo.optimized_photo_url}`
-                    }
-                })
-            }
-        })
+            transformResponse: response => response.data.map(photo => ({
+                ...photo,
+                photo_url: `${url}/${photo.photo_url}`,
+                optimized_photo_url: `${url}/${photo.optimized_photo_url}`
+            }))
+        }),
+
+        getSearchResult: build.query({
+            query: (language, searchQuery) => ({
+                url: `${language}/search/${searchQuery}`,
+                method: 'POST',
+                body: searchQuery
+            }),
+            transformResponse: response => response.data
+        }),
     })
 })
 
@@ -57,5 +78,6 @@ export const {
     useGetPopularServicesQuery,
     useGetAllCategoriesQuery,
     useGetServicesQuery,
-    useGetPhotoGalleryQuery
+    useGetPhotoGalleryQuery,
+    useGetSearchResultQuery,
 } = apiSlice

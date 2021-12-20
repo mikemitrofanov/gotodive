@@ -1,4 +1,4 @@
-import styles from "./dropdownItem.module.css";
+import styles from "../header.module.css";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
@@ -33,13 +33,14 @@ export default function DropdownItem({category}) {
 
     return (
         <div onClick={handleOnClickService}
-             className={`${isOpenDropdownMenu ? styles.dropdown_content_active : styles.dropdown_content}`}>
+             className={`${isOpenDropdownMenu ? styles.dropdown_active : styles.dropdown}`}
+        >
             {category.services.map(service => (
                 <Link
                     key={service.id}
                     href={{pathname: '/category/[service]', query: {service: service.id}}}
                 >
-                    <a id={service.id} className={styles.title}>
+                    <a id={service.id} className={styles.subtitle}>
                         {service.title}
                     </a>
                 </Link>
