@@ -2,7 +2,7 @@
 
 /**
  * @OA\Schema(
- *     title="Logout",
+ *     title="Logout request",
  *     description="Logout User",
  *     @OA\Xml(
  *         name="Logout"
@@ -25,7 +25,7 @@ class LogoutRequest
 
 /**
  * @OA\Schema(
- *     title="Logout",
+ *     title="Logout response",
  *     description="Logout User",
  *     @OA\Xml(
  *         name="Logout"
@@ -34,5 +34,4 @@ class LogoutRequest
  */
 class LogoutResponse
 {
-
 }
