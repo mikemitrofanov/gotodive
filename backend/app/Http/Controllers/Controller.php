@@ -22,7 +22,7 @@ class Controller extends BaseController
      * @OA\SecurityScheme(
      *     type="http",
      *     description="Login with email and password to get the authentication token",
-     *     name="Token based Based",
+     *     name="Token Based",
      *     in="header",
      *     scheme="bearer",
      *     securityScheme="apiAuth",
@@ -39,7 +39,7 @@ class Controller extends BaseController
      * )
      * @OA\Tag(
      *     name="User",
-     *     description="API Endpoints of Auth"
+     *     description="API Endpoints of User"
      * )
      * @OA\Tag(
      *     name="Service Categories",
@@ -48,6 +48,10 @@ class Controller extends BaseController
      * @OA\Tag(
      *     name="Services",
      *     description="API Endpoints of Services"
+     * )
+     * @OA\Tag(
+     *     name="Photos",
+     *     description="API Endpoints of Photos"
      * )
      */
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;

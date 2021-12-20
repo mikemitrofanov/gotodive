@@ -79,6 +79,13 @@ body {
     font-size: 19px;
 }
 
+#__next {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
 @font-face {
     font-family: "Montserrat-Light";
     src: url("../public/fonts/montserrat/Montserrat-Light.ttf");

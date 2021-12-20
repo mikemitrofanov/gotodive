@@ -1,7 +1,7 @@
-import styles from "./dropdownMenu.module.css";
+import styles from "../header.module.css";
 import DropdownItem from "./dropdownItem";
 import {useDispatch, useSelector} from "react-redux";
-import {openDropdown, openDropdownMenu} from "../../../../redux/slices/navbarSlice";
+import {openDropdown, openDropdownMenu} from "@/redux/slices/navbarSlice";
 
 export default function DropdownMenu({category}) {
     const openedDropdownMenu = useSelector(openDropdown);
@@ -15,9 +15,9 @@ export default function DropdownMenu({category}) {
     const isOpenedDropdownMenu = openedDropdownMenu.includes(`${category.id}`);
 
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.dropdown_wrap}>
             <a key={category.id} id={category.id} onClick={handleOnClickCategory}
-               className={`${styles.menu_item} ${isOpenedDropdownMenu && styles.menu_item_active}`}>
+               className={`${styles.title} ${isOpenedDropdownMenu && styles.title_active}`}>
                 {category.title}
             </a>
             <DropdownItem category={category}/>
