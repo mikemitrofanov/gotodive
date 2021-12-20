@@ -17,8 +17,8 @@ class ServiceController extends Controller
      *      path="/{language}/service-categories/{serviceCategory}/services",
      *      operationId="Show Services",
      *      tags={"Services"},
-     *      summary="Get list of Services",
-     *      description="Returns list of services related to serten Category",
+     *      summary="Get services",
+     *      description="Returns array of services related to certain category",
      *       @OA\Parameter(
      *          name="language",
      *          description="Language code ",
@@ -63,8 +63,8 @@ class ServiceController extends Controller
      *      path="/{language}/service-categories/{serviceCategory}/services",
      *      operationId="Create new Service",
      *      tags={"Services"},
-     *      summary="Create Service",
-     *      description="Returns created Service.",
+     *      summary="Create service",
+     *      description="Returns created service",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
      *          name="language",
@@ -120,8 +120,8 @@ class ServiceController extends Controller
      *      path="/{language}/services/popular",
      *      operationId="Show Popular Services",
      *      tags={"Services"},
-     *      summary="Show Popular Services",
-     *      description="Returns list of Popular Services",
+     *      summary="Show popular services",
+     *      description="Returns array of popular services",
      *      @OA\Parameter(
      *          name="language",
      *          description="Language code ",
@@ -154,8 +154,8 @@ class ServiceController extends Controller
      *      path="/{language}/services/{service}",
      *      operationId="Show Service",
      *      tags={"Services"},
-     *      summary="Get one category",
-     *      description="Returns specific Service",
+     *      summary="Get service",
+     *      description="Returns specific service",
      *      @OA\Parameter(
      *          name="language",
      *          description="Language code ",
@@ -191,7 +191,11 @@ class ServiceController extends Controller
      */
     public function show($language, Service $service)
     {
-        return new ServiceResource(Service::where('id', $service->id)->with('photos')->first());
+        return new ServiceResource(Service::where('id', $service->id)
+            ->with(['photos' => function ($query) {
+                $query->where('is_shown', true);
+            }])
+            ->first());
     }
 
     /**
@@ -199,8 +203,8 @@ class ServiceController extends Controller
      *      path="/{language}/services/{service}",
      *      operationId="Update service",
      *      tags={"Services"},
-     *      summary="Update Service",
-     *      description="Returns updated Service",
+     *      summary="Update service",
+     *      description="Returns updated service",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
      *          name="language",
@@ -257,7 +261,7 @@ class ServiceController extends Controller
      *      path="/{language}/services/{service}",
      *      operationId="Delete Service",
      *      tags={"Services"},
-     *      summary="Delete Service",
+     *      summary="Delete service",
      *      description="Returns nothing",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
@@ -281,7 +285,7 @@ class ServiceController extends Controller
      *          )
      *      ),
      *      @OA\Response(
-     *          response=200,
+     *          response=204,
      *          description="Successful operation",
      *       ),
      *       @OA\Response(
@@ -299,7 +303,7 @@ class ServiceController extends Controller
      * )
      */
 
-    public function destroy(Service $service)
+    public function destroy($language, Service $service)
     {
         $service->delete();
         return response()->noContent();
@@ -308,9 +312,10 @@ class ServiceController extends Controller
     /**
      * @OA\Post(
      *      path="/{language}/services/{service}/add-photo",
-     *      operationId="Add photo for service",
+     *      operationId="Add photos to service",
      *      tags={"Photos"},
-     *      summary="Add Photo",
+     *      summary="Add photo",
+     *      description="Returns specific service with it's photos",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
      *          name="language",
@@ -366,6 +371,5 @@ class ServiceController extends Controller
             (new Photo)->savePhoto($service, $photo);
         }
         return new ServiceResource(Service::where('id', $service->id)->with('photos')->first());
-
     }
 }

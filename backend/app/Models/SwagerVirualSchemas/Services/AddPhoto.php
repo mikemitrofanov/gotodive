@@ -3,8 +3,8 @@
 
 /**
  * @OA\Schema(
- *     title="Add Photo",
- *     description="Photo",
+ *     title="Add Photo request",
+ *     description="Photo model, requires moderator rights",
  *     required={"photos"},
  * )
  */
@@ -23,5 +23,4 @@ class AddPhotoRequest
      * )
      */
     public $photos;
-
 }

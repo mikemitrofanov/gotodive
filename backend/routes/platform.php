@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 use App\Orchid\Screens\Service\ServiceCreateScreen;
 use \App\Orchid\Screens\Language\LanguageScreen;
+use \App\Orchid\Screens\Photo\PhotoScreen;
+
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -135,4 +137,12 @@ Route::screen('languages', LanguageScreen::class)
         return $trail
             ->parent('platform.index')
             ->push('Supported Languages');
+    });
+
+Route::screen('photos', PhotoScreen::class)
+    ->name('platform.photos')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push('Photos');
     });

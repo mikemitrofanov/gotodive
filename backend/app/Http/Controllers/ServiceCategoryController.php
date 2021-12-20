@@ -16,8 +16,8 @@ class ServiceCategoryController extends Controller
      *      path="/{language}/service-categories",
      *      operationId="Show Categories",
      *      tags={"Service Categories"},
-     *      summary="Get list of categories",
-     *      description="Returns list of categories",
+     *      summary="Get categories",
+     *      description="Returns array of categories",
      *      @OA\Parameter(
      *          name="language",
      *          description="Language code ",
@@ -55,8 +55,8 @@ class ServiceCategoryController extends Controller
      *      path="/{language}/service-categories/services",
      *      operationId="Show Services with categories",
      *      tags={"Service Categories"},
-     *      summary="Show Categoriy with serwices",
-     *      description="Returns array categories with serwices",
+     *      summary="Get categories with services",
+     *      description="Returns array of categories with services",
      *         @OA\Parameter(
      *          name="language",
      *          description="Language code ",
@@ -70,7 +70,7 @@ class ServiceCategoryController extends Controller
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/CategoryWithServicesResponse")
+     *          @OA\JsonContent(ref="#/components/schemas/GetCategoriesWithServicesResponse")
      *       ),
      *      @OA\Response(
      *          response=400,
@@ -89,9 +89,9 @@ class ServiceCategoryController extends Controller
      *
      * @OA\Post(
      *      path="/{language}/service-categories",
-     *      operationId="Create new Categoriy",
+     *      operationId="Create new Category",
      *      tags={"Service Categories"},
-     *      summary="Create Categoriy",
+     *      summary="Create category",
      *      description="Returns created category",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
@@ -140,7 +140,7 @@ class ServiceCategoryController extends Controller
      *      path="/{language}/service-categories/{serviceCategory}",
      *      operationId="Show Category",
      *      tags={"Service Categories"},
-     *      summary="Get one category",
+     *      summary="Get category",
      *      description="Returns specific category",
      *       @OA\Parameter(
      *          name="language",
@@ -189,8 +189,8 @@ class ServiceCategoryController extends Controller
      *      path="/{language}/service-categories/{serviceCategory}",
      *      operationId="Update Category",
      *      tags={"Service Categories"},
-     *      summary="Update Category",
-     *      description="Returns updated category.",
+     *      summary="Update category",
+     *      description="Returns updated category",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
      *          name="language",
@@ -251,7 +251,7 @@ class ServiceCategoryController extends Controller
      *      path="/{language}/service-categories/{serviceCategory}",
      *      operationId="Delete Category",
      *      tags={"Service Categories"},
-     *      summary="Delete Category",
+     *      summary="Delete category",
      *      description="Returns nothing",
      *      security={{"bearerAuth":{}}},
      *      @OA\Parameter(
@@ -274,7 +274,7 @@ class ServiceCategoryController extends Controller
      *          )
      *      ),
      *      @OA\Response(
-     *          response=200,
+     *          response=204,
      *          description="Successful operation",
      *       ),
      *      @OA\Response(
@@ -294,7 +294,7 @@ class ServiceCategoryController extends Controller
      * @param \App\Models\ServiceCategory $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ServiceCategory $serviceCategory)
+    public function destroy($language, ServiceCategory $serviceCategory)
     {
         $serviceCategory->delete();
         return response()->noContent();
