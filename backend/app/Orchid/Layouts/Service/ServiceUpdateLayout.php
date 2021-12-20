@@ -74,6 +74,18 @@ class ServiceUpdateLayout extends Rows
                 ->title('is_popular')
                 ->sendTrueOrFalse(),
 
+            Input::make('service.certification_requirements')
+                ->title('certification_requirements')
+                ->type('string'),
+
+            Input::make('service.min_logged_dives')
+                ->title('min_logged_dives')
+                ->type('number'),
+
+            Input::make('service.max_end')
+                ->title('max_end')
+                ->type('string')
+                ->help('Max equivalent narcotic depth'),
         ];
     }
 }

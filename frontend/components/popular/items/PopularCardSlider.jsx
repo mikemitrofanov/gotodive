@@ -3,7 +3,7 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation} from "swiper";
 import PopularCard from "./PopularCard";
 import {useRouter} from "next/router";
-import {useGetPopularServicesQuery} from "../../../redux/slices/apiSlice";
+import {useGetPopularServicesQuery} from "@/redux/slices/apiSlice";
 
 const params = {
     modules: [Navigation],
@@ -31,6 +31,7 @@ export default function PopularCardSlider() {
                             src={`${process.env.NEXT_PUBLIC_URL}/${item.photos[0].photo_url}`}
                             title={item.title}
                             description={item.description}
+                            id={item.id}
                         />
                     </SwiperSlide>
                 )))

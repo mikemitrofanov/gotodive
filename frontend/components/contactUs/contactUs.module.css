@@ -72,6 +72,7 @@
     font-size: 20px;
     letter-spacing: 0.5px;
     padding: 10px;
+    resize: none;
 }
 
 .wrap_input, .wrap_textarea {

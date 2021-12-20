@@ -1,6 +1,6 @@
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import {apiSlice} from "../../redux/slices/apiSlice";
-import {withRedux} from "../../hof/withRedux";
+import {apiSlice} from "@/redux/slices/apiSlice";
+import {withRedux} from "@/hof/withRedux";
 import Gallery from "../../components/gallery";
 import MainLayout from "../../components/layouts/MainLayout";
 

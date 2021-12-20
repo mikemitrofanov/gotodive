@@ -4,7 +4,7 @@
 /**
  * @OA\Schema(
  *     title="Create User request",
- *     description="User",
+ *     description="User model",
  *     required={"email","name","password","password_confirmation"},
  *     @OA\Xml(
  *         name="User"
@@ -54,7 +54,6 @@ class RegisterRequest
      * @var string
      */
     public $password_confirmation;
-
 }
 
 /**
