@@ -24,8 +24,10 @@ class PhotoSeeder extends Seeder
         $services = Service::all();
         $services->each(function ($service) {
             $service->photos()->saveMany(
-                Photo::factory()->count(rand(1, 5))->for($service)->create()
+                Photo::factory()->count(rand(1, 4))->for($service)->create(['is_shown' => true])
             );
         });
+
+        Photo::factory()->count(10)->create();
     }
 }

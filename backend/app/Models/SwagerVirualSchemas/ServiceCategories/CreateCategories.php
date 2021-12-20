@@ -2,8 +2,8 @@
 
 /**
  * @OA\Schema(
- *     title="Create category request",
- *     description="Category model, require moderator rights",
+ *     title="Create Category request",
+ *     description="Category model, requires moderator rights",
  *     required={"title"},
  *     @OA\Xml(
  *         name="Category"
@@ -27,7 +27,7 @@ class CreateCategoryRequest
     /**
      * @OA\Property(
      *      title="Order",
-     *      description="Order position to retrive Category",
+     *      description="Order position to retrieve Category",
      *      example="2"
      * )
      *
@@ -38,7 +38,7 @@ class CreateCategoryRequest
 
 /**
  * @OA\Schema(
- *     title="Create category response",
+ *     title="Create Category response",
  *     description="Category model",
  *     @OA\Xml(
  *         name="category"
