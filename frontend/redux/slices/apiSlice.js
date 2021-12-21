@@ -54,6 +54,14 @@ export const apiSlice = createApi({
         optimized_photo_url: `${url}/${photo.optimized_photo_url}`
       }))
     }),
+        getSearchResult: build.query({
+            query: ({language, searchQuery}) => ({
+                url: `${language}/search/${searchQuery}`,
+                method: 'POST',
+                body: searchQuery
+            }),
+            transformResponse: response => response.data
+        }),
     getMetadata: build.query({
       query: ({language, slug}) => `${language}/metadata-page/${slug}`,
       transformResponse: response => response.data
@@ -67,4 +75,5 @@ export const {
   useGetServicesQuery,
   useGetPhotoGalleryQuery,
   useGetMetadataQuery,
+    useGetSearchResultQuery,
 } = apiSlice
