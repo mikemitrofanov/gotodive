@@ -23,7 +23,7 @@ SearchPage.layout = MainLayout;
 export const getServerSideProps = withRedux(async ({locale, params}, {dispatch}) => {
     await dispatch(apiSlice.endpoints.getAllCategories.initiate(locale));
     await dispatch(apiSlice.endpoints.getPhotoGallery.initiate());
-    await dispatch(apiSlice.endpoints.getSearchResult.initiate({language: locale, searchQuery: params.query}));
+    // await dispatch(apiSlice.endpoints.getSearchResult.initiate({language: locale, searchQuery: params.query}));
 
     return {
         props: {
