@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use App\Models\ServiceCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Faker\Factory as FakerFactory;
 
 class ServiceCategoryFactory extends Factory
 {
@@ -24,9 +23,9 @@ class ServiceCategoryFactory extends Factory
     {
         return [
             'title' => [
-                'en' => FakerFactory::create('en_US')->realText(10),
-                'uk' => FakerFactory::create('uk_UA')->realText(10),
-                'ru' => FakerFactory::create('ru_RU')->realText(10),
+                'en' => $this->faker->realText(10),
+                'uk' => $this->faker->realText(10),
+                'ru' => $this->faker->realText(10),
             ],
         ];
     }
