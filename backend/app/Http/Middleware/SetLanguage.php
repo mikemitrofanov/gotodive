@@ -14,7 +14,7 @@ class SetLanguage
             return abort(400, 'Language code is not supported.');
         }
 
-        app()->setLocale($request->language);
+        app()->setLocale($request->language==='ua'?'uk':$request->language);
         return $next($request);
     }
 }
