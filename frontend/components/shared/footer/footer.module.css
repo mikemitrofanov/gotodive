@@ -126,6 +126,12 @@
     object-fit: cover;
 }
 
+.img img {
+    width: calc(50px + 50 * ((100vw - 360px) / 1560));
+    height: calc(40px + 40 * ((100vw - 360px) / 1560));
+    object-fit: cover;
+}
+
 @media screen and (max-width: 767px) {
     .title {
         display: none;

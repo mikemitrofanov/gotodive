@@ -8,7 +8,7 @@ import {useTranslation} from "next-i18next";
 
 export default function Footer({photoList, dataFooter}) {
     const {t} = useTranslation("common");
-
+    
     return (
         <Container background={styles.background} container={styles.container}>
             <ContactUs title={t("footer.contactUs")} data={dataFooter.contactUs}/>
