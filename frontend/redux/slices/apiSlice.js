@@ -46,24 +46,25 @@ export const apiSlice = createApi({
             }
         }),
 
-        getPhotoGallery: build.query({
-            query: () => '/photos',
-            transformResponse: response => {
-                return response.data.map(photo => {
-                    return {
-                        ...photo,
-                        photo_url: `${url}/${photo.photo_url}`,
-                        optimized_photo_url: `${url}/${photo.optimized_photo_url}`
-                    }
-                })
-            }
-        }),
+    getPhotoGallery: build.query({
+      query: () => '/photos',
+      transformResponse: response => response.data.map(photo => ({
+        ...photo,
+        photo_url: `${url}/${photo.photo_url}`,
+        optimized_photo_url: `${url}/${photo.optimized_photo_url}`
+      }))
+    }),
+    getMetadata: build.query({
+      query: ({language, slug}) => `${language}/metadata-page/${slug}`,
+      transformResponse: response => response.data
     })
+  })
 })
 
 export const {
-    useGetPopularServicesQuery,
-    useGetAllCategoriesQuery,
-    useGetServicesQuery,
-    useGetPhotoGalleryQuery
+  useGetPopularServicesQuery,
+  useGetAllCategoriesQuery,
+  useGetServicesQuery,
+  useGetPhotoGalleryQuery,
+  useGetMetadataQuery,
 } = apiSlice
