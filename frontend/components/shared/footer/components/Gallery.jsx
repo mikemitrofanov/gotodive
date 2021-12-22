@@ -8,7 +8,7 @@ export default function Gallery({photoList = [], title}) {
             <h5 className={styles.title}>{title}</h5>
             <a className={styles.link} href='/gallery'>
                 {photoList.slice(0, 8).map(photo => (
-                    <div className={styles.img} key={photo.id}>
+                    <div className={styles.imgGallery} key={photo.id}>
                         <Image
                             alt={'photo_gallery'}
                             width={500}
