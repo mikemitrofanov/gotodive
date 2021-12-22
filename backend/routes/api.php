@@ -5,7 +5,7 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\SubcategoryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,6 +40,7 @@ Route::group(['prefix' => '{language}', 'middleware' => ['setLanguage']], functi
     Route::get('/service-categories/{serviceCategory}/services', [ServiceController::class, 'index']);
     Route::get('/services/popular', [ServiceController::class, 'showPopular']);
     Route::get('/services/{service}', [ServiceController::class, 'show']);
+    Route::apiResource('/service-categories/{serviceCategory}/subcategories', SubcategoryController::class)->except(['destroy']);
 
     Route::get('/search', [ServiceController::class, 'search']);
 
