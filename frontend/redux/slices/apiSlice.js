@@ -1,8 +1,8 @@
 import {fetchBaseQuery} from '@reduxjs/toolkit/query'
 import {createApi} from '@reduxjs/toolkit/query/react'
 
-const url = process.env.NEXT_PUBLIC_URL
-const url_internal = process.env.NEXT_INTERNAL_URL
+
+const urlInternal = process.env.NEXT_INTERNAL_URL
 const apiUrl = typeof window === 'object' ? process.env.NEXT_PUBLIC_API_URL : process.env.NEXT_INTERNAL_API_URL
 
 export const apiSlice = createApi({
@@ -26,7 +26,7 @@ export const apiSlice = createApi({
                         ...item,
                         photos: {
                             ...item.photos[0],
-                            photo_url: `${url_internal}/${item.photos[0].photo_url}`
+                            photo_url: `${urlInternal}/${item.photos[0].photo_url}`
                         }
                     }
                 })
@@ -39,7 +39,7 @@ export const apiSlice = createApi({
                 const photos = response.data.photos.map(photo => {
                     return {
                         ...photo,
-                        optimized_photo_url: `${url_internal}/${photo.optimized_photo_url}`
+                        optimized_photo_url: `${urlInternal}/${photo.optimized_photo_url}`
                     }
                 })
 
@@ -51,8 +51,8 @@ export const apiSlice = createApi({
       query: () => '/photos',
       transformResponse: response => response.data.map(photo => ({
         ...photo,
-        photo_url: `${url_internal}/${photo.photo_url}`,
-        optimized_photo_url: `${url_internal}/${photo.optimized_photo_url}`
+        photo_url: `${urlInternal}/${photo.photo_url}`,
+        optimized_photo_url: `${urlInternal}/${photo.optimized_photo_url}`
       }))
     }),
     getMetadata: build.query({
