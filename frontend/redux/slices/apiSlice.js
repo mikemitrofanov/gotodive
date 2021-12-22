@@ -26,7 +26,7 @@ export const apiSlice = createApi({
                         ...item,
                         photos: {
                             ...item.photos[0],
-                            photo_url: `${url}/${item.photos[0].photo_url}`
+                            photo_url: `${url_internal}/${item.photos[0].photo_url}`
                         }
                     }
                 })
@@ -39,7 +39,7 @@ export const apiSlice = createApi({
                 const photos = response.data.photos.map(photo => {
                     return {
                         ...photo,
-                        optimized_photo_url: `${url}/${photo.optimized_photo_url}`
+                        optimized_photo_url: `${url_internal}/${photo.optimized_photo_url}`
                     }
                 })
 

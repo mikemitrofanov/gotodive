@@ -9,10 +9,9 @@ export default function ServiceCard({src, title, description, id}) {
     return (
         <div className={styles.card}>
             <Link href={{pathname: '/category/[service]', query: {service: id}}}>
-                {/* <div className={styles.image}>
+                <div className={styles.image}>
                     <Image  alt='image' src={src} width={500} height={500}/>
-                </div> */}
-                <img className={styles.image} alt='image' src={src}/>
+                </div>
                 <h4 className={styles.title}>{title}</h4>
                 <p className={styles.description}>{description}</p>
             </Link>

@@ -12,7 +12,7 @@ export default function Gallery() {
                 <div key={photo.id} className={styles.wrapper}>
                     <a className={styles.fancybox_wrap}
                        data-fancybox=''
-                       data-src={`http://localhost:8000/${photo.photo_url.split('/').splice(3, 3).join('/')}`}
+                       data-src={`${process.env.NEXT_PUBLIC_URL}/${photo.photo_url.split('/').splice(3, 3).join('/')}`}
                     >
                         <Image
                             className={styles.image}
