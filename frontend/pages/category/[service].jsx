@@ -6,13 +6,16 @@ import {useState} from "react";
 import MainScreen from "@/components/servicePage/MainScreen";
 import Content from "@/components/servicePage/Content";
 import {useRouter} from "next/router";
+import { useDispatch } from "react-redux";
 
 export default function ServicePage({id}) {
     const [active, setActive] = useState(false);
     const router = useRouter();
     const {data: service = {}} = useGetServicesQuery({language: router.locale, id});
+    const dispatch = useDispatch();
+    
     const handleSubmit = async (values) => {
-        console.log('ContactForm values', values)
+        await dispatch(apiSlice.endpoints.submittingCotactForm.initiate({language: router.locale, content: values}))
     }
 
     return (
