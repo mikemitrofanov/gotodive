@@ -17,6 +17,7 @@ class CreateSubcategoriesTable extends Migration
             $table->id();
             $table->foreignId('service_category_id')->constrained('service_categories')->onDelete('cascade');
             $table->text('title');
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }

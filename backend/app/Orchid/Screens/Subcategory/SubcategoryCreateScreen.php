@@ -1,24 +1,30 @@
 <?php
 
-namespace App\Orchid\Screens\Service;
+namespace App\Orchid\Screens\Subcategory;
 
+use App\Http\Requests\StoreSubcategoryRequest;
+use App\Http\Requests\UpdateSubcategoryRequest;
 use App\Models\ServiceCategory;
 use App\Models\Subcategory;
-use App\Orchid\Layouts\Service\ServiceUpdateLayout;
+use App\Orchid\Layouts\Subcategory\SubcategoryUpdateLayout;
+use App\Orchid\Layouts\Service\ServiceListLayout;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
+use App\Models\Service;
 
-class ServiceCreateScreen extends Screen
+
+class SubcategoryCreateScreen extends Screen
 {
     /**
      * Display header name.
      *
      * @var string
      */
-    public $name = 'Create Service';
+    public $name = 'Edit Subcategories';
 
     /**
      * Query data.
@@ -48,7 +54,7 @@ class ServiceCreateScreen extends Screen
     public function layout(): array
     {
         return [
-            Layout::block(ServiceUpdateLayout::class)
+            Layout::block(SubcategoryUpdateLayout::class)
                 ->title('Service Information')
                 ->description('Create a new Service.')
                 ->commands(
@@ -60,15 +66,11 @@ class ServiceCreateScreen extends Screen
         ];
     }
 
-    public function store(ServiceCategory $serviceCategory, Subcategory $subcategory, Request $request)
+    public function store(ServiceCategory $serviceCategory, Request $request )
     {
-        app()->setLocale($request->service['language']);
-        if($subcategory->exists){
-           $service = $subcategory->services()->create($request->service);
-           return redirect()->route('platform.services.edit', [$service, $request->service['language']]);
-       }
-        $service = $serviceCategory->services()->create($request->service);
-        return redirect()->route('platform.services.edit', [$service, $request->service['language']]);
-
+        app()->setLocale($request['language']);
+        $serviceCategory->subcategories()->create($request->subcategory);
+        return redirect()->route('platform.categories');
     }
+
 }
