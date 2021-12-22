@@ -15,6 +15,7 @@ class AddSubcategoryIdColumnToServices extends Migration
     {
         Schema::table('services', function (Blueprint $table) {
             $table->foreignId('subcategory_id')->nullable()->constrained('subcategories')->onDelete('cascade');
+            $table->foreignId('service_category_id')->nullable()->change();
         });
     }
 
