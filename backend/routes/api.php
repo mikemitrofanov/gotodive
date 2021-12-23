@@ -5,6 +5,7 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +25,15 @@ Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])-
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('register', [AuthController::class, 'register']);
 Route::get('photos', [PhotoController::class, 'index']);
+Route::post('services/{service}/contacts', [ContactController::class, 'store']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::get('/users/me', [AuthController::class, 'show']);
     Route::put('/users/me', [AuthController::class, 'update']);
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::apiResource('services/{service}/contacts', ContactController::class)->except('store');
+
 });
 
 Route::group(['prefix' => '{language}', 'middleware' => ['setLanguage']], function () {
