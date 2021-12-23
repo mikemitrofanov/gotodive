@@ -27,7 +27,7 @@ class SubcategoryController extends Controller
 
     public function show(Subcategory $subcategory)
     {
-        //
+        return new SubcategoryResource($subcategory);
     }
 
 

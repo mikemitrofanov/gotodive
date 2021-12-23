@@ -19,6 +19,7 @@ class ServiceCategoryResource extends JsonResource
             'title' => $this->title,
             'order' => $this->order,
             'services' => ServiceResource::collection($this->whenLoaded('services')),
+            'subcategories'=>SubcategoryResource::collection($this->subcategories)
         ];
     }
 }

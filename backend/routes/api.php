@@ -40,7 +40,7 @@ Route::group(['prefix' => '{language}', 'middleware' => ['setLanguage']], functi
     Route::get('/service-categories/{serviceCategory}/services', [ServiceController::class, 'index']);
     Route::get('/services/popular', [ServiceController::class, 'showPopular']);
     Route::get('/services/{service}', [ServiceController::class, 'show']);
-    Route::apiResource('/service-categories/{serviceCategory}/subcategories', SubcategoryController::class)->except(['destroy']);
+    Route::apiResource('/service-categories/{serviceCategory}/subcategories', SubcategoryController::class);
 
     Route::get('/search', [ServiceController::class, 'search']);
 
