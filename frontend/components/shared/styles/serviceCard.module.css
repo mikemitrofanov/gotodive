@@ -18,6 +18,11 @@
     object-fit: cover;
 }
 
+.image img {
+    width: 100%;
+    height: calc(152px + 158 * ((100vw - 360px) / 1560));
+}
+
 .title {
     font-size: calc(14px + 16 * ((100vw - 360px) / 1560));
     color: #7b7c7b;

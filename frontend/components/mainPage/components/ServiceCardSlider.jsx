@@ -18,7 +18,6 @@ const params = {
 }
 
 export default function ServiceCardSlider({listServices = []}) {
-
     return (
         <Swiper className={styles.slider} {...params}>
             {listServices.map(item => (

@@ -120,7 +120,13 @@
     cursor: pointer;
 }
 
-.img {
+.imgGallery {
+    width: calc(50px + 50 * ((100vw - 360px) / 1560));
+    height: calc(40px + 40 * ((100vw - 360px) / 1560));
+    object-fit: cover;
+}
+
+.imgGallery img {
     width: calc(50px + 50 * ((100vw - 360px) / 1560));
     height: calc(40px + 40 * ((100vw - 360px) / 1560));
     object-fit: cover;

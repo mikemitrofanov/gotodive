@@ -8,7 +8,6 @@ export default function DropdownItem({category}) {
     const [onClickService, SetOnClickService] = useState(null);
     const openedDropdownMenu = useSelector(openDropdown);
     const dispatch = useDispatch();
-
     useEffect(
         () => {
             const listener = (e) => {

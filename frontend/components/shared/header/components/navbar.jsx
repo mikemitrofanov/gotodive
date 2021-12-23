@@ -5,7 +5,7 @@ import Link from "../../Link";
 
 export default function Navbar({categories = []}) {
     const {t} = useTranslation("common");
-
+    
     return (
         <nav className={styles.navbar}>
             <ul className={styles.list}>

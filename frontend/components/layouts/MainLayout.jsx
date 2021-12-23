@@ -32,7 +32,6 @@ export default function MainLayout({children}) {
     const {data: metadata = {attributes: []}} = useGetMetadataQuery({language: router.locale, slug: convertingUrlToSlug(router.asPath)});
     const {data: categories} = useGetAllCategoriesQuery(router.locale);
     const {data: photoList = []} = useGetPhotoGalleryQuery();
-
     return (
         <>
             <Head>

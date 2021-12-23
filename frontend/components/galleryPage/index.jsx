@@ -5,14 +5,14 @@ import Image from 'next/image';
 
 export default function Gallery() {
     const {data: photoList = []} = useGetPhotoGalleryQuery();
-
+    
     return (
         <div className={styles.container}>
             {photoList.map(photo => (
                 <div key={photo.id} className={styles.wrapper}>
                     <a className={styles.fancybox_wrap}
                        data-fancybox=''
-                       data-src={photo.photo_url}
+                       data-src={`${process.env.NEXT_PUBLIC_URL}/${photo.photo_url.split('/').splice(3, 3).join('/')}`}
                     >
                         <Image
                             className={styles.image}

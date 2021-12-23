@@ -38,7 +38,7 @@ export default function MainPage() {
     const handleSubmit = async (values) => {
         console.log('ContactForm values', values)
     }
-
+    
     return (
         <>
             <MainScreen t={t}/>
