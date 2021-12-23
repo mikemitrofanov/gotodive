@@ -2,11 +2,26 @@
 
 namespace App\Http\Resources;
 
-use App\Models\ServiceCategory;
+use App\Repositories\CategoryRepository;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ServiceCategoryResource extends JsonResource
 {
+
+    /**
+     * @var CategoryRepository|\Illuminate\Contracts\Foundation\Application|mixed
+     */
+    protected CategoryRepository $categoryRepository;
+
+    /**
+     * @param $resource
+     */
+    public function __construct($resource)
+    {
+        $this->categoryRepository = resolve(CategoryRepository::class);
+
+        parent::__construct($resource);
+    }
     /**
      * Transform the resource into an array.
      *
@@ -20,7 +35,7 @@ class ServiceCategoryResource extends JsonResource
             'title' => $this->title,
             'order' => $this->order,
             'services' => ServiceResource::collection($this->whenLoaded('services')),
-            'subcategories'=> SubcategoryResource::collection(ServiceCategory::where('parent_category_id',$this->id)->with('services')->get()),
+            'subcategories'=>$this->categoryRepository->allSubcategoriesOfCategory($this->id),
         ];
     }
 }
