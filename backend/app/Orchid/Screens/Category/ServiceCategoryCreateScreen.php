@@ -65,7 +65,7 @@ class ServiceCategoryCreateScreen extends Screen
                 ->icon('paper-plane')
                 ->canSee($this->category->exists)
                 ->when($this->category->exists, function ($item) {
-                    $item->route('platform.services.create', [$this->category->id, 'subcategory']);
+                    $item->route('platform.services.create', $this->category->id);
                 }),
         ];
     }

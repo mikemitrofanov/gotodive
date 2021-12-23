@@ -5,7 +5,6 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SubcategoryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes

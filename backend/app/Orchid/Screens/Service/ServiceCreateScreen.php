@@ -3,7 +3,6 @@
 namespace App\Orchid\Screens\Service;
 
 use App\Models\ServiceCategory;
-use App\Models\Subcategory;
 use App\Orchid\Layouts\Service\ServiceUpdateLayout;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
@@ -60,13 +59,9 @@ class ServiceCreateScreen extends Screen
         ];
     }
 
-    public function store(ServiceCategory $serviceCategory, Subcategory $subcategory, Request $request)
+    public function store(ServiceCategory $serviceCategory, Request $request)
     {
         app()->setLocale($request->service['language']);
-        if($subcategory->exists){
-           $service = $subcategory->services()->create($request->service);
-           return redirect()->route('platform.services.edit', [$service, $request->service['language']]);
-       }
         $service = $serviceCategory->services()->create($request->service);
         return redirect()->route('platform.services.edit', [$service, $request->service['language']]);
 
