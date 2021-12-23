@@ -16,7 +16,6 @@ export default function ServiceCard({src, title, description, id}) {
                 <p className={styles.description}>{description}</p>
             </Link>
             <Link className={styles.button} href={{pathname: '/category/[service]', query: {service: id}}}>{t("popular.buttons")}</Link>
-            {/* <a className={styles.button} href={`/category/[service]/${id}`}>{t("popular.buttons")}</a> */}
         </div>
     )
 }
