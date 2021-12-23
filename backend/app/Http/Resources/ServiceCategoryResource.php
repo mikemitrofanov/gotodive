@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\ServiceCategory;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ServiceCategoryResource extends JsonResource
@@ -19,7 +20,7 @@ class ServiceCategoryResource extends JsonResource
             'title' => $this->title,
             'order' => $this->order,
             'services' => ServiceResource::collection($this->whenLoaded('services')),
-            'subcategories'=>SubcategoryResource::collection($this->subcategories)
+            'subcategories'=> SubcategoryResource::collection(ServiceCategory::where('parent_category_id',$this->id)->with('services')->get()),
         ];
     }
 }

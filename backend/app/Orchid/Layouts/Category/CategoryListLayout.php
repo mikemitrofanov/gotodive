@@ -29,6 +29,7 @@ class CategoryListLayout extends Table
      */
     protected function columns(): array
     {
+
         Language::all()->each(function ($language) {
             array_push($this->TDArray, TD::make('title', $language->language_code . ' Title')
                 ->align('center')

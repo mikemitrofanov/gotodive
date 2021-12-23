@@ -2,11 +2,9 @@
 
 namespace App\Orchid\Screens\Category;
 
-use App\Http\Requests\CreateServiceCategoryRequest;
-use App\Http\Requests\UpdateServiceCategoryRequest;
 use App\Models\ServiceCategory;
+use App\Orchid\Layouts\Category\CategoryListLayout;
 use App\Orchid\Layouts\Category\ServiceCategoryUpdateLayout;
-use App\Orchid\Layouts\Subcategory\SubcategoryListLayout;
 use App\Orchid\Layouts\Service\ServiceListLayout;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
@@ -44,9 +42,9 @@ class ServiceCategoryCreateScreen extends Screen
         }
 
         return [
+            'categories' => ServiceCategory::where('parent_category_id', $category->id)->with('services')->get(),
             'category' => $category,
             'services' => $category->services,
-            'subcategories'=>$category->subcategories,
         ];
     }
 
@@ -69,12 +67,6 @@ class ServiceCategoryCreateScreen extends Screen
                 ->when($this->category->exists, function ($item) {
                     $item->route('platform.services.create', [$this->category->id, 'subcategory']);
                 }),
-            Link::make('Add new subcategory')
-                ->icon('paper-plane')
-                ->canSee($this->category->exists)
-                ->when($this->category->exists, function ($item) {
-                    $item->route('platform.subcategories.create', $this->category->id);
-                }),
         ];
     }
 
@@ -96,7 +88,11 @@ class ServiceCategoryCreateScreen extends Screen
                         ->canSee($this->category->exists)
                         ->method('update')
                 ),
-            SubcategoryListLayout::class,
+            Layout::block(CategoryListLayout::class)
+                ->title('Subcategories')
+                ->canSee(!$this->category->parent_category_id)
+
+            ,
             ServiceListLayout::class,
         ];
     }

@@ -17,8 +17,6 @@ use Tabuna\Breadcrumbs\Trail;
 use App\Orchid\Screens\Service\ServiceCreateScreen;
 use \App\Orchid\Screens\Language\LanguageScreen;
 use \App\Orchid\Screens\Photo\PhotoScreen;
-use App\Orchid\Screens\Subcategory\SubcategoryCreateScreen;
-use App\Orchid\Screens\Subcategory\SubcategoryScreen;
 
 /*
 |--------------------------------------------------------------------------
@@ -118,23 +116,7 @@ Route::screen('categories/{category}/edit/{lang?}', ServiceCategoryCreateScreen:
             ->push('Edit Category', route('platform.categories.edit', $category));
     });
 
-Route::screen('categories/{category}/subcategories/create', SubcategoryCreateScreen::class)
-    ->name('platform.subcategories.create')
-    ->breadcrumbs(function (Trail $trail, $category) {
-        return $trail
-            ->parent('platform.categories.edit', $category)
-            ->push('Create new Subcategory');
-    });
-
-Route::screen('subcategories/{subcategory}/edit/{lang?}', SubcategoryScreen::class)
-    ->name('platform.subcategories.edit')
-    ->breadcrumbs(function (Trail $trail,  $subcategory) {
-        return $trail
-            ->parent('platform.categories.edit', $subcategory->serviceCategory)
-            ->push('Edit Subcategory');
-    });
-
-Route::screen('categories/{category}/{subcategory?}/services/create', ServiceCreateScreen::class)
+Route::screen('categories/{category}/services/create', ServiceCreateScreen::class)
     ->name('platform.services.create')
     ->breadcrumbs(function (Trail $trail, $category) {
         return $trail
@@ -142,7 +124,7 @@ Route::screen('categories/{category}/{subcategory?}/services/create', ServiceCre
             ->push('New Service');
     });
 
-Route::screen('services/{service}/{subcategory?}/edit/{lang?}', ServiceScreen::class)
+Route::screen('services/{service}/edit/{lang?}', ServiceScreen::class)
     ->name('platform.services.edit')
     ->breadcrumbs(function (Trail $trail, $service) {
         return $trail

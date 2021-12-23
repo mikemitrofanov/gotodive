@@ -14,18 +14,12 @@ class ServiceCategory extends Model
     protected $fillable = [
         'title',
         'order',
+        'parent_category_id',
     ];
     public $translatable = ['title'];
 
     public function services()
     {
         return $this->hasMany(Service::class);
-    }
-    public function servicesThrough(){
-        return $this->hasManyThrough(Service::class, Subcategory::class);
-    }
-    public function subcategories()
-    {
-        return $this->hasMany(Subcategory::class);
     }
 }

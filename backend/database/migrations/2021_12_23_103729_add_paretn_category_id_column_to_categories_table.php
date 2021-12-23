@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSubcategoryIdColumnToServices extends Migration
+class AddParetnCategoryIdColumnToCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddSubcategoryIdColumnToServices extends Migration
      */
     public function up()
     {
-        Schema::table('services', function (Blueprint $table) {
-            $table->foreignId('subcategory_id')->nullable()->constrained('subcategories')->onDelete('cascade');
-            $table->foreignId('service_category_id')->nullable()->change();
+        Schema::table('service_categories', function (Blueprint $table) {
+            $table->foreignId('parent_category_id')->nullable()->constrained('service_categories');
         });
     }
 
@@ -27,7 +26,8 @@ class AddSubcategoryIdColumnToServices extends Migration
     public function down()
     {
         Schema::table('services', function (Blueprint $table) {
-            $table->dropColumn('subcategory_id');
+            $table->dropColumn('parent_category_id');
         });
     }
 }
+
