@@ -48,4 +48,10 @@ class ContactScreen extends Screen
             ContactListLayout::class,
         ];
     }
+
+    public function destroy(Contact $service)
+    {
+        $service->delete();
+        return redirect()->route('platform.contacts');
+    }
 }
