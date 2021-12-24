@@ -2,6 +2,7 @@
 
 namespace App\Orchid\Layouts\Contact;
 
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
 
@@ -46,6 +47,18 @@ class ContactListLayout extends Table
                 ->align('center')
                 ->width('30px'),
 
+            TD::make('delete', 'Delete')
+                ->align('center')
+                ->width('100px')
+                ->render(function ($contact) {
+                    return Button::make('Delete')
+                        ->method('destroy')
+                        ->icon('trash')
+                        ->confirm('Are you sure you want to delete this contact?')
+                        ->parameters([
+                            'id' => $contact->id,
+                        ]);
+                }),
 
         ];
     }
