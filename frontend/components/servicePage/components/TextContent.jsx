@@ -21,7 +21,7 @@ export default function TextContent({service, setActive, active, handleSubmit}) 
                 {service.course_certificate && <p className={styles.style_text}>{service.course_certificate}</p>}
             </div>
             <button className={styles.button} onClick={() => setActive(true)}>{t("button")}</button>
-            {active && <ModalForm onClose={() => setActive(false)} handleSubmit={handleSubmit}/>}
+            {active && <ModalForm onClose={() => setActive(false)} onActive={setActive} handleSubmit={handleSubmit}/>}
         </div>
     )
 }

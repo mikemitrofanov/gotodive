@@ -35,7 +35,9 @@ export default function Images({photos = []}) {
             <Swiper {...params} className={styles.swiper}>
                 {photos.map(photo => (
                     <SwiperSlide key={photo.id} className={styles.slide}>
-                        <img alt='img' className={styles.img} src={photo.optimized_photo_url}/>
+                        <div className={styles.imgContent} key={photo.id}>
+                            <Image alt='img' src={photo.optimized_photo_url} width={500} height={500}/>
+                        </div>
                     </SwiperSlide>
                 ))}
             </Swiper>

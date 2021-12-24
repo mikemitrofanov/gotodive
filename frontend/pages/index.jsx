@@ -9,6 +9,7 @@ import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {convertingUrlToSlug} from "../utils/helpers";
 import {useTranslation} from "next-i18next";
 import {useRouter} from "next/router";
+import { useDispatch } from "react-redux";
 
 export const teamMembers = [
     {
@@ -35,8 +36,10 @@ export default function MainPage() {
     const router = useRouter();
     const {data: popular} = useGetPopularServicesQuery(router.locale);
     const {t} = useTranslation("common");
-    const handleSubmit = async (values) => {
-        console.log('ContactForm values', values)
+    const dispatch = useDispatch();
+    
+    const handleSubmit = async (values) => { 
+        await dispatch(apiSlice.endpoints.submittingCotactForm.initiate({language: router.locale, content: values}))
     }
     
     return (

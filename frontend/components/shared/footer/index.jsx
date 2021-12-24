@@ -8,11 +8,13 @@ import {useTranslation} from "next-i18next";
 
 export default function Footer({photoList, dataFooter}) {
     const {t} = useTranslation("common");
-    
+    const categories = dataFooter.categories.map((category) => {
+        return {category: category, link: ''}
+    })
     return (
         <Container background={styles.background} container={styles.container}>
             <ContactUs title={t("footer.contactUs")} data={dataFooter.contactUs}/>
-            <Categories title={t("footer.contactUs")}  data={dataFooter.categories}/>
+            <Categories title={t("footer.contactUs")}  data={categories}/>
             <Social title={t("footer.contactUs")}  data={dataFooter.social}/>
             <Gallery title={t("footer.contactUs")} photoList={photoList}/>
         </Container>

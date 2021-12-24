@@ -1,7 +1,6 @@
 import {fetchBaseQuery} from '@reduxjs/toolkit/query'
 import {createApi} from '@reduxjs/toolkit/query/react'
 
-
 const urlInternal = process.env.NEXT_PUBLIC_INTERNAL_URL
 const apiUrl = typeof window === 'object' ? process.env.NEXT_PUBLIC_API_URL : process.env.NEXT_PUBLIC_INTERNAL_API_URL
 
@@ -47,18 +46,23 @@ export const apiSlice = createApi({
             }
         }),
 
-    getPhotoGallery: build.query({
-      query: () => '/photos',
-      transformResponse: response => response.data.map(photo => ({
-        ...photo,
-        photo_url: `${urlInternal}/${photo.photo_url}`,
-        optimized_photo_url: `${urlInternal}/${photo.optimized_photo_url}`
-      }))
-    }),
-    getMetadata: build.query({
-      query: ({language, slug}) => `${language}/metadata-page/${slug}`,
-      transformResponse: response => response.data
-    })
+        getPhotoGallery: build.query({
+            query: () => '/photos',
+            transformResponse: response => response.data.map(photo => ({
+                ...photo,
+                photo_url: `${urlInternal}/${photo.photo_url}`,
+                optimized_photo_url: `${urlInternal}/${photo.optimized_photo_url}`
+            }))
+        }),
+
+        getMetadata: build.query({
+            query: ({language, slug}) => `${language}/metadata-page/${slug}`,
+            transformResponse: response => response.data
+        }),
+
+        submittingCotactForm: build.mutation({
+            query: ({language, content}) => ({url: `${language}/very-very-far`, method: 'post', body: content })
+        })
   })
 })
 

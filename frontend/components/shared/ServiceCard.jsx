@@ -10,12 +10,12 @@ export default function ServiceCard({src, title, description, id}) {
         <div className={styles.card}>
             <Link href={{pathname: '/category/[service]', query: {service: id}}}>
                 <div className={styles.image}>
-                    <Image  alt='image' src={src} width={500} height={500}/>
+                    <Image layout="fill" alt='image' src={src} />
                 </div>
                 <h4 className={styles.title}>{title}</h4>
                 <p className={styles.description}>{description}</p>
             </Link>
-            <a className={styles.button} href='#'>{t("popular.buttons")}</a>
+            <Link className={styles.button} href={{pathname: '/category/[service]', query: {service: id}}}>{t("popular.buttons")}</Link>
         </div>
     )
 }

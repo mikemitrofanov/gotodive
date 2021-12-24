@@ -9,8 +9,8 @@ const initialState = {};
 function initStore(preloadedState = initialState) {
     return configureStore({
         reducer: {
-            [apiSlice.reducerPath]: apiSlice.reducer,
             navbar: navbarReducer,
+            [apiSlice.reducerPath]: apiSlice.reducer
         },
         preloadedState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),

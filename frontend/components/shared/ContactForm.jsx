@@ -23,11 +23,16 @@ const initialValues = {
     message: "",
 }
 
-export default function ContactForm({handleSubmit}) {
+export default function ContactForm({handleSubmit, onActive}) {
     const {t} = useTranslation("common");
 
+    const handleClosures = () => {
+        handleSubmit();
+        onActive && onActive()
+    }
+
     return (
-        <FormContainer initialValues={initialValues} validationSchema={validationSchema} handleSubmit={handleSubmit}>
+        <FormContainer initialValues={initialValues} validationSchema={validationSchema} handleSubmit={handleClosures}>
             <div className={styles.form}>
                 <div className={styles.wrapper}>
                     <div className={styles.inner_wrapper}>
