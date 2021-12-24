@@ -11,6 +11,8 @@ use App\Models\Photo;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 
+use Illuminate\Http\Request;
+
 class ServiceController extends Controller
 {
     /**
@@ -404,12 +406,12 @@ class ServiceController extends Controller
      *
      */
 
-    public function search($language, SearchServicesRequest $request)
+    public function search($language, Request $request)
     {
-        $search = $request->validated();
-        $search['language'] = $language;
-        $services = Service::filter($search)->get();
-
-        return ServiceResource::collection($services);
+        $search = $request->query('search');
+        return ServiceResource::collection(Service::query()->where('title', 'like', '%'.$search.'%')
+        ->orWhere('description', 'like', '%'.$search.'%')
+        ->orWhere('short_description', 'like', '%'.$search.'%')->with('photos')
+        ->get());
     }
 }

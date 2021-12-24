@@ -9,11 +9,10 @@ import ListServiceCards from "@/components/shared/ListServiceCards";
 
 export default function SearchPage({searchQuery}) {
     const router = useRouter();
-    const {data: searchResult} = useGetSearchResultQuery({language: router.locale, searchQuery});
-
+    //const {data: searchResult} = useGetSearchResultQuery({language: router.locale, searchQuery});
     return (
         <Container background={styles.background} container={styles.container}>
-            <ListServiceCards listServices={searchResult}/>
+            <ListServiceCards listServices={[]}/>
         </Container>
     )
 }
@@ -23,7 +22,7 @@ SearchPage.layout = MainLayout;
 export const getServerSideProps = withRedux(async ({locale, params}, {dispatch}) => {
     await dispatch(apiSlice.endpoints.getAllCategories.initiate(locale));
     await dispatch(apiSlice.endpoints.getPhotoGallery.initiate());
-    // await dispatch(apiSlice.endpoints.getSearchResult.initiate({language: locale, searchQuery: params.query}));
+    
 
     return {
         props: {

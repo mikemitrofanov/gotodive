@@ -62,6 +62,13 @@ export const apiSlice = createApi({
 
         submittingCotactForm: build.mutation({
             query: ({language, content}) => ({url: `${language}/very-very-far`, method: 'post', body: content })
+        }),
+
+        getSearchResult:  build.query({
+            query: ({language, searchQuery}) => {
+                console.log(searchQuery)
+                return {url: `${language}/search`, method: 'get', params: {search: searchQuery}}
+            },
         })
   })
 })
@@ -72,4 +79,5 @@ export const {
   useGetServicesQuery,
   useGetPhotoGalleryQuery,
   useGetMetadataQuery,
+  useGetSearchResultQuery
 } = apiSlice

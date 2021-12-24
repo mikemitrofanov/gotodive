@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 });
 
 Route::group(['prefix' => '{language}', 'middleware' => ['setLanguage']], function () {
+    Route::get('/search', [ServiceController::class, 'search']);
 
     Route::get('/service-categories', [ServiceCategoryController::class, 'index']);
     Route::get('/service-categories/services', [ServiceCategoryController::class, 'withServices']);
@@ -41,7 +42,7 @@ Route::group(['prefix' => '{language}', 'middleware' => ['setLanguage']], functi
     Route::get('/services/popular', [ServiceController::class, 'showPopular']);
     Route::get('/services/{service}', [ServiceController::class, 'show']);
 
-    Route::get('/search', [ServiceController::class, 'search']);
+   
 
     Route::group(['middleware' => ['isAdmin', 'auth:sanctum']], function () {
         Route::post('services/{service}/add-photo', [ServiceController::class, 'addPhotos']);

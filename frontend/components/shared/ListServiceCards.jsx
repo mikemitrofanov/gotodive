@@ -4,7 +4,7 @@ export default function ListServiceCards({listServices = []}) {
 
     return (
         <>
-            {listServices.map(item => (
+            {listServices.data.map(item => (
                 <ServiceCard
                     key={item.id}
                     src={item.photos.photo_url}

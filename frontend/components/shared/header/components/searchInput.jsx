@@ -19,7 +19,7 @@ export default function SearchInput({searchQuery, setSearchQuery}) {
                    value={searchQuery}
             />
             {searchQuery && <span className={styles.clear} onClick={() => setSearchQuery('')}/>}
-            <button className={styles.icon_magnifier} type="submit" onClick={handleOnClick}/>
+            <button className={styles.icon_magnifier} type="button" onClick={handleOnClick}/>
         </form>
     )
 }
