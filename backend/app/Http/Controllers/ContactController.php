@@ -17,6 +17,10 @@ class ContactController extends Controller
 
     public function store(CreateContactRequest $request, Service $service)
     {
+        return new ContactResource(Service::create($request->validated()));
+    }
+    public function storeWithRelation(CreateContactRequest $request, Service $service)
+    {
         return new ContactResource($service->contacts()->create($request->validated()));
     }
 
