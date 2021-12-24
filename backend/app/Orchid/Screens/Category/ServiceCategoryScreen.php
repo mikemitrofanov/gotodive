@@ -24,7 +24,7 @@ class ServiceCategoryScreen extends Screen
     public function query(): array
     {
         return [
-            'categories' => ServiceCategory::all()
+            'categories' => ServiceCategory::where('parent_category_id',null)->with('services')->get(),
         ];
     }
 

@@ -59,7 +59,7 @@ class ServiceCreateScreen extends Screen
         ];
     }
 
-    public function store(ServiceCategory $serviceCategory, Request $request,)
+    public function store(ServiceCategory $serviceCategory, Request $request)
     {
         app()->setLocale($request->service['language']);
         $service = $serviceCategory->services()->create($request->service);

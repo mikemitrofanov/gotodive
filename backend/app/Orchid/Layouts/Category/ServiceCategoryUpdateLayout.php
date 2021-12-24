@@ -6,13 +6,26 @@ use App\Models\Language;
 use App\Models\ServiceCategory;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Relation;
+use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Layouts\Rows;
 
 class ServiceCategoryUpdateLayout extends Rows
 {
 
+    protected $target = 'category';
+    protected $categories;
+
     protected function fields(): array
     {
+        $this->categories = ServiceCategory::where('parent_category_id', null)->get();
+        $selectOptions = [];
+        foreach ($this->categories as $category) {
+            if ($this->query->get('category.id') !== $category->id) {
+                $selectOptions[$category->id] = $category['title'];
+            }
+        }
+        $this->categories = $selectOptions;
+
         return [
             Input::make('category.title')
                 ->required()
@@ -26,6 +39,11 @@ class ServiceCategoryUpdateLayout extends Rows
                 ->required()
                 ->help('Translation language, en is default.')
                 ->fromModel(Language::class, 'language_code', 'language_code'),
+
+            Select::make('category.parent_category_id')
+                ->title('Parent category')
+                ->empty('Leave as category')
+                ->options($selectOptions),
 
             Input::make('category.order')
                 ->title('Order')
