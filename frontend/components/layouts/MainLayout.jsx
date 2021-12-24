@@ -34,6 +34,9 @@ export default function MainLayout({children}) {
     const {data: photoList = []} = useGetPhotoGalleryQuery();
     return (
         <>
+        {/**
+         * Requests to get metadata throw errors to the console. There are no endpoints for these requests.
+         */}
             {/* <Head>
                 <title>
                     gotodive |
