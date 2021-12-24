@@ -88,11 +88,11 @@ class ServiceCategoryCreateScreen extends Screen
                         ->canSee($this->category->exists)
                         ->method('update')
                 ),
+
             Layout::block(CategoryListLayout::class)
                 ->title('Subcategories')
-                ->canSee(!$this->category->parent_category_id)
+                ->canSee(!$this->category->parent_category_id),
 
-            ,
             ServiceListLayout::class,
         ];
     }

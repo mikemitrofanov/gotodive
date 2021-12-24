@@ -18,13 +18,13 @@ class ServiceCategoryUpdateLayout extends Rows
     protected function fields(): array
     {
         $this->categories = ServiceCategory::where('parent_category_id', null)->get();
-        $arr = [];
+        $selectOptions = [];
         foreach ($this->categories as $category) {
             if ($this->query->get('category.id') !== $category->id) {
-                $arr[$category->id] = $category['title'];
+                $selectOptions[$category->id] = $category['title'];
             }
         }
-        $this->categories = $arr;
+        $this->categories = $selectOptions;
 
         return [
             Input::make('category.title')
@@ -43,7 +43,7 @@ class ServiceCategoryUpdateLayout extends Rows
             Select::make('category.parent_category_id')
                 ->title('Parent category')
                 ->empty('Leave as category')
-                ->options($arr)->canSee(true),
+                ->options($selectOptions),
 
             Input::make('category.order')
                 ->title('Order')

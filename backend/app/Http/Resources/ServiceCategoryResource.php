@@ -2,23 +2,23 @@
 
 namespace App\Http\Resources;
 
-use App\Repositories\CategoryRepository;
+use App\Repositories\Interfaces\CategoryRepositoryInterface;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ServiceCategoryResource extends JsonResource
 {
 
     /**
-     * @var CategoryRepository|\Illuminate\Contracts\Foundation\Application|mixed
+     * @var CategoryRepositoryInterface|\Illuminate\Contracts\Foundation\Application|mixed
      */
-    protected CategoryRepository $categoryRepository;
+    protected CategoryRepositoryInterface $categoryRepository;
 
     /**
      * @param $resource
      */
     public function __construct($resource)
     {
-        $this->categoryRepository = resolve(CategoryRepository::class);
+        $this->categoryRepository = resolve(CategoryRepositoryInterface::class);
 
         parent::__construct($resource);
     }
