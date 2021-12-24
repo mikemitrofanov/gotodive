@@ -2,12 +2,11 @@ import styles from "../header.module.css";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {openDropdown, openDropdownMenu} from "@/redux/slices/navbarSlice";
-import SubcategoryMenu from "./subcategoryMenu";
+import {openSubDropdown, openDropdownSubMenu} from "@/redux/slices/navbarSlice";
 
 export default function DropdownItem({category}) {
     const [onClickService, SetOnClickService] = useState(null);
-    const openedDropdownMenu = useSelector(openDropdown);
+    const openedDropdownSubMenu = useSelector(openSubDropdown);
     const dispatch = useDispatch();
     useEffect(
         () => {
@@ -15,7 +14,7 @@ export default function DropdownItem({category}) {
                 if (onClickService === e.target) {
                     return;
                 }
-                dispatch(openDropdownMenu([]));
+                dispatch(openDropdownSubMenu([]));
             }
             document.addEventListener("click", listener);
             return () => {
@@ -29,15 +28,12 @@ export default function DropdownItem({category}) {
         SetOnClickService(e.target)
     }
 
-    const isOpenDropdownMenu = openedDropdownMenu.includes(`${category.id}`);
+    const isOpenDropdownSubMenu = openedDropdownSubMenu.includes(`${category.id}`);
 
     return (
         <div onClick={handleOnClickService}
-             className={`${isOpenDropdownMenu ? styles.dropdown_active : styles.dropdown}`}
+             className={`${isOpenDropdownSubMenu ? styles.dropdown_active_sub_menu : styles.dropdown}`}
         >
-            {category.subcategories && category.subcategories.map(subcategory => {
-                return <SubcategoryMenu category={subcategory} key={category.id}/>
-            })}
             {category.services.map(service => (
                 <Link
                     key={service.id}
