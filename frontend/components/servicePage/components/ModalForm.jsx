@@ -2,7 +2,7 @@ import Modal from "@/components/shared/Modal";
 import styles from "@/components/servicePage/servicePage.module.css";
 import ContactForm from "@/components/shared/ContactForm";
 
-export default function ModalForm({onClose, handleSubmit, onActive}) {
+export default function ModalForm({onClose, handleSubmit, setActive}) {
 
     return (
         <Modal onClose={onClose}>
@@ -12,7 +12,7 @@ export default function ModalForm({onClose, handleSubmit, onActive}) {
                          e.stopPropagation()
                      }}
                 >
-                    <ContactForm handleSubmit={handleSubmit} onActive={onActive}/>
+                    <ContactForm handleSubmit={handleSubmit} setActive={setActive}/>
                 </div>
             </div>
         </Modal>

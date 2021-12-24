@@ -3,8 +3,12 @@ import ContentItem from "./ContentItem";
 import {useTranslation} from "next-i18next";
 import ModalForm from "@/components/servicePage/components/ModalForm";
 
-export default function TextContent({service, setActive, active, handleSubmit}) {
+export default function TextContent({service, setActive, active, onSubmit}) {
     const {t} = useTranslation("service");
+
+    const handleSubmit = (content) => {
+        onSubmit(content, service.id)
+    }
 
     return (
         <div className={styles.text_box}>

@@ -1,8 +1,8 @@
 import {initializeStore, removeUndefined} from "../redux/store";
 
-export const withRedux = getServerSideProps => async (ctx) => {
+export const withRedux = fn => async (ctx) => {
     const store = initializeStore();
-    const result = await getServerSideProps(ctx, store)
+    const result = await fn(ctx, store)
 
     return {
         ...result,
