@@ -8,6 +8,7 @@ export default function TextContent({service, setActive, active, onSubmit}) {
 
     const handleSubmit = (content) => {
         onSubmit(content, service.id)
+        setActive(false)
     }
 
     return (

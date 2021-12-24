@@ -15,7 +15,7 @@ export default function ServicePage({id}) {
     const dispatch = useDispatch();
     
     const handleSubmit = async (content, id) => {
-        await dispatch(apiSlice.endpoints.submittingCotactForm.initiate({language: router.locale, content, id}))
+        await dispatch(apiSlice.endpoints.submittingCotactForm.initiate({content, id}))
     }
 
     return (

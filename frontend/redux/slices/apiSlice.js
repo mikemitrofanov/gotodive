@@ -61,8 +61,8 @@ export const apiSlice = createApi({
         }),
 
         submittingCotactForm: build.mutation({
-            query: ({language, content, id}) => {
-                const url = id ? `${language}/services/${id}/contacts` : `${language}/contacts`
+            query: ({content, id}) => {
+                const url = id ? `/services/${id}/contacts` : `/contacts`
                 return {url: url, method: 'post', body: content }
             }
         }),
