@@ -6,9 +6,18 @@ use App\Http\Requests\CreateServiceCategoryRequest;
 use App\Http\Requests\UpdateServiceCategoryRequest;
 use App\Http\Resources\ServiceCategoryResource;
 use App\Models\ServiceCategory;
+use App\Repositories\Interfaces\CategoryRepositoryInterface;
 
 class ServiceCategoryController extends Controller
 {
+    protected $categoryRepository;
+
+    public function __construct(
+        CategoryRepositoryInterface $categoryRepository
+    )
+    {
+        $this->categoryRepository = $categoryRepository;
+    }
     /**
      *
      *
@@ -81,7 +90,7 @@ class ServiceCategoryController extends Controller
 
     public function withServices()
     {
-        return ServiceCategoryResource::collection(ServiceCategory::with('services')->get());
+        return $this->categoryRepository->allCategoriesWithSubcategories();
     }
 
     /**

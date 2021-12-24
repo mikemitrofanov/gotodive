@@ -14,6 +14,7 @@ class ServiceCategory extends Model
     protected $fillable = [
         'title',
         'order',
+        'parent_category_id',
     ];
     public $translatable = ['title'];
 
