@@ -10,6 +10,7 @@ import {convertingUrlToSlug} from "../utils/helpers";
 import {useTranslation} from "next-i18next";
 import {useRouter} from "next/router";
 import { useDispatch } from "react-redux";
+import { useState } from 'react';
 
 export const teamMembers = [
     {
@@ -35,17 +36,18 @@ export const teamMembers = [
 export default function MainPage() {
     const router = useRouter();
     const {data: popular} = useGetPopularServicesQuery(router.locale);
+    const [active, setActive] = useState(false);
     const {t} = useTranslation("common");
     const dispatch = useDispatch();
     
-    const handleSubmit = async (values) => { 
-        await dispatch(apiSlice.endpoints.submittingCotactForm.initiate({language: router.locale, content: values}))
+    const handleSubmit = async (content, id) => { 
+        await dispatch(apiSlice.endpoints.submittingCotactForm.initiate({language: router.locale, content, id}))
     }
     
     return (
         <>
             <MainScreen t={t}/>
-            <Popular title={t("popular.popular")} popular={popular}/>
+            <Popular title={t("popular.popular")} popular={popular} active={active} setActive={setActive} onSubmit={handleSubmit}/>
             <Team title={t("team.ourTeam")} teamMembers={teamMembers}/>
             <ContactUs t={t} handleSubmit={handleSubmit}/>
         </>

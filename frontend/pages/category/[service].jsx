@@ -14,8 +14,8 @@ export default function ServicePage({id}) {
     const {data: service = {}} = useGetServicesQuery({language: router.locale, id});
     const dispatch = useDispatch();
     
-    const handleSubmit = async (values) => {
-        await dispatch(apiSlice.endpoints.submittingCotactForm.initiate({language: router.locale, content: values}))
+    const handleSubmit = async (content, id) => {
+        await dispatch(apiSlice.endpoints.submittingCotactForm.initiate({language: router.locale, content, id}))
     }
 
     return (

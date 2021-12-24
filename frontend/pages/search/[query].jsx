@@ -9,10 +9,10 @@ import ListServiceCards from "@/components/shared/ListServiceCards";
 
 export default function SearchPage({searchQuery}) {
     const router = useRouter();
-    //const {data: searchResult} = useGetSearchResultQuery({language: router.locale, searchQuery});
+    const {data: searchResult} = useGetSearchResultQuery({language: router.locale, searchQuery});
     return (
         <Container background={styles.background} container={styles.container}>
-            <ListServiceCards listServices={[]}/>
+            <ListServiceCards listServices={searchResult}/>
         </Container>
     )
 }

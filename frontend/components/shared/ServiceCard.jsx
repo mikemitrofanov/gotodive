@@ -3,9 +3,8 @@ import {useTranslation} from "next-i18next";
 import Link from "@/components/shared/Link";
 import Image from 'next/image';
 
-export default function ServiceCard({src, title, description, id}) {
+export default function ServiceCard({src, title, description, id, onActive  }) {
     const {t} = useTranslation("common");
-    
     return (
         <div className={styles.card}>
             <Link href={{pathname: '/category/[service]', query: {service: id}}}>
@@ -15,7 +14,7 @@ export default function ServiceCard({src, title, description, id}) {
                 <h4 className={styles.title}>{title}</h4>
                 <p className={styles.description}>{description}</p>
             </Link>
-            <Link className={styles.button} href={{pathname: '/category/[service]', query: {service: id}}}>{t("popular.buttons")}</Link>
+            <button className={styles.button} onClick={()=>onActive(id)}>{t("popular.buttons")}</button>
         </div>
     )
 }

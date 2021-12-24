@@ -61,15 +61,29 @@ export const apiSlice = createApi({
         }),
 
         submittingCotactForm: build.mutation({
-            query: ({language, content}) => ({url: `${language}/very-very-far`, method: 'post', body: content })
+            query: ({language, content, id}) => {
+                const url = id ? `${language}/services/${id}/contacts` : `${language}/contacts`
+                return {url: url, method: 'post', body: content }
+            }
         }),
 
         getSearchResult:  build.query({
             query: ({language, searchQuery}) => {
-                console.log(searchQuery)
                 return {url: `${language}/search`, method: 'get', params: {search: searchQuery}}
             },
-        })
+            transformResponse: response => {
+                return response.data.map(item => {
+                    return {
+                        ...item,
+                        photos: {
+                            ...item.photos[0],
+                            photo_url: `${urlInternal}/${item.photos[0].photo_url}`
+                        }
+                    }
+                })
+            }
+        }
+        )
   })
 })
 
