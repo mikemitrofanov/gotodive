@@ -25,7 +25,8 @@ Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])-
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('register', [AuthController::class, 'register']);
 Route::get('photos', [PhotoController::class, 'index']);
-Route::post('services/{service}/contacts', [ContactController::class, 'store']);
+Route::post('services/{service}/contacts', [ContactController::class, 'storeWithRelation']);
+Route::post('/contacts', [ContactController::class, 'store']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
