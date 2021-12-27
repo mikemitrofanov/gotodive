@@ -20,7 +20,7 @@ export default function DropdownItem({category}) {
             return () => {
                 document.removeEventListener("click", listener);
             }
-        }, [onClickService, dispatch]
+        }, [onClickService]
     )
 
     const handleOnClickService = (e) => {

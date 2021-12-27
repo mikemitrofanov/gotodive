@@ -1,6 +1,5 @@
 import styles from "../header.module.css";
 import DropdownMenu from "./dropdownMenu";
-import SubcategoryMenu from "./subcategoryMenu";
 import {useTranslation} from "next-i18next";
 import Link from "../../Link";
 

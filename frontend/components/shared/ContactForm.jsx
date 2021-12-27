@@ -10,7 +10,7 @@ const validationSchema = Yup.object().shape({
     phone: Yup.string()
         .matches(/^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/, "Must contain at least 7 digits"),
     name: Yup.string()
-        .matches(/^[A-Z][a-z]{1,64}$/, "The first letter must be capitalized")
+        .matches(/^[A-Z][a-z]|[А-Я][а-я]{1,64}$/, "The first letter must be capitalized")
         .required("Name is required"),
     message: Yup.string().required("Message required"),
 })
