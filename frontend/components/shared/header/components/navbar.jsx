@@ -1,11 +1,11 @@
 import styles from "../header.module.css";
 import DropdownMenu from "./dropdownMenu";
+import SubcategoryMenu from "./subcategoryMenu";
 import {useTranslation} from "next-i18next";
 import Link from "../../Link";
 
 export default function Navbar({categories = []}) {
     const {t} = useTranslation("common");
-    
     return (
         <nav className={styles.navbar}>
             <ul className={styles.list}>

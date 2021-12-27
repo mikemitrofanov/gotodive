@@ -18,14 +18,14 @@ export default function SearchPage({searchQuery}) {
     const {data: searchResult} = useGetSearchResultQuery({language: router.locale, searchQuery});
 
     const handleSubmit = async (content) => {
-        await dispatch(apiSlice.endpoints.submittingCotactForm.initiate({language: router.locale, content, id: serviceId}))
+        await dispatch(apiSlice.endpoints.submittingCotactForm.initiate({content, id: serviceId}))
+        setActive(false)
     }
 
     const hendleOpenModalForm = (id) => {
         setServiceId(id)
         setActive(true)
     }
-
     return (
         <Container background={styles.background} container={styles.container}>
             <ListServiceCards listServices={searchResult} onActive={hendleOpenModalForm}/>
