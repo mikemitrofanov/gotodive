@@ -15,19 +15,19 @@ import { useState } from 'react';
 export const teamMembers = [
     {
         id: 1,
-        photo: '/images/team/alexGerman.png',
+        photo: '/img/team/alexGerman.png',
         name: "Aleksandr German",
         description: "great and terrible"
     },
     {
         id: 2,
-        photo: '/images/team/yuriiProkhvatilo.png',
+        photo: '/img/team/yuriiProkhvatilo.png',
         name: "Yurii Prokhvatilo",
         description: "great and terrible"
     },
     {
         id: 3,
-        photo: '/images/team/rickSanches.png',
+        photo: '/img/team/rickSanches.png',
         name: "Rick Sanchez",
         description: "just darling"
     }
