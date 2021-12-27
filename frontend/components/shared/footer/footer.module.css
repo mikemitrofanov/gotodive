@@ -81,35 +81,35 @@
 }
 
 .location:before {
-    background-image: url(../../../public/images/footer/icons/map.png);
+    background-image: url(../../../public/img/footer/icons/map.png);
 }
 
 .phone:before {
-    background-image: url(../../../public/images/footer/icons/phone.png);
+    background-image: url(../../../public/img/footer/icons/phone.png);
 }
 
 .facebook:before {
-    background-image: url(../../../public/images/footer/icons/facebook.png);
+    background-image: url(../../../public/img/footer/icons/facebook.png);
 }
 
 .email:before {
-    background-image: url(../../../public/images/footer/icons/mail.png);
+    background-image: url(../../../public/img/footer/icons/mail.png);
 }
 
 .instagram:before {
-    background-image: url(../../../public/images/footer/icons/instagram.png);
+    background-image: url(../../../public/img/footer/icons/instagram.png);
 }
 
 .telegram:before {
-    background-image: url(../../../public/images/footer/icons/telegram.png);
+    background-image: url(../../../public/img/footer/icons/telegram.png);
 }
 
 .whatsApp:before {
-    background-image: url(../../../public/images/footer/icons/whatsApp.png);
+    background-image: url(../../../public/img/footer/icons/whatsApp.png);
 }
 
 .viber:before {
-    background-image: url(../../../public/images/footer/icons/viber.png);
+    background-image: url(../../../public/img/footer/icons/viber.png);
 }
 
 .link {

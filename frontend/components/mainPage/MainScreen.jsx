@@ -8,9 +8,9 @@ export default function MainScreen({t}) {
         <Container background={styles.background} container={styles.container}>
             <div className={styles.wrap_image}>
                 <div className={styles.logo}>
-                    <Image alt='logo' src='/images/mainScreen/logo.png' width={200} height={160}/>
+                    <Image alt='logo' src='/img/mainScreen/logo.png' width={200} height={160}/>
                 </div>
-                <img className={styles.image} alt='diving' src='/images/mainScreen/image.png'/>
+                <img className={styles.image} alt='diving' src='/img/mainScreen/image.png'/>
             </div>
             <div className={styles.wrap_text}>
                 <h1 className={styles.title}>
