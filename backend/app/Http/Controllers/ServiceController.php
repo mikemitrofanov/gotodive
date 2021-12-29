@@ -408,10 +408,10 @@ class ServiceController extends Controller
 
     public function search($language, Request $request)
     {
-        $search = $request->query('search');
-        return ServiceResource::collection(Service::query()->where('title', 'like', '%'.$search.'%')
-        ->orWhere('description', 'like', '%'.$search.'%')
-        ->orWhere('short_description', 'like', '%'.$search.'%')->with('photos')
-        ->get());
+        $query = $request->query('search');
+
+        return ServiceResource::collection(Service::query()->where("title->${language}", 'like', "%$query%")
+        ->orWhere("description->${language}", 'like', "%$query%")
+        ->orWhere("short_description->${language}", 'like', "%$query%")->with('photos')->get());
     }
 }
