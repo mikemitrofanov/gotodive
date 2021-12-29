@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddPhotoRequest;
 use App\Http\Requests\CreateServiceRequest;
-use App\Http\Requests\SearchServicesRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use App\Http\Resources\ServiceResource;
 use App\Models\Photo;
 use App\Models\Service;
 use App\Models\ServiceCategory;
+use Illuminate\Database\Eloquent\Builder;
 
 use Illuminate\Http\Request;
 
@@ -408,10 +408,12 @@ class ServiceController extends Controller
 
     public function search($language, Request $request)
     {
-        $query = $request->query('search');
+        $value = $request->query('search');
 
-        return ServiceResource::collection(Service::query()->where("title->${language}", 'like', "%$query%")
-        ->orWhere("description->${language}", 'like', "%$query%")
-        ->orWhere("short_description->${language}", 'like', "%$query%")->with('photos')->get());
+        return ServiceResource::collection(Service::where(function(Builder $query) use ($value, $language) {
+            $query->whereRaw("LOWER(title->'$.$language') LIKE LOWER('%$value%')");
+            $query->orWhereRaw("LOWER(description->'$.$language') LIKE LOWER('%$value%')");
+            $query->orWhereRaw("LOWER(short_description->'$.$language') LIKE LOWER('%$value%')");
+        })->get());
     }
 }
