@@ -29,5 +29,13 @@
     "categories": "Categories",
     "social": "Social",
     "gallery": "Gallery"
+  },
+  "error": {
+    "mail": "Must contain @ and '.'",
+    "mailRequired": "Email is required",
+    "phone": "Must contain at least 7 digits",
+    "name": "The first letter must be capitalized",
+    "nameRequired": "Name is required",
+    "message": "Message required"
   }
 }
