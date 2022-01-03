@@ -47,7 +47,8 @@ services:
         MYSQL_USER: ${DB_USERNAME}
       networks:
         - app-network
-
+      ports:
+        - "3333:3306"
 networks:
   app-network:
     driver: bridge
