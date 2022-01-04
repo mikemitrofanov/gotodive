@@ -26,7 +26,7 @@ export default function DropdownMenu({category, subcategory}) {
         <>
         {subcategory ?
             <div className={`${styles.dropdown_wrap,  styles.sub_menu}`}>
-                <a key={category.id} id={category.id} onClick={handleOnClickCategory}
+                <a key={category.id} id={category.id} onMouseOver={handleOnClickCategory}
                 className={`${styles.title} ${isOpenedDropdownSubMenu && styles.title_active}`}>
                     {category.title}
                 </a>
@@ -34,7 +34,7 @@ export default function DropdownMenu({category, subcategory}) {
             </div>
             :
             <div className={styles.dropdown_wrap}>
-                <a key={category.id} id={category.id} onClick={handleOnClickCategory}
+                <a key={category.id} id={category.id} onMouseOver={handleOnClickCategory}
                 className={`${styles.title} ${isOpenedDropdownMenu && styles.title_active}`}>
                     {category.title}
                 </a>

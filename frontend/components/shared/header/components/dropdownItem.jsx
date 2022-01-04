@@ -4,12 +4,14 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {openDropdown, openDropdownMenu, openDropdownSubMenu} from "@/redux/slices/navbarSlice";
 import DropdownMenu from "./dropdownMenu";
+import {useRouter} from "next/router";
 
 export default function DropdownItem({category}) {
     const [onClickService, SetOnClickService] = useState(null);
     const [subcategory, setSubcategory] = useState(category.subcategories?.length > 0 ? true : false)
     const openedDropdownMenu = useSelector(openDropdown);
     const dispatch = useDispatch();
+    const router = useRouter();
 
     useEffect(
         () => {
@@ -43,7 +45,11 @@ export default function DropdownItem({category}) {
                 className={`${isOpenDropdownMenu ? styles.dropdown_active : styles.dropdown}`}
         >
             {category.subcategories && category.subcategories.map(subcategory => {
-                return <DropdownMenu subcategory={subcategory} category={subcategory} key={subcategory.id}/>
+                return <Link
+                    href={{pathname: '/parent/[parent]', query: {parent: category.id}}}
+                >
+                    <DropdownMenu subcategory={subcategory} category={subcategory} key={subcategory.id}/>
+                </Link>
             })}
             {category.services.map(service => (
                 <Link
