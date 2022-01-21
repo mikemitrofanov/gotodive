@@ -5,16 +5,6 @@ import FormContainer from "@/components/shared/FormContainer";
 import * as Yup from "yup";
 import {useTranslation} from "next-i18next";
 
-const validationSchema = Yup.object().shape({
-    email: Yup.string().email('Must contain @ and "."').required("Email is required"),
-    phone: Yup.string()
-        .matches(/^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/, "Must contain at least 7 digits"),
-    name: Yup.string()
-        .matches(/^[A-ZА-ЯЁЇІЄҐ][a-zа-яёїієґ]{1,64}$/, "The first letter must be capitalized")
-        .required("Name is required"),
-    message: Yup.string().required("Message required"),
-})
-
 const initialValues = {
     name: "",
     email: "",
@@ -24,6 +14,16 @@ const initialValues = {
 
 export default function ContactForm({handleSubmit, setActive}) {
     const {t} = useTranslation("common");
+
+    const validationSchema = Yup.object().shape({
+        email: Yup.string().email(t("error.mail")).required(t("error.mailRequired")),
+        phone: Yup.string()
+            .matches(/^(\+)?((\d{2,3}) ?\d|\d)(([ -]?\d)|( ?(\d{2,3}) ?)){5,12}\d$/, t("error.phone")),
+        name: Yup.string()
+            .matches(/^[A-ZА-ЯЁЇІЄҐ][a-zа-яёїієґ]{1,64}$/, t("error.name"))
+            .required(t("error.nameRequired")),
+        message: Yup.string().required(t("error.message")),
+    })
 
     const handleClosures = (content) => {
         handleSubmit(content);

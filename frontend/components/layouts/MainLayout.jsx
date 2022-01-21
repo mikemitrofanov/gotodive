@@ -11,7 +11,7 @@ import Header from "@/components/shared/header";
 const dataFooter = {
     'contactUs':
         {
-            'location': '777, st. My, Country',
+            'location': 'Put Radoševca 8, 21000, Split, Croatia',
             'phone': '270-177-6026, 275-198-7978',
             'facebook': '@GotoDive',
             'email': 'GotoDive@gmail.com'
