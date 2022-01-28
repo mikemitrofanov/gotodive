@@ -21,7 +21,10 @@
     flex-wrap: nowrap;
     column-gap: calc(45px + 15 * ((100vw - 360px) / 1560));
     justify-content: center;
+    
 }
+
+
 
 .slider > div {
     color: #7b7c7b;
@@ -32,6 +35,9 @@
     transform: translateY(-300%);
 }
 
+.slide > div {
+   margin: 0 10px;
+}
 .slide > div {
     display: flex;
 }
