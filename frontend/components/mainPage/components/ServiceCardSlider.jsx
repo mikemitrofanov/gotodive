@@ -17,7 +17,7 @@ const params = {
     navigation: true,
 }
 
-export default function ServiceCardSlider({listServices = []}) {
+export default function ServiceCardSlider({listServices = [], onActive}) {
     return (
         <Swiper className={styles.slider} {...params}>
             {listServices.map(item => (
@@ -27,6 +27,7 @@ export default function ServiceCardSlider({listServices = []}) {
                         title={item.title}
                         description={item.description}
                         id={item.id}
+                        onActive={onActive}
                     />
                 </SwiperSlide>
             ))}
