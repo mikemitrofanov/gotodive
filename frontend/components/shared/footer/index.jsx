@@ -6,15 +6,12 @@ import Social from "./components/Social";
 import Container from "@/components/shared/Container";
 import {useTranslation} from "next-i18next";
 
-export default function Footer({photoList, dataFooter}) {
+export default function Footer({photoList, dataFooter, recentServices}) {
     const {t} = useTranslation("common");
-    const categories = dataFooter.categories.map((category) => {
-        return {category: category, link: ''}
-    })
     return (
         <Container background={styles.background} container={styles.container}>
             <ContactUs title={t("footer.contactUs")} data={dataFooter.contactUs}/>
-            <Categories title={t("footer.categories")}  data={categories}/>
+            <Categories title={t("footer.categories")}  recentServices={recentServices}/>
             <Social title={t("footer.social")}  data={dataFooter.social}/>
             <Gallery title={t("footer.gallery")} photoList={photoList}/>
         </Container>

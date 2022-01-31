@@ -20,6 +20,7 @@ export const apiSlice = createApi({
         getPopularServices: build.query({
             query: (language) => `${language}/services/popular`,
             transformResponse: response => {
+                console.log(response)
                 return response.data.map(item => {
                     return {
                         ...item,
@@ -29,6 +30,13 @@ export const apiSlice = createApi({
                         }
                     }
                 })
+            }
+        }),
+
+        getRecentServices: build.query({
+            query: (language) => `${language}/services/recent`,
+            transformResponse: response => {
+                return response.data
             }
         }),
 
@@ -89,6 +97,7 @@ export const apiSlice = createApi({
 
 export const {
   useGetPopularServicesQuery,
+  useGetRecentServicesQuery,
   useGetAllCategoriesQuery,
   useGetServicesQuery,
   useGetPhotoGalleryQuery,

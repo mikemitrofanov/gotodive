@@ -45,6 +45,7 @@ Route::group(['prefix' => '{language}', 'middleware' => ['setLanguage']], functi
     Route::get('/service-categories/{serviceCategory}', [ServiceCategoryController::class, 'show']);
     Route::get('/service-categories/{serviceCategory}/services', [ServiceController::class, 'index']);
     Route::get('/services/popular', [ServiceController::class, 'showPopular']);
+    Route::get('/services/recent', [ServiceController::class, 'showRecent']);
     Route::get('/services/{service}', [ServiceController::class, 'show']);
 
    
