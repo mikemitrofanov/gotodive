@@ -2,7 +2,6 @@ import styles from "../servicePage.module.css";
 import {Navigation} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import Image from 'next/image';
-import { useEffect, useState } from "react";
 
 const params = {
     modules: [Navigation],
@@ -20,11 +19,6 @@ const params = {
 }
 
 export default function Images({photos = []}) {
-    const [loader, setLoader] = useState(true)
-
-    useEffect(() => {
-        setLoader(false)
-    })
 
     return (
         <div className={`${styles.images}
@@ -37,17 +31,16 @@ export default function Images({photos = []}) {
                     <Image alt='img' src={photo.optimized_photo_url} width={500} height={500}/>
                 </div>
             ))}
-            {!loader &&
                 <Swiper {...params} className={styles.swiper}>
                     {photos.map(photo => (
                         <SwiperSlide key={photo.id} className={styles.slide}>
-                            <div className={styles.imgContent} key={photo.id}>
+                            <div key={photo.id} className={styles.slide_img_container}>
                                 <Image alt='img' src={photo.optimized_photo_url} width={500} height={500}/>
                             </div>
                         </SwiperSlide>
                     ))}
                 </Swiper>
-            }
+            
         </div>
     )
 }

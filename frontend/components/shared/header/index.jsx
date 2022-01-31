@@ -14,7 +14,6 @@ export default function Header({categories}) {
     useEffect(() => {
         setIsOpen(false)
     }, [router])
-
     return (
         <Container background={styles.background} container={styles.container}>
             <Burger isOpen={isOpen} setIsOpen={setIsOpen} categories={categories}/>

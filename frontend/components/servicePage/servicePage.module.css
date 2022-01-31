@@ -115,6 +115,10 @@
     justify-content: center;
 }
 
+
+
+
+
 .swiper > div {
     color: #7b7c7b;
 }
@@ -193,7 +197,7 @@
 
 
 @media screen and (max-width: 1300px) {
-    .images4 > .img {
+    .images4 > .imgContent {
         display: none;
     }
 
@@ -201,10 +205,12 @@
         display: inline-block;
         width: 600px;
     }
+
+ 
 }
 
 @media screen and (max-width: 954px) {
-    .images3 > .img {
+    .images3 > .imgContent {
         display: none;
     }
 
@@ -216,7 +222,7 @@
 }
 
 @media screen and (max-width: 767px) {
-    .images2 > .img {
+    .images2 > .imgContent {
         display: none;
     }
 
