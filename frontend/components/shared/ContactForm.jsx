@@ -26,9 +26,10 @@ const initialValues = {
 export default function ContactForm({handleSubmit, setActive}) {
     const {t} = useTranslation("common");
 
-    const handleClosures = (content) => {
+    const handleClosures = (content, values) => {
         handleSubmit(content);
         setActive && setActive(false)
+        values.resetForm()
     }
 
     return (
