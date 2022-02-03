@@ -4,7 +4,7 @@ import Head from "next/head";
 import {useRouter} from "next/router";
 //import {useGetMetadataQuery} from "../../redux/slices/apiSlice";
 import {convertingUrlToSlug} from "../../utils/helpers";
-import {useGetPhotoGalleryQuery, useGetAllCategoriesQuery} from "@/redux/slices/apiSlice";
+import {useGetPhotoGalleryQuery, useGetAllCategoriesQuery, useGetRecentServicesQuery} from "@/redux/slices/apiSlice";
 import Navbar from "@/components/shared/header/components/navbar";
 import Header from "@/components/shared/header";
 
@@ -17,7 +17,6 @@ const dataFooter = {
             'email': 'GotoDive@gmail.com'
         }
     ,
-    'categories': ['Diving', 'Diving training', 'Become a DIVE PRO', 'Excursions', 'Price'],
     'social':
         {
             'instagram': '@GotoDive',
@@ -31,6 +30,7 @@ export default function MainLayout({children}) {
     const router = useRouter();
     //const {data: metadata = {attributes: []}} = useGetMetadataQuery({language: router.locale, slug: convertingUrlToSlug(router.asPath)});
     const {data: categories} = useGetAllCategoriesQuery(router.locale);
+    const {data: recentServices} = useGetRecentServicesQuery(router.locale)
     const {data: photoList = []} = useGetPhotoGalleryQuery();
     return (
         <>
@@ -60,7 +60,7 @@ export default function MainLayout({children}) {
             </Head> */}
             <Header categories={categories}/>
             <main className={styles.main}>{children}</main>
-            <Footer photoList={photoList} dataFooter={dataFooter}/>
+            <Footer photoList={photoList} dataFooter={dataFooter} recentServices={recentServices}/>
         </>
     )
 }

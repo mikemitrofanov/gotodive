@@ -2,28 +2,20 @@
     background-color: #ebeeed;
 }
 
-.container {
-    padding-top: calc(30px + 75 * ((100vw - 360px) / 1560));
-    padding-bottom: calc(30px + 75 * ((100vw - 360px) / 1560));
-    display: grid;
-    column-gap: 70px;
-    row-gap: calc(20px + 40 * ((100vw - 360px) / 1560));
-    grid-template-areas:
-    "title text_box"
-    "photos text_box"
-    "photos text_box"
-    "photos text_box"
-    "photos text_box"
-    "photos text_box"
-    "photos text_box"
-    "photos text_box"
-    "photos text_box";
+.flex {
+        padding-top: 122px;
+        padding-bottom: 70px;
+        display: flex;
+        column-gap: 62px;
+        row-gap: 60px;
 }
 
 .title {
     grid-area: title;
     font-family: "Montserrat-ExtraBold", sans-serif;
-    font-size: calc(25px + 10 * ((100vw - 360px) / 1560));
+    font-size: 35px;
+    width: 484px;
+    margin-bottom: 66px;
     color: #7b7c7b;
     font-weight: 800;
     text-transform: uppercase;
@@ -32,7 +24,7 @@
 .images {
     grid-area: photos;
     display: grid;
-    grid-gap: 40px 55px;
+    grid-gap: 40px 32px;
     grid-template-columns: 1fr auto;
     overflow: hidden;
 }
@@ -46,28 +38,33 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    row-gap: calc(12px + 28 * ((100vw - 360px) / 1560));
-    font-size: calc(11px + 13 * ((100vw - 360px) / 1560));
+    row-gap: 40px;
+    font-size: 24px;
     line-height: 137.5%;
     color: #7b7c7b;
     font-family: "Lora-Regular", serif;
 }
 
+.text_box p {
+    margin-bottom: 7px;
+}
+
 .inner_wrap {
     display: flex;
     flex-direction: column;
-    row-gap: calc(10px + 20 * ((100vw - 360px) / 1560));
+    row-gap: 23px;
 }
 
 .wrapper {
     display: flex;
     column-gap: 70px;
     width: 100%;
-    padding: calc(30px + 75 * ((100vw - 360px) / 1560)) 0;
+    padding: 105px 0;
 }
 
-.description {
-    margin-bottom: calc(15px + 15 * ((100vw - 360px) / 1560));
+.text_box .description {
+    margin-bottom: 36px;
+    letter-spacing: 1.6px;
 }
 
 .bold_text {
@@ -77,7 +74,7 @@
 }
 
 .style_text {
-    font-size: calc(11px + 13 * ((100vw - 360px) / 1560));
+    font-size: 24px;
     line-height: 137.5%;
     color: #7699c8;
     font-weight: 400;
@@ -85,9 +82,9 @@
 }
 
 .button {
-    height: calc(30px + 50 * ((100vw - 360px) / 1560));
-    width: calc(90px + 310 * ((100vw - 360px) / 1560));
-    font-size: calc(9px + 12 * ((100vw - 360px) / 1560));
+    height: 80px;
+    width: 400px;
+    font-size: 20px;
     color: #dfe3e0;
     font-weight: 700;
     font-family: "Montserrat", sans-serif;
@@ -95,6 +92,8 @@
     border: 1px solid #000106;
     align-self: end;
     cursor: pointer;
+    margin-top: 25px;
+    margin-right: 6px;
 }
 
 .button:hover {
@@ -104,10 +103,14 @@
 
 .imgContent {
     position: relative;
-    width: 210px;
-    height: 220px;
+    width: 230px;
+    height: 230px;
     overflow: hidden;
     object-fit: cover;
+    background-color: #fff;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+    padding: 4px 5px;
 }
 
 .slide {
@@ -115,17 +118,21 @@
     justify-content: center;
 }
 
+.slide_img_container{
+    margin: 0 45px;
+}
+
 .swiper > div {
     color: #7b7c7b;
 }
 
 .swiper > div:after {
-    font-size: calc(25px + 15 * ((100vw - 360px) / 1200));
+    font-size: 40px;
 }
 
 .container_image {
     position: relative;
-    padding-bottom: calc(270px + 605 * ((100vw - 360px) / 1560));
+    padding-bottom: 867px;
     overflow: hidden;
 }
 
@@ -139,15 +146,15 @@
 .container_logo {
     position: relative;
     max-width: 1920px;
-    padding: 0 calc(45px + 120 * ((100vw - 360px) / 1560));
+    padding: 0 165px;
     margin: 0 auto;
     bottom: 0;
 }
 
 .logo {
-    max-width: calc(67px + 109 * ((100vw - 360px) / 1560));
+    max-width: 176px;
     position: absolute;
-    top: calc(258px + 555 * ((100vw - 360px) / 1560));
+    top: 813px;
     transform: translateY(-100%);
 }
 
@@ -169,16 +176,12 @@
     max-width: 1400px;
     background-color: #ebeeed;
     z-index: 11;
-    padding: calc(30px + 50 * ((100vw - 360px) / 1560));
+    padding: 80px;
     box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
 }
 
 
-@media screen and (max-width: 1699px) {
-    .container {
-        grid-template-areas: "title" "text_box" "photos";
-    }
-
+@media screen and (max-width: 1660px) {
     .images {
         display: flex;
         justify-content: center;
@@ -186,9 +189,102 @@
     }
 
     .img {
-        width: calc(190px + 20 * ((100vw - 360px) / 1560));
-        height: calc(200px + 20 * ((100vw - 360px) / 1560));
+        width: 157px;
+        height: 165px;
     }
+
+    .flex {
+        padding-top: 91px;
+        padding-bottom: 52px;
+        column-gap: 46px;
+        row-gap: 45px;
+    }
+
+    .title {
+        font-size: 26px;
+        width: 363px;
+        margin-bottom: 49px;
+    }
+
+    .images {
+        grid-gap: 30px 24px;
+    }
+
+    .text_box {
+        row-gap: 30px;
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    .text_box p {
+        margin-bottom: 6px;
+    }
+
+    .inner_wrap {
+        row-gap: 18px;
+    }
+
+    .wrapper {
+        column-gap: 52px;
+        padding: 77px 0;
+    }
+
+    .text_box .description {
+        margin-bottom: 27px;
+    }
+
+    .bold_text {
+        margin-right: 8px;
+    }
+
+    .style_text {
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    .button {
+        height: 60px;
+        width: 300px;
+        font-size: 16px;
+        margin-top: 18px;
+        margin-right: 4px;
+    }
+
+    .imgContent {
+        width: 172px;
+        height: 172px;
+        border-radius: 4px;
+        padding: 3px 4px;
+    }
+
+    .swiper > div:after {
+        font-size: 30px;
+    }
+
+    .container_image {
+        padding-bottom: 650px;
+    }
+
+    .container_logo {
+        max-width: 1400px;
+        padding: 0 123px;
+    }
+
+    .logo {
+        max-width: 132px;
+        top: 609px;
+    }
+
+    .modal {
+        width: 80%;
+        max-width: 1190px;
+        padding: 60px;
+        box-shadow: 0 6px 12px 0 rgb(0 0 0 / 20%);
+    }
+}
+
+.slider {
+    display: none;
 }
 
 
@@ -203,7 +299,11 @@
     }
 }
 
-@media screen and (max-width: 954px) {
+@media screen and (max-width: 996px) {
+    .container_image {
+        padding-bottom: 450px;
+    }
+
     .images3 > .img {
         display: none;
     }
@@ -216,6 +316,16 @@
 }
 
 @media screen and (max-width: 767px) {
+    .container_image {
+        padding-bottom: 350px;
+    }
+
+    .flex {
+        flex-direction: column;
+        padding-left: 49px;
+        padding-right: 49px;
+    }
+
     .images2 > .img {
         display: none;
     }
@@ -224,62 +334,58 @@
         display: inline-block;
         width: 300px;
     }
-}
 
-@media screen and (min-width: 1921px) {
-    .container,
-    .wrapper {
-        padding-top: 105px;
-        padding-bottom: 105px;
-        row-gap: 60px;
+    .images {
+        display: none;
     }
 
-    .inner_wrap {
-        row-gap: 30px;
-        margin-bottom: 40px;
-    }
-
-    .container_image {
-        padding-bottom: 875px;
-    }
-
-    .container_logo {
-        padding: 0 165px;
-    }
-
-    .logo {
-        max-width: 176px;
-        top: 813px;
-    }
-
-    .title {
-        font-size: 35px;
-    }
-
-    .description {
-        margin-bottom: 30px;
+    .slider {
+        display: block;
+        text-align: center;
     }
 
     .button {
-        height: 80px;
-        width: 400px;
-        font-size: 21px;
+        height: 50px;
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .container_image {
+        padding-bottom: 250px;
     }
 
-    .img {
-        width: 215px;
-        height: 220px;
+    .title {
+        width: 100%;
+        font-size: 16px;
+        margin-bottom: 0;
     }
 
-    .text_box {
-        font-size: 24px;
+    .description {
+        font-size: 14px;
+    }
+
+    .inner_wrap {
+        font-size: 14px;
+    }
+
+    .bold_text {
+        font-size: 14px;
     }
 
     .style_text {
-        font-size: 24px;
+        font-size: 14px;
     }
 
-    .modal {
-        padding: 80px;
+    .button {
+        width: 100%;
+    }
+
+    .swiper,
+    .images1 > .swiper,
+    .images2 > .swiper,
+    .images4 > .swiper,
+    .images3 > .swiper {
+        width: 100%
     }
 }

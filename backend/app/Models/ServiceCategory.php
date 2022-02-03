@@ -15,8 +15,10 @@ class ServiceCategory extends Model
         'title',
         'order',
         'parent_category_id',
+        'description',
+        'short_description',
     ];
-    public $translatable = ['title'];
+    public $translatable = ['title', 'description', 'short_description',];
 
     public function services()
     {

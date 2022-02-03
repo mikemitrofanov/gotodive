@@ -7,6 +7,7 @@ use App\Models\ServiceCategory;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\Select;
+use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Layouts\Rows;
 
 class ServiceCategoryUpdateLayout extends Rows
@@ -32,6 +33,16 @@ class ServiceCategoryUpdateLayout extends Rows
                 ->title('Title')
                 ->placeholder('Title')
                 ->help('Name of Category'),
+
+            Input::make('category.short_description')
+                ->title('Short description')
+                ->placeholder('Short description')
+                ->help('Short description of Category'),
+
+            TextArea::make('category.description')
+                ->title('Description')
+                ->placeholder('Description')
+                ->help('Description of Category'),
 
             Relation::make('category.language')
                 ->title('Language code')

@@ -154,6 +154,40 @@ class ServiceController extends Controller
 
     /**
      * @OA\Get(
+     *      path="/{language}/services/recent",
+     *      tags={"Services"},
+     *      summary="Show Recent services",
+     *      description="Returns array of 5 recent services",
+     *      @OA\Parameter(
+     *          name="language",
+     *          description="Language code ",
+     *          required=true,
+     *          in="path",
+     *          example="en",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/GetPopularServicesResponse"),
+     *       ),
+     *        @OA\Response(
+     *          response=400,
+     *          description="Language code is not supported.",
+     *      ),
+     * )
+     *
+     */
+    public function showRecent()
+    {
+        //return ServiceResource::collection(Service::orderBy('id','desc')->take(10)->get())->reverse();
+        return ServiceResource::collection(Service::orderBy('id','desc')->take(5)->get());
+    }
+
+    /**
+     * @OA\Get(
      *      path="/{language}/services/{service}",
      *      operationId="Show Service",
      *      tags={"Services"},

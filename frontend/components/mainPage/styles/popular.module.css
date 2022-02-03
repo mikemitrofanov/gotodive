@@ -1,26 +1,22 @@
 .background {
     background-color: #ebeeed;
-}
-
-.container {
-    text-align: center;
-    padding-top: calc(40px + 60 * ((100vw - 360px) / 1560));
-    padding-bottom: calc(40px + 60 * ((100vw - 360px) / 1560));
+    padding-bottom: 150px;
 }
 
 .title {
-    font-size: calc(14px + 25 * ((100vw - 360px) / 1560));
+    font-size: 39px;
     font-weight: 800;
     color: #7b7c7b;
     font-family: "Montserrat-ExtraBold", sans-serif;
-    margin-bottom: calc(25px + 25 * ((100vw - 360px) / 1560));
+    margin-bottom: 40px;
+    padding-top: 110px;
+    text-align: center;
 }
 
 .wrapper, .slide, .cards {
     display: flex;
     flex-wrap: nowrap;
-    column-gap: calc(45px + 15 * ((100vw - 360px) / 1560));
-    justify-content: center;
+    column-gap: 85px;
 }
 
 .slider > div {
@@ -28,10 +24,13 @@
 }
 
 .slider > div:after {
-    font-size: calc(25px + 15 * ((100vw - 360px) / 1200));
+    font-size: 25px;
     transform: translateY(-300%);
 }
 
+.slide > div {
+   margin: 0 10px;
+}
 .slide > div {
     display: flex;
 }
@@ -40,46 +39,73 @@
     transform: none;
 }
 
-@media screen and (min-width: 1741px) {
-    .slider {
-        display: none;
+.slider {
+    display: none;
+}
+
+@media screen and (max-width: 1660px) {
+    .background {
+        padding-bottom: 113px;
+    }
+
+    .title {
+        font-size: 29px;
+        margin-bottom: 30px;
+        padding-top: 82px;
     }
 }
 
-@media screen and (max-width: 1740px) {
+@media screen and (max-width: 992px) {
+    .title {
+        padding-top: 40px;
+    }
+
+    .cards {
+        column-gap: 5%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .background {
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+
+    .title {
+        text-align: left;
+        padding-left: 10px;
+        font-size: 22px;
+        padding-top: 0;
+    }
+
     .cards {
         display: none;
     }
 
     .slider {
-        max-width: 1100px;
+        display: block;
+    }
+
+    .slider .swiper-button-prev {
+        left: 0;
+    }
+    .slider .swiper-button-next {
+        right: 0;
     }
 }
 
-@media screen and (max-width: 1000px) {
-    .slider {
-        max-width: 440px;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    .title {
-        text-align: left;
-    }
-}
-
-@media screen and (min-width: 1921px) {
-    .container {
-        padding-top: 100px;
-        padding-bottom: 100px;
+@media screen and (max-width: 360px) {
+    .background {
+        padding-bottom: 0;
     }
 
     .title {
-        font-size: 39px;
-        margin-bottom: 50px;
+        font-size: 16px;
+        margin-top: 0;
+        padding-top: 0;
     }
 
-    .wrapper {
-        column-gap: 90px;
+    .wrapper, .slide, .cards {
+        column-gap: 15px;
     }
 }

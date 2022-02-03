@@ -1,19 +1,13 @@
 import styles from "../footer.module.css";
 import Link from "../../Link";
 
-export default function Categories({title, data}) {
-    const links = [ // <= Заглушка для ссылок
-        {link: '#', target: ''},
-        {link: '#', target: ''},
-        {link: '#', target: ''},
-        {link: '#', target: ''},
-        {link: '/file/price.pdf', target: '_blank'},
-    ]
+export default function Categories({title, recentServices}) {
+
     return (
         <article className={`${styles.wrapper} ${styles.categories}`}>
             <h5 className={styles.title}>{title}</h5>
-            {data.map((item, i) => {
-                return <Link href={links[i].link} target={links[i].target} children={item.category} className={styles.category} key={i}/>
+            {recentServices && recentServices.map((item, i) => {
+                return   <Link href={{pathname: '/category/[service]', query: {service: item.id}}} children={item.title} className={styles.category} key={i}/>            
             })}
         </article>
     )

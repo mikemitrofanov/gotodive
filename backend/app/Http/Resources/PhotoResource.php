@@ -16,8 +16,9 @@ class PhotoResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'photo_url' => $this->url,
-            'optimized_photo_url' => $this->optimized_url
+            'photo_url' => asset("storage/" . $this->url),
+//            'optimized_photo_url' => $this->optimized_url,
+            'optimized_photo_url' => asset("storage/" . $this->optimized_url)
         ];
     }
 }

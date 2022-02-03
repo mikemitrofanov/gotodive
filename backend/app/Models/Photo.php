@@ -50,8 +50,14 @@ class Photo extends Model
             Photo::create($photo_data) :
             $service->photos()->create($photo_data);
 
+        Storage::disk('local')->put('images'.'/'.$newPhoto->optimized_url, $photo, 'public');
+
         $manager = new ImageManager(array('driver' => 'imagick'));
-        $manager->make('storage/' . $newPhoto->optimized_url)
+
+        $manager->make($photo->getRealPath())
+            ->save('storage/' . $newPhoto->url);
+
+        $manager->make($photo->getRealPath())
             ->resize(320, 240)
             ->save('storage/' . $newPhoto->optimized_url);
         return $newPhoto;
