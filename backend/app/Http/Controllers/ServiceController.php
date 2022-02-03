@@ -448,6 +448,6 @@ class ServiceController extends Controller
             $query->whereRaw("LOWER(title->'$.$language') LIKE LOWER('%$value%')");
             $query->orWhereRaw("LOWER(description->'$.$language') LIKE LOWER('%$value%')");
             $query->orWhereRaw("LOWER(short_description->'$.$language') LIKE LOWER('%$value%')");
-        })->get());
+        })->with('photos')->get());
     }
 }
