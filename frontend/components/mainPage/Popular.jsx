@@ -18,13 +18,13 @@ export default function Popular({title, popular, active, setActive, onSubmit}) {
     }
 
     return (
-        <Container background={styles.background} container={styles.container}>
+        <Container background={styles.background}>
             <h2 className={styles.title}>{title}</h2>
             <div className={styles.wrapper}>
                 <div className={styles.cards}>
                     <ListServiceCards listServices={popular} onActive={hendleOpenModalForm} />
                 </div>
-                <ServiceCardSlider listServices={popular}/>
+                <ServiceCardSlider listServices={popular} onActive={hendleOpenModalForm}/>
             </div>
             {active && <ModalForm onClose={() => setActive(false)} setActive={setActive} handleSubmit={handleSubmit}/>}
         </Container>

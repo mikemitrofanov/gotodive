@@ -26,6 +26,8 @@ class CreateServiceCategoryRequest extends FormRequest
         return [
             'title' => 'required|string',
             'order' => 'integer',
+            'description' => 'nullable|string',
+            'short_description' => 'nullable|string',
         ];
     }
 }

@@ -2,6 +2,7 @@ import {appWithTranslation} from "next-i18next";
 import {Provider} from "react-redux";
 import {useStore} from "@/redux/store";
 import "swiper/css/bundle";
+import 'bootstrap/dist/css/bootstrap.css';
 import "@fancyapps/ui/dist/fancybox.css";
 import "../styles/globals.css";
 

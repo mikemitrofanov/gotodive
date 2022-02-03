@@ -34,6 +34,8 @@ class ServiceCategoryResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'order' => $this->order,
+            'description' => $this->description,
+            'short_description' => $this->short_description,
             'services' => ServiceResource::collection($this->whenLoaded('services')),
             'subcategories'=>$this->categoryRepository->allSubcategoriesOfCategory($this->id),
         ];
