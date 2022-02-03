@@ -1,12 +1,14 @@
 .form {
     display: flex;
     flex-direction: column;
-    row-gap: calc(20px + 20 * ((100vw - 360px) / 1560));
+    row-gap: 20px;
+    width: 1048px;
+    margin: 0 auto;
 }
 
 .wrapper, .inner_wrapper {
     display: flex;
-    row-gap: calc(12px + 28 * ((100vw - 360px) / 1560));
+    row-gap: 48px;
 }
 
 
@@ -21,10 +23,10 @@
 }
 
 .button {
-    width: calc(115px + 285 * ((100vw - 360px) / 1560));
-    height: calc(25px + 55 * ((100vw - 360px) / 1560));
+    width: 400px;
+    height: 80px;
     background-color: #051330;
-    font-size: calc(7px + 14 * ((100vw - 360px) / 1560));
+    font-size: 22px;
     color: #dfe3e0;
     font-family: "Montserrat-Bold", sans-serif;
     align-self: flex-end;
@@ -36,18 +38,58 @@
     color: #fff;
 }
 
-@media screen and (min-width: 1921px) {
-    .form {
-        row-gap: 40px;
+@media screen and (max-width: 1660px) {
+    .wrapper, .inner_wrapper {
+        row-gap: 36px;
     }
 
-    .wrapper, .inner_wrapper {
-        row-gap: 40px;
+    .wrapper {
+        column-gap: 23px;
     }
 
     .button {
-        width: 400px;
-        height: 80px;
-        font-size: 21px;
+        width: 300px;
+        height: 60px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .form {
+        padding-left: 29px;
+        padding-right: 29px;
+        flex-direction: column;
+    }
+
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .wrapper {
+        row-gap: 12px;
+    }
+
+    .inner_wrapper {
+        row-gap: 12px;
+    }
+
+    .button {
+        font-size: 15px;
+        height: 40px;
+    }
+}
+
+
+@media screen and (max-width: 360px) {
+    .button {
+        width: 115px;
+        height: 25px;
+        font-size: 8px;
     }
 }

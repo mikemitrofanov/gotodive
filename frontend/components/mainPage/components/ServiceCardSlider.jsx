@@ -23,7 +23,7 @@ export default function ServiceCardSlider({listServices = []}) {
             {listServices.map(item => (
                 <SwiperSlide className={styles.slide} key={item.id}>
                     <ServiceCard
-                        src={item.photos.photo_url}
+                        src={item.photos.optimized_photo_url !== undefined ? item.photos.optimized_photo_url : '/img/mainScreen/logo.png'}
                         title={item.title}
                         description={item.description}
                         id={item.id}

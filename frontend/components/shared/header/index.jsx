@@ -16,7 +16,7 @@ export default function Header({categories}) {
     }, [router])
 
     return (
-        <Container background={styles.background} container={styles.container}>
+        <Container background={styles.background} container={styles.header}>
             <Burger isOpen={isOpen} setIsOpen={setIsOpen} categories={categories}/>
             <Navbar categories={categories}/>
             <SearchInput searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>

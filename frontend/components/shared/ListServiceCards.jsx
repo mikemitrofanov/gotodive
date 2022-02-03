@@ -6,7 +6,7 @@ export default function ListServiceCards({listServices = [], onActive}) {
             {listServices && listServices.map(item => (
                 <ServiceCard
                     key={item.id}
-                    src={item.photos.photo_url}
+                    src={item.photos.optimized_photo_url !== undefined ? item.photos.optimized_photo_url : '/img/mainScreen/logo.png'}
                     title={item.title}
                     description={item.description}
                     id={item.id}

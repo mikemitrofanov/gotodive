@@ -1,11 +1,14 @@
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #ebeeed;
+.gallery_container {
+   flex-wrap: wrap;
 }
 
 .wrapper {
     width: 50%;
+}
+
+.fancybox_wrap {
+    width:100%;
+    display: block;
 }
 
 .wrapper,
@@ -13,10 +16,9 @@
     font-size: 0;
 }
 
-.wrapper:nth-child(2n - 1) {
-    display: flex;
-    justify-content: flex-end;
-}
+/*.wrapper:nth-child(2n - 1) {*/
+/*    display: flex;*/
+/*}*/
 
 .image {
     cursor: pointer;

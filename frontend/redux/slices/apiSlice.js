@@ -23,10 +23,10 @@ export const apiSlice = createApi({
                 return response.data.map(item => {
                     return {
                         ...item,
-                        photos: {
+                        photos: item.photos.len > 0 ? {
                             ...item.photos[0],
-                            photo_url: `${urlInternal}/${item.photos[0].photo_url}`
-                        }
+                            photo_url: item.photos[0].photo_url
+                        } : {}
                     }
                 })
             }
@@ -38,7 +38,7 @@ export const apiSlice = createApi({
                 const photos = response.data.photos.map(photo => {
                     return {
                         ...photo,
-                        optimized_photo_url: `${urlInternal}/${photo.optimized_photo_url}`
+                        optimized_photo_url: `${photo.optimized_photo_url}`
                     }
                 })
 
@@ -50,8 +50,8 @@ export const apiSlice = createApi({
             query: () => '/photos',
             transformResponse: response => response.data.map(photo => ({
                 ...photo,
-                photo_url: `${urlInternal}/${photo.photo_url}`,
-                optimized_photo_url: `${urlInternal}/${photo.optimized_photo_url}`
+                photo_url: `${photo.photo_url}`,
+                optimized_photo_url: `${photo.optimized_photo_url}`
             }))
         }),
 
@@ -77,7 +77,7 @@ export const apiSlice = createApi({
                         ...item,
                         photos: {
                             ...item.photos[0],
-                            photo_url: `${urlInternal}/${item.photos[0].photo_url}`
+                            photo_url: `${item.photos[0].photo_url}`
                         }
                     }
                 })

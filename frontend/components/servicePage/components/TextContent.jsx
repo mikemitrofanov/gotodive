@@ -2,13 +2,15 @@ import styles from "../servicePage.module.css";
 import ContentItem from "./ContentItem";
 import {useTranslation} from "next-i18next";
 import ModalForm from "@/components/servicePage/components/ModalForm";
+import {useEffect, useState} from "react";
 
 export default function TextContent({service, setActive, active, onSubmit}) {
     const {t} = useTranslation("service");
+    const [modalActive, setModalActive] = useState(false);
 
     const handleSubmit = (content) => {
         onSubmit(content, service.id)
-        setActive(false)
+        setModalActive(false)
     }
 
     return (
@@ -25,8 +27,8 @@ export default function TextContent({service, setActive, active, onSubmit}) {
                 <ContentItem title={t("content.max_end")} value={service.max_end}/>
                 {service.course_certificate && <p className={styles.style_text}>{service.course_certificate}</p>}
             </div>
-            <button className={styles.button} onClick={() => setActive(true)}>{t("button")}</button>
-            {active && <ModalForm onClose={() => setActive(false)} onActive={setActive} handleSubmit={handleSubmit}/>}
+            <button className={styles.button} onClick={() => setModalActive(true)}>{t("button")}</button>
+            {modalActive && <ModalForm onClose={() => setModalActive(false)} onActive={setModalActive} handleSubmit={handleSubmit}/>}
         </div>
     )
 }
