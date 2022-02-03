@@ -2,8 +2,9 @@ import styles from "./styles/team.module.css";
 import MemberCard from "./components/MemberCard";
 import Container from "@/components/shared/Container";
 import container_styles from "@/components/shared/styles/container.module.css";
-
+import {useTranslation} from "next-i18next";
 export default function Team({title, teamMembers = []}) {
+    const {t, i18n} = useTranslation("members");
 
     return (
         <>
@@ -16,8 +17,8 @@ export default function Team({title, teamMembers = []}) {
                         <MemberCard
                             key={member.id}
                             src={member.photo}
-                            name={member.name}
-                            description={member.description}
+                            name={t(`name.${member.id}`)}
+                            description={t(`description.${member.id}`)}
                         />
                     ))}
                 </div>

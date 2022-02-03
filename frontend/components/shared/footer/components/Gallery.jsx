@@ -1,5 +1,6 @@
 import styles from "../footer.module.css";
 import Image from 'next/image';
+import Link from "../../Link";
 
 export default function Gallery({photoList = [], title}) {
 

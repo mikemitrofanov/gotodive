@@ -6,6 +6,13 @@
     background-color: #000b2d;
 }
 
+@media screen and (max-width: 1250px) {
+    .container {
+    padding-left: 20px;
+    padding-right: 20px;
+    }
+}
+
 .burger {
     display: none;
     width: 25px;
@@ -72,6 +79,12 @@
     padding-left: 0;
 }
 
+@media screen and (max-width: 1110px) {
+    .list {        
+        column-gap: 20px;
+    }
+}
+
 .link {
     font-size: 20px;
     color: #dfe3e0;
@@ -90,6 +103,12 @@
     column-gap: 24px;
     margin-top: 37px;
     margin-right: 0px;
+}
+
+@media screen and (max-width: 1110px) {
+    .language_wrap {
+        column-gap: 10px;
+    }
 }
 
 .language {
@@ -391,6 +410,7 @@
         padding-right: 0;
     }
 }
+
 
 @media screen and (max-width: 360px) {
     .burger {

@@ -29,6 +29,9 @@
 }
 
 .slide > div {
+   margin: 0 10px;
+}
+.slide > div {
     display: flex;
 }
 
