@@ -16,6 +16,9 @@ services:
 
     backend:
       build:
+        args:
+          user: ubuntu
+          uid: 1000
         context: ./backend
       container_name: backend
       restart: always
