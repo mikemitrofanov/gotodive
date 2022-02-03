@@ -343,6 +343,11 @@
         display: block;
         text-align: center;
     }
+
+    .button {
+        height: 50px;
+        width: 250px;
+    }
 }
 
 @media screen and (max-width: 360px) {

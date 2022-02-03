@@ -10,11 +10,13 @@ import {useTranslation} from "next-i18next";
 export default function Footer({photoList, dataFooter, recentServices}) {
     const {t} = useTranslation("common");
     return (
-        <Container background={styles.background} container={styles.container}>
-            <ContactUs title={t("footer.contactUs")} data={dataFooter.contactUs}/>
-            <Categories title={t("footer.categories")}  recentServices={recentServices}/>
-            <Social title={t("footer.social")}  data={dataFooter.social}/>
-            <Gallery title={t("footer.gallery")} photoList={photoList}/>
+        <Container background={styles.background} container={container_styles.container}>
+            <div className={styles.footer_inner_container}>
+                <ContactUs title={t("footer.contactUs")} data={dataFooter.contactUs}/>
+                <Categories title={t("footer.categories")}  recentServices={recentServices}/>
+                <Social title={t("footer.social")}  data={dataFooter.social}/>
+                <Gallery title={t("footer.gallery")} photoList={photoList}/>
+            </div>
         </Container>
     )
 }

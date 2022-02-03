@@ -11,7 +11,7 @@ export default function Gallery() {
 
     useEffect(() => {
         if (window.location.hash !== '') {
-            Fancybox.show([{src: window.location.hash, type: "clone"}]);
+            setTimeout(() => Fancybox.show([{src: window.location.hash, type: "clone"}]), 1000);
         }
     }, []);
 

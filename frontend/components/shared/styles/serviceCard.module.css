@@ -62,7 +62,7 @@
     }
 
     .image {
-        height: 232px;
+        height: 245px;
         margin-bottom: 28px;
     }
 
@@ -84,9 +84,21 @@
     }
 }
 
+@media screen and (max-width: 1200px) {
+    .image {
+        height: 206px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .image {
+        height: 166px;
+    }
+}
+
 @media screen and (max-width: 992px) {
     .image {
-        height: 163px;
+        height: 183px;
     }
 }
 
@@ -98,13 +110,13 @@
     }
 
     .image {
-        height: 420px;
+        height: 374px;
     }
 }
 
 @media screen and (max-width: 575px) {
     .image {
-        height: 279px;
+        height: 248px;
     }
 }
 
@@ -118,7 +130,7 @@
     }
 
     .image {
-        height: 150px;
+        height: 106px;
     }
 
     .card {

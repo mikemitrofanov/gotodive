@@ -20,7 +20,6 @@ export const apiSlice = createApi({
         getPopularServices: build.query({
             query: (language) => `${language}/services/popular`,
             transformResponse: response => {
-                console.log(response)
                 return response.data.map(item => {
                     return {
                         ...item,
