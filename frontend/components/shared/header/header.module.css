@@ -212,13 +212,15 @@
 }
 
 .wrap_input {
-    width: calc(135px + 95 * ((100vw - 360px) / 1560));
+    width: calc(140px + 95 * ((100vw - 360px) / 1560));
     height: calc(20px + 15 * ((100vw - 360px) / 1560));
     border: calc(1px + 1 * ((100vw - 360px) / 1560)) solid #193f65;
     display: flex;
     align-items: center;
     position: relative;
 }
+
+
 
 .search_input {
     width: calc(115px + 80 * ((100vw - 360px) / 1560));
@@ -264,14 +266,17 @@
 .icon_magnifier {
     background-image: url(../../../public/img/navBar/search.svg);
     background-color: #000b2d;
-    width: calc(10px + 8 * ((100vw - 360px) / 1560));
-    height: calc(10px + 8 * ((100vw - 360px) / 1560));
+    width: calc(15px + 8 * ((100vw - 360px) / 1560));
+    height: calc(15px + 8 * ((100vw - 360px) / 1560));
     background-size: cover;
     margin-left: calc(3px + 5 * ((100vw - 360px) / 1560));
+    margin-right: 3px;
     position: relative;
     cursor: pointer;
     display: flex;
 }
+
+
 
 .icon_magnifier:before {
     content: '';
@@ -322,11 +327,7 @@
 }
 
 @media screen and (min-width: 1921px) {
-    .wrap_input {
-        width: 230px;
-        height: 35px;
-        border: 2px solid #193f65;
-    }
+   
 
     .search_input {
         width: 195px;
@@ -346,15 +347,5 @@
         width: 16px;
     }
 
-    .icon_magnifier {
-        width: 18px;
-        height: 18px;
-        margin-left: 8px;
-    }
-
-    .icon_magnifier:before {
-        content: '';
-        border-left: 2px solid #193f65;
-        left: -10px;
-    }
+  
 }
