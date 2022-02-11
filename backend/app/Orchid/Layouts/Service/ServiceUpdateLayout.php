@@ -43,6 +43,10 @@ class ServiceUpdateLayout extends Rows
                 ->title('short_description')
                 ->type('string'),
 
+            Input::make('service.background_photo', 'Photo')
+                ->title('Background photo')
+                ->type('file'),
+
             Input::make('service.duration')
                 ->required()
                 ->title('duration')

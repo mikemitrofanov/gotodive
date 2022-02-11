@@ -108,6 +108,11 @@ class ServiceScreen extends Screen
     {
         app()->setLocale($request->service['language']);
         $service->update($request->service);
+
+        if ($request->service['background_photo'] != null) {
+            (new Photo)->saveBackgroundPhoto($service, $request->service['background_photo']);
+        }
+
         return redirect()->route('platform.services.edit', [$service, $request->service['language']]);
     }
 

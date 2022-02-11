@@ -20,7 +20,7 @@ export default function ServicePage({id}) {
 
     return (
         <>
-            <MainScreen/>
+            <MainScreen service={service}/>
             <Content setActive={setActive} active={active} handleSubmit={handleSubmit} service={service}/>
         </>
     )
