@@ -1,0 +1,12 @@
+{
+  "content": {
+    "duration": "Duration of the program:",
+    "min_age": "Minimum age:",
+    "required_experience": "Preliminary Certified Experience:",
+    "max_depth": "Maximum diving depth:",
+    "certification_requirements": "Certification requirements:",
+    "min_logged_dives": "Minimum number of logged dives:",
+    "max_end": "Maximum Narcotic Depth Equivalent (END):"
+  },
+  "button" : "Sign up"
+}

@@ -1,0 +1,37 @@
+.wrapper {
+    white-space: nowrap;
+    position: relative;
+}
+
+.menu_item {
+    font-size: calc(16px + 4 * ((100vw - 360px) / 1560));
+    color: #dfe3e0;
+    font-weight: 400;
+    font-family: "Montserrat-Regular", sans-serif;
+    position: relative;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.menu_item:after {
+    content: url(../../../../public/img/navBar/arrow_right.svg);
+    position: absolute;
+    margin-left: 10px;
+    object-fit: cover;
+}
+
+.menu_item:hover {
+    color: #639bd1;
+}
+
+.menu_item:hover:after {
+    content: url(../../../../public/img/navBar/arrow_right_hover.svg);
+}
+
+.menu_item_active {
+    color: #639bd1;
+}
+
+.menu_item_active.menu_item:after {
+    content: url(../../../../public/img/navBar/arrow_down.svg);
+}
