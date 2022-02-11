@@ -1,53 +1,66 @@
 version: '3.7'
-
 services:
+
     frontend:
       build:
-        context: ./frontend
-      container_name: frontend
+        context: ./app-frontend
       restart: always
       ports:
         - "3000:3000"
+      working_dir: /var/www
       volumes:
-        - ./frontend:/app
-        - /app/node_modules
+        - ./app-frontend:/var/www
       networks:
         - app-network
+  
 
     backend:
       build:
-        context: ./backend
-      container_name: backend
+        context: ./app-backend/
       restart: always
+      container_name: backend
       environment:
         MYSQL_DATABASE: ${DB_DATABASE}
         MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
         MYSQL_USER: ${DB_USERNAME}
         MYSQL_PASSWORD: ${DB_PASSWORD}
+      working_dir: /var/www
       volumes:
-        - ./backend:/app
-        - /app/vendor
+        - ./app-backend:/var/www
       networks:
         - app-network
-      ports:
-        - "8000:8000"
+        - db-network
       depends_on:
-        - database
+        - appdb
 
-    database:
+    appdb:
       image: mysql:5.7
-      container_name: database
+      container_name: appdb
       restart: always
       volumes:
         - ./db_data:/var/lib/mysql
       environment:
         MYSQL_DATABASE: ${DB_DATABASE}
-        MYSQL_PASSWORD: ${DB_PASSWORD}
         MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        MYSQL_PASSWORD: ${DB_PASSWORD}
         MYSQL_USER: ${DB_USERNAME}
       networks:
-        - app-network
+        - db-network
+
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      restart: always
+      environment:
+        PMA_HOST: appdb
+        MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      depends_on:
+        - appdb
+      ports:
+        - 8443:80
+      networks:
+        - db-network
 
 networks:
   app-network:
     driver: bridge
+  db-network:
