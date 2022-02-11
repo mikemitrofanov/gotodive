@@ -1,0 +1,77 @@
+.checkfield {
+  display: inline-block;
+  font-size: 100%;
+}
+.checkfield-container {
+  display: flex;
+}
+.checkfield-label {
+  padding: 3px 0 0 8px;
+  text-align: left;
+}
+.checkfield-check {
+  position: relative;
+  min-width: 20px;
+}
+.checkfield-checkinput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.checkfield-checksymbol {
+  position: relative;
+  overflow: hidden;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border: 1px solid #666;
+  z-index: 1;
+  transition: 200ms all;
+  border-radius: 1px;
+}
+.checkfield-checksymbol-state {
+  opacity: 0;
+  transition: 200ms all;
+}
+
+/* Apply changes on hover. */
+.checkfield-checkinput:hover ~ .checkfield-checksymbol {
+  border-color: #0078d4;
+}
+.checkfield-checkinput:hover
+  ~ .checkfield-checksymbol
+  .checkfield-checksymbol-state {
+  opacity: 0.8;
+}
+.checkfield-checkinput:hover ~ .checkfield-checksymbol svg path {
+  fill: #666;
+}
+
+/* Apply changes on focus. */
+.checkfield-checkinput:focus ~ .checkfield-checksymbol {
+  border-color: #0078d4;
+  box-shadow: 0 0 10px #0078d498;
+}
+.checkfield-checkinput:focus
+  ~ .checkfield-checksymbol
+  .checkfield-checksymbol-state {
+  opacity: 0.8;
+}
+.checkfield-checkinput:focus ~ .checkfield-checksymbol svg path {
+  fill: #666;
+}
+
+/* Apply changes when checked. */
+.checkfield-checkinput:checked ~ .checkfield-checksymbol {
+  background-color: #0078d4;
+  border-color: #0078d4;
+}
+.checkfield-checkinput:checked
+  ~ .checkfield-checksymbol
+  .checkfield-checksymbol-state {
+  opacity: 1;
+}
+.checkfield-checkinput:checked ~ .checkfield-checksymbol svg path {
+  fill: #fff;
+}

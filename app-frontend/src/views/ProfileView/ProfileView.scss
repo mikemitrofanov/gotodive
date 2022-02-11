@@ -1,0 +1,29 @@
+@import "assets/styles/common/variables";
+
+div#profile-view {
+  .profile-bar {
+    background-color: $color-light-grey;
+    color: $color-grey;
+    padding-top: 36px;
+    padding-bottom: 36px;
+
+    a {
+      color: inherit !important;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .info {
+    padding: 60px 0;
+    color: $color-dark-blue;
+
+    .data-line {
+      margin: 0;
+      margin-right: 8px;
+      display: inline-block;
+    }
+  }
+}
