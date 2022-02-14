@@ -3,6 +3,6 @@ const { i18n } = require('./next-i18next.config');
 module.exports = {
   i18n,
   images: {
-    domains: ['localhost', 'backend'],
+    domains: ['localhost', 'backend', 'dev.gotodive.com'],
   },
 };
