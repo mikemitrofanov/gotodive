@@ -14,7 +14,7 @@ const dataFooter = {
             'location': 'Put Radoševca 8, 21000, Split, Croatia',
             'phone': '+385914888222',
             'facebook': '@GotoDive',
-            'email': 'GotoDive@gmail.com'
+            'email': 'Divinglive@gmail.com'
         }
     ,
     'social':

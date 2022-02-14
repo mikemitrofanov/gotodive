@@ -11,7 +11,7 @@ export default function ContactUs() {
             <ListItemLink className={styles.location} href='#' children={t("footer.location")}/>
             <ListItemLink className={styles.phone} href='#' children={"+385914888222"}/>
             <ListItemLink className={styles.facebook} href='#' children={"@GotoDive"}/>
-            <ListItemLink className={styles.email} href='#' children={"GotoDive@gmail.com"}/>
+            <ListItemLink className={styles.email} href='#' children={"Divinglive@gmail.com"}/>
         </article>
     )
 }
