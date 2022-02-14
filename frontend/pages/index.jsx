@@ -17,19 +17,19 @@ export const teamMembers = [
         id: 1,
         photo: '/img/team/alexGerman.png',
         name: "Aleksandr German",
-        description: "great and terrible"
+        description: "ARTI"
     },
     {
         id: 2,
         photo: '/img/team/yuriiProkhvatilo.png',
         name: "Yurii Prokhvatilo",
-        description: "great and terrible"
+        description: "IT"
     },
     {
         id: 3,
-        photo: '/img/team/rickSanches.png',
-        name: "Rick Sanchez",
-        description: "just darling"
+        photo: '/img/team/svitlanaHaf.jpg',
+        name: "Svitlana Haf",
+        description: "ARTI"
     }
 ]
 
