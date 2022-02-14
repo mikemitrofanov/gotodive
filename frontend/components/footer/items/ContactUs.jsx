@@ -9,7 +9,7 @@ export default function ContactUs() {
         <article className={`${styles.wrapper} ${styles.contact}`}>
             <h5 className={styles.title}>{t("footer.contactUs")}</h5>
             <ListItemLink className={styles.location} href='#' children={t("footer.location")}/>
-            <ListItemLink className={styles.phone} href='#' children={"270-177-6026, 275-198-7978"}/>
+            <ListItemLink className={styles.phone} href='#' children={"+385914888222"}/>
             <ListItemLink className={styles.facebook} href='#' children={"@GotoDive"}/>
             <ListItemLink className={styles.email} href='#' children={"GotoDive@gmail.com"}/>
         </article>
