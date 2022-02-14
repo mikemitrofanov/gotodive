@@ -6,7 +6,6 @@ import Container from "@/components/shared/Container";
 import Slider from "@/components/servicePage/components/Slider";
 
 export default function Content({active, setActive, handleSubmit, service}) {
-  
 
     return (
         <Container background={styles.background} container={`${container_styles.container} ${styles.flex}`}>

@@ -24,6 +24,7 @@ class ServiceResource extends JsonResource
             'price' => $this->price,
             'isPopular' => $this->is_popular,
             'short_description' => $this->short_description,
+            'background_photo' => $this->background_photo ? asset("storage/" . $this->background_photo) : '',
             'min_age' => $this->min_age,
             'required_experience' => $this->required_experience,
             'max_depth' => $this->max_depth,

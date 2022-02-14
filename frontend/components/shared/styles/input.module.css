@@ -55,7 +55,14 @@
     }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 767px) {
+    .error {
+        position: static;
+        transform: none;
+    }
+}
+
+@media screen and (max-width: 450px) {
     .label {
         font-size: 10px;
         margin-bottom: 5px;

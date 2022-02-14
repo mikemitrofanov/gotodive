@@ -100,6 +100,11 @@
     .image {
         height: 183px;
     }
+
+    .description {
+        overflow: visible;
+        margin-bottom: 15px;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -114,13 +119,13 @@
     }
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 576px) {
     .image {
         height: 248px;
     }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 450px) {
     .title {
         font-size: 15px;
     }
@@ -130,7 +135,7 @@
     }
 
     .image {
-        height: 106px;
+        height: 142px;
     }
 
     .card {
@@ -142,5 +147,11 @@
         font-size: 10px;
         padding-top: 6px;
         padding-bottom: 6px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .image {
+        height: 106px;
     }
 }

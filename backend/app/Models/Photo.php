@@ -63,6 +63,18 @@ class Photo extends Model
         return $newPhoto;
     }
 
+    public function saveBackgroundPhoto($service, $photo) {
+        $path = public_path('storage/images');
+
+        $url = $photo->store('images', 'public');
+        (new ImageManager(array('driver' => 'imagick')))
+            ->make($photo->getRealPath())
+            ->save('storage/' . $url);
+
+        $service->background_photo = $url;
+        $service->save();
+    }
+
     public function deleteFile()
     {
         Storage::delete(['public/' . $this->url, 'public/' . $this->optimized_url]);

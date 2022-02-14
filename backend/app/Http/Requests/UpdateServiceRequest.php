@@ -31,6 +31,7 @@ class UpdateServiceRequest extends FormRequest
             'price' => 'required|integer',
             'isPopular' => 'boolean',
             'short_description' => 'required|string',
+            'background_photo' => 'image|distinct|mimes:jpeg,png,jpg,gif,svg,webp',
             'min_age' => 'required|integer',
             'required_experience' => 'string',
             'max_depth' => 'string',
